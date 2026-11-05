@@ -1,130 +1,113 @@
-# Shubh — Founder Portfolio & Investor Hub
+# Shubh // Super Intelligent Personnel OS & Investor Hub
 
-> High-impact personal portfolio, venture track record, and interactive investor deck built specifically for **https://shubh.github.io**.
+> **Awwwards / Linear / Apple grade personal operating system & investor brief built specifically for https://shubh.github.io**
 
-Designed with a modern Silicon Valley deep-tech aesthetic (Stripe / Linear / Vercel grade), optimized for angels, venture capitalists, technical partners, and enterprise customers.
-
----
-
-## 🌟 Key Features
-
-1. **Executive Investor Pitch Deck & Memo Viewer**:
-   - Built-in slide modal featuring 8 strategic slides (Vision, Problem, Solution & Moat, TAM/SAM, Traction, Business Model, Roadmap, The Ask).
-   - Includes progress tracking, keyboard navigation (`←` / `→` arrows, `Esc`), and direct slide links.
-2. **Fundraising Status & Round Dynamics**:
-   - Live visual round tracker ($1.2M Pre-Seed/Seed raise, 45% allocated).
-   - Transparent Use of Funds breakdown bar (Engineering 55%, GTM 25%, Compliance 12%, Runway 8%).
-3. **Traction & Metrics Bento Grid**:
-   - 1.2M+ Scaled Active Users.
-   - $1.8M+ Historical ARR Scaled.
-   - 99.99% Systems Uptime (&lt;20ms p99 latency).
-   - 12,400+ GitHub Stars & Open Source Community reach.
-4. **Venture Showcase & Moat Deep Dive**:
-   - Highlights current flagship venture (`Nexus Core AI`), scaled data platforms (`HyperStream DB`), and open source protocols (`Synapse Protocol`).
-   - Detailed breakdown of technical defensibility: Deterministic graphs, sub-30ms streaming engines, and enterprise enclaves.
-5. **Career Milestones & Operator Pedigree**:
-   - Chronological track record showing 0-to-1 founder execution and engineering leadership.
-6. **Due Diligence FAQ Accordion**:
-   - Transparent answers to round dynamics, defensibility, capital allocation, and data room access.
-7. **Meeting & Data Room Modal**:
-   - Direct integration link with Calendly / Cal.com for 20-minute intro calls.
-   - Direct note submission with pre-formatted email templates.
-8. **Print & PDF Export Mode**:
-   - Custom `@media print` stylesheet. Investors can press `Ctrl + P` (or click "Print / Save 1-Pager") to instantly export a clean, high-contrast, print-friendly executive brief.
-9. **Zero Build Step Required**:
-   - Pure, lightning-fast static HTML5, modern CSS, and vanilla JS. Fully compatible with GitHub Pages right out of the box.
+Designed with an ultra-minimalist, high-luxury cyber-obsidian aesthetic, combining tactile micro-interactions, an interactive neural canvas, real-time telemetry, a natural-language AI digital twin, and a live investor allocation calculator.
 
 ---
 
-## 🚀 How to Publish to GitHub Pages (`shubh.github.io`)
+## 💎 Elite Architecture & System Features
 
-### Step 1: Create the GitHub Repository
+### 1. 🌌 Interactive Neural Constellation Canvas (`js/canvas-bg.js`)
+- 60fps GPU-accelerated HTML5 Canvas with fluid physics.
+- Responsive to mouse attraction, repulsion, and touch physics with dynamic DPI scaling.
+
+### 2. 🤖 Shubh Neural Digital Twin (`js/ai-assistant.js`)
+- Real-time interactive intelligence console for investors and partners.
+- Answers questions about:
+  - **Fundraising & Terms**: Stage, SAFE cap, capital deployment, runway.
+  - **Technical Moat**: Deterministic state machine architecture, sub-30ms pipelines.
+  - **Verified Metrics**: $48.5K MRR, 14 pilots, 1.2M users scaled.
+  - **Founder Pedigree**: Systems leadership, past exits/roles, 0-to-1 building.
+- Streaming typewriter animation with synthesized acoustic cues.
+
+### 3. 🧮 Interactive SAFE Check & Allocation Calculator (`js/main.js`)
+- Dynamic slider from **$25,000 to $500,000**.
+- Real-time computation of:
+  - **Ownership %** (based on $12M Post-Money Valuation Cap)
+  - **Runway Months Unlocked** (based on $55k/mo target burn)
+  - **Strategic Milestone Impact** (e.g., "Funds 1 Senior Distributed Systems Engineer for 12 months")
+- "Reserve Allocation" button pre-populates note directly into the investor inquiry form.
+
+### 4. ⚡ Command Palette (`⌘K` / `Ctrl+K`) (`js/main.js`)
+- High-speed fuzzy search menu with keyboard shortcuts:
+  - `D`: Open interactive pitch deck
+  - `AI`: Query neural twin
+  - `C`: Schedule intro call
+  - `M`: Toggle audio HUD
+  - `@`: Copy founder email
+
+### 5. 💡 Spotlight Cursor Card Tracking (`css/styles.css`)
+- Dynamic CSS mouse tracking on every card (`--mouse-x`, `--mouse-y`) rendering smooth Apple/Linear-style radial border highlights.
+
+### 6. 🔊 Synthetic Acoustic Engine (`js/audio.js`)
+- Pure Web Audio API synthesizers (zero external audio files or MP3 network requests).
+- Tactile micro-clicks, harmonic chord chimes, and modal swooshes.
+- Muted by default with an instant HUD toggle in the top telemetry bar.
+
+### 7. 🛰️ Real-Time Telemetry HUD
+- Live ticking UTC clock.
+- Simulated node latency ping (`18ms // OPTIMUM`).
+- Live round status indicator: `🟢 $1.2M SAFE Round // 45% Committed`.
+
+### 8. 📊 Interactive 8-Slide Pitch Deck Modal
+- Executive presentation with progress bar, keyboard arrow navigation (`←`/`→`/`Esc`), and direct data room requests.
+
+### 9. 🖨️ High-Contrast Executive Print Mode
+- Custom `@media print` stylesheet. Investors can press `Ctrl + P` to export a clean, ink-friendly 1-page/2-page executive memo for offline partner meetings.
+
+---
+
+## 🚀 How to Deploy to `shubh.github.io`
+
+The local repository is already initialized and committed on branch `main`.
+
+### Step 1: Create the Repository on GitHub
 1. Log into your GitHub account: `https://github.com/shubh`
-2. Create a new public repository named exactly:
+2. Create a new public repository named:
    ```
    shubh.github.io
    ```
-   *(GitHub automatically serves repositories named `<username>.github.io` directly at `https://<username>.github.io`)*
 
-### Step 2: Initialize and Push Your Code
-Open your terminal (PowerShell or Bash) in this project folder (`c:\My web github.io`) and run:
+### Step 2: Push Your Code
+Open PowerShell or Terminal in this folder (`c:\My web github.io`) and execute:
 
-```bash
-# 1. Initialize git
-git init
-
-# 2. Stage all files
-git add .
-
-# 3. Create your initial commit
-git commit -m "feat: launch founder portfolio and investor hub"
-
-# 4. Set default branch to main
-git branch -M main
-
-# 5. Link your GitHub remote
+```powershell
 git remote add origin https://github.com/shubh/shubh.github.io.git
-
-# 6. Push to GitHub
 git push -u origin main
 ```
 
-### Step 3: Verify GitHub Pages Settings
-1. Go to your repository on GitHub: `https://github.com/shubh/shubh.github.io`
-2. Navigate to **Settings** → **Pages** (under the "Code and automation" sidebar).
-3. Ensure **Build and deployment** is set to:
-   - **Source**: `Deploy from a branch`
-   - **Branch**: `main` / `/ (root)`
-4. Click **Save** (if not already set). Within 30–60 seconds, your site will be live at:
-   👉 **`https://shubh.github.io`**
+### Step 3: Enjoy Your Live Site
+Within 60 seconds, your site will be live worldwide at:
+👉 **`https://shubh.github.io`**
 
 ---
 
-## 🛠️ How to Customize Your Details
+## 🛠️ Personalization in 2 Minutes
 
-All profile content, metrics, venture details, pitch deck slides, and FAQs are centralized in **[`js/config.js`](file:///c:/My%20web%20github.io/js/config.js)**.
-
-To customize:
-1. Open [`js/config.js`](file:///c:/My%20web%20github.io/js/config.js) in your editor.
-2. Update:
-   - `founder.name`, `title`, `location`, `status`
-   - `founder.links` (your Calendly URL, LinkedIn, Twitter, Email)
-   - `investmentRound` (target raise, committed amount, use of funds)
-   - `keyMetrics` (your specific numbers and growth rates)
-   - `ventures` (names, descriptions, and metrics of your companies or projects)
-   - `pitchDeckSlides` (bullet points and takeaways for your pitch)
-   - `faq` (custom answers to questions you frequently get from investors)
-3. Save the file and commit your changes (`git commit -am "update config" && git push`). GitHub Pages updates automatically!
+All data, numbers, milestones, and AI knowledge are stored cleanly in **[`js/config.js`](file:///c:/My%20web%20github.io/js/config.js)**:
+- `SITE_CONFIG.founder`: Name, title, links (Calendly, LinkedIn, GitHub, email).
+- `SITE_CONFIG.investmentRound`: Valuation cap, target raise, committed %, burn rate.
+- `SITE_CONFIG.ventures`: Add or edit your companies, tech tags, and traction points.
+- `SITE_CONFIG.pitchDeckSlides`: Customize your 8-slide pitch narrative.
 
 ---
 
-## 🌐 Custom Domain (Optional)
-
-If you wish to use a custom domain like `shubh.com`, `shubh.ai`, or `shubh.tech`:
-1. Create a file named `CNAME` in the root folder containing your domain (e.g. `shubh.com`).
-2. In your DNS provider (Cloudflare, Namecheap, GoDaddy):
-   - Add **A Records** pointing `@` to GitHub's IPs:
-     - `185.199.108.153`
-     - `185.199.109.153`
-     - `185.199.110.153`
-     - `185.199.111.153`
-   - Add a **CNAME Record** pointing `www` to `shubh.github.io`.
-3. In GitHub repo **Settings → Pages**, enter your custom domain and enable **Enforce HTTPS**.
-
----
-
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```
 c:\My web github.io\
-├── index.html           # Main semantic HTML5 page with Tailwind + Lucide
+├── index.html           # Main semantic HTML5 structure + HUD + Modals
 ├── favicon.svg          # Modern high-res SVG favicon
-├── README.md            # Deployment & customization guide
+├── README.md            # Architecture & deployment documentation
 ├── css/
-│   └── styles.css       # Glowing gradients, glassmorphism, animations & print styling
+│   └── styles.css       # Spotlight hover, noise texture, custom slider, animations
 ├── js/
-│   ├── config.js        # Central profile, metrics, deck & investor config
-│   └── main.js          # Interactive modals, slide deck viewer, accordions, counters
+│   ├── config.js        # Centralized profile & investor parameters
+│   ├── canvas-bg.js     # 60fps interactive neural constellation canvas
+│   ├── audio.js         # Web Audio API synthetic acoustic feedback engine
+│   ├── ai-assistant.js  # Natural-language digital twin query engine
+│   └── main.js          # Master orchestrator (Command menu, calculator, modals)
 └── assets/
-    └── avatar.svg       # SVG Avatar graphic placeholder
+    └── avatar.svg       # Vector monogram avatar badge
 ```
