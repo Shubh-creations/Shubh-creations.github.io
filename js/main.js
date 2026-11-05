@@ -1,59 +1,66 @@
 /**
- * Shubh Portfolio & Investor Hub - Main JavaScript
- * Handles interactive elements, slide deck modal, counter animations, FAQ accordions, and meeting booking.
+ * Shubh - Super Intelligent Personnel OS & Master Orchestrator
+ * Integrates Spotlight Cards, Command Palette (⌘K), Neural Canvas, AI Assistant, and Investor Calculator.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Lucide icons if available
+  // 1. Initialize Canvas Neural Background
+  if (window.NeuralCanvas) {
+    window.neuralMesh = new NeuralCanvas("neural-canvas");
+  }
+
+  // 2. Initialize Lucide Icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
 
-  // 1. Initialize Dynamic Data from SITE_CONFIG
+  // 3. Setup Dynamic Data & Spotlight Card Tracking
   initSiteData();
+  setupSpotlightCards();
 
-  // 2. Setup Slide Deck Modal Interactions
+  // 4. Setup Real-Time HUD Clock & Telemetry
+  setupHUDTelemetry();
+
+  // 5. Setup Command Palette (⌘K / Ctrl+K)
+  setupCommandPalette();
+
+  // 6. Setup Super Intelligent AI Assistant
+  setupAIAssistant();
+
+  // 7. Setup Investor Allocation Calculator
+  setupInvestorCalculator();
+
+  // 8. Setup Interactive Pitch Deck Modal
   setupPitchDeckModal();
 
-  // 3. Setup Contact / Meeting Modal
+  // 9. Setup Contact Modal & Audio Toggle
   setupContactModal();
+  setupAudioHUDToggle();
 
-  // 4. Setup FAQ Accordions
+  // 10. Setup FAQ Accordion & Copy Buttons
   setupFAQ();
-
-  // 5. Setup Animated Number Counters on Scroll
-  setupCounterAnimations();
-
-  // 6. Setup Mobile Navigation Drawer
-  setupMobileNav();
-
-  // 7. Setup Copy Link & Email Triggers
   setupCopyButtons();
 });
 
-// Fallback icon re-hydration on window load
+// Fallback icon re-render on window load
 window.addEventListener("load", () => {
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
+  if (window.lucide) window.lucide.createIcons();
 });
 
 /* ==========================================================================
-   Site Data Binding
+   1. Data Binding & Spotlight Card Hover
    ========================================================================== */
 function initSiteData() {
   const config = window.SITE_CONFIG;
   if (!config) return;
 
-  // Set page title and basic texts
-  document.title = `${config.founder.name} | Founder Portfolio & Investor Hub`;
+  document.title = `${config.founder.name} // Super Intelligent Personnel OS & Investor Hub`;
 
   // Render Ventures Bento Grid
   const venturesContainer = document.getElementById("ventures-list");
   if (venturesContainer && config.ventures) {
-    venturesContainer.innerHTML = config.ventures.map((v, idx) => `
-      <div class="glass-panel rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative group overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none group-hover:bg-indigo-500/20 transition-all"></div>
+    venturesContainer.innerHTML = config.ventures.map((v) => `
+      <div class="spotlight-card p-6 sm:p-8 flex flex-col justify-between group">
         <div>
           <div class="flex items-start justify-between gap-4 mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
@@ -68,10 +75,10 @@ function initSiteData() {
           <p class="text-slate-400 text-sm leading-relaxed mb-6">${v.description}</p>
 
           <!-- Metrics Sub-row -->
-          <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-slate-900/60 border border-white/5 mb-6">
+          <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-slate-900/80 border border-white/5 mb-6">
             ${v.metrics.map(m => `
               <div class="text-center">
-                <div class="text-xs text-slate-400">${m.label}</div>
+                <div class="text-[11px] text-slate-400">${m.label}</div>
                 <div class="text-base font-bold text-white font-mono-val mt-0.5">${m.val}</div>
               </div>
             `).join('')}
@@ -79,7 +86,7 @@ function initSiteData() {
 
           <!-- Traction Bullet Highlights -->
           <div class="space-y-2 mb-6">
-            <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Proof Points & Moat:</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Moat & Validations:</div>
             ${v.tractionPoints.map(point => `
               <div class="flex items-start gap-2 text-xs text-slate-300">
                 <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
@@ -102,7 +109,7 @@ function initSiteData() {
             <span class="text-slate-600">•</span>
             <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-slate-400 hover:text-slate-200 inline-flex items-center gap-1 transition-colors">
               <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>GitHub / Architecture</span>
+              <span>GitHub Core</span>
             </a>
           </div>
         </div>
@@ -110,10 +117,10 @@ function initSiteData() {
     `).join('');
   }
 
-  // Render Milestones / Track Record
+  // Render Milestones
   const timelineContainer = document.getElementById("timeline-list");
   if (timelineContainer && config.milestones) {
-    timelineContainer.innerHTML = config.milestones.map((m, idx) => `
+    timelineContainer.innerHTML = config.milestones.map((m) => `
       <div class="relative pl-8 pb-10 last:pb-2 border-l border-indigo-500/20 group">
         <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-900 border-2 border-indigo-500 group-hover:scale-125 group-hover:border-indigo-400 transition-transform"></div>
         <div class="text-xs font-mono text-indigo-400 font-semibold mb-1">${m.period}</div>
@@ -127,7 +134,7 @@ function initSiteData() {
   const faqContainer = document.getElementById("faq-accordion");
   if (faqContainer && config.faq) {
     faqContainer.innerHTML = config.faq.map((item, idx) => `
-      <div class="glass-panel rounded-xl overflow-hidden border border-white/5">
+      <div class="spotlight-card rounded-xl overflow-hidden border border-white/5">
         <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors" data-faq="${idx}">
           <span class="text-base font-semibold text-slate-200">${item.q}</span>
           <i data-lucide="chevron-down" class="accordion-chevron w-5 h-5 text-indigo-400 shrink-0"></i>
@@ -139,14 +146,232 @@ function initSiteData() {
     `).join('');
   }
 
-  // Refresh Lucide icons for dynamically added HTML
-  if (window.lucide) {
-    window.lucide.createIcons();
+  if (window.lucide) window.lucide.createIcons();
+}
+
+/* Mouse spotlight calculation on all spotlight cards */
+function setupSpotlightCards() {
+  document.addEventListener("mousemove", (e) => {
+    document.querySelectorAll(".spotlight-card").forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+  });
+}
+
+/* ==========================================================================
+   2. Real-Time HUD Telemetry & Clock
+   ========================================================================== */
+function setupHUDTelemetry() {
+  const clockEl = document.getElementById("hud-time");
+  if (clockEl) {
+    const updateTime = () => {
+      const now = new Date();
+      clockEl.textContent = now.toUTCString().slice(17, 25) + " UTC";
+    };
+    updateTime();
+    setInterval(updateTime, 1000);
   }
 }
 
 /* ==========================================================================
-   Interactive Pitch Deck Modal & Slides
+   3. Command Palette (⌘K / Ctrl+K)
+   ========================================================================== */
+function setupCommandPalette() {
+  const modal = document.getElementById("cmd-modal");
+  const input = document.getElementById("cmd-search-input");
+  const triggerBtns = document.querySelectorAll("[data-open-cmd]");
+  const closeBtns = document.querySelectorAll("[data-close-cmd]");
+  const items = document.querySelectorAll(".cmd-item");
+
+  if (!modal || !input) return;
+
+  function openCMD() {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    input.value = "";
+    input.focus();
+    filterItems("");
+    if (window.soundEngine) window.soundEngine.playOpen();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCMD() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  // Keyboard shortcut listener
+  window.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (modal.classList.contains("hidden")) {
+        openCMD();
+      } else {
+        closeCMD();
+      }
+    } else if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeCMD();
+    }
+  });
+
+  triggerBtns.forEach(btn => btn.addEventListener("click", openCMD));
+  closeBtns.forEach(btn => btn.addEventListener("click", closeCMD));
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeCMD(); });
+
+  // Filtering actions
+  input.addEventListener("input", (e) => {
+    filterItems(e.target.value);
+  });
+
+  function filterItems(query) {
+    const q = query.toLowerCase().trim();
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (!q || text.includes(q)) {
+        item.style.display = "flex";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+
+  // Command Click Handlers
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      const action = item.getAttribute("data-action");
+      closeCMD();
+      if (window.soundEngine) window.soundEngine.playClick();
+
+      if (action === "open-deck") {
+        openDeckModal();
+      } else if (action === "open-contact") {
+        openContactModal();
+      } else if (action === "query-ai") {
+        const input = document.getElementById("ai-query-input");
+        if (input) {
+          input.scrollIntoView({ behavior: "smooth" });
+          input.focus();
+        }
+      } else if (action === "toggle-sound") {
+        toggleSoundHUD();
+      } else if (action === "copy-email") {
+        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
+        navigator.clipboard.writeText(email);
+        showToast("Copied email: " + email, "success");
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   4. Super Intelligent AI Assistant
+   ========================================================================== */
+function setupAIAssistant() {
+  const input = document.getElementById("ai-query-input");
+  const submitBtn = document.getElementById("ai-submit-btn");
+  const responseBox = document.getElementById("ai-response-text");
+  const badgeEl = document.getElementById("ai-response-badge");
+  const chips = document.querySelectorAll(".ai-query-chip");
+
+  if (!input || !submitBtn || !responseBox) return;
+
+  function runQuery(q) {
+    if (!q) return;
+    input.value = q;
+    submitBtn.disabled = true;
+    responseBox.textContent = "Synthesizing verified system response...";
+
+    if (window.soundEngine) window.soundEngine.playClick(900, 0.05);
+
+    setTimeout(() => {
+      const result = window.neuralAssistant.query(q);
+      if (badgeEl) badgeEl.textContent = result.badge;
+
+      window.neuralAssistant.typewriter(responseBox, result.text, () => {
+        submitBtn.disabled = false;
+        if (window.soundEngine) window.soundEngine.playSuccess();
+      });
+    }, 250);
+  }
+
+  submitBtn.addEventListener("click", () => runQuery(input.value));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") runQuery(input.value);
+  });
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const q = chip.getAttribute("data-query");
+      runQuery(q);
+    });
+  });
+}
+
+/* ==========================================================================
+   5. Interactive Investor Allocation Calculator
+   ========================================================================== */
+function setupInvestorCalculator() {
+  const slider = document.getElementById("check-size-slider");
+  const checkDisplay = document.getElementById("calc-check-display");
+  const ownershipDisplay = document.getElementById("calc-ownership-display");
+  const runwayDisplay = document.getElementById("calc-runway-display");
+  const milestoneDisplay = document.getElementById("calc-milestone-display");
+  const reserveBtn = document.getElementById("calc-reserve-btn");
+
+  if (!slider || !checkDisplay) return;
+
+  const config = window.SITE_CONFIG.investmentRound;
+  const valuationCap = config.valuationCap || 12000000; // $12M SAFE cap
+  const burnRate = config.burnRateTarget || 55000;
+
+  function updateCalculator() {
+    const checkVal = parseInt(slider.value, 10);
+    checkDisplay.textContent = `$${checkVal.toLocaleString()}`;
+
+    // Calculate ownership: (check / cap) * 100
+    const ownershipPct = ((checkVal / valuationCap) * 100).toFixed(2);
+    ownershipDisplay.textContent = `${ownershipPct}%`;
+
+    // Runway added
+    const months = (checkVal / burnRate).toFixed(1);
+    runwayDisplay.textContent = `+${months} Months`;
+
+    // Dynamic Milestone badge based on check tier
+    if (checkVal < 50000) {
+      milestoneDisplay.textContent = "Unlocks 6 months of cloud compute & AI model inference fine-tuning.";
+    } else if (checkVal < 150000) {
+      milestoneDisplay.textContent = "Fully funds 1 dedicated Senior Distributed Systems Engineer for 12 months.";
+    } else if (checkVal < 300000) {
+      milestoneDisplay.textContent = "Unlocks SOC2 Type II compliance & enterprise pilot pipeline acceleration.";
+    } else {
+      milestoneDisplay.textContent = "Secures lead angel/institutional allocation with pro-rata & advisory board observer rights.";
+    }
+
+    if (window.soundEngine) window.soundEngine.playClick(1400, 0.01);
+  }
+
+  slider.addEventListener("input", updateCalculator);
+  updateCalculator();
+
+  if (reserveBtn) {
+    reserveBtn.addEventListener("click", () => {
+      const checkVal = slider.value;
+      const noteInput = document.getElementById("investor-note");
+      if (noteInput) {
+        noteInput.value = `Hi Shubh, I'm interested in reviewing your $1.2M round materials and potentially reserving an allocation of $${parseInt(checkVal).toLocaleString()} via SAFE note.`;
+      }
+      openContactModal();
+    });
+  }
+}
+
+/* ==========================================================================
+   6. Interactive Pitch Deck Modal
    ========================================================================== */
 let currentSlideIndex = 0;
 
@@ -166,33 +391,12 @@ function setupPitchDeckModal() {
     });
   });
 
-  closeButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      closeDeckModal();
-    });
-  });
+  closeButtons.forEach(btn => btn.addEventListener("click", closeDeckModal));
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeDeckModal(); });
 
-  // Close modal on click outside
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeDeckModal();
-    }
-  });
+  if (prevBtn) prevBtn.addEventListener("click", () => navigateSlide(-1));
+  if (nextBtn) nextBtn.addEventListener("click", () => navigateSlide(1));
 
-  // Navigation handlers
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      navigateSlide(-1);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      navigateSlide(1);
-    });
-  }
-
-  // Keyboard navigation
   window.addEventListener("keydown", (e) => {
     if (!modal.classList.contains("hidden")) {
       if (e.key === "Escape") closeDeckModal();
@@ -208,6 +412,7 @@ function openDeckModal() {
   modal.classList.remove("hidden");
   modal.classList.add("flex");
   document.body.style.overflow = "hidden";
+  if (window.soundEngine) window.soundEngine.playOpen();
   renderSlide(currentSlideIndex);
 }
 
@@ -232,6 +437,7 @@ function navigateSlide(direction) {
   if (currentSlideIndex < 0) currentSlideIndex = 0;
   if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
 
+  if (window.soundEngine) window.soundEngine.playClick();
   renderSlide(currentSlideIndex);
 }
 
@@ -242,22 +448,19 @@ function renderSlide(index) {
   const slide = slides[index];
   const total = slides.length;
 
-  // Counter indicator
   const indicator = document.getElementById("slide-indicator");
   if (indicator) indicator.textContent = `Slide ${index + 1} of ${total}`;
 
-  // Progress Bar
   const progressBar = document.getElementById("slide-progress-bar");
   if (progressBar) {
     const percent = ((index + 1) / total) * 100;
     progressBar.style.width = `${percent}%`;
   }
 
-  // Render Slide Content
   const slideContent = document.getElementById("deck-slide-content");
   if (slideContent) {
     slideContent.innerHTML = `
-      <div class="flex flex-col justify-between h-full space-y-6 animate-fadeIn">
+      <div class="flex flex-col justify-between h-full space-y-6">
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
@@ -271,8 +474,8 @@ function renderSlide(index) {
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-4">${slide.title}</h2>
           <p class="text-slate-300 text-base leading-relaxed mb-6 font-normal">${slide.content}</p>
 
-          <div class="space-y-3 p-5 rounded-2xl bg-slate-900/80 border border-white/5">
-            <div class="text-xs font-mono uppercase tracking-wider text-indigo-400 font-semibold">Strategic Highlights:</div>
+          <div class="space-y-3 p-5 rounded-2xl bg-slate-900/90 border border-white/5">
+            <div class="text-xs font-mono uppercase tracking-wider text-indigo-400 font-semibold">Strategic Execution Highlights:</div>
             ${slide.bullets.map(b => `
               <div class="flex items-start gap-3 text-sm text-slate-200">
                 <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
@@ -282,8 +485,8 @@ function renderSlide(index) {
           </div>
         </div>
 
-        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-          <div>CONFIDENTIAL // STRICTLY FOR QUALIFIED INVESTORS</div>
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+          <div>CONFIDENTIAL // QUALIFIED INVESTORS ONLY</div>
           <div>FOUNDER: SHUBH</div>
         </div>
       </div>
@@ -292,7 +495,6 @@ function renderSlide(index) {
     if (window.lucide) window.lucide.createIcons();
   }
 
-  // Update button states
   const prevBtn = document.getElementById("deck-prev-btn");
   const nextBtn = document.getElementById("deck-next-btn");
   if (prevBtn) prevBtn.disabled = index === 0;
@@ -300,7 +502,7 @@ function renderSlide(index) {
 }
 
 /* ==========================================================================
-   Contact / Meeting Scheduler Modal
+   7. Contact Modal & Audio Toggle
    ========================================================================== */
 function setupContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -313,27 +515,12 @@ function setupContactModal() {
   openButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      document.body.style.overflow = "hidden";
+      openContactModal();
     });
   });
 
-  closeButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      document.body.style.overflow = "";
-    });
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      document.body.style.overflow = "";
-    }
-  });
+  closeButtons.forEach(btn => btn.addEventListener("click", closeContactModal));
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeContactModal(); });
 
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -343,22 +530,72 @@ function setupContactModal() {
       const email = document.getElementById("investor-email")?.value || "";
       const note = document.getElementById("investor-note")?.value || "";
 
-      // Construct mailto link
       const subject = encodeURIComponent(`Investor Inquiry: ${name} (${firm})`);
-      const body = encodeURIComponent(`Hi Shubh,\n\nI reviewed your portfolio & deck at shubh.github.io and would like to connect.\n\nFirm / Angel: ${firm}\nEmail: ${email}\n\nNote:\n${note}\n\nBest regards,\n${name}`);
-      
+      const body = encodeURIComponent(`Hi Shubh,\n\nI reviewed your portfolio & round details at shubh.github.io.\n\nFirm/Angel: ${firm}\nEmail: ${email}\n\nNote:\n${note}\n\nBest regards,\n${name}`);
+
       window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
 
-      showToast("Redirecting to email client... Thanks for reaching out!", "success");
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      document.body.style.overflow = "";
+      showToast("Redirecting to email client... Thank you!", "success");
+      closeContactModal();
     });
   }
 }
 
+function openContactModal() {
+  const modal = document.getElementById("contact-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  document.body.style.overflow = "hidden";
+  if (window.soundEngine) window.soundEngine.playOpen();
+}
+
+function closeContactModal() {
+  const modal = document.getElementById("contact-modal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  document.body.style.overflow = "";
+}
+
+function setupAudioHUDToggle() {
+  const toggleBtn = document.getElementById("hud-audio-toggle");
+  if (!toggleBtn) return;
+
+  function updateAudioHUDIcon() {
+    const isMuted = window.soundEngine ? window.soundEngine.isMuted() : true;
+    toggleBtn.innerHTML = isMuted 
+      ? `<i data-lucide="volume-x" class="w-4 h-4 text-slate-400"></i><span class="text-[11px] font-mono text-slate-400">Audio: OFF</span>`
+      : `<i data-lucide="volume-2" class="w-4 h-4 text-emerald-400"></i><span class="text-[11px] font-mono text-emerald-400">Audio: ON</span>`;
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    if (window.soundEngine) {
+      window.soundEngine.toggleSound();
+      updateAudioHUDIcon();
+    }
+  });
+
+  updateAudioHUDIcon();
+}
+
+window.toggleSoundHUD = function() {
+  if (window.soundEngine) {
+    window.soundEngine.toggleSound();
+    const toggleBtn = document.getElementById("hud-audio-toggle");
+    if (toggleBtn) {
+      const isMuted = window.soundEngine.isMuted();
+      toggleBtn.innerHTML = isMuted 
+        ? `<i data-lucide="volume-x" class="w-4 h-4 text-slate-400"></i><span class="text-[11px] font-mono text-slate-400">Audio: OFF</span>`
+        : `<i data-lucide="volume-2" class="w-4 h-4 text-emerald-400"></i><span class="text-[11px] font-mono text-emerald-400">Audio: ON</span>`;
+      if (window.lucide) window.lucide.createIcons();
+    }
+  }
+};
+
 /* ==========================================================================
-   FAQ Accordions
+   8. FAQ Accordion & Copy Buttons
    ========================================================================== */
 function setupFAQ() {
   document.addEventListener("click", (e) => {
@@ -367,91 +604,35 @@ function setupFAQ() {
 
     const content = btn.nextElementSibling;
     const chevron = btn.querySelector(".accordion-chevron");
-
     const isOpen = content.classList.contains("open");
 
-    // Close all other accordions
     document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));
     document.querySelectorAll(".accordion-chevron").forEach(ch => ch.classList.remove("rotate"));
 
     if (!isOpen) {
       content.classList.add("open");
       if (chevron) chevron.classList.add("rotate");
+      if (window.soundEngine) window.soundEngine.playClick(650, 0.02);
     }
   });
 }
 
-/* ==========================================================================
-   Animated Number Counters on Scroll
-   ========================================================================== */
-function setupCounterAnimations() {
-  const metricCards = document.querySelectorAll("[data-counter-target]");
-  if (!metricCards.length) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const card = entry.target;
-        const targetStr = card.getAttribute("data-counter-target") || "";
-        obs.unobserve(card);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  metricCards.forEach(c => observer.observe(c));
-}
-
-/* ==========================================================================
-   Mobile Nav Drawer
-   ========================================================================== */
-function setupMobileNav() {
-  const menuToggle = document.getElementById("mobile-menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
-
-  if (!menuToggle || !mobileMenu) return;
-
-  menuToggle.addEventListener("click", () => {
-    const isHidden = mobileMenu.classList.contains("hidden");
-    if (isHidden) {
-      mobileMenu.classList.remove("hidden");
-    } else {
-      mobileMenu.classList.add("hidden");
-    }
-  });
-
-  mobileLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-    });
-  });
-}
-
-/* ==========================================================================
-   Copy Link & Toast Notification
-   ========================================================================== */
 function setupCopyButtons() {
-  const copyEmailButtons = document.querySelectorAll("[data-copy-email]");
-  const copyLinkButtons = document.querySelectorAll("[data-copy-link]");
-
-  copyEmailButtons.forEach(btn => {
+  document.querySelectorAll("[data-copy-email]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
       navigator.clipboard.writeText(email).then(() => {
         showToast(`Copied email (${email}) to clipboard!`, "success");
-      }).catch(() => {
-        showToast("Email: " + email, "info");
       });
     });
   });
 
-  copyLinkButtons.forEach(btn => {
+  document.querySelectorAll("[data-copy-link]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        showToast("Portfolio link copied to clipboard!", "success");
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast("Portfolio URL copied to clipboard!", "success");
       });
     });
   });
@@ -465,6 +646,8 @@ function showToast(message, type = "info") {
   toastText.textContent = message;
   toast.classList.remove("hidden");
   toast.classList.add("show");
+
+  if (window.soundEngine) window.soundEngine.playSuccess();
 
   setTimeout(() => {
     toast.classList.remove("show");

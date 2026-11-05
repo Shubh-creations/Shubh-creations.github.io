@@ -1,6 +1,6 @@
 /**
- * Shubh Portfolio & Investor Hub Configuration
- * Edit this file to easily customize your portfolio details, metrics, and investor data.
+ * Shubh - Super Intelligent Personnel OS & Investor Configuration
+ * Powers dynamic calculations, AI digital twin queries, metrics, and command palette.
  */
 
 const SITE_CONFIG = {
@@ -8,11 +8,11 @@ const SITE_CONFIG = {
     name: "Shubh",
     fullName: "Shubh",
     title: "Founder & Principal Systems Architect",
-    location: "San Francisco, CA / Bengaluru (Global Remote)",
-    status: "Active / Raising Pre-Seed & Seed Round",
-    headline: "Building high-performance autonomous software at the intersection of AI, distributed systems, and enterprise scale.",
-    subheadline: "Proven track record taking technical products from 0 to 1, scaling systems to millions of users, and generating tangible enterprise value.",
-    avatar: "assets/avatar.png", // Fallback to styled SVG badge if image not found
+    location: "Global Remote (San Francisco / Bengaluru)",
+    status: "Active // Raising Pre-Seed & Seed Round",
+    headline: "Building high-throughput autonomous software at the intersection of AI, distributed systems, and enterprise scale.",
+    subheadline: "Proven track record taking technical products from 0 to 1, scaling systems to 1.2M+ users, and engineering defensible technical moats.",
+    avatar: "assets/avatar.svg",
     links: {
       github: "https://github.com/shubh",
       linkedin: "https://linkedin.com/in/shubh",
@@ -27,20 +27,29 @@ const SITE_CONFIG = {
     stage: "Pre-Seed / Seed Stage",
     targetRaise: "$1,200,000",
     committed: "45% Committed ($540,000)",
+    valuationCap: 12000000, // $12M Post-Money Cap for calculator
+    burnRateTarget: 55000,   // $55k/mo target burn rate
     useOfFunds: [
       { category: "Core Deep Tech & Engineering", percentage: 55, desc: "Distributed systems, AI model fine-tuning & infrastructure" },
       { category: "Enterprise GTM & Pilots", percentage: 25, desc: "Sales engineering, developer evangelism & strategic enterprise pilots" },
       { category: "Security, Compliance & Ops", percentage: 12, desc: "SOC2 Type II, ISO27001, legal & security certifications" },
       { category: "Operational Runway & Reserves", percentage: 8, desc: "Maintaining a lean 22+ month operating runway" }
     ],
-    terms: "SAFE (Post-Money Valuation Cap) / Preferred Equity"
+    terms: "Post-Money SAFE Note with standard MFN / Pro-Rata rights"
   },
 
   keyMetrics: [
-    { label: "Total Active Users Scaled", value: "1.2M+", change: "+140% YoY", detail: "Across consumer & B2B platforms" },
-    { label: "Historical ARR Scaled", value: "$1.8M+", change: "Zero to $1M in 14 mos", detail: "Enterprise subscription revenue" },
-    { label: "Core Infrastructure Uptime", value: "99.99%", change: "<20ms p99 latency", detail: "Distributed across multi-region cloud" },
-    { label: "Open Source Stars & Repos", value: "12,400+", change: "Global top 1%", detail: "Developer community adoption" }
+    { label: "Active Users Scaled", value: "1.2M+", change: "+140% YoY", detail: "Across consumer & enterprise systems" },
+    { label: "Historical ARR Scaled", value: "$1.8M+", change: "0 to $1M in 14 Mo", detail: "Enterprise contract subscription value" },
+    { label: "Infrastructure SLA", value: "99.99%", change: "<20ms p99 latency", detail: "Multi-region distributed Kubernetes cloud" },
+    { label: "Open Source Stars", value: "12,400+", change: "Global Top 1%", detail: "Developer community adoption & tools" }
+  ],
+
+  aiSuggestedQueries: [
+    "What are your current round terms and target raise?",
+    "Explain your technical moat and defensibility",
+    "Show verified revenue and active user metrics",
+    "What is Shubh's background and execution track record?"
   ],
 
   ventures: [
@@ -48,19 +57,19 @@ const SITE_CONFIG = {
       id: "nexus-ai",
       name: "Nexus Core AI",
       tagline: "Autonomous multi-agent enterprise automation engine with deterministic reliability.",
-      status: "Flagship / In Fundraising",
+      status: "Flagship / Raising",
       category: "Enterprise AI & Infrastructure",
-      description: "Enterprises struggle with brittle LLM workflows that hallucinate and lack auditability. Nexus Core combines deterministic graph solvers with multi-agent models to execute mission-critical enterprise operations with 99.7% task accuracy.",
+      description: "Enterprises struggle with brittle LLM workflows that hallucinate and fail compliance. Nexus Core combines deterministic graph solvers with multi-agent models to execute mission-critical enterprise operations with 99.7% execution accuracy.",
       metrics: [
         { label: "Early MRR", val: "$48,500" },
-        { label: "Enterprise Pilots", val: "14 Closed" },
+        { label: "Paying Pilots", val: "14 Closed" },
         { label: "Task Latency", val: "320ms p95" }
       ],
       tags: ["Python", "Rust", "LLMs", "Distributed Systems", "PostgreSQL", "Next.js"],
       tractionPoints: [
         "Signed 14 paying pilot agreements with Fortune 500 & mid-market firms",
-        "Proprietary orchestration algorithm lowers inference cost by 62%",
-        "Over 850,000 autonomous tasks processed in Q3 alone"
+        "Proprietary cognitive graph solver eliminates probabilistic hallucinations",
+        "Over 850,000 autonomous enterprise tasks executed in Q3 alone"
       ],
       links: {
         demo: "https://github.com/shubh",
@@ -76,12 +85,12 @@ const SITE_CONFIG = {
       description: "Architected a custom distributed streaming engine capable of ingesting and querying 10 billion events daily with sub-second aggregate responses. Adopted by high-frequency trading and logistics clients.",
       metrics: [
         { label: "Daily Events", val: "10B+" },
-        { label: "Infrastructure Cost", val: "-48%" },
+        { label: "Cloud Cost", val: "-48%" },
         { label: "Peak Ingestion", val: "180k/sec" }
       ],
       tags: ["Go", "Kafka", "ClickHouse", "Kubernetes", "gRPC", "Prometheus"],
       tractionPoints: [
-        "Architected from scratch, handling 180k writes/sec under 40ms",
+        "Architected from scratch, handling 180k writes/sec with sub-40ms latency",
         "Cut monthly cloud compute bills by $24,000 through zero-copy serialization",
         "Featured in top engineering tech conferences and system design blogs"
       ],
@@ -94,19 +103,19 @@ const SITE_CONFIG = {
       id: "synapse-mesh",
       name: "Synapse Protocol",
       tagline: "Decentralized peer-to-peer data synchronization network for edge environments.",
-      status: "Open Source Success",
+      status: "Open Source Milestone",
       category: "Protocols & Systems",
       description: "An open-source real-time sync protocol allowing collaborative applications to work offline-first with zero conflict resolution delays using state-based CRDTs and WebRTC data channels.",
       metrics: [
         { label: "GitHub Stars", val: "8,200+" },
-        { label: "Community", val: "150+ Contribs" },
+        { label: "Contributors", val: "150+" },
         { label: "Weekly Downloads", val: "45k+" }
       ],
       tags: ["TypeScript", "WebAssembly", "CRDTs", "WebRTC", "Rust"],
       tractionPoints: [
         "Ranked #1 trending repository on GitHub for 4 consecutive days",
         "Integrated into 200+ production applications globally",
-        "Active community with zero security vulnerabilities reported across 2 audits"
+        "Active community with zero security vulnerabilities across 2 audits"
       ],
       links: {
         demo: "https://github.com/shubh",
@@ -145,7 +154,7 @@ const SITE_CONFIG = {
       title: "The Solution & Moat",
       subtitle: "Deterministic Multi-Agent State Machine",
       keyMetric: "99.7% Execution Fidelity",
-      content: "Nexus combines deterministic state machines with task-specialized SLMs (Small Language Models) and verifiable execution gates. If an agent hits uncertainty, it triggers deterministic fallback paths rather than hallucinating.",
+      content: "Nexus combines deterministic state machines with task-specialized SLMs and verifiable execution gates. If an agent hits uncertainty, it triggers deterministic fallback paths rather than hallucinating.",
       bullets: [
         "Dual-engine architecture: Fast deterministic solver + intelligent reasoning layer",
         "Zero-knowledge data enclaves protecting proprietary corporate knowledge",
@@ -156,12 +165,12 @@ const SITE_CONFIG = {
       slideNumber: 4,
       title: "Market Opportunity (TAM)",
       subtitle: "A Generational Shift in Enterprise Automation",
-      keyMetric: "$14.2B Serviceable Available Market (SAM)",
-      content: "The global enterprise automation and agentic software market is expanding at a 34.2% CAGR as businesses migrate from static RPA (UiPath, Automation Anywhere) to dynamic autonomous agents.",
+      keyMetric: "$14.2B Serviceable Available Market",
+      content: "The global enterprise automation and agentic software market is expanding at a 34.2% CAGR as businesses migrate from static RPA to dynamic autonomous agents.",
       bullets: [
         "TAM: $85B+ Global Enterprise Workflow & Process Automation by 2028",
         "SAM: $14.2B Mid-market & Enterprise Knowledge Automation in NA/EU",
-        "SOM: $420M Target across FinTech, HealthTech, and Cloud Services in Year 1-3"
+        "SOM: $420M Target across FinTech, HealthTech, and Cloud Services"
       ]
     },
     {
@@ -207,7 +216,7 @@ const SITE_CONFIG = {
       keyMetric: "Raising $1.2M",
       content: "We are raising $1.2M on a founder-friendly convertible note / SAFE to aggressively capture our initial market segment and reach cashflow inflection.",
       bullets: [
-        "Round Size: $1,200,000 (SAFE with standard market cap)",
+        "Round Size: $1,200,000 (Post-Money SAFE Note)",
         "Use of Funds: 55% Engineering, 25% GTM & Customer Success, 20% Ops & Runway",
         "Current Runway Target: 22 Months of runway to Series A milestone"
       ]
@@ -219,7 +228,7 @@ const SITE_CONFIG = {
       period: "2024 - Present",
       role: "Founder & CEO",
       organization: "Nexus Core AI",
-      summary: "Founded and leading technical vision, architecture, and investor relations. Scaled from napkin prototype to $48.5K MRR with 14 enterprise pilot contracts."
+      summary: "Leading technical vision, architecture, and investor relations. Scaled from napkin prototype to $48.5K MRR with 14 enterprise pilot contracts."
     },
     {
       period: "2022 - 2024",
@@ -261,7 +270,6 @@ const SITE_CONFIG = {
   ]
 };
 
-// Export for module systems or attach to window for static HTML
 if (typeof module !== "undefined" && module.exports) {
   module.exports = SITE_CONFIG;
 } else {
