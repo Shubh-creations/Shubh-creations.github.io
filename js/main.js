@@ -31,6 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCopyButtons();
 });
 
+// Fallback icon re-hydration on window load
+window.addEventListener("load", () => {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+});
+
 /* ==========================================================================
    Site Data Binding
    ========================================================================== */
