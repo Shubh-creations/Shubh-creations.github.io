@@ -56,6 +56,18 @@ function initSiteData() {
 
   document.title = `${config.founder.name} // Super Intelligent Personnel OS & Investor Hub`;
 
+  // Dynamically update domain labels to match current hostname
+  const currentHost = window.location.hostname || "shubh-creations.github.io";
+  const navDomain = document.getElementById("nav-domain-label");
+  const footerDomain = document.getElementById("footer-domain-link");
+  if (navDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
+    navDomain.textContent = currentHost;
+  }
+  if (footerDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
+    footerDomain.textContent = currentHost;
+    footerDomain.href = window.location.origin + window.location.pathname;
+  }
+
   // Render Ventures Bento Grid
   const venturesContainer = document.getElementById("ventures-list");
   if (venturesContainer && config.ventures) {

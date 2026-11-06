@@ -16,10 +16,10 @@ const SITE_CONFIG = {
     links: {
       github: "https://github.com/Shubh-creations",
       repo: "https://github.com/Shubh-creations/Shubhcreations.github.io",
-      siteUrl: "https://shubhcreations.github.io",
+      siteUrl: "https://shubh-creations.github.io",
       linkedin: "https://linkedin.com/in/shubh",
       twitter: "https://twitter.com/shubh",
-      email: "founder@shubhcreations.github.io",
+      email: "founder@shubh-creations.github.io",
       calendly: "https://calendly.com", // Replace with your Calendly / Cal.com link
       deckUrl: "#deck-modal"
     }
