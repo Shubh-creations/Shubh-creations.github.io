@@ -15,11 +15,11 @@ const SITE_CONFIG = {
     avatar: "assets/avatar.svg",
     links: {
       github: "https://github.com/Shubh-creations",
-      repo: "https://github.com/Shubh-creations/Shubhcreations.github.io",
-      siteUrl: "https://shubh.github.io",
+      repo: "https://github.com/Shubh-creations/Shubh-creations.github.io",
+      siteUrl: "https://shubh-creations.github.io",
       linkedin: "https://linkedin.com/in/shubh",
       twitter: "https://twitter.com/shubh",
-      email: "founder@shubh.github.io",
+      email: "founder@shubh-creations.github.io",
       calendly: "https://calendly.com",
       deckUrl: "#deck-modal"
     }
