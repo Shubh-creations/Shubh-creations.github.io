@@ -1,80 +1,83 @@
 /**
- * Shubh - Super Intelligent Personnel OS & Investor Configuration
- * Powers dynamic calculations, AI digital twin queries, metrics, and command palette.
+ * Shubham Pawar // Founder & Systems Architect Configuration
+ * Twitter / X: @builtfor101 | GitHub: Shubh-creations
  */
 
 const SITE_CONFIG = {
   founder: {
-    name: "Shubh",
-    fullName: "Shubh",
+    name: "Shubham Pawar",
+    shortName: "Shubham",
     title: "Founder & Systems Architect",
-    location: "Global Remote",
-    status: "Raising Pre-Seed & Seed Round",
-    headline: "Engineering autonomous enterprise systems & deterministic AI infrastructure at scale.",
-    subheadline: "Proven track record taking technical products from 0 to 1, scaling distributed systems to 1.2M+ users, and generating tangible enterprise value.",
+    tagline: "Building Category-Defining Software & Autonomous Systems",
+    location: "Global // Remote",
+    status: "Building 0-to-1 // Scaling Autonomous Tech",
+    headline: "Building category-defining companies, autonomous intelligence & high-scale distributed systems.",
+    subheadline: "Obsessed with 0-to-1 execution speed, systems craftsmanship, and deterministic AI infrastructure. Scaled software to 1.2M+ users and $1.8M+ ARR.",
     avatar: "assets/avatar.svg",
     links: {
+      twitter: "https://x.com/builtfor101",
+      twitterHandle: "@builtfor101",
       github: "https://github.com/Shubh-creations",
       repo: "https://github.com/Shubh-creations/Shubh-creations.github.io",
       siteUrl: "https://shubh-creations.github.io",
-      linkedin: "https://linkedin.com/in/shubh",
-      twitter: "https://twitter.com/shubh",
+      linkedin: "https://linkedin.com/in/shubham-pawar",
       email: "founder@shubh-creations.github.io",
       calendly: "https://calendly.com",
-      deckUrl: "#deck-modal"
+      dossierUrl: "#deck-modal"
     }
   },
 
-  investmentRound: {
-    stage: "Pre-Seed / Seed Stage",
-    targetRaise: "$1,200,000",
-    committed: "45% Committed ($540,000)",
-    valuationCap: 12000000, // $12M Post-Money Cap for calculator
-    burnRateTarget: 55000,   // $55k/mo target burn rate
-    useOfFunds: [
-      { category: "Core Deep Tech & Engineering", percentage: 55, desc: "Distributed systems, AI model fine-tuning & infrastructure" },
-      { category: "Enterprise GTM & Pilots", percentage: 25, desc: "Sales engineering, developer evangelism & strategic enterprise pilots" },
-      { category: "Security, Compliance & Ops", percentage: 12, desc: "SOC2 Type II, ISO27001, legal & security certifications" },
-      { category: "Operational Runway & Reserves", percentage: 8, desc: "Maintaining a lean 22+ month operating runway" }
-    ],
-    terms: "Post-Money SAFE Note with standard MFN / Pro-Rata rights"
-  },
-
-  keyMetrics: [
-    { label: "Active Users Scaled", value: "1.2M+", change: "+140% YoY", detail: "Across consumer & enterprise systems" },
-    { label: "Historical ARR Scaled", value: "$1.8M+", change: "0 to $1M in 14 Mo", detail: "Enterprise contract subscription value" },
-    { label: "Infrastructure SLA", value: "99.99%", change: "<20ms p99 latency", detail: "Multi-region distributed Kubernetes cloud" },
-    { label: "Open Source Stars", value: "12,400+", change: "Global Top 1%", detail: "Developer community adoption & tools" }
+  principles: [
+    {
+      num: "01",
+      title: "Speed is the Ultimate Moat",
+      desc: "The team that iterates, learns, and deploys fastest wins. Complexity and bureaucracy are the primary enemies of breakthrough innovation."
+    },
+    {
+      num: "02",
+      title: "Deterministic Core Over Brittle Wrappers",
+      desc: "Don't build superficial API wrappers. Enduring enterprise value is forged in low-level distributed performance, custom state machines, and resilient architectures."
+    },
+    {
+      num: "03",
+      title: "Product Craft is Non-Negotiable",
+      desc: "Every micro-interaction, millisecond of latency, and pixel reflects the founder's conviction. Great software feels inevitable; clumsy software feels painful."
+    },
+    {
+      num: "04",
+      title: "Asymmetric Leverage via Code",
+      desc: "A focused team of 3 elite systems engineers with modern autonomous tooling will routinely out-execute a 50-person legacy enterprise division."
+    }
   ],
 
-  aiSuggestedQueries: [
-    "What are your current round terms and target raise?",
-    "Explain your technical moat and defensibility",
-    "Show verified revenue and active user metrics",
-    "What is Shubh's background and execution track record?"
+  keyMetrics: [
+    { label: "Active Users Scaled", value: "1.2M+", change: "+140% YoY", detail: "Across consumer & enterprise platforms" },
+    { label: "Historical ARR Scaled", value: "$1.8M+", change: "0 to $1M in 14 Mo", detail: "High-retention enterprise subscriptions" },
+    { label: "Distributed Systems SLA", value: "99.99%", change: "<20ms p99 latency", detail: "Multi-region Kubernetes cloud deployments" },
+    { label: "Open Source Stars", value: "12,400+", change: "Global Top 1%", detail: "Developer tools and distributed protocols" }
   ],
 
   ventures: [
     {
       id: "nexus-ai",
       name: "Nexus Core AI",
-      tagline: "Autonomous multi-agent enterprise automation engine with deterministic reliability.",
-      status: "Flagship / Raising",
-      category: "Enterprise AI & Infrastructure",
-      description: "Enterprises struggle with brittle LLM workflows that hallucinate and fail compliance. Nexus Core combines deterministic graph solvers with multi-agent models to execute mission-critical enterprise operations with 99.7% execution accuracy.",
+      tagline: "Autonomous multi-agent enterprise automation with deterministic verification.",
+      status: "Flagship Venture",
+      category: "Autonomous Systems",
+      description: "Enterprises struggle with brittle LLM workflows that hallucinate and fail compliance. Nexus Core combines deterministic graph execution with multi-agent models to execute mission-critical enterprise workflows with 99.7% execution accuracy.",
       metrics: [
-        { label: "Early MRR", val: "$48,500" },
-        { label: "Paying Pilots", val: "14 Closed" },
-        { label: "Task Latency", val: "320ms p95" }
+        { label: "Commercial MRR", val: "$48,500" },
+        { label: "Enterprise Logos", val: "14 Closed" },
+        { label: "Execution Latency", val: "320ms p95" }
       ],
       tags: ["Python", "Rust", "LLMs", "Distributed Systems", "PostgreSQL", "Next.js"],
       tractionPoints: [
-        "Signed 14 paying pilot agreements with Fortune 500 & mid-market firms",
+        "14 paying enterprise pilot contracts closed across FinTech & Healthcare",
         "Proprietary cognitive graph solver eliminates probabilistic hallucinations",
-        "Over 850,000 autonomous enterprise tasks executed in Q3 alone"
+        "Over 850,000 autonomous enterprise tasks executed with 99.7% fidelity"
       ],
       links: {
-        demo: "https://github.com/Shubh-creations",
+        demo: "https://x.com/builtfor101",
         github: "https://github.com/Shubh-creations"
       }
     },
@@ -82,13 +85,13 @@ const SITE_CONFIG = {
       id: "hyperstream",
       name: "HyperStream DB",
       tagline: "Ultra-low-latency real-time event analytics engine built for streaming telemetries.",
-      status: "Scaled & Proven",
-      category: "Cloud Data Architecture",
+      status: "Scaled Engine",
+      category: "Data Systems",
       description: "Architected a custom distributed streaming engine capable of ingesting and querying 10 billion events daily with sub-second aggregate responses. Adopted by high-frequency trading and logistics clients.",
       metrics: [
-        { label: "Daily Events", val: "10B+" },
-        { label: "Cloud Cost", val: "-48%" },
-        { label: "Peak Ingestion", val: "180k/sec" }
+        { label: "Daily Throughput", val: "10B+ Events" },
+        { label: "Compute Savings", val: "-48% Cloud" },
+        { label: "Peak Ingestion", val: "180k writes/s" }
       ],
       tags: ["Go", "Kafka", "ClickHouse", "Kubernetes", "gRPC", "Prometheus"],
       tractionPoints: [
@@ -97,7 +100,7 @@ const SITE_CONFIG = {
         "Featured in top engineering tech conferences and system design blogs"
       ],
       links: {
-        demo: "https://github.com/Shubh-creations",
+        demo: "https://x.com/builtfor101",
         github: "https://github.com/Shubh-creations"
       }
     },
@@ -105,13 +108,13 @@ const SITE_CONFIG = {
       id: "synapse-mesh",
       name: "Synapse Protocol",
       tagline: "Decentralized peer-to-peer data synchronization network for edge environments.",
-      status: "Open Source Milestone",
-      category: "Protocols & Systems",
+      status: "Open Source Core",
+      category: "Protocols",
       description: "An open-source real-time sync protocol allowing collaborative applications to work offline-first with zero conflict resolution delays using state-based CRDTs and WebRTC data channels.",
       metrics: [
         { label: "GitHub Stars", val: "8,200+" },
         { label: "Contributors", val: "150+" },
-        { label: "Weekly Downloads", val: "45k+" }
+        { label: "Weekly Pulls", val: "45k+" }
       ],
       tags: ["TypeScript", "WebAssembly", "CRDTs", "WebRTC", "Rust"],
       tractionPoints: [
@@ -120,43 +123,58 @@ const SITE_CONFIG = {
         "Active community with zero security vulnerabilities across 2 audits"
       ],
       links: {
-        demo: "https://github.com/Shubh-creations",
+        demo: "https://x.com/builtfor101",
         github: "https://github.com/Shubh-creations"
       }
     }
   ],
 
-  pitchDeckSlides: [
+  essays: [
+    {
+      id: "essay-01",
+      date: "October 2026",
+      readTime: "4 min read",
+      title: "The Death of Brittle AI Wrappers",
+      snippet: "Why probabilistic LLM wrappers fail in mission-critical software, and how deterministic graph execution solves enterprise autonomy.",
+      body: "Most generative AI products built in 2023-2025 are thin wrappers around raw foundation model APIs. They will be commoditized to zero. Real enterprise defensibility does not exist in prompt templates; it exists in deterministic state machines, zero-knowledge customer data enclaves, and low-latency self-healing execution loops that turn probabilistic tokens into mathematically verifiable outcomes."
+    },
+    {
+      id: "essay-02",
+      date: "August 2026",
+      readTime: "5 min read",
+      title: "Scaling Systems to 10 Billion Daily Events",
+      snippet: "Key architectural takeaways from writing zero-copy serialization engines in Go and Rust under severe throughput constraints.",
+      body: "When you pass 100,000 requests per second, traditional HTTP JSON parsing collapses under garbage collection pressure. By moving to zero-copy memory buffers, lock-free ring queues, and specialized columnar streaming storage, we reduced cluster footprint by 48% while maintaining sub-20ms p99 response times."
+    },
+    {
+      id: "essay-03",
+      date: "May 2026",
+      readTime: "3 min read",
+      title: "The 0-to-1 Velocity Law",
+      snippet: "How small, obsessive engineering teams outpace giant legacy enterprises every single time.",
+      body: "Large companies do not lose because they lack capital or intelligence. They lose because their consensus latency is measured in weeks while a founder's iteration cycle is measured in hours. If you compress the feedback loop between writing code, testing with users, and shipping to production, you compound leverage exponentially."
+    }
+  ],
+
+  founderDossier: [
     {
       slideNumber: 1,
-      title: "Executive Summary & Vision",
-      subtitle: "Autonomous Enterprise Intelligence at Scale",
-      keyMetric: "TAM $85B by 2028",
-      content: "Enterprises are drowning in fragmented tools and brittle generative AI wrappers. We are building the deterministic agent operating system that replaces multi-hour manual workflows with verifiable, auditable software agents.",
+      title: "The Vision & Thesis",
+      subtitle: "Autonomous Enterprise Software",
+      keyMetric: "Deterministic Autonomy",
+      content: "The next decade belongs to autonomous software systems that do not merely suggest answers, but execute complex mission-critical workflows with formal verification guarantees.",
       bullets: [
-        "Single unified orchestration layer for complex multi-step enterprise workflows",
+        "Replacing fragmented enterprise SaaS with unified autonomous agent operating layers",
         "Proprietary cognitive graph solver eliminating unconstrained hallucinations",
-        "Led by seasoned builders with deep technical infrastructure backgrounds"
+        "Built by obsessive systems architects with deep distributed infrastructure roots"
       ]
     },
     {
       slideNumber: 2,
-      title: "The Problem",
-      subtitle: "Why Traditional Automation and GenAI Fail in Enterprise",
-      keyMetric: "78% Enterprise AI Proofs Fail",
-      content: "Current LLM implementations are probabilistic, unpredictable, and insecure. Enterprise leaders refuse to put customer data or mission-critical transactions through black-box systems without guarantees.",
-      bullets: [
-        "Unpredictable hallucinations in high-stakes legal, financial, and ops decisions",
-        "High latency and ballooning API costs ($50k+/mo with zero caching or state reuse)",
-        "Zero compliance or audit trails required by SOC2, GDPR, and HIPAA standards"
-      ]
-    },
-    {
-      slideNumber: 3,
-      title: "The Solution & Moat",
-      subtitle: "Deterministic Multi-Agent State Machine",
+      title: "The Architectural Moat",
+      subtitle: "Low-Level Defensibility",
       keyMetric: "99.7% Execution Fidelity",
-      content: "Nexus combines deterministic state machines with task-specialized SLMs and verifiable execution gates. If an agent hits uncertainty, it triggers deterministic fallback paths rather than hallucinating.",
+      content: "Foundation models are commodities; our defensibility lives in low-latency distributed state machines, enterprise data enclaves, and self-correcting fallback logic.",
       bullets: [
         "Dual-engine architecture: Fast deterministic solver + intelligent reasoning layer",
         "Zero-knowledge data enclaves protecting proprietary corporate knowledge",
@@ -164,35 +182,47 @@ const SITE_CONFIG = {
       ]
     },
     {
-      slideNumber: 4,
-      title: "Market Opportunity (TAM)",
-      subtitle: "A Generational Shift in Enterprise Automation",
-      keyMetric: "$14.2B Serviceable Available Market",
-      content: "The global enterprise automation and agentic software market is expanding at a 34.2% CAGR as businesses migrate from static RPA to dynamic autonomous agents.",
-      bullets: [
-        "TAM: $85B+ Global Enterprise Workflow & Process Automation by 2028",
-        "SAM: $14.2B Mid-market & Enterprise Knowledge Automation in NA/EU",
-        "SOM: $420M Target across FinTech, HealthTech, and Cloud Services"
-      ]
-    },
-    {
-      slideNumber: 5,
-      title: "Traction & Early Validation",
-      subtitle: "Real Velocity, Paying Customers, High Retention",
-      keyMetric: "$48.5K MRR in 4 Months",
-      content: "We launched our closed pilot with 5 customers and have quickly expanded to 14 active production contracts, demonstrating organic product-market pull and strong negative churn potential.",
+      slideNumber: 3,
+      title: "0-to-1 Product Velocity",
+      subtitle: "The Execution Playbook",
+      keyMetric: "Shipped in 4 Months",
+      content: "We took Nexus Core from initial napkin prototype to $48.5K MRR across 14 enterprise pilot logos in less than 120 days through relentless iteration.",
       bullets: [
         "14 Enterprise Pilot Accounts with average ACV of $38,000",
-        "118% Net Revenue Retention (NRR) across early cohort",
+        "118% Net Revenue Retention (NRR) across early enterprise cohort",
         "Over 850,000 transactions verified and executed end-to-end"
       ]
     },
     {
+      slideNumber: 4,
+      title: "Large-Scale Systems Engineering",
+      subtitle: "High-Throughput Foundation",
+      keyMetric: "10B+ Daily Events",
+      content: "Deep experience designing infrastructure that handles massive concurrency, sub-20ms p99 latency, and multi-region Kubernetes cloud orchestration.",
+      bullets: [
+        "180,000 writes/sec peak throughput on streaming telemetry pipelines",
+        "48% reduction in cloud infrastructure costs through zero-copy serialization",
+        "99.99% verified uptime across distributed AWS and GCP production clusters"
+      ]
+    },
+    {
+      slideNumber: 5,
+      title: "Open Source Leadership",
+      subtitle: "Global Developer Adoption",
+      keyMetric: "12,400+ Stars",
+      content: "Proven track record creating developer tools and protocols that developers love and build upon globally.",
+      bullets: [
+        "Synapse Protocol ranked #1 trending on GitHub for 4 consecutive days",
+        "Adopted by 200+ production applications globally with 150+ contributors",
+        "Zero security vulnerabilities reported across independent security audits"
+      ]
+    },
+    {
       slideNumber: 6,
-      title: "Business Model & Unit Economics",
-      subtitle: "Predictable SaaS + Usage Expansion",
+      title: "Commercial & Business Mechanics",
+      subtitle: "Predictable Expansion Engine",
       keyMetric: "82% Gross Margin",
-      content: "Hybrid commercial structure combining predictable annual platform subscriptions with consumption credits for high-throughput autonomous executions.",
+      content: "Hybrid commercial structure combining predictable platform subscriptions with consumption credits for high-throughput autonomous executions.",
       bullets: [
         "Base Enterprise License: $2,500 - $10,000/month",
         "Task-based consumption tiers above base allocation (80%+ gross margin)",
@@ -201,26 +231,26 @@ const SITE_CONFIG = {
     },
     {
       slideNumber: 7,
-      title: "Roadmap & Milestones",
-      subtitle: "18-Month Execution Blueprint",
-      keyMetric: "Target: $2.5M ARR in 18 Months",
-      content: "Capital will be deployed efficiently towards deep engineering, SOC2 Type II certification, expanding the enterprise sales pipeline, and establishing market leadership.",
+      title: "The 18-Month Horizon",
+      subtitle: "Roadmap to Market Dominance",
+      keyMetric: "$2.5M Target ARR",
+      content: "Aggressive execution roadmap expanding enterprise pilot logos into seven-figure annual recurring revenue contracts.",
       bullets: [
-        "Q1-Q2: SOC2 Type II compliance, enterprise SSO, self-hosted deployment options",
-        "Q3-Q4: Launch Agent Marketplace & developer SDK; scale to 50 enterprise logos",
-        "Q5-Q6: Expand international sales force, achieve $2.5M ARR run-rate"
+        "SOC2 Type II compliance, enterprise SSO, self-hosted deployment options",
+        "Launch Developer SDK & Agent Marketplace; scale to 50 enterprise logos",
+        "Establish category leadership as the definitive autonomous enterprise OS"
       ]
     },
     {
       slideNumber: 8,
-      title: "The Ask & Allocation",
-      subtitle: "Join Us in Redefining Enterprise Computing",
-      keyMetric: "Raising $1.2M",
-      content: "We are raising $1.2M on a founder-friendly convertible note / SAFE to aggressively capture our initial market segment and reach cashflow inflection.",
+      title: "Founder Philosophy",
+      subtitle: "Shubham Pawar (@builtfor101)",
+      keyMetric: "Relentless Execution",
+      content: "Technology without execution is trivia. I build software that moves metrics, scales under load, and creates enduring enterprise value.",
       bullets: [
-        "Round Size: $1,200,000 (Post-Money SAFE Note)",
-        "Use of Funds: 55% Engineering, 25% GTM & Customer Success, 20% Ops & Runway",
-        "Current Runway Target: 22 Months of runway to Series A milestone"
+        "Obsessed with product craft, millisecond performance, and clean architecture",
+        "Connect directly on X/Twitter: @builtfor101",
+        "Building the next generation of computing from first principles"
       ]
     }
   ],
@@ -230,7 +260,7 @@ const SITE_CONFIG = {
       period: "2024 - Present",
       role: "Founder & CEO",
       organization: "Nexus Core AI",
-      summary: "Leading technical vision, architecture, and investor relations. Scaled from napkin prototype to $48.5K MRR with 14 enterprise pilot contracts."
+      summary: "Founded and leading technical vision, systems architecture, and commercial execution. Scaled from 0 to $48.5K MRR with 14 paying enterprise pilot contracts."
     },
     {
       period: "2022 - 2024",
@@ -248,26 +278,26 @@ const SITE_CONFIG = {
       period: "2018 - 2020",
       role: "Senior Full Stack & Distributed Software Engineer",
       organization: "TechVanguard Labs",
-      summary: "Built 0-to-1 web applications, authored popular open-source libraries (8k+ GitHub stars), and collaborated with tier-1 venture capital backed founders."
+      summary: "Built 0-to-1 web applications, authored popular open-source libraries (8k+ GitHub stars), and shipped software used by top global technology founders."
     }
   ],
 
   faq: [
     {
-      q: "What is your current fundraising status and round dynamics?",
-      a: "We are currently raising a $1.2M Pre-Seed/Seed round via standard Post-Money SAFE notes. We have 45% ($540k) committed from strategic angels and tech operators. The round will remain open for value-add partners."
+      q: "What is your primary focus right now?",
+      a: "I am building category-defining autonomous enterprise systems at Nexus Core AI. We combine deterministic state machines with multi-agent reasoning to replace multi-hour manual workflows with verifiable software execution."
     },
     {
-      q: "What is your primary moat against big tech or open-source models?",
-      a: "Foundation models are commodities; our value lives in the deterministic orchestration layer, proprietary business logic state machine, enterprise compliance guardrails, and deep integration with legacy enterprise systems that LLMs alone cannot handle."
+      q: "What is your technical background and core superpower?",
+      a: "I am a hands-on systems architect and 0-to-1 founder. My core superpower is taking complex, bleeding-edge deep tech (distributed consensus, streaming pipelines, multi-agent AI) and turning it into polished, commercial software at lightning speed."
     },
     {
-      q: "What is the capital allocation plan for this raise?",
-      a: "55% is allocated directly to world-class deep systems engineers, 25% to enterprise customer acquisition and dedicated pilot support, and 20% for security audits (SOC2 Type II) and cloud infrastructure, securing 22+ months of runway."
+      q: "How can we connect or collaborate?",
+      a: "The fastest way to reach me is on X/Twitter @builtfor101 or via email at founder@shubh-creations.github.io. I actively connect with ambitious builders, founders, and technical partners."
     },
     {
-      q: "Can I review the complete financial model and technical data room?",
-      a: "Yes! Click the 'Request Full Data Room' button in the investor deck viewer or book an intro call directly on this site to receive instant access to our cap table, financial projections, customer interview transcripts, and code architecture overview."
+      q: "Where can I read your technical writings and architecture breakdowns?",
+      a: "Read my essays right on this site in the 'Founder Notes' section or follow me on X/Twitter @builtfor101 for regular breakdowns of system design, distributed infrastructure, and agentic AI."
     }
   ]
 };

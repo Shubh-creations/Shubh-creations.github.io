@@ -1,9 +1,9 @@
-# Jekyll Site Configuration for Shubh // Personnel OS
-title: "Shubh // Founder & Systems Architect"
+# Jekyll Site Configuration for Shubham Pawar // Founder & Systems Architect
+title: "Shubham Pawar // Founder & Systems Architect"
 tagline: "Autonomous Enterprise AI & High-Scale Distributed Systems"
-description: "Super intelligent personnel portfolio, venture track record, and investor hub."
-author: "Shubh"
-email: "founder@shubh-creations.github.io"
+description: "Founder & Systems Architect. Building autonomous agents, high-scale distributed architecture, and frontier software systems."
+author: "Shubham Pawar"
+twitter_username: "builtfor101"
 github_username: "Shubh-creations"
 url: "https://shubh-creations.github.io"
 baseurl: ""

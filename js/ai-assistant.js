@@ -1,49 +1,54 @@
 /**
- * Shubh Neural Digital Twin & Intelligence Query Engine
- * Allows investors and visitors to query verified founder intelligence with real-time streaming answers.
+ * Shubham Pawar Neural Digital Twin & Query Engine
+ * Founder & Systems Architect | Twitter: @builtfor101
  */
 
 class NeuralAssistant {
   constructor() {
     this.knowledgeBase = [
       {
-        triggers: ["raise", "fund", "round", "safe", "invest", "terms", "valuation", "check", "stage"],
-        response: "We are currently raising a $1.2M Pre-Seed/Seed round on standard Post-Money SAFE notes. 45% ($540K) is already committed by strategic angels and operators. Capital is allocated: 55% Deep Tech Engineering, 25% Enterprise GTM & Pilots, 12% Compliance (SOC2/ISO), and 8% Runway Reserves, maintaining a 22+ month operating runway.",
-        badge: "Fundraising Intelligence"
+        triggers: ["who", "shubham", "pawar", "founder", "background", "bio", "experience", "story"],
+        response: "Shubham Pawar (@builtfor101) is a founder and principal systems architect. He specializes in 0-to-1 product execution, high-concurrency distributed systems, and deterministic AI infrastructure. He previously led engineering teams scaling clusters to 1.2M+ users and architected streaming data engines ingesting 10B+ daily events.",
+        badge: "Founder Identity"
       },
       {
-        triggers: ["moat", "defensibility", "differentiate", "llm", "competitor", "unique", "why you", "architecture"],
-        response: "Our defensibility lies at the systems level: deterministic graph execution gates that eliminate LLM hallucinations, sub-30ms zero-copy streaming pipelines, and zero-knowledge enterprise enclaves for strict SOC2/HIPAA compliance. Foundation models are commodities; our value is the deterministic execution layer.",
-        badge: "Technical Defensibility"
+        triggers: ["twitter", "x", "builtfor101", "social", "follow", "handle"],
+        response: "You can follow Shubham Pawar on X/Twitter at @builtfor101 (https://x.com/builtfor101), where he shares regular technical breakdowns on distributed systems, autonomous agents, and founder execution.",
+        badge: "Twitter / @builtfor101"
       },
       {
-        triggers: ["traction", "revenue", "arr", "mrr", "metric", "users", "scale", "customer"],
-        response: "Verified traction: $48.5K MRR generated in 4 months with 14 paying enterprise pilots. 1.2M+ active users scaled across previous production systems, over $1.8M in historical ARR scaled, and 12,400+ GitHub stars across open-source infrastructure protocols.",
-        badge: "Verified Metrics"
+        triggers: ["moat", "defensibility", "differentiate", "architecture", "llm", "deterministic"],
+        response: "Shubham's core technical thesis: Foundation models are commodities; real defensibility lives in low-level distributed performance, custom deterministic state machines, and zero-knowledge enterprise enclaves. Nexus Core AI uses formal graph solvers to eliminate hallucinations and achieve 99.7% execution fidelity.",
+        badge: "Systems Architecture"
       },
       {
-        triggers: ["background", "who", "experience", "shubh", "founder", "bio", "story", "pedigree"],
-        response: "Shubh is a founder and principal systems architect with 8+ years building high-throughput distributed systems and 0-to-1 ventures. Previous leadership includes VP of Engineering at Series B scale (24 engineers, 1.2M users) and founding engineer on distributed data engines processing 10B+ daily events.",
-        badge: "Founder Pedigree"
+        triggers: ["traction", "revenue", "arr", "mrr", "metric", "users", "scale", "customers"],
+        response: "Verified founder metrics: $48.5K MRR generated in 4 months with 14 paying enterprise pilots at Nexus Core AI. Over 1.2M+ active users scaled across production systems, $1.8M+ in historical ARR scaled, and 12,400+ GitHub stars across open-source distributed protocols.",
+        badge: "Verified Traction"
       },
       {
-        triggers: ["deck", "pitch", "slides", "presentation", "memo"],
-        response: "You can view our 8-slide interactive pitch deck right now by clicking 'Pitch Deck' in the navbar or pressing 'D' on your keyboard! It covers Vision, Problem, Solution, Moat, TAM, Traction, Unit Economics, and The Ask.",
-        badge: "Pitch Deck Access"
+        triggers: ["philosophy", "principles", "manifesto", "velocity", "craft", "speed"],
+        response: "Shubham's core founder principles: 1) Speed is the ultimate moat. 2) Deterministic core over brittle wrappers. 3) Product craft is non-negotiable. 4) Asymmetric leverage via code—small elite teams out-execute legacy corporations every time.",
+        badge: "Founder Manifesto"
       },
       {
-        triggers: ["contact", "email", "meeting", "call", "schedule", "calendly", "reach"],
-        response: "You can book a direct 20-minute intro call via our calendar scheduler, or reach Shubh directly at founder@shubh-creations.github.io. Responses are typically returned within 2-4 hours.",
-        badge: "Direct Contact"
+        triggers: ["contact", "email", "meeting", "call", "schedule", "reach", "collaborate"],
+        response: "You can reach Shubham Pawar directly on X/Twitter at @builtfor101 or via email at founder@shubh-creations.github.io. He is always open to connecting with ambitious builders, engineers, and technical partners.",
+        badge: "Direct Connect"
+      },
+      {
+        triggers: ["dossier", "deck", "vision", "slides", "keynote"],
+        response: "You can open Shubham's Founder Dossier right now by clicking 'Founder Dossier' in the navigation bar or pressing 'D' on your keyboard! It covers Vision, Architecture Moat, 0-to-1 Playbook, Systems Scale, and the 18-Month Horizon.",
+        badge: "Founder Dossier"
       }
     ];
 
-    this.defaultResponse = "I'm Shubh's Neural System Assistant. You can ask me about our current $1.2M fundraising round, enterprise AI architecture, verified traction metrics ($48.5K MRR, 1.2M users), or career milestones. What would you like to explore?";
+    this.defaultResponse = "I'm Shubham Pawar's Neural Digital Twin. Ask me about his current venture (Nexus Core AI), technical architecture, verified traction, founder philosophy, or his essays. What would you like to explore?";
   }
 
   query(userQuery) {
     const q = (userQuery || "").toLowerCase();
-    
+
     for (const item of this.knowledgeBase) {
       if (item.triggers.some(t => q.includes(t))) {
         return {
@@ -55,14 +60,14 @@ class NeuralAssistant {
 
     return {
       text: this.defaultResponse,
-      badge: "System Core"
+      badge: "Core OS"
     };
   }
 
   typewriter(element, text, onComplete) {
     element.innerHTML = "";
     let i = 0;
-    const speed = 12; // ms per char
+    const speed = 12;
 
     function type() {
       if (i < text.length) {

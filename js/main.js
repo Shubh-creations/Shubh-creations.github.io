@@ -1,6 +1,7 @@
 /**
- * Shubh // Super Minimalist Personnel OS & Master Orchestrator
+ * Shubham Pawar // Founder & Systems Architect - Master Orchestrator
  * High-performance, clean, editorial interactions with zero visual clutter.
+ * Twitter: @builtfor101
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,20 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5. Setup Command Palette (⌘K / Ctrl+K)
   setupCommandPalette();
 
-  // 6. Setup Super Intelligent AI Assistant
+  // 6. Setup Founder AI Assistant (Digital Twin)
   setupAIAssistant();
 
-  // 7. Setup Investor Allocation Calculator
-  setupInvestorCalculator();
+  // 7. Setup Interactive Founder Dossier Modal
+  setupDossierModal();
 
-  // 8. Setup Interactive Pitch Deck Modal
-  setupPitchDeckModal();
-
-  // 9. Setup Contact Modal & Audio Toggle
+  // 8. Setup Contact Modal & Audio Toggle
   setupContactModal();
   setupAudioHUDToggle();
 
-  // 10. Setup FAQ Accordion & Copy Buttons
+  // 9. Setup FAQ Accordion & Copy Buttons
   setupFAQ();
   setupCopyButtons();
 });
@@ -53,10 +51,10 @@ function initSiteData() {
   const config = window.SITE_CONFIG;
   if (!config) return;
 
-  document.title = `${config.founder.name} // Founder & Systems Architect`;
+  document.title = `${config.founder.name} // Founder & Systems Architect (@builtfor101)`;
 
   // Dynamically reflect current host
-  const currentHost = window.location.hostname || "shubh.github.io";
+  const currentHost = window.location.hostname || "shubh-creations.github.io";
   const navDomain = document.getElementById("nav-domain-label");
   const footerDomain = document.getElementById("footer-domain-link");
   if (navDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
@@ -65,6 +63,20 @@ function initSiteData() {
   if (footerDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
     footerDomain.textContent = currentHost;
     footerDomain.href = window.location.origin + window.location.pathname;
+  }
+
+  // Render Founder Principles
+  const principlesContainer = document.getElementById("principles-list");
+  if (principlesContainer && config.principles) {
+    principlesContainer.innerHTML = config.principles.map(p => `
+      <div class="minimal-card p-6 flex flex-col justify-between group">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 mb-3">${p.num} // PRINCIPLE</div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${p.title}</h3>
+          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
+        </div>
+      </div>
+    `).join('');
   }
 
   // Render Ventures List
@@ -96,7 +108,7 @@ function initSiteData() {
 
           <!-- Proof points -->
           <div class="space-y-2 mb-6">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Validations:</div>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Highlights:</div>
             ${v.tractionPoints.map(point => `
               <div class="flex items-start gap-2 text-xs text-zinc-300 font-light">
                 <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
@@ -113,7 +125,7 @@ function initSiteData() {
 
           <div class="flex items-center gap-3 pt-4 border-t border-white/5">
             <button onclick="openDeckToSlide(1)" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors">
-              <span>Inspect in Deck</span>
+              <span>View Dossier</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
             <span class="text-zinc-700">•</span>
@@ -122,6 +134,33 @@ function initSiteData() {
               <span>GitHub</span>
             </a>
           </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render Essays
+  const essaysContainer = document.getElementById("essays-list");
+  if (essaysContainer && config.essays) {
+    essaysContainer.innerHTML = config.essays.map((e, idx) => `
+      <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
+            <span>${e.date}</span>
+            <span>${e.readTime}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-zinc-200 transition-colors">${e.title}</h3>
+          <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
+          <div class="p-3.5 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-light leading-relaxed">
+            "${e.body}"
+          </div>
+        </div>
+        <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
+          <a href="https://x.com/builtfor101" target="_blank" rel="noopener" class="text-xs font-mono text-zinc-400 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+            <span>Discuss on X</span>
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+          </a>
+          <span class="text-[10px] font-mono text-zinc-600">@builtfor101</span>
         </div>
       </div>
     `).join('');
@@ -252,6 +291,8 @@ function setupCommandPalette() {
         openDeckModal();
       } else if (action === "open-contact") {
         openContactModal();
+      } else if (action === "open-twitter") {
+        window.open("https://x.com/builtfor101", "_blank");
       } else if (action === "query-ai") {
         const input = document.getElementById("ai-query-input");
         if (input) {
@@ -261,7 +302,7 @@ function setupCommandPalette() {
       } else if (action === "toggle-sound") {
         toggleSoundHUD();
       } else if (action === "copy-email") {
-        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
+        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh-creations.github.io";
         navigator.clipboard.writeText(email);
         showToast("Copied email: " + email, "success");
       }
@@ -285,7 +326,7 @@ function setupAIAssistant() {
     if (!q) return;
     input.value = q;
     submitBtn.disabled = true;
-    responseBox.textContent = "Querying system core...";
+    responseBox.textContent = "Querying founder core...";
 
     if (window.soundEngine) window.soundEngine.playClick(900, 0.04);
 
@@ -313,66 +354,11 @@ function setupAIAssistant() {
 }
 
 /* ==========================================================================
-   5. Interactive Investor Allocation Calculator
-   ========================================================================== */
-function setupInvestorCalculator() {
-  const slider = document.getElementById("check-size-slider");
-  const checkDisplay = document.getElementById("calc-check-display");
-  const ownershipDisplay = document.getElementById("calc-ownership-display");
-  const runwayDisplay = document.getElementById("calc-runway-display");
-  const milestoneDisplay = document.getElementById("calc-milestone-display");
-  const reserveBtn = document.getElementById("calc-reserve-btn");
-
-  if (!slider || !checkDisplay) return;
-
-  const config = window.SITE_CONFIG.investmentRound;
-  const valuationCap = config.valuationCap || 12000000;
-  const burnRate = config.burnRateTarget || 55000;
-
-  function updateCalculator() {
-    const checkVal = parseInt(slider.value, 10);
-    checkDisplay.textContent = `$${checkVal.toLocaleString()}`;
-
-    const ownershipPct = ((checkVal / valuationCap) * 100).toFixed(2);
-    ownershipDisplay.textContent = `${ownershipPct}%`;
-
-    const months = (checkVal / burnRate).toFixed(1);
-    runwayDisplay.textContent = `+${months} Months`;
-
-    if (checkVal < 50000) {
-      milestoneDisplay.textContent = "Unlocks 6 months of cloud compute and AI model inference infrastructure.";
-    } else if (checkVal < 150000) {
-      milestoneDisplay.textContent = "Fully funds 1 dedicated Senior Distributed Systems Engineer for 12 months.";
-    } else if (checkVal < 300000) {
-      milestoneDisplay.textContent = "Accelerates SOC2 Type II compliance and enterprise pilot expansions.";
-    } else {
-      milestoneDisplay.textContent = "Secures lead angel allocation with pro-rata participation rights.";
-    }
-
-    if (window.soundEngine) window.soundEngine.playClick(1400, 0.01);
-  }
-
-  slider.addEventListener("input", updateCalculator);
-  updateCalculator();
-
-  if (reserveBtn) {
-    reserveBtn.addEventListener("click", () => {
-      const checkVal = slider.value;
-      const noteInput = document.getElementById("investor-note");
-      if (noteInput) {
-        noteInput.value = `Hi Shubh, I reviewed your round materials and would like to reserve an allocation of $${parseInt(checkVal).toLocaleString()} via SAFE note.`;
-      }
-      openContactModal();
-    });
-  }
-}
-
-/* ==========================================================================
-   6. Interactive Pitch Deck Modal
+   5. Interactive Founder Dossier Modal
    ========================================================================== */
 let currentSlideIndex = 0;
 
-function setupPitchDeckModal() {
+function setupDossierModal() {
   const modal = document.getElementById("deck-modal");
   const openButtons = document.querySelectorAll("[data-open-deck]");
   const closeButtons = document.querySelectorAll("[data-close-deck]");
@@ -427,7 +413,7 @@ window.openDeckToSlide = function(slideNumber) {
 };
 
 function navigateSlide(direction) {
-  const slides = window.SITE_CONFIG?.pitchDeckSlides || [];
+  const slides = window.SITE_CONFIG?.founderDossier || [];
   if (!slides.length) return;
 
   currentSlideIndex += direction;
@@ -439,7 +425,7 @@ function navigateSlide(direction) {
 }
 
 function renderSlide(index) {
-  const slides = window.SITE_CONFIG?.pitchDeckSlides || [];
+  const slides = window.SITE_CONFIG?.founderDossier || [];
   if (!slides.length || !slides[index]) return;
 
   const slide = slides[index];
@@ -472,7 +458,7 @@ function renderSlide(index) {
           <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
 
           <div class="space-y-2.5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Strategic Execution:</div>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Strategic Highlights:</div>
             ${slide.bullets.map(b => `
               <div class="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 font-light">
                 <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
@@ -483,8 +469,8 @@ function renderSlide(index) {
         </div>
 
         <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono">
-          <div>CONFIDENTIAL // QUALIFIED INVESTORS</div>
-          <div>SHUBH // FOUNDER</div>
+          <div>SHUBHAM PAWAR // @builtfor101</div>
+          <div>FOUNDER DOSSIER</div>
         </div>
       </div>
     `;
@@ -499,7 +485,7 @@ function renderSlide(index) {
 }
 
 /* ==========================================================================
-   7. Contact Modal & Audio Toggle
+   6. Contact Modal & Audio Toggle
    ========================================================================== */
 function setupContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -522,13 +508,13 @@ function setupContactModal() {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = document.getElementById("investor-name")?.value || "Investor";
+      const name = document.getElementById("investor-name")?.value || "Builder";
       const firm = document.getElementById("investor-firm")?.value || "";
       const email = document.getElementById("investor-email")?.value || "";
       const note = document.getElementById("investor-note")?.value || "";
 
-      const subject = encodeURIComponent(`Investor Inquiry: ${name} (${firm})`);
-      const body = encodeURIComponent(`Hi Shubh,\n\nI reviewed your portfolio at shubh.github.io.\n\nFirm/Angel: ${firm}\nEmail: ${email}\n\nNote:\n${note}\n\nBest regards,\n${name}`);
+      const subject = encodeURIComponent(`Founder Connect: ${name} (${firm})`);
+      const body = encodeURIComponent(`Hi Shubham,\n\nI reviewed your portfolio at shubh-creations.github.io.\n\nFrom: ${name} (${firm})\nEmail: ${email}\n\nNote:\n${note}\n\nBest,\n${name}`);
 
       window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
 
@@ -592,7 +578,7 @@ window.toggleSoundHUD = function() {
 };
 
 /* ==========================================================================
-   8. FAQ Accordion & Copy Buttons
+   7. FAQ Accordion & Copy Buttons
    ========================================================================== */
 function setupFAQ() {
   document.addEventListener("click", (e) => {
@@ -618,7 +604,7 @@ function setupCopyButtons() {
   document.querySelectorAll("[data-copy-email]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
+      const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh-creations.github.io";
       navigator.clipboard.writeText(email).then(() => {
         showToast(`Copied ${email} to clipboard`, "success");
       });
