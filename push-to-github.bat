@@ -1,7 +1,6 @@
 @echo off
 echo ========================================================
-echo   Deploying Shubh // Personnel OS to GitHub Pages
-echo   Target: https://github.com/Shubh-creations/Shubhcreations.github.io
+echo   Deploying Super Minimalist Personnel OS to GitHub
 echo ========================================================
 echo.
 
@@ -11,17 +10,13 @@ echo Step 1: Checking status...
 git status
 
 echo.
-echo Step 2: Syncing remote...
-git remote set-url origin https://github.com/Shubh-creations/Shubhcreations.github.io.git
-
-echo.
-echo Step 3: Pushing main and master to GitHub...
+echo Step 2: Pushing to all branches...
 git push -u origin main --force
 git push -u origin master --force
+git push -u origin gh-pages --force
 
 echo.
 echo ========================================================
-echo   Deployment command completed!
-echo   Check your live site at: https://shubhcreations.github.io
+echo   Deployment completed!
 echo ========================================================
 pause
