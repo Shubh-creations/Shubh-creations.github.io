@@ -14,10 +14,12 @@ const SITE_CONFIG = {
     subheadline: "Proven track record taking technical products from 0 to 1, scaling systems to 1.2M+ users, and engineering defensible technical moats.",
     avatar: "assets/avatar.svg",
     links: {
-      github: "https://github.com/shubh",
+      github: "https://github.com/Shubh-creations",
+      repo: "https://github.com/Shubh-creations/Shubhcreations.github.io",
+      siteUrl: "https://shubhcreations.github.io",
       linkedin: "https://linkedin.com/in/shubh",
       twitter: "https://twitter.com/shubh",
-      email: "founder@shubh.github.io",
+      email: "founder@shubhcreations.github.io",
       calendly: "https://calendly.com", // Replace with your Calendly / Cal.com link
       deckUrl: "#deck-modal"
     }
@@ -72,8 +74,8 @@ const SITE_CONFIG = {
         "Over 850,000 autonomous enterprise tasks executed in Q3 alone"
       ],
       links: {
-        demo: "https://github.com/shubh",
-        github: "https://github.com/shubh"
+        demo: "https://github.com/Shubh-creations",
+        github: "https://github.com/Shubh-creations"
       }
     },
     {
@@ -95,8 +97,8 @@ const SITE_CONFIG = {
         "Featured in top engineering tech conferences and system design blogs"
       ],
       links: {
-        demo: "https://github.com/shubh",
-        github: "https://github.com/shubh"
+        demo: "https://github.com/Shubh-creations",
+        github: "https://github.com/Shubh-creations"
       }
     },
     {
@@ -118,8 +120,8 @@ const SITE_CONFIG = {
         "Active community with zero security vulnerabilities across 2 audits"
       ],
       links: {
-        demo: "https://github.com/shubh",
-        github: "https://github.com/shubh"
+        demo: "https://github.com/Shubh-creations",
+        github: "https://github.com/Shubh-creations"
       }
     }
   ],

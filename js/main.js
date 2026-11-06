@@ -260,7 +260,7 @@ function setupCommandPalette() {
       } else if (action === "toggle-sound") {
         toggleSoundHUD();
       } else if (action === "copy-email") {
-        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
+        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubhcreations.github.io";
         navigator.clipboard.writeText(email);
         showToast("Copied email: " + email, "success");
       }
@@ -531,7 +531,7 @@ function setupContactModal() {
       const note = document.getElementById("investor-note")?.value || "";
 
       const subject = encodeURIComponent(`Investor Inquiry: ${name} (${firm})`);
-      const body = encodeURIComponent(`Hi Shubh,\n\nI reviewed your portfolio & round details at shubh.github.io.\n\nFirm/Angel: ${firm}\nEmail: ${email}\n\nNote:\n${note}\n\nBest regards,\n${name}`);
+      const body = encodeURIComponent(`Hi Shubh,\n\nI reviewed your portfolio & round details at shubhcreations.github.io.\n\nFirm/Angel: ${firm}\nEmail: ${email}\n\nNote:\n${note}\n\nBest regards,\n${name}`);
 
       window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
 
@@ -621,7 +621,7 @@ function setupCopyButtons() {
   document.querySelectorAll("[data-copy-email]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh.github.io";
+      const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubhcreations.github.io";
       navigator.clipboard.writeText(email).then(() => {
         showToast(`Copied email (${email}) to clipboard!`, "success");
       });

@@ -1,0 +1,5 @@
+# robots.txt for Shubh // Personnel OS
+User-agent: *
+Allow: /
+
+Sitemap: https://shubhcreations.github.io/sitemap.xml

@@ -33,7 +33,7 @@ class NeuralAssistant {
       },
       {
         triggers: ["contact", "email", "meeting", "call", "schedule", "calendly", "reach"],
-        response: "You can book a direct 20-minute intro call via our calendar scheduler, or reach Shubh directly at founder@shubh.github.io. Responses are typically returned within 2-4 hours.",
+        response: "You can book a direct 20-minute intro call via our calendar scheduler, or reach Shubh directly at founder@shubhcreations.github.io. Responses are typically returned within 2-4 hours.",
         badge: "Direct Contact"
       }
     ];
