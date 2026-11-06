@@ -1,95 +1,56 @@
 # Shubh // Super Intelligent Personnel OS & Investor Hub
 
-> **Awwwards / Linear / Apple grade personal operating system & investor brief built specifically for https://shubh.github.io**
-
-Designed with an ultra-minimalist, high-luxury cyber-obsidian aesthetic, combining tactile micro-interactions, an interactive neural canvas, real-time telemetry, a natural-language AI digital twin, and a live investor allocation calculator.
-
----
-
-## 💎 Elite Architecture & System Features
-
-### 1. 🌌 Interactive Neural Constellation Canvas (`js/canvas-bg.js`)
-- 60fps GPU-accelerated HTML5 Canvas with fluid physics.
-- Responsive to mouse attraction, repulsion, and touch physics with dynamic DPI scaling.
-
-### 2. 🤖 Shubh Neural Digital Twin (`js/ai-assistant.js`)
-- Real-time interactive intelligence console for investors and partners.
-- Answers questions about:
-  - **Fundraising & Terms**: Stage, SAFE cap, capital deployment, runway.
-  - **Technical Moat**: Deterministic state machine architecture, sub-30ms pipelines.
-  - **Verified Metrics**: $48.5K MRR, 14 pilots, 1.2M users scaled.
-  - **Founder Pedigree**: Systems leadership, past exits/roles, 0-to-1 building.
-- Streaming typewriter animation with synthesized acoustic cues.
-
-### 3. 🧮 Interactive SAFE Check & Allocation Calculator (`js/main.js`)
-- Dynamic slider from **$25,000 to $500,000**.
-- Real-time computation of:
-  - **Ownership %** (based on $12M Post-Money Valuation Cap)
-  - **Runway Months Unlocked** (based on $55k/mo target burn)
-  - **Strategic Milestone Impact** (e.g., "Funds 1 Senior Distributed Systems Engineer for 12 months")
-- "Reserve Allocation" button pre-populates note directly into the investor inquiry form.
-
-### 4. ⚡ Command Palette (`⌘K` / `Ctrl+K`) (`js/main.js`)
-- High-speed fuzzy search menu with keyboard shortcuts:
-  - `D`: Open interactive pitch deck
-  - `AI`: Query neural twin
-  - `C`: Schedule intro call
-  - `M`: Toggle audio HUD
-  - `@`: Copy founder email
-
-### 5. 💡 Spotlight Cursor Card Tracking (`css/styles.css`)
-- Dynamic CSS mouse tracking on every card (`--mouse-x`, `--mouse-y`) rendering smooth Apple/Linear-style radial border highlights.
-
-### 6. 🔊 Synthetic Acoustic Engine (`js/audio.js`)
-- Pure Web Audio API synthesizers (zero external audio files or MP3 network requests).
-- Tactile micro-clicks, harmonic chord chimes, and modal swooshes.
-- Muted by default with an instant HUD toggle in the top telemetry bar.
-
-### 7. 🛰️ Real-Time Telemetry HUD
-- Live ticking UTC clock.
-- Simulated node latency ping (`18ms // OPTIMUM`).
-- Live round status indicator: `🟢 $1.2M SAFE Round // 45% Committed`.
-
-### 8. 📊 Interactive 8-Slide Pitch Deck Modal
-- Executive presentation with progress bar, keyboard arrow navigation (`←`/`→`/`Esc`), and direct data room requests.
-
-### 9. 🖨️ High-Contrast Executive Print Mode
-- Custom `@media print` stylesheet. Investors can press `Ctrl + P` to export a clean, ink-friendly 1-page/2-page executive memo for offline partner meetings.
+> **Awwwards / Linear / Apple grade personal operating system & investor brief**
+> **Repository:** [https://github.com/Shubh-creations/Shubhcreations.github.io](https://github.com/Shubh-creations/Shubhcreations.github.io)
+> **Live Site:** [https://shubhcreations.github.io](https://shubhcreations.github.io)
 
 ---
 
-## 🚀 How to Deploy to `shubh.github.io`
+## ⚡ Quick Deploy (How to Fix the System32 Error)
 
-The local repository is already initialized and committed on branch `main`.
+If you saw:
+```
+PS C:\WINDOWS\system32> git remote add origin ...
+fatal: not a git repository (or any of the parent directories): .git
+```
+**Why this happened:** Your PowerShell prompt was running inside `C:\WINDOWS\system32` instead of your project directory `C:\My web github.io`.
 
-### Step 1: Create the Repository on GitHub
-1. Log into your GitHub account: `https://github.com/shubh`
-2. Create a new public repository named:
-   ```
-   shubh.github.io
-   ```
-
-### Step 2: Push Your Code
-Open PowerShell or Terminal in this folder (`c:\My web github.io`) and execute:
-
+### Option A: Run 2 Commands in PowerShell
+Copy and paste this directly into your PowerShell:
 ```powershell
-git remote add origin https://github.com/shubh/shubh.github.io.git
-git push -u origin main
+cd "C:\My web github.io"
+git push -u origin main --force
 ```
 
-### Step 3: Enjoy Your Live Site
-Within 60 seconds, your site will be live worldwide at:
-👉 **`https://shubh.github.io`**
+### Option B: 1-Click Batch File
+Double-click **`push-to-github.bat`** located inside `C:\My web github.io`. It automatically navigates to your folder and pushes both `main` and `master` branches to GitHub with `--force`.
 
 ---
 
-## 🛠️ Personalization in 2 Minutes
+## 💎 What Was Extracted & Transformed from `Shubhcreations.github.io`
 
-All data, numbers, milestones, and AI knowledge are stored cleanly in **[`js/config.js`](file:///c:/My%20web%20github.io/js/config.js)**:
-- `SITE_CONFIG.founder`: Name, title, links (Calendly, LinkedIn, GitHub, email).
-- `SITE_CONFIG.investmentRound`: Valuation cap, target raise, committed %, burn rate.
-- `SITE_CONFIG.ventures`: Add or edit your companies, tech tags, and traction points.
-- `SITE_CONFIG.pitchDeckSlides`: Customize your 8-slide pitch narrative.
+| Component | Source / Transformation | Benefit |
+| :--- | :--- | :--- |
+| **PWA & Favicon Suite** | Extracted from remote `public/` (16x16, 32x32, 192x192, 384x384, Apple Touch Icon, Safari Pinned SVG) | Crisp high-res icons across iPhones, Android, Mac, and Windows. |
+| **`manifest.json`** | Re-architected for *Shubh // Personnel OS* with theme `#030712` | Installable as a standalone progressive web application. |
+| **Automated Deploy Pipeline** | Replaced fragile legacy Node 18 build with modern `.github/workflows/deploy.yml` | Zero npm build errors; deploys directly via GitHub Pages official actions. |
+| **SEO & Crawlers** | Modernized `robots.txt` and created `sitemap.xml` | Instant indexability on Google and Bing. |
+| **Developer Standards** | `.gitignore`, `.gitattributes` (LF normalization), `LICENSE` (MIT) | Professional repository presentation matching tier-1 open source projects. |
+| **Verified Identifiers** | All URLs updated to `Shubh-creations` & `shubhcreations.github.io` | Zero broken links or placeholder domains. |
+
+---
+
+## 🌟 Interactive Features Included
+
+1. **🌌 Neural Constellation Canvas (`js/canvas-bg.js`)**: 60fps GPU-accelerated canvas with particle drift and cursor attraction physics.
+2. **🤖 Neural Digital Twin (`js/ai-assistant.js`)**: Real-time streaming answers to investor and technical due diligence questions.
+3. **🧮 Interactive SAFE Allocation Calculator (`js/main.js`)**: Dynamic slider ($25K–$500K) calculating equity %, runway months, and milestone impact.
+4. **⚡ Command Palette (`⌘K` / `Ctrl+K`)**: Fast fuzzy search menu with keyboard shortcuts.
+5. **💡 Spotlight Cursor Tracking (`css/styles.css`)**: Dynamic Apple/Linear card hover highlights following mouse position.
+6. **🔊 Synthetic Acoustic Engine (`js/audio.js`)**: Pure Web Audio API tactile clicks and chimes (muted by default with HUD toggle).
+7. **🛰️ Real-Time Telemetry HUD**: Live UTC clock, simulated 18ms latency diagnostic, and round status tracker.
+8. **📊 8-Slide Pitch Deck Modal**: Complete investor deck presentation with keyboard arrow navigation.
+9. **🖨️ High-Contrast Print / PDF Mode**: Press `Ctrl + P` to export a clean, ink-friendly 1-pager summary.
 
 ---
 
@@ -97,17 +58,34 @@ All data, numbers, milestones, and AI knowledge are stored cleanly in **[`js/con
 
 ```
 c:\My web github.io\
-├── index.html           # Main semantic HTML5 structure + HUD + Modals
-├── favicon.svg          # Modern high-res SVG favicon
-├── README.md            # Architecture & deployment documentation
+├── index.html                  # Master semantic HTML5 + HUD + Modals
+├── favicon.svg                 # High-res vector favicon
+├── favicon.ico                 # Standard legacy ICO favicon
+├── favicon-16x16.png           # PWA 16px favicon
+├── favicon-32x32.png           # PWA 32px favicon
+├── apple-touch-icon.png        # iOS home screen touch icon
+├── android-chrome-192x192.png  # Android PWA 192px icon
+├── android-chrome-384x384.png  # Android PWA 384px icon
+├── safari-pinned-tab.svg       # macOS Safari pinned tab vector
+├── manifest.json               # Progressive Web App manifest
+├── robots.txt                  # Search engine crawl directives
+├── sitemap.xml                 # XML sitemap for SEO
+├── LICENSE                     # MIT Open Source License
+├── push-to-github.bat          # 1-click push script
+├── push-to-github.ps1          # PowerShell push script
+├── .gitattributes              # Line ending normalization
+├── .gitignore                  # Clean developer ignore rules
+├── .github/workflows/
+│   └── deploy.yml              # Official GitHub Pages deployment workflow
 ├── css/
-│   └── styles.css       # Spotlight hover, noise texture, custom slider, animations
+│   └── styles.css              # Spotlight cards, noise grain, slider & animations
 ├── js/
-│   ├── config.js        # Centralized profile & investor parameters
-│   ├── canvas-bg.js     # 60fps interactive neural constellation canvas
-│   ├── audio.js         # Web Audio API synthetic acoustic feedback engine
-│   ├── ai-assistant.js  # Natural-language digital twin query engine
-│   └── main.js          # Master orchestrator (Command menu, calculator, modals)
+│   ├── config.js               # Central profile, metrics & investor parameters
+│   ├── canvas-bg.js            # 60fps interactive neural constellation canvas
+│   ├── audio.js                # Web Audio API synthetic acoustic feedback engine
+│   ├── ai-assistant.js         # Natural-language digital twin query engine
+│   └── main.js                 # Master orchestrator (Command menu, calculator, modals)
 └── assets/
-    └── avatar.svg       # Vector monogram avatar badge
+    ├── avatar.svg              # Vector monogram avatar badge
+    └── illustrations/          # Extracted tech SVGs from remote repository
 ```
