@@ -1,0 +1,29 @@
+# Jekyll Site Configuration for Shubh // Personnel OS
+title: "Shubh // Founder & Systems Architect"
+tagline: "Autonomous Enterprise AI & High-Scale Distributed Systems"
+description: "Super intelligent personnel portfolio, venture track record, and investor hub."
+author: "Shubh"
+email: "founder@shubh-creations.github.io"
+github_username: "Shubh-creations"
+url: "https://shubh-creations.github.io"
+baseurl: ""
+
+# Jekyll Theme (Native GitHub Pages supported)
+theme: jekyll-theme-minimal
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - push-to-github.bat
+  - push-to-github.ps1
+  - scratch/
+  - .github/
