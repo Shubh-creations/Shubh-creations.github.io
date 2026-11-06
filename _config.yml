@@ -1,10 +1,12 @@
 # Jekyll Site Configuration for Shubham Pawar // Founder & Systems Architect
 title: "Shubham Pawar // Founder & Systems Architect"
-tagline: "Autonomous Enterprise AI & High-Scale Distributed Systems"
-description: "Founder & Systems Architect. Building autonomous agents, high-scale distributed architecture, and frontier software systems."
+tagline: "Co-founder (COO) @ Rodimus Tech • Reality Layer for AI • Automation & Robotics"
+description: "Personal site of Shubham Pawar (@builtfor101). Co-founder & COO at Rodimus Tech (rodimus-tech.com). Architecting the Reality Layer for AI, Counter-UAS (C-UAS) edge defense, CUDA-accelerated vision, and autonomous agent systems."
 author: "Shubham Pawar"
+email: "shubhampawar0610@gmail.com"
 twitter_username: "builtfor101"
 github_username: "Shubh-creations"
+linkedin_url: "https://www.linkedin.com/in/shubhampawar-in/"
 url: "https://shubh-creations.github.io"
 baseurl: ""
 

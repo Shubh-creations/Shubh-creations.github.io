@@ -1,28 +1,30 @@
 /**
  * Shubham Pawar // Founder & Systems Architect Configuration
- * Twitter / X: @builtfor101 | GitHub: Shubh-creations
+ * Co-founder (COO) at Rodimus Tech (rodimus-tech.com)
+ * Twitter / X: @builtfor101 | LinkedIn: in/shubhampawar-in | GitHub: Shubh-creations
  */
 
 const SITE_CONFIG = {
   founder: {
     name: "Shubham Pawar",
     shortName: "Shubham",
-    title: "Founder & Systems Architect",
-    tagline: "Building Category-Defining Software & Autonomous Systems",
-    location: "Global // Remote",
-    status: "Building 0-to-1 // Scaling Autonomous Tech",
-    headline: "Building category-defining companies, autonomous intelligence & high-scale distributed systems.",
-    subheadline: "Obsessed with 0-to-1 execution speed, systems craftsmanship, and deterministic AI infrastructure. Scaled software to 1.2M+ users and $1.8M+ ARR.",
+    title: "Founder & Systems Architect // Co-founder (COO) at Rodimus",
+    tagline: "Building the Reality Layer for AI & Autonomous Edge Robotics",
+    location: "Pune, India",
+    status: "Co-founder (COO) @ Rodimus Tech // Building Autonomy",
+    headline: "Co-founder & COO at Rodimus Tech. Architecting the Reality Layer for AI, edge robotics, and GPU-accelerated vision systems.",
+    subheadline: "Obsessed with low-latency edge AI, counter-drone defense (C-UAS), autonomous agent architectures, and physical-world robotics. Engineering at the boundary of hardware sensors, CUDA acceleration, and sovereign intelligence.",
     avatar: "assets/avatar.svg",
     links: {
       twitter: "https://x.com/builtfor101",
       twitterHandle: "@builtfor101",
+      linkedin: "https://www.linkedin.com/in/shubhampawar-in/",
       github: "https://github.com/Shubh-creations",
       repo: "https://github.com/Shubh-creations/Shubh-creations.github.io",
       siteUrl: "https://shubh-creations.github.io",
-      linkedin: "https://linkedin.com/in/shubham-pawar",
-      email: "founder@shubh-creations.github.io",
-      calendly: "https://calendly.com",
+      email: "shubhampawar0610@gmail.com",
+      phone: "+91 9623422350",
+      rodimus: "https://www.rodimus-tech.com",
       dossierUrl: "#deck-modal"
     }
   },
@@ -30,101 +32,171 @@ const SITE_CONFIG = {
   principles: [
     {
       num: "01",
-      title: "Speed is the Ultimate Moat",
-      desc: "The team that iterates, learns, and deploys fastest wins. Complexity and bureaucracy are the primary enemies of breakthrough innovation."
+      title: "Physical-World Grounding",
+      desc: "Real AI defensibility isn't in thin API wrappers—it is where software meets physical reality: cameras, sensors, edge micro-controllers, and hard real-time latency bounds."
     },
     {
       num: "02",
-      title: "Deterministic Core Over Brittle Wrappers",
-      desc: "Don't build superficial API wrappers. Enduring enterprise value is forged in low-level distributed performance, custom state machines, and resilient architectures."
+      title: "Hardware-Accelerated Velocity",
+      desc: "Don't settle for unoptimized pipelines. Synthesize C/C++ firmware, CUDA GPU acceleration, and zero-copy memory transfers to run vision systems at 30+ FPS with sub-second response."
     },
     {
       num: "03",
-      title: "Product Craft is Non-Negotiable",
-      desc: "Every micro-interaction, millisecond of latency, and pixel reflects the founder's conviction. Great software feels inevitable; clumsy software feels painful."
+      title: "Deterministic Safety Over Probabilistic Hype",
+      desc: "In defense, robotics, and edge autonomy, hallucinations cause catastrophic failure. We build with formal verification gates, drift monitoring (MLflow), and deterministic state machines."
     },
     {
       num: "04",
-      title: "Asymmetric Leverage via Code",
-      desc: "A focused team of 3 elite systems engineers with modern autonomous tooling will routinely out-execute a 50-person legacy enterprise division."
+      title: "First-Principles Execution",
+      desc: "From fundamental physics and sensor payloads to production edge deployment on Jetson platforms: iterate obsessively, compress cycles, and deploy solutions that protect and empower."
     }
   ],
 
   keyMetrics: [
-    { label: "Active Users Scaled", value: "1.2M+", change: "+140% YoY", detail: "Across consumer & enterprise platforms" },
-    { label: "Historical ARR Scaled", value: "$1.8M+", change: "0 to $1M in 14 Mo", detail: "High-retention enterprise subscriptions" },
-    { label: "Distributed Systems SLA", value: "99.99%", change: "<20ms p99 latency", detail: "Multi-region Kubernetes cloud deployments" },
-    { label: "Open Source Stars", value: "12,400+", change: "Global Top 1%", detail: "Developer tools and distributed protocols" }
+    { label: "C-UAS Latency", value: "<1.0s", change: "Sub-Second Response", detail: "Real-time edge drone detection on Jetson Nano" },
+    { label: "Inference Speedup", value: "2–3x", change: "CUDA GPU Accelerated", detail: "Real-time 30+ FPS OpenCV vehicle & aerial tracking" },
+    { label: "Vision Accuracy", value: "90%+", change: "5+ Projects Deployed", detail: "CNN detection models with MLflow drift triggers" },
+    { label: "Executive Role", value: "COO", change: "Co-founder @ Rodimus", detail: "Building the Reality Layer for Physical AI" }
   ],
 
   ventures: [
     {
-      id: "nexus-ai",
-      name: "Nexus Core AI",
-      tagline: "Autonomous multi-agent enterprise automation with deterministic verification.",
-      status: "Flagship Venture",
+      id: "rodimus-tech",
+      name: "Rodimus Tech",
+      tagline: "Reality Layer for AI — Bridging physical perception with autonomous cognitive intelligence.",
+      status: "Flagship Venture // Co-founder (COO)",
+      category: "Robotics & Spatial AI",
+      description: "Serving as Co-founder and Chief Operating Officer (COO). Rodimus is architecting the foundational Reality Layer for AI—uniting real-time spatial world models, sensor perception, and edge computing to ground artificial intelligence in the physical world.",
+      metrics: [
+        { label: "Role", val: "Co-founder (COO)" },
+        { label: "Domain", val: "Spatial AI & Robotics" },
+        { label: "Platform", val: "rodimus-tech.com" }
+      ],
+      tags: ["Robotics", "Edge AI", "Computer Vision", "Systems Architecture", "COO", "Spatial Computing"],
+      tractionPoints: [
+        "Executive leadership orchestrating deep-tech engineering, operational roadmap, and product delivery",
+        "Pioneering the Reality Layer connecting physical world sensors with high-level cognitive models",
+        "Driving partnerships, robotics integration strategy, and cross-functional team execution"
+      ],
+      links: {
+        site: "https://www.rodimus-tech.com",
+        github: "https://github.com/Shubh-creations",
+        linkedin: "https://www.linkedin.com/in/shubhampawar-in/"
+      }
+    },
+    {
+      id: "cuas-defense",
+      name: "Counter - Unmanned Aerial System (C-UAS)",
+      tagline: "Tactical real-time drone detection, tracking, and counter-UAS edge defense on NVIDIA Jetson.",
+      status: "Defense & Edge Tech",
+      category: "Autonomous Defense",
+      description: "Developed an edge-deployable counter-drone detection and tracking system using OpenCV (Python) accelerated with NVIDIA CUDA. Achieves >30 FPS processing speed with sub-second latency on live video streams, combining C/C++ firmware with onboard sensors on NVIDIA Jetson Nano for tactical defense applications.",
+      metrics: [
+        { label: "Frame Rate", val: "30+ FPS" },
+        { label: "Latency", val: "<1.0s Sub-Sec" },
+        { label: "Hardware", val: "Jetson Nano" }
+      ],
+      tags: ["NVIDIA Jetson", "CUDA", "OpenCV", "C/C++ Firmware", "Python", "Defense Tech", "Sensors"],
+      tractionPoints: [
+        "Delivered continuous 30+ FPS aerial drone tracking with sub-second detection latency on live streams",
+        "Synthesized low-level C/C++ firmware directly with onboard Jetson sensors for field-ready autonomy",
+        "Engineered for lightweight, edge-deployable counter-UAS security and perimeter defense"
+      ],
+      links: {
+        github: "https://github.com/Shubh-creations/CUAS-MAin-",
+        demo: "https://x.com/builtfor101"
+      }
+    },
+    {
+      id: "vehicle-detection-adas",
+      name: "Vehicle Detection & Tracking (ADAS)",
+      tagline: "High-framerate real-time vehicle perception pipeline accelerated 2-3x via CUDA GPU parallelism.",
+      status: "Smart Mobility & Vision",
+      category: "Computer Vision",
+      description: "Designed and deployed a real-time vehicle detection and tracking system using OpenCV and Haar cascade classifiers in Python. Integrated CUDA-enabled GPU processing to achieve a 2–3x inference speedup, delivering consistent 30+ FPS feeds for smart city infrastructure and Advanced Driver Assistance Systems (ADAS).",
+      metrics: [
+        { label: "GPU Speedup", val: "2–3x Faster" },
+        { label: "Throughput", val: "30+ FPS" },
+        { label: "Domain", val: "ADAS & Traffic" }
+      ],
+      tags: ["OpenCV", "CUDA GPU", "Python", "Haar Cascades", "ADAS", "NVIDIA Jetson", "Edge AI"],
+      tractionPoints: [
+        "Boosted inference throughput by 2–3x leveraging CUDA-accelerated OpenCV pipelines",
+        "Maintained 30+ FPS on edge computing devices under dense vehicular traffic feeds",
+        "Built modular tracking metrics adaptable for smart highway telemetry and ADAS integration"
+      ],
+      links: {
+        github: "https://github.com/Shubh-creations/Vehicle-detection-and-tracking",
+        demo: "https://x.com/builtfor101"
+      }
+    },
+    {
+      id: "vcare-super-agent",
+      name: "Vcare: Multi-Domain Super-Agent",
+      tagline: "Autonomous multi-domain cognitive agent architecture with deterministic tool dispatch.",
+      status: "Agent Architecture",
       category: "Autonomous Systems",
-      description: "Enterprises struggle with brittle LLM workflows that hallucinate and fail compliance. Nexus Core combines deterministic graph execution with multi-agent models to execute mission-critical enterprise workflows with 99.7% execution accuracy.",
+      description: "Engineered a sovereign multi-domain autonomous agent system capable of contextual reasoning, goal decomposition, dynamic tool orchestration, and resilient self-healing state transitions across complex distributed environments.",
       metrics: [
-        { label: "Commercial MRR", val: "$48,500" },
-        { label: "Enterprise Logos", val: "14 Closed" },
-        { label: "Execution Latency", val: "320ms p95" }
+        { label: "Architecture", val: "Super-Agent" },
+        { label: "Workflow", val: "Multi-Domain" },
+        { label: "Execution", val: "Stateful" }
       ],
-      tags: ["Python", "Rust", "LLMs", "Distributed Systems", "PostgreSQL", "Next.js"],
+      tags: ["LangChain", "Autonomous Agents", "Python", "Tool Calling", "Multi-Agent AI", "State Machines"],
       tractionPoints: [
-        "14 paying enterprise pilot contracts closed across FinTech & Healthcare",
-        "Proprietary cognitive graph solver eliminates probabilistic hallucinations",
-        "Over 850,000 autonomous enterprise tasks executed with 99.7% fidelity"
+        "Constructed multi-domain tool execution layer with dynamic validation gates",
+        "Engineered resilient fallback mechanisms to maintain mission continuity across API shifts",
+        "Modular architecture easily extensible to customer support, healthcare, and enterprise automation"
       ],
       links: {
-        demo: "https://x.com/builtfor101",
-        github: "https://github.com/Shubh-creations"
+        github: "https://github.com/Shubh-creations/Vcare",
+        demo: "https://x.com/builtfor101"
       }
     },
     {
-      id: "hyperstream",
-      name: "HyperStream DB",
-      tagline: "Ultra-low-latency real-time event analytics engine built for streaming telemetries.",
-      status: "Scaled Engine",
-      category: "Data Systems",
-      description: "Architected a custom distributed streaming engine capable of ingesting and querying 10 billion events daily with sub-second aggregate responses. Adopted by high-frequency trading and logistics clients.",
+      id: "devprime-adk",
+      name: "Devprime-ADK",
+      tagline: "Standardized Reinforcement Learning benchmarking suite and Agent Development Kit.",
+      status: "Developer Infrastructure",
+      category: "Benchmarking",
+      description: "Architected Benchmark-ADK to empower researchers and machine learning engineers to reliably train, evaluate, and benchmark Reinforcement Learning agents and policy models under reproducible, deterministic simulation conditions.",
       metrics: [
-        { label: "Daily Throughput", val: "10B+ Events" },
-        { label: "Compute Savings", val: "-48% Cloud" },
-        { label: "Peak Ingestion", val: "180k writes/s" }
+        { label: "Framework", val: "Benchmark-ADK" },
+        { label: "Target", val: "RL Policies" },
+        { label: "Evaluation", val: "Deterministic" }
       ],
-      tags: ["Go", "Kafka", "ClickHouse", "Kubernetes", "gRPC", "Prometheus"],
+      tags: ["Reinforcement Learning", "Python", "Benchmarking", "PyTorch", "Gym", "Evaluation Harness"],
       tractionPoints: [
-        "Architected from scratch, handling 180k writes/sec with sub-40ms latency",
-        "Cut monthly cloud compute bills by $24,000 through zero-copy serialization",
-        "Featured in top engineering tech conferences and system design blogs"
+        "Created unified harness for comparative evaluation of complex reinforcement learning policies",
+        "Streamlined metric extraction and reproducible performance stress-testing",
+        "Open-source tool powering transparent agent verification"
       ],
       links: {
-        demo: "https://x.com/builtfor101",
-        github: "https://github.com/Shubh-creations"
+        github: "https://github.com/Shubh-creations/Devprime-adk",
+        demo: "https://x.com/builtfor101"
       }
     },
     {
-      id: "synapse-mesh",
-      name: "Synapse Protocol",
-      tagline: "Decentralized peer-to-peer data synchronization network for edge environments.",
-      status: "Open Source Core",
-      category: "Protocols",
-      description: "An open-source real-time sync protocol allowing collaborative applications to work offline-first with zero conflict resolution delays using state-based CRDTs and WebRTC data channels.",
+      id: "sentiment-opinion-mining",
+      name: "Sentimental Intelligence & Opinion Mining",
+      tagline: "Automated NLP sentiment pipeline classifying trending topics with 80%+ accuracy.",
+      status: "NLP Intelligence",
+      category: "Natural Language AI",
+      description: "Developed an automated opinion mining and sentiment classification pipeline utilizing TF-IDF vectorization and logistic regression. Achieved 80%+ accuracy on trending public topics, reducing manual content moderation by 30% and enabling real-time social listening.",
       metrics: [
-        { label: "GitHub Stars", val: "8,200+" },
-        { label: "Contributors", val: "150+" },
-        { label: "Weekly Pulls", val: "45k+" }
+        { label: "Classification", val: "80%+ Acc" },
+        { label: "Labor Saved", val: "-30% Manual" },
+        { label: "Processing", val: "Real-Time NLP" }
       ],
-      tags: ["TypeScript", "WebAssembly", "CRDTs", "WebRTC", "Rust"],
+      tags: ["NLP", "TF-IDF", "Logistic Regression", "Python", "Scikit-learn", "Pandas", "Text Mining"],
       tractionPoints: [
-        "Ranked #1 trending repository on GitHub for 4 consecutive days",
-        "Integrated into 200+ production applications globally",
-        "Active community with zero security vulnerabilities across 2 audits"
+        "Achieved 80%+ accuracy classifying nuanced sentiment on trending social topic streams",
+        "Automated continuous opinion ingestion, feature extraction, and reporting pipelines",
+        "Decreased human moderation workload by 30% via automated confidence thresholding"
       ],
       links: {
-        demo: "https://x.com/builtfor101",
-        github: "https://github.com/Shubh-creations"
+        github: "https://github.com/Shubh-creations/ml-dl-projects",
+        demo: "https://x.com/builtfor101"
       }
     }
   ],
@@ -134,170 +206,208 @@ const SITE_CONFIG = {
       id: "essay-01",
       date: "October 2026",
       readTime: "4 min read",
-      title: "The Death of Brittle AI Wrappers",
-      snippet: "Why probabilistic LLM wrappers fail in mission-critical software, and how deterministic graph execution solves enterprise autonomy.",
-      body: "Most generative AI products built in 2023-2025 are thin wrappers around raw foundation model APIs. They will be commoditized to zero. Real enterprise defensibility does not exist in prompt templates; it exists in deterministic state machines, zero-knowledge customer data enclaves, and low-latency self-healing execution loops that turn probabilistic tokens into mathematically verifiable outcomes."
+      title: "Edge Compute & The Reality Layer for AI",
+      snippet: "Why software without physical grounding will commoditize, and how edge robotics creates insurmountable moats.",
+      body: "Most AI products remain trapped behind cloud API latency and synthetic text tokens. The defining technological frontier is the Reality Layer—marrying perception, low-level sensors, and edge accelerators (NVIDIA Jetson, CUDA) so that autonomous systems can see, decide, and act in the physical world under sub-second latency constraints."
     },
     {
       id: "essay-02",
       date: "August 2026",
       readTime: "5 min read",
-      title: "Scaling Systems to 10 Billion Daily Events",
-      snippet: "Key architectural takeaways from writing zero-copy serialization engines in Go and Rust under severe throughput constraints.",
-      body: "When you pass 100,000 requests per second, traditional HTTP JSON parsing collapses under garbage collection pressure. By moving to zero-copy memory buffers, lock-free ring queues, and specialized columnar streaming storage, we reduced cluster footprint by 48% while maintaining sub-20ms p99 response times."
+      title: "Real-Time Vision at 30+ FPS on Resource-Constrained Hardware",
+      snippet: "Engineering principles for optimizing CUDA pipelines, OpenCV, and C/C++ firmware on edge defense systems.",
+      body: "Achieving 30+ FPS with sub-second latency on an NVIDIA Jetson Nano requires stripping away unnecessary abstractions. By leveraging CUDA-accelerated OpenCV, managing memory buffers carefully to eliminate CPU-GPU copying bottlenecks, and writing direct C/C++ sensor interfaces, we deliver tactical counter-drone tracking on lightweight, battery-operated platforms."
     },
     {
       id: "essay-03",
       date: "May 2026",
       readTime: "3 min read",
-      title: "The 0-to-1 Velocity Law",
-      snippet: "How small, obsessive engineering teams outpace giant legacy enterprises every single time.",
-      body: "Large companies do not lose because they lack capital or intelligence. They lose because their consensus latency is measured in weeks while a founder's iteration cycle is measured in hours. If you compress the feedback loop between writing code, testing with users, and shipping to production, you compound leverage exponentially."
+      title: "The 0-to-1 Velocity Law for Founders",
+      snippet: "How relentless iteration speed and hands-on systems craftsmanship out-execute legacy corporations.",
+      body: "Large organizations do not fail for lack of compute or capital; they fail due to coordination latency. An obsessive founder with deep systems fluency can prototype, validate, and deploy a full-stack edge defense or autonomous agent architecture while a committee is still drafting requirements. Compress the feedback loop, ship daily, and let execution speak."
     }
   ],
 
   founderDossier: [
     {
       slideNumber: 1,
-      title: "The Vision & Thesis",
-      subtitle: "Autonomous Enterprise Software",
-      keyMetric: "Deterministic Autonomy",
-      content: "The next decade belongs to autonomous software systems that do not merely suggest answers, but execute complex mission-critical workflows with formal verification guarantees.",
+      title: "The Vision: Reality Layer for AI",
+      subtitle: "Physical AI & Robotics Frontier",
+      keyMetric: "Reality Layer",
+      content: "The next era of technological dominance belongs to artificial intelligence that interacts directly with physical reality. At Rodimus Tech (rodimus-tech.com), we are building the foundational Reality Layer for AI.",
       bullets: [
-        "Replacing fragmented enterprise SaaS with unified autonomous agent operating layers",
-        "Proprietary cognitive graph solver eliminating unconstrained hallucinations",
-        "Built by obsessive systems architects with deep distributed infrastructure roots"
+        "Bridging spatial world perception with autonomous cognitive models",
+        "Hardware-in-the-loop edge compute, robotics, and sensory integration",
+        "Executive operational leadership as Co-founder and Chief Operating Officer (COO)"
       ]
     },
     {
       slideNumber: 2,
-      title: "The Architectural Moat",
-      subtitle: "Low-Level Defensibility",
-      keyMetric: "99.7% Execution Fidelity",
-      content: "Foundation models are commodities; our defensibility lives in low-latency distributed state machines, enterprise data enclaves, and self-correcting fallback logic.",
+      title: "Counter-UAS Edge Defense",
+      subtitle: "Tactical Aerial Protection",
+      keyMetric: "<1.0s Latency / 30+ FPS",
+      content: "Engineered a real-time counter-drone detection and tracking system deployed on NVIDIA Jetson Nano, delivering sub-second response on live video feeds.",
       bullets: [
-        "Dual-engine architecture: Fast deterministic solver + intelligent reasoning layer",
-        "Zero-knowledge data enclaves protecting proprietary corporate knowledge",
-        "Self-healing workflows that adapt to third-party API mutations automatically"
+        "CUDA-accelerated OpenCV vision pipeline achieving 30+ FPS continuously",
+        "Synthesized C/C++ firmware directly with onboard multi-sensor payloads",
+        "Lightweight, battery-efficient, edge-deployable counter-UAS defense"
       ]
     },
     {
       slideNumber: 3,
-      title: "0-to-1 Product Velocity",
-      subtitle: "The Execution Playbook",
-      keyMetric: "Shipped in 4 Months",
-      content: "We took Nexus Core from initial napkin prototype to $48.5K MRR across 14 enterprise pilot logos in less than 120 days through relentless iteration.",
+      title: "GPU Acceleration & ADAS Telemetry",
+      subtitle: "2–3x Speedup via CUDA",
+      keyMetric: "2–3x Inference Speedup",
+      content: "Designed and deployed a real-time vehicle perception pipeline for smart mobility, autonomous driving (ADAS), and urban traffic telemetry.",
       bullets: [
-        "14 Enterprise Pilot Accounts with average ACV of $38,000",
-        "118% Net Revenue Retention (NRR) across early enterprise cohort",
-        "Over 850,000 transactions verified and executed end-to-end"
+        "Integrated CUDA GPU acceleration with OpenCV Haar cascade classifiers",
+        "Sustained 30+ FPS throughput under dense multi-vehicle camera feeds",
+        "Scalable architecture tested on NVIDIA Jetson embedded hardware"
       ]
     },
     {
       slideNumber: 4,
-      title: "Large-Scale Systems Engineering",
-      subtitle: "High-Throughput Foundation",
-      keyMetric: "10B+ Daily Events",
-      content: "Deep experience designing infrastructure that handles massive concurrency, sub-20ms p99 latency, and multi-region Kubernetes cloud orchestration.",
+      title: "Autonomous Agent Architectures",
+      subtitle: "Vcare & Devprime-ADK",
+      keyMetric: "Deterministic Autonomy",
+      content: "Pioneered sovereign agent systems and reinforcement learning evaluation harnesses designed to eliminate unconstrained hallucinations and ensure verifiable task execution.",
       bullets: [
-        "180,000 writes/sec peak throughput on streaming telemetry pipelines",
-        "48% reduction in cloud infrastructure costs through zero-copy serialization",
-        "99.99% verified uptime across distributed AWS and GCP production clusters"
+        "Vcare Super-Agent: Stateful multi-domain cognitive reasoning and tool dispatch",
+        "Devprime-ADK: Unified RL benchmarking suite for deterministic policy evaluation",
+        "Dynamic self-healing state transitions across complex distributed environments"
       ]
     },
     {
       slideNumber: 5,
-      title: "Open Source Leadership",
-      subtitle: "Global Developer Adoption",
-      keyMetric: "12,400+ Stars",
-      content: "Proven track record creating developer tools and protocols that developers love and build upon globally.",
+      title: "Engineering Leadership & Operations",
+      subtitle: "Co-founder (COO) at Rodimus Tech",
+      keyMetric: "Deep-Tech Execution",
+      content: "Proven track record bridging deep-tech software architecture with operational execution, cross-functional engineering management, and strategic delivery.",
       bullets: [
-        "Synapse Protocol ranked #1 trending on GitHub for 4 consecutive days",
-        "Adopted by 200+ production applications globally with 150+ contributors",
-        "Zero security vulnerabilities reported across independent security audits"
+        "Co-founder & COO at Rodimus Tech driving the Reality Layer for AI",
+        "Hands-on technical leadership across robotics, vision, and hardware integration",
+        "Spearheading product execution, partner ecosystems, and founder vision"
       ]
     },
     {
       slideNumber: 6,
-      title: "Commercial & Business Mechanics",
-      subtitle: "Predictable Expansion Engine",
-      keyMetric: "82% Gross Margin",
-      content: "Hybrid commercial structure combining predictable platform subscriptions with consumption credits for high-throughput autonomous executions.",
+      title: "API Ecosystems & Machine Learning",
+      subtitle: "Postman & Pantech.AI Track Record",
+      keyMetric: "90%+ Vision Accuracy",
+      content: "Demonstrated technical rigor across API design, automated testing, computer vision, and production MLflow pipeline monitoring.",
       bullets: [
-        "Base Enterprise License: $2,500 - $10,000/month",
-        "Task-based consumption tiers above base allocation (80%+ gross margin)",
-        "Sales-assisted self-serve funnel targeting CTOs and Engineering VP leads"
+        "Postman API Student Instructor: Developing, testing, and automating RESTful APIs",
+        "Pantech.AI: Implemented CNNs and OpenCV in 5+ projects with 90%+ accuracy",
+        "Led model monitoring with MLflow, introducing automated drift detection and retraining"
       ]
     },
     {
       slideNumber: 7,
-      title: "The 18-Month Horizon",
-      subtitle: "Roadmap to Market Dominance",
-      keyMetric: "$2.5M Target ARR",
-      content: "Aggressive execution roadmap expanding enterprise pilot logos into seven-figure annual recurring revenue contracts.",
+      title: "Academic & Robotics Pedigree",
+      subtitle: "Dr. D. Y. Patil Institute of Technology",
+      keyMetric: "Automation & Robotics",
+      content: "Bachelor of Engineering in Automation and Robotics (2022 – 2026) at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune.",
       bullets: [
-        "SOC2 Type II compliance, enterprise SSO, self-hosted deployment options",
-        "Launch Developer SDK & Agent Marketplace; scale to 50 enterprise logos",
-        "Establish category leadership as the definitive autonomous enterprise OS"
+        "Core Coursework: Artificial Intelligence in Robots, Modeling and Simulation",
+        "Sensors and Vision Systems in Robots, Numerical & Statistical Methods",
+        "Extensive practical synthesis of control systems, embedded hardware, and AI"
       ]
     },
     {
       slideNumber: 8,
-      title: "Founder Philosophy",
+      title: "Founder Network & Contact",
       subtitle: "Shubham Pawar (@builtfor101)",
-      keyMetric: "Relentless Execution",
-      content: "Technology without execution is trivia. I build software that moves metrics, scales under load, and creates enduring enterprise value.",
+      keyMetric: "Connect Directly",
+      content: "Obsessed with building transformative technology that moves physical and digital worlds forward. Connect directly for partnerships, deep-tech engineering, and ventures.",
       bullets: [
-        "Obsessed with product craft, millisecond performance, and clean architecture",
-        "Connect directly on X/Twitter: @builtfor101",
-        "Building the next generation of computing from first principles"
+        "Twitter / X: @builtfor101 (x.com/builtfor101)",
+        "LinkedIn: linkedin.com/in/shubhampawar-in",
+        "Email: shubhampawar0610@gmail.com | Phone: +91 9623422350"
       ]
     }
   ],
 
   milestones: [
     {
-      period: "2024 - Present",
-      role: "Founder & CEO",
-      organization: "Nexus Core AI",
-      summary: "Founded and leading technical vision, systems architecture, and commercial execution. Scaled from 0 to $48.5K MRR with 14 paying enterprise pilot contracts."
+      period: "2025 — Present",
+      role: "Co-founder & Chief Operating Officer (COO)",
+      organization: "Rodimus Tech (rodimus-tech.com)",
+      summary: "Building the Reality Layer for AI. Orchestrating operational execution, robotics and spatial perception roadmap, cross-functional engineering delivery, and strategic deep-tech partnerships."
     },
     {
-      period: "2022 - 2024",
-      role: "VP of Engineering & Principal Architect",
-      organization: "Enterprise Scale Systems (Series B)",
-      summary: "Led a team of 24 engineers across infrastructure, backend, and security. Scaled distributed cluster from 200k to 1.2M active users while reducing latency by 45%."
+      period: "Jan 2025 — Present",
+      role: "Postman API Student Instructor",
+      organization: "Postman (Pune, IN)",
+      summary: "Developed and tested RESTful APIs using Postman for student-focused applications. Automated API testing flows by creating comprehensive test collections and automated execution scripts within Postman."
     },
     {
-      period: "2020 - 2022",
-      role: "Lead Systems Engineer",
-      organization: "CloudFlow Data Corp",
-      summary: "Designed high-throughput data processing pipelines ingesting 10B+ daily events. Spearheaded migration to Kubernetes and cut AWS spend by $300k annually."
+      period: "Sept 2024 — Dec 2024",
+      role: "AI Intern (Computer Vision & MLflow)",
+      organization: "Pantech.AI (Pune, IN)",
+      summary: "Implemented CNNs and OpenCV in 5+ computer vision projects, achieving 90%+ accuracy in detection and image classification tasks. Led model monitoring efforts using MLflow, introducing automated data drift detection and retraining triggers."
     },
     {
-      period: "2018 - 2020",
-      role: "Senior Full Stack & Distributed Software Engineer",
-      organization: "TechVanguard Labs",
-      summary: "Built 0-to-1 web applications, authored popular open-source libraries (8k+ GitHub stars), and shipped software used by top global technology founders."
+      period: "Nov 2022 — Jun 2026",
+      role: "B.E. in Automation and Robotics",
+      organization: "Dr. D. Y. Patil Institute of Technology, Pimpri, Pune",
+      summary: "Specialized engineering program in Automation & Robotics. Rigorous coursework in Artificial Intelligence in Robots, Modeling & Simulation, Sensors & Vision Systems, and Statistical Data Analysis."
+    }
+  ],
+
+  skillsArsenal: [
+    {
+      category: "Core Languages & Systems",
+      items: ["Python", "C/C++", "CUDA", "R", "SQL", "Bash", "Git", "Linux", "NVIDIA Jetson Nano", "ADAS Telemetry"]
+    },
+    {
+      category: "AI, Vision & Frameworks",
+      items: ["OpenCV", "PyTorch", "TensorFlow", "Keras", "Scikit-learn", "XGBoost", "LangChain", "MLflow", "Airflow", "PySpark"]
+    },
+    {
+      category: "Robotics, APIs & Analytics",
+      items: ["Postman", "RESTful APIs", "Sensors & Vision Systems", "Pandas", "NumPy", "Power BI", "Tableau", "Seaborn", "Matplotlib"]
+    }
+  ],
+
+  certifications: [
+    {
+      title: "Machine Learning A–Z™: Hands-On Python and R in Data Science",
+      issuer: "UDEMY",
+      highlight: "Algorithms, Predictive Modeling & Statistical Learning"
+    },
+    {
+      title: "Python for Data Science",
+      issuer: "IBM",
+      highlight: "Data Pipelines, Analytics & Scientific Computing"
+    },
+    {
+      title: "Simulink and Onramp Certified",
+      issuer: "MATLAB by MathWorks",
+      highlight: "Dynamic Systems Simulation, Control Loops & Modeling"
+    },
+    {
+      title: "Generative AI Virtual Experience",
+      issuer: "BCGX (Forage)",
+      highlight: "Applied Enterprise LLMs & Cognitive Strategy"
     }
   ],
 
   faq: [
     {
-      q: "What is your primary focus right now?",
-      a: "I am building category-defining autonomous enterprise systems at Nexus Core AI. We combine deterministic state machines with multi-agent reasoning to replace multi-hour manual workflows with verifiable software execution."
+      q: "What is your primary venture and executive role right now?",
+      a: "I am the Co-founder and Chief Operating Officer (COO) at Rodimus Tech (rodimus-tech.com). We are building the Reality Layer for AI—bridging real-world sensory perception, robotics, and edge intelligence so artificial systems can reliably understand and navigate the physical world."
     },
     {
-      q: "What is your technical background and core superpower?",
-      a: "I am a hands-on systems architect and 0-to-1 founder. My core superpower is taking complex, bleeding-edge deep tech (distributed consensus, streaming pipelines, multi-agent AI) and turning it into polished, commercial software at lightning speed."
+      q: "What is the Counter-UAS (C-UAS) project and its technical specs?",
+      a: "C-UAS is an edge-deployable counter-drone detection and tracking defense system. Powered by CUDA-accelerated OpenCV running on an NVIDIA Jetson Nano, it processes live video streams at 30+ FPS with sub-second latency, integrating C/C++ firmware directly with onboard sensors."
     },
     {
-      q: "How can we connect or collaborate?",
-      a: "The fastest way to reach me is on X/Twitter @builtfor101 or via email at founder@shubh-creations.github.io. I actively connect with ambitious builders, founders, and technical partners."
+      q: "What is your technical education and foundation?",
+      a: "I am pursuing my Bachelor of Engineering in Automation and Robotics at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune (2022–2026). My coursework focuses on Artificial Intelligence in Robots, Modeling and Simulation, and Sensors and Vision Systems."
     },
     {
-      q: "Where can I read your technical writings and architecture breakdowns?",
-      a: "Read my essays right on this site in the 'Founder Notes' section or follow me on X/Twitter @builtfor101 for regular breakdowns of system design, distributed infrastructure, and agentic AI."
+      q: "How can someone connect with you for opportunities or collaboration?",
+      a: "You can connect with me on LinkedIn at https://www.linkedin.com/in/shubhampawar-in/, follow me on X/Twitter @builtfor101 (https://x.com/builtfor101), or email me directly at shubhampawar0610@gmail.com (+91 9623422350)."
     }
   ]
 };

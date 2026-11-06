@@ -1,7 +1,7 @@
 /**
  * Shubham Pawar // Founder & Systems Architect - Master Orchestrator
- * High-performance, clean, editorial interactions with zero visual clutter.
- * Twitter: @builtfor101
+ * Co-founder (COO) at Rodimus Tech (rodimus-tech.com)
+ * Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -56,13 +56,8 @@ function initSiteData() {
   // Dynamically reflect current host
   const currentHost = window.location.hostname || "shubh-creations.github.io";
   const navDomain = document.getElementById("nav-domain-label");
-  const footerDomain = document.getElementById("footer-domain-link");
   if (navDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
     navDomain.textContent = currentHost;
-  }
-  if (footerDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
-    footerDomain.textContent = currentHost;
-    footerDomain.href = window.location.origin + window.location.pathname;
   }
 
   // Render Founder Principles
@@ -92,16 +87,16 @@ function initSiteData() {
             <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${v.category}</span>
           </div>
 
-          <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${v.name}</h3>
-          <p class="text-zinc-300 text-sm font-medium mb-3">${v.tagline}</p>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${v.name}</h3>
+          <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${v.tagline}</p>
           <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${v.description}</p>
 
           <!-- Metrics Ledger Row -->
           <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
             ${v.metrics.map(m => `
               <div class="text-center">
-                <div class="text-[10px] font-mono text-zinc-500 uppercase">${m.label}</div>
-                <div class="text-sm sm:text-base font-bold text-white font-mono-val mt-0.5">${m.val}</div>
+                <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
+                <div class="text-xs sm:text-sm font-bold text-white font-mono-val mt-0.5 truncate">${m.val}</div>
               </div>
             `).join('')}
           </div>
@@ -123,18 +118,71 @@ function initSiteData() {
             ${v.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
           </div>
 
-          <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-            <button onclick="openDeckToSlide(1)" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors">
-              <span>View Dossier</span>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
+            ${v.links.site ? `
+              <a href="${v.links.site}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                <span>rodimus-tech.com</span>
+              </a>
+            ` : ''}
+            ${v.links.github ? `
+              <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>Repository</span>
+              </a>
+            ` : ''}
+            <button onclick="openDeckToSlide(${idx + 1})" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors ml-auto">
+              <span>Dossier</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
-            <span class="text-zinc-700">•</span>
-            <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-zinc-400 hover:text-white inline-flex items-center gap-1 transition-colors">
-              <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>GitHub</span>
-            </a>
           </div>
         </div>
+      </div>
+    `).join('');
+  }
+
+  // Render Milestones (Track Record)
+  const timelineContainer = document.getElementById("timeline-list");
+  if (timelineContainer && config.milestones) {
+    timelineContainer.innerHTML = config.milestones.map((m) => `
+      <div class="relative pl-6 pb-8 last:pb-2 border-l border-white/10 group">
+        <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-900 border border-white/40 group-hover:scale-125 transition-transform"></div>
+        <div class="text-[11px] font-mono text-zinc-500 mb-1">${m.period}</div>
+        <h4 class="text-base font-bold text-white group-hover:text-zinc-300 transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
+        <p class="text-zinc-400 text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
+      </div>
+    `).join('');
+  }
+
+  // Render Skills Arsenal
+  const skillsContainer = document.getElementById("skills-container");
+  if (skillsContainer && config.skillsArsenal) {
+    skillsContainer.innerHTML = config.skillsArsenal.map((grp, idx) => `
+      <div class="minimal-card p-6 border border-white/10 space-y-4">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+          <span>0${idx + 1} // DOMAIN</span>
+          <span class="text-emerald-400 font-semibold">${grp.items.length} Techs</span>
+        </div>
+        <h3 class="text-base sm:text-lg font-bold text-white">${grp.category}</h3>
+        <div class="flex flex-wrap gap-2 pt-1">
+          ${grp.items.map(item => `
+            <span class="px-2.5 py-1 rounded text-xs font-mono bg-white/[0.04] text-zinc-300 border border-white/10 hover:border-white/30 hover:text-white transition-colors">
+              ${item}
+            </span>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render Certifications
+  const certsContainer = document.getElementById("certifications-container");
+  if (certsContainer && config.certifications) {
+    certsContainer.innerHTML = config.certifications.map((c) => `
+      <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 space-y-2 hover:border-white/20 transition-colors">
+        <div class="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">${c.issuer}</div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white leading-snug">${c.title}</h4>
+        <p class="text-[11px] text-zinc-400 font-light leading-relaxed">${c.highlight}</p>
       </div>
     `).join('');
   }
@@ -142,7 +190,7 @@ function initSiteData() {
   // Render Essays
   const essaysContainer = document.getElementById("essays-list");
   if (essaysContainer && config.essays) {
-    essaysContainer.innerHTML = config.essays.map((e, idx) => `
+    essaysContainer.innerHTML = config.essays.map((e) => `
       <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
         <div>
           <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
@@ -162,19 +210,6 @@ function initSiteData() {
           </a>
           <span class="text-[10px] font-mono text-zinc-600">@builtfor101</span>
         </div>
-      </div>
-    `).join('');
-  }
-
-  // Render Milestones
-  const timelineContainer = document.getElementById("timeline-list");
-  if (timelineContainer && config.milestones) {
-    timelineContainer.innerHTML = config.milestones.map((m) => `
-      <div class="relative pl-6 pb-8 last:pb-2 border-l border-white/10 group">
-        <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-900 border border-white/40 group-hover:scale-125 transition-transform"></div>
-        <div class="text-[11px] font-mono text-zinc-500 mb-1">${m.period}</div>
-        <h4 class="text-base font-bold text-white group-hover:text-zinc-300 transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
-        <p class="text-zinc-400 text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
       </div>
     `).join('');
   }
@@ -287,7 +322,13 @@ function setupCommandPalette() {
       closeCMD();
       if (window.soundEngine) window.soundEngine.playClick();
 
-      if (action === "open-deck") {
+      if (action === "open-linkedin") {
+        window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
+      } else if (action === "open-rodimus") {
+        window.open("https://www.rodimus-tech.com", "_blank");
+      } else if (action === "open-github") {
+        window.open("https://github.com/Shubh-creations", "_blank");
+      } else if (action === "open-deck") {
         openDeckModal();
       } else if (action === "open-contact") {
         openContactModal();
@@ -302,7 +343,7 @@ function setupCommandPalette() {
       } else if (action === "toggle-sound") {
         toggleSoundHUD();
       } else if (action === "copy-email") {
-        const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh-creations.github.io";
+        const email = window.SITE_CONFIG?.founder?.links?.email || "shubhampawar0610@gmail.com";
         navigator.clipboard.writeText(email);
         showToast("Copied email: " + email, "success");
       }
@@ -318,37 +359,49 @@ function setupAIAssistant() {
   const submitBtn = document.getElementById("ai-submit-btn");
   const responseBox = document.getElementById("ai-response-text");
   const badgeEl = document.getElementById("ai-response-badge");
-  const chips = document.querySelectorAll(".ai-query-chip");
 
   if (!input || !submitBtn || !responseBox) return;
 
-  function runQuery(q) {
-    if (!q) return;
-    input.value = q;
-    submitBtn.disabled = true;
-    responseBox.textContent = "Querying founder core...";
+  function runQuery(queryString) {
+    const query = queryString || input.value.trim();
+    if (!query) return;
 
-    if (window.soundEngine) window.soundEngine.playClick(900, 0.04);
+    if (badgeEl) {
+      badgeEl.textContent = "Processing...";
+      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20";
+    }
+
+    if (window.soundEngine) window.soundEngine.playClick();
 
     setTimeout(() => {
-      const result = window.neuralAssistant.query(q);
-      if (badgeEl) badgeEl.textContent = result.badge;
+      const res = window.neuralAssistant.query(query);
 
-      window.neuralAssistant.typewriter(responseBox, result.text, () => {
-        submitBtn.disabled = false;
-        if (window.soundEngine) window.soundEngine.playSuccess();
+      if (badgeEl) {
+        badgeEl.textContent = res.badge || "Verified";
+        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20";
+      }
+
+      window.neuralAssistant.typewriter(responseBox, res.text, () => {
+        if (badgeEl) {
+          setTimeout(() => {
+            badgeEl.textContent = "Ready";
+            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/10";
+          }, 3000);
+        }
       });
-    }, 200);
+    }, 180);
   }
 
-  submitBtn.addEventListener("click", () => runQuery(input.value));
+  submitBtn.addEventListener("click", () => runQuery());
   input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") runQuery(input.value);
+    if (e.key === "Enter") runQuery();
   });
 
-  chips.forEach(chip => {
+  document.querySelectorAll(".ai-query-chip").forEach(chip => {
     chip.addEventListener("click", () => {
-      runQuery(chip.getAttribute("data-query"));
+      const q = chip.getAttribute("data-query");
+      input.value = q;
+      runQuery(q);
     });
   });
 }
@@ -458,7 +511,7 @@ function renderSlide(index) {
           <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
 
           <div class="space-y-2.5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Strategic Highlights:</div>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Architecture Points:</div>
             ${slide.bullets.map(b => `
               <div class="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 font-light">
                 <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
@@ -468,9 +521,12 @@ function renderSlide(index) {
           </div>
         </div>
 
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono">
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono flex-wrap gap-2">
           <div>SHUBHAM PAWAR // @builtfor101</div>
-          <div>FOUNDER DOSSIER</div>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener" class="text-blue-400 hover:underline">LinkedIn</a>
+            <a href="https://rodimus-tech.com" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">rodimus-tech.com</a>
+          </div>
         </div>
       </div>
     `;
@@ -508,12 +564,12 @@ function setupContactModal() {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = document.getElementById("investor-name")?.value || "Builder";
+      const name = document.getElementById("investor-name")?.value || "Colleague";
       const firm = document.getElementById("investor-firm")?.value || "";
       const email = document.getElementById("investor-email")?.value || "";
       const note = document.getElementById("investor-note")?.value || "";
 
-      const subject = encodeURIComponent(`Founder Connect: ${name} (${firm})`);
+      const subject = encodeURIComponent(`Direct Connect: ${name} (${firm})`);
       const body = encodeURIComponent(`Hi Shubham,\n\nI reviewed your portfolio at shubh-creations.github.io.\n\nFrom: ${name} (${firm})\nEmail: ${email}\n\nNote:\n${note}\n\nBest,\n${name}`);
 
       window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
@@ -604,7 +660,7 @@ function setupCopyButtons() {
   document.querySelectorAll("[data-copy-email]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = window.SITE_CONFIG?.founder?.links?.email || "founder@shubh-creations.github.io";
+      const email = window.SITE_CONFIG?.founder?.links?.email || "shubhampawar0610@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
         showToast(`Copied ${email} to clipboard`, "success");
       });
