@@ -1,6 +1,6 @@
 @echo off
 echo ========================================================
-echo   Auto-Deploying Changes to GitHub Pages
+echo   Deploying Solely to Shubh-creations.github.io
 echo ========================================================
 echo.
 
@@ -11,17 +11,15 @@ git add .
 
 echo.
 echo Step 2: Committing updates...
-git commit -m "update portfolio content"
+git commit -m "update standalone portfolio"
 
 echo.
-echo Step 3: Pushing live to GitHub Pages...
+echo Step 3: Pushing live to Shubh-creations.github.io...
 git push origin main master gh-pages --force
 
 echo.
 echo ========================================================
 echo   Deployment successful! 
-echo   Your live site will update within 30-60 seconds at:
-echo   - https://shubh-creations.github.io/Shubhcreations.github.io
-echo   - https://shubh-creations.github.io
+echo   Live at: https://shubh-creations.github.io
 echo ========================================================
 pause
