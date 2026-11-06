@@ -1,17 +1,18 @@
 Write-Host "========================================================" -ForegroundColor Cyan
-Write-Host "  Deploying Shubh // Personnel OS to GitHub Pages" -ForegroundColor Cyan
-Write-Host "  Target: https://github.com/Shubh-creations/Shubh-creations.github.io" -ForegroundColor Cyan
+Write-Host "  Auto-Deploying Changes to GitHub Pages" -ForegroundColor Cyan
 Write-Host "========================================================" -ForegroundColor Cyan
 Write-Host ""
 
 Set-Location -Path "C:\My web github.io"
 
-Write-Host "Current Directory: $(Get-Location)" -ForegroundColor Green
+Write-Host "Staging and committing changes..." -ForegroundColor Yellow
+git add .
+git commit -m "update portfolio content"
 
-git remote set-url origin https://github.com/Shubh-creations/Shubh-creations.github.io.git
-git push -u origin main --force
-git push -u origin master --force
-git push -u origin gh-pages --force
+Write-Host "Pushing live to GitHub Pages..." -ForegroundColor Yellow
+git push origin main master gh-pages --force
 
 Write-Host ""
-Write-Host "Deployment push completed! Clean root domain at: https://shubh-creations.github.io" -ForegroundColor Green
+Write-Host "Deployment successful! Live sites update in 30-60s:" -ForegroundColor Green
+Write-Host "- https://shubh-creations.github.io/Shubhcreations.github.io" -ForegroundColor Green
+Write-Host "- https://shubh-creations.github.io" -ForegroundColor Green
