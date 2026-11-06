@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shubh // Super Intelligent Personnel OS & Investor Hub</title>
+  <title>Shubh // Founder & Systems Architect</title>
   
-  <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Super intelligent personnel portfolio and investment memo for Shubh. High-scale distributed systems, autonomous enterprise AI, and venture track record." />
+  <!-- SEO & Social OpenGraph -->
+  <meta name="description" content="Personal portfolio and investor materials for Shubh. High-scale distributed systems, autonomous enterprise AI, and venture track record." />
   <meta name="keywords" content="Shubh, Founder, Technical Architect, AI, Distributed Systems, Investor Deck, Venture Capital, GitHub" />
   <meta name="author" content="Shubh" />
-  <meta property="og:title" content="Shubh // Super Intelligent Personnel OS" />
-  <meta property="og:description" content="Explore ventures, track record, interactive AI twin, and pitch deck on shubhcreations.github.io." />
+  <meta property="og:title" content="Shubh // Founder & Systems Architect" />
+  <meta property="og:description" content="Explore ventures, track record, interactive AI twin, and pitch deck on shubh.github.io." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://shubhcreations.github.io" />
+  <meta property="og:url" content="https://shubh.github.io" />
   <meta name="twitter:card" content="summary_large_image" />
   
   <!-- Favicons & App Icons -->
@@ -20,11 +20,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#6366f1" />
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#ffffff" />
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#030712" />
-  <meta name="msapplication-TileColor" content="#030712" />
-  <link rel="canonical" href="https://shubhcreations.github.io" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://shubh.github.io" />
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,58 +49,48 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Stylesheet -->
+  <!-- Custom Super-Minimalist Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="bg-[#030712] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative min-h-screen">
+<body class="bg-black text-zinc-100 antialiased selection:bg-white selection:text-black relative min-h-screen">
 
-  <!-- Interactive 60fps Particle Constellation Canvas -->
+  <!-- Subtle Minimalist Neural Particles Canvas -->
   <canvas id="neural-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Matte Luxury Film Grain Noise Overlay -->
+  <!-- Matte Luxury Noise Texture -->
   <div class="noise-overlay"></div>
 
-  <!-- Ambient Radiant Glow Orbs -->
-  <div class="glow-ambient glow-ambient-1"></div>
-  <div class="glow-ambient glow-ambient-2"></div>
-
-  <!-- Background High-Tech Grid Pattern -->
-  <div class="fixed inset-0 bg-grid-mesh pointer-events-none z-0"></div>
-
   <!-- ========================================================================
-       TOP HUD: Real-time Telemetry Diagnostic Bar
+       TOP TELEMETRY DIAGNOSTIC BAR
        ======================================================================== -->
-  <div class="w-full bg-[#050914]/90 border-b border-white/[0.06] px-4 sm:px-8 py-2 relative z-50 text-[11px] font-mono text-slate-400">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+  <div class="w-full bg-black/90 border-b border-white/5 px-4 sm:px-8 py-2 relative z-50 text-[11px] font-mono text-zinc-400">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
       
-      <!-- Left: Node Status & Real-time Clock -->
-      <div class="flex items-center gap-4 sm:gap-6">
-        <div class="flex items-center gap-2 text-slate-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="font-bold tracking-wider">NODE: SHUBH-OS-v4.9</span>
-        </div>
-        <div class="hidden md:flex items-center gap-2">
-          <span class="text-slate-500">PING:</span>
-          <span class="text-emerald-400 font-semibold">18ms // OPTIMUM</span>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 text-zinc-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-bold tracking-wider">SHUBH-OS // v4.9</span>
         </div>
         <div class="hidden sm:flex items-center gap-2">
-          <span class="text-slate-500">TIME:</span>
-          <span id="hud-time" class="text-slate-300">--:--:-- UTC</span>
+          <span class="text-zinc-600">PING:</span>
+          <span class="text-zinc-300">18ms</span>
+        </div>
+        <div class="hidden md:flex items-center gap-2">
+          <span class="text-zinc-600">TIME:</span>
+          <span id="hud-time" class="text-zinc-300">--:--:-- UTC</span>
         </div>
       </div>
 
-      <!-- Right: Command Palette Quick Trigger & Audio Toggle -->
       <div class="flex items-center gap-3">
-        <button data-open-cmd class="hidden sm:inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
-          <i data-lucide="terminal" class="w-3.5 h-3.5 text-indigo-400"></i>
-          <span>Command Menu</span>
+        <button data-open-cmd class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 transition-colors">
+          <span>Command</span>
           <span class="kbd-badge">⌘K</span>
         </button>
 
-        <button id="hud-audio-toggle" class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-          <i data-lucide="volume-x" class="w-3.5 h-3.5 text-slate-400"></i>
-          <span class="text-[11px] font-mono text-slate-400">Audio: OFF</span>
+        <button id="hud-audio-toggle" class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.03] border border-white/10 hover:bg-white/10 transition-colors">
+          <i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-500"></i>
+          <span class="text-[11px] font-mono text-zinc-500">Audio: OFF</span>
         </button>
       </div>
 
@@ -111,51 +100,45 @@
   <!-- ========================================================================
        MAIN NAVIGATION
        ======================================================================== -->
-  <nav class="sticky top-0 z-40 w-full glass-nav-hud px-4 sm:px-8 py-3.5">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <nav class="sticky top-0 z-40 w-full minimal-nav px-4 sm:px-8 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <!-- Brand & Live Round Indicator -->
+      <!-- Logo / Name -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-600 to-cyan-500 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+        <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center font-mono font-bold text-black text-sm group-hover:scale-105 transition-transform">
           S
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <span class="font-extrabold text-white tracking-tight text-base sm:text-lg">Shubh</span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+          <div class="flex items-center gap-2.5">
+            <span class="font-extrabold text-white tracking-tight text-base">Shubh</span>
+            <span class="status-pill hidden sm:inline-flex">
               <span class="pulsing-dot"></span>
-              $1.2M SAFE Round // 45% Committed
+              Raising $1.2M SAFE
             </span>
           </div>
-          <span id="nav-domain-label" class="text-[11px] font-mono text-slate-400 block -mt-0.5">shubh-creations.github.io</span>
+          <span id="nav-domain-label" class="text-[10px] font-mono text-zinc-500 block -mt-0.5">shubh.github.io</span>
         </div>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-7 text-xs font-mono font-medium text-slate-300 uppercase tracking-wider">
-        <a href="#ai-twin" class="hover:text-indigo-300 transition-colors flex items-center gap-1.5">
-          <i data-lucide="bot" class="w-3.5 h-3.5 text-indigo-400"></i>
-          <span>Neural Twin</span>
-        </a>
-        <a href="#calculator" class="hover:text-emerald-300 transition-colors flex items-center gap-1.5">
-          <i data-lucide="calculator" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Check Calc</span>
-        </a>
+      <div class="hidden md:flex items-center gap-6 text-xs font-mono text-zinc-400 uppercase tracking-widest">
         <a href="#ventures" class="hover:text-white transition-colors">Ventures</a>
         <a href="#metrics" class="hover:text-white transition-colors">Traction</a>
         <a href="#architecture" class="hover:text-white transition-colors">Moat</a>
+        <a href="#calculator" class="hover:text-white transition-colors">Calculator</a>
+        <a href="#ai-twin" class="hover:text-white transition-colors">AI Twin</a>
         <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
-        <button data-open-deck class="btn-elite-secondary text-xs py-2 px-3.5">
-          <i data-lucide="presentation" class="w-4 h-4 text-indigo-400"></i>
+      <div class="flex items-center gap-2.5">
+        <button data-open-deck class="btn-ghost text-xs py-2 px-3.5">
+          <i data-lucide="presentation" class="w-3.5 h-3.5 text-zinc-400"></i>
           <span class="hidden sm:inline">Pitch Deck (8 Slides)</span>
           <span class="sm:hidden">Deck</span>
         </button>
-        <button data-open-contact class="btn-elite-primary text-xs py-2 px-4">
-          <i data-lucide="calendar" class="w-4 h-4"></i>
+        <button data-open-contact class="btn-white text-xs py-2 px-4">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
           <span>Book Call</span>
         </button>
       </div>
@@ -164,185 +147,173 @@
   </nav>
 
   <!-- ========================================================================
-       HERO SECTION
+       HERO SECTION (Super Minimal Stark Editorial)
        ======================================================================== -->
-  <header class="relative z-10 pt-16 sm:pt-24 pb-16 px-4 sm:px-8 max-w-7xl mx-auto">
-    <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
+  <header class="relative z-10 pt-20 sm:pt-32 pb-20 px-4 sm:px-8 max-w-6xl mx-auto">
+    <div class="max-w-4xl">
       
-      <!-- Top Monospace Label -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-white/10 text-xs font-mono text-indigo-300 mb-6 shadow-inner">
-        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-        <span>SUPER INTELLIGENT PERSONNEL OS // 2026-2027</span>
+      <!-- Label -->
+      <div class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+        <span>FOUNDER &amp; DISTRIBUTED SYSTEMS ARCHITECT</span>
       </div>
 
-      <!-- Main Headline -->
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6">
-        Engineering Next-Gen Systems &amp; <br />
-        <span class="text-gradient-accent">Autonomous Enterprise AI.</span>
+      <!-- Giant Stark Typography -->
+      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.98] mb-8 text-white">
+        Engineering <br />
+        Systems &amp; AI <br />
+        <span class="text-zinc-500 font-light">at Global Scale.</span>
       </h1>
 
-      <!-- Executive Pitch -->
-      <p class="text-slate-300 text-base sm:text-xl font-normal leading-relaxed max-w-3xl mb-10">
-        I engineer zero-to-one ventures, high-throughput distributed architectures, and deterministic AI systems. Verified track record scaling to <span class="text-white font-semibold">1.2M+ active users</span>, generating <span class="text-white font-semibold">$1.8M+ ARR</span>, and building defensible technical moats.
+      <!-- Crisp Executive Thesis -->
+      <p class="text-zinc-400 text-lg sm:text-xl font-light leading-relaxed max-w-2xl mb-12">
+        I engineer high-throughput distributed systems and deterministic AI platforms. Backed by verified track record scaling to <span class="text-white font-medium">1.2M+ active users</span>, generating <span class="text-white font-medium">$1.8M+ ARR</span>, and building defensible technical moats.
       </p>
 
-      <!-- Primary Action Row -->
-      <div class="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto mb-10">
-        <button data-open-deck class="btn-elite-primary text-sm sm:text-base px-6 py-3.5 shadow-xl shadow-indigo-600/30">
-          <i data-lucide="presentation" class="w-5 h-5"></i>
-          <span>Open Interactive Pitch Deck</span>
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-wrap items-center gap-4 mb-10">
+        <button data-open-deck class="btn-white text-sm px-6 py-3.5">
+          <i data-lucide="presentation" class="w-4 h-4"></i>
+          <span>Open Pitch Deck (8 Slides)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
-        <button data-open-contact class="btn-elite-secondary text-sm sm:text-base px-6 py-3.5">
-          <i data-lucide="calendar" class="w-5 h-5 text-indigo-400"></i>
+        <button data-open-contact class="btn-ghost text-sm px-6 py-3.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-zinc-400"></i>
           <span>Schedule 20-Min Intro</span>
         </button>
-        <button onclick="window.print()" class="btn-elite-secondary text-xs sm:text-sm px-4 py-3" title="Save / Export 1-Pager PDF">
-          <i data-lucide="printer" class="w-4 h-4"></i>
+        <button data-copy-email class="btn-ghost text-xs px-4 py-3.5" title="Copy Email">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Copy Email</span>
+        </button>
+        <button onclick="window.print()" class="btn-ghost text-xs px-4 py-3.5" title="Save / Export 1-Pager PDF">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">Print 1-Pager</span>
         </button>
       </div>
 
-      <!-- Command Palette Quick Hint -->
-      <div class="text-xs font-mono text-slate-500 flex items-center gap-2">
-        <span>Tip: Press</span>
-        <button data-open-cmd class="kbd-badge hover:bg-white/15 transition-colors">⌘K</button>
-        <span>for instant AI search, deck jump, and audio toggle</span>
+      <!-- Hint -->
+      <div class="text-xs font-mono text-zinc-600 flex items-center gap-2">
+        <span>Press</span>
+        <button data-open-cmd class="kbd-badge hover:bg-white/10 transition-colors">⌘K</button>
+        <span>for instant AI query, deck jump, and audio settings</span>
       </div>
+
     </div>
   </header>
 
   <!-- ========================================================================
-       SUPER INTELLIGENT AI TWIN CONSOLE (Interactive Intelligence Drawer)
+       TYPOGRAPHIC METRICS LEDGER
        ======================================================================== -->
-  <section id="ai-twin" class="relative z-10 py-10 px-4 sm:px-8 max-w-5xl mx-auto">
-    <div class="spotlight-card p-6 sm:p-8 border border-indigo-500/30 bg-slate-900/90 shadow-2xl shadow-indigo-950/40">
+  <section id="metrics" class="relative z-10 py-12 px-4 sm:px-8 max-w-6xl mx-auto border-y border-white/5">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
       
-      <!-- Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5 mb-5">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-            <i data-lucide="bot" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <span>Shubh Neural Digital Twin</span>
-              <span id="ai-response-badge" class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">System Ready</span>
-            </h2>
-            <p class="text-xs text-slate-400">Ask anything regarding fundraising terms, technical moats, revenue traction, or background.</p>
-          </div>
-        </div>
-
-        <div class="text-xs font-mono text-slate-400 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span>Verified Knowledge Base</span>
-        </div>
+      <div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Scale Traction</div>
+        <div class="text-3xl sm:text-4xl font-black text-white font-mono-val">1.2M+</div>
+        <div class="text-xs text-zinc-400 mt-1 font-light">Active Users Scaled</div>
       </div>
 
-      <!-- Input Bar -->
-      <div class="flex items-center gap-2 mb-4">
-        <div class="relative flex-1">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-          <input type="text" id="ai-query-input" placeholder="e.g. What are your current round terms and check sizes?" class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white text-sm focus:border-indigo-500 focus:outline-none placeholder:text-slate-500" />
-        </div>
-        <button id="ai-submit-btn" class="btn-elite-primary text-xs py-3 px-4 shrink-0">
-          <span>Query AI</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </button>
+      <div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Revenue Velocity</div>
+        <div class="text-3xl sm:text-4xl font-black text-white font-mono-val">$1.8M+</div>
+        <div class="text-xs text-zinc-400 mt-1 font-light">Historical Scaled ARR</div>
       </div>
 
-      <!-- Suggested Query Chips -->
-      <div class="flex flex-wrap gap-2 mb-5">
-        <span class="text-xs font-mono text-slate-400 self-center">Quick queries:</span>
-        <button class="ai-query-chip text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-query="What are your current round terms and target raise?">
-          💰 Round Terms &amp; Cap
-        </button>
-        <button class="ai-query-chip text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-query="Explain your technical moat and defensibility">
-          🛡️ Technical Moat
-        </button>
-        <button class="ai-query-chip text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-query="Show verified revenue and active user metrics">
-          📈 Verified Traction
-        </button>
-        <button class="ai-query-chip text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-query="What is Shubh's background and execution track record?">
-          👨‍💻 Founder Pedigree
-        </button>
+      <div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Infrastructure SLA</div>
+        <div class="text-3xl sm:text-4xl font-black text-white font-mono-val">99.99%</div>
+        <div class="text-xs text-zinc-400 mt-1 font-light">&lt;20ms p99 Uptime</div>
       </div>
 
-      <!-- Response Output Box -->
-      <div class="p-5 rounded-xl bg-slate-950/80 border border-white/10 min-h-[90px] flex items-center">
-        <p id="ai-response-text" class="text-slate-200 text-sm leading-relaxed font-sans">
-          Welcome to Shubh's verified portfolio intelligence system. Type a question above or click one of the quick queries to inspect round dynamics, system architecture, or metrics.
-        </p>
+      <div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Developer Community</div>
+        <div class="text-3xl sm:text-4xl font-black text-white font-mono-val">12,400+</div>
+        <div class="text-xs text-zinc-400 mt-1 font-light">GitHub Stars</div>
       </div>
 
     </div>
   </section>
 
   <!-- ========================================================================
-       INVESTOR CHECK SIZE & ALLOCATION CALCULATOR
+       VENTURES CATALOG
        ======================================================================== -->
-  <section id="calculator" class="relative z-10 py-12 px-4 sm:px-8 max-w-5xl mx-auto">
-    <div class="spotlight-card p-6 sm:p-10 border border-emerald-500/25 bg-slate-900/90 shadow-2xl">
+  <section id="ventures" class="relative z-10 py-20 px-4 sm:px-8 max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div>
+        <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">01 // TRACK RECORD</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Active Ventures &amp; Core Systems</h2>
+      </div>
+      <p class="text-zinc-500 text-xs sm:text-sm font-mono max-w-xs sm:text-right">
+        Zero-to-one architecture through enterprise production scale.
+      </p>
+    </div>
+
+    <!-- Ventures List Container (Rendered dynamically by main.js) -->
+    <div id="ventures-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Injected by main.js -->
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SAFE CHECK SIZE & ALLOCATION CALCULATOR
+       ======================================================================== -->
+  <section id="calculator" class="relative z-10 py-16 px-4 sm:px-8 max-w-6xl mx-auto">
+    <div class="minimal-card p-6 sm:p-10 border border-white/10">
       
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-6 mb-8">
         <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2">
-            <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
-            <span>INTERACTIVE SAFE ALLOCATION CALCULATOR</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Simulate Check Size &amp; Ownership</h2>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1">02 // DUE DILIGENCE SIMULATOR</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">SAFE Allocation Calculator</h2>
         </div>
         <div class="text-right">
-          <div class="text-xs font-mono text-slate-400">ROUND DYNAMICS</div>
-          <div class="text-sm font-semibold text-slate-200">$1.2M Target // Post-Money SAFE</div>
+          <div class="text-[10px] font-mono text-zinc-500 uppercase">ROUND DYNAMICS</div>
+          <div class="text-xs font-mono text-white">$1.2M Pre-Seed // $12M Post-Money Cap</div>
         </div>
       </div>
 
-      <!-- Slider Area -->
       <div class="space-y-4 mb-8">
         <div class="flex items-center justify-between">
-          <label for="check-size-slider" class="text-sm font-mono text-slate-300">Investment Check Size:</label>
-          <span id="calc-check-display" class="text-2xl sm:text-3xl font-extrabold font-mono-val text-emerald-400">$100,000</span>
+          <label for="check-size-slider" class="text-xs font-mono text-zinc-400 uppercase tracking-wider">Investment Check Size:</label>
+          <span id="calc-check-display" class="text-2xl sm:text-3xl font-black font-mono-val text-white">$100,000</span>
         </div>
         <input type="range" id="check-size-slider" min="25000" max="500000" step="25000" value="100000" class="w-full" />
-        <div class="flex justify-between text-[11px] font-mono text-slate-500">
-          <span>$25K (Angel Minimum)</span>
+        <div class="flex justify-between text-[10px] font-mono text-zinc-600">
+          <span>$25K (Angel Min)</span>
           <span>$250K (Strategic Ticket)</span>
           <span>$500K (Major Allocation)</span>
         </div>
       </div>
 
-      <!-- Calculated Outputs Bento Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <div class="p-4 rounded-xl bg-slate-950/70 border border-white/10">
-          <div class="text-xs font-mono text-slate-400">ESTIMATED OWNERSHIP</div>
+        <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5">
+          <div class="text-[10px] font-mono text-zinc-500 uppercase">ESTIMATED OWNERSHIP</div>
           <div id="calc-ownership-display" class="text-2xl font-bold font-mono-val text-white mt-1">0.83%</div>
-          <div class="text-[11px] text-slate-500 mt-1">Based on $12M Post-Money Cap</div>
+          <div class="text-[10px] text-zinc-600 mt-1 font-mono">Based on $12M Post-Money Cap</div>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-950/70 border border-white/10">
-          <div class="text-xs font-mono text-slate-400">RUNWAY EXTENSION</div>
-          <div id="calc-runway-display" class="text-2xl font-bold font-mono-val text-cyan-400 mt-1">+1.8 Months</div>
-          <div class="text-[11px] text-slate-500 mt-1">Target $55k/mo net operating burn</div>
+        <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5">
+          <div class="text-[10px] font-mono text-zinc-500 uppercase">RUNWAY EXTENSION</div>
+          <div id="calc-runway-display" class="text-2xl font-bold font-mono-val text-white mt-1">+1.8 Months</div>
+          <div class="text-[10px] text-zinc-600 mt-1 font-mono">Target $55k/mo net operating burn</div>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-950/70 border border-white/10">
-          <div class="text-xs font-mono text-slate-400">INSTRUMENT</div>
-          <div class="text-lg font-bold text-indigo-300 mt-1">Post-Money SAFE</div>
-          <div class="text-[11px] text-slate-500 mt-1">Standard Pro-Rata &amp; MFN Rights</div>
+        <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5">
+          <div class="text-[10px] font-mono text-zinc-500 uppercase">INSTRUMENT</div>
+          <div class="text-base font-bold text-white mt-1">Post-Money SAFE</div>
+          <div class="text-[10px] text-zinc-600 mt-1 font-mono">Pro-Rata &amp; MFN Rights</div>
         </div>
       </div>
 
-      <!-- Milestone Impact Banner -->
-      <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
-          <i data-lucide="zap" class="w-5 h-5 text-indigo-400 shrink-0"></i>
+          <i data-lucide="zap" class="w-4 h-4 text-zinc-400 shrink-0"></i>
           <div>
-            <div class="text-xs font-mono uppercase text-indigo-300 font-semibold">Strategic Milestone Unlocked:</div>
-            <div id="calc-milestone-display" class="text-xs sm:text-sm text-slate-200 mt-0.5">Fully funds 1 dedicated Senior Distributed Systems Engineer for 12 months.</div>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Strategic Impact:</div>
+            <div id="calc-milestone-display" class="text-xs sm:text-sm text-zinc-300 mt-0.5 font-light">Fully funds 1 dedicated Senior Distributed Systems Engineer for 12 months.</div>
           </div>
         </div>
 
-        <button id="calc-reserve-btn" class="btn-elite-primary text-xs py-2.5 px-4 shrink-0">
+        <button id="calc-reserve-btn" class="btn-white text-xs py-2 px-4 shrink-0">
           <span>Reserve Allocation</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
@@ -352,199 +323,129 @@
   </section>
 
   <!-- ========================================================================
-       KEY TRACTION METRICS BENTO GRID
+       NEURAL DIGITAL TWIN (AI Terminal)
        ======================================================================== -->
-  <section id="metrics" class="relative z-10 py-12 px-4 sm:px-8 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+  <section id="ai-twin" class="relative z-10 py-16 px-4 sm:px-8 max-w-6xl mx-auto">
+    <div class="minimal-card p-6 sm:p-10 border border-white/10">
       
-      <div class="spotlight-card p-6">
-        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-          <span>SCALE REACH</span>
-          <span class="text-emerald-400 font-semibold">+140% YoY</span>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-5 mb-6">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1">03 // NEURAL QUERY CONSOLE</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+            <span>Ask Shubh's Digital Twin</span>
+            <span id="ai-response-badge" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/10">Ready</span>
+          </h2>
         </div>
-        <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono-val mb-1">1.2M+</div>
-        <div class="text-sm font-semibold text-slate-200 mb-1">Active Users Scaled</div>
-        <p class="text-xs text-slate-400">Across consumer and B2B SaaS deployments.</p>
+        <span class="text-xs font-mono text-zinc-600">Direct Founder Knowledge Base</span>
       </div>
 
-      <div class="spotlight-card p-6">
-        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-          <span>REVENUE RECORD</span>
-          <span class="text-emerald-400 font-semibold">0 to $1M in 14 Mo</span>
-        </div>
-        <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono-val mb-1">$1.8M+</div>
-        <div class="text-sm font-semibold text-slate-200 mb-1">Historical ARR Scaled</div>
-        <p class="text-xs text-slate-400">Enterprise subscription &amp; contract value.</p>
+      <div class="flex items-center gap-2 mb-4">
+        <input type="text" id="ai-query-input" placeholder="Ask about round terms, technical moat, revenue traction, or background..." class="w-full px-4 py-3 rounded-lg bg-black border border-white/10 text-white text-xs sm:text-sm focus:border-white focus:outline-none placeholder:text-zinc-600" />
+        <button id="ai-submit-btn" class="btn-white text-xs py-3 px-5 shrink-0">
+          <span>Query</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
       </div>
 
-      <div class="spotlight-card p-6">
-        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-          <span>INFRASTRUCTURE SLA</span>
-          <span class="text-cyan-400 font-semibold">&lt;20ms p99</span>
-        </div>
-        <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono-val mb-1">99.99%</div>
-        <div class="text-sm font-semibold text-slate-200 mb-1">System Uptime</div>
-        <p class="text-xs text-slate-400">High-concurrency multi-region deployments.</p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="text-[11px] font-mono text-zinc-600 self-center">Suggested:</span>
+        <button class="ai-query-chip text-xs px-2.5 py-1 rounded bg-white/[0.03] border border-white/5 text-zinc-400 hover:text-white hover:border-white/20 transition-colors" data-query="What are your current round terms and target raise?">
+          Round Terms
+        </button>
+        <button class="ai-query-chip text-xs px-2.5 py-1 rounded bg-white/[0.03] border border-white/5 text-zinc-400 hover:text-white hover:border-white/20 transition-colors" data-query="Explain your technical moat and defensibility">
+          Technical Moat
+        </button>
+        <button class="ai-query-chip text-xs px-2.5 py-1 rounded bg-white/[0.03] border border-white/5 text-zinc-400 hover:text-white hover:border-white/20 transition-colors" data-query="Show verified revenue and active user metrics">
+          Traction Metrics
+        </button>
+        <button class="ai-query-chip text-xs px-2.5 py-1 rounded bg-white/[0.03] border border-white/5 text-zinc-400 hover:text-white hover:border-white/20 transition-colors" data-query="What is Shubh's background and execution track record?">
+          Founder Pedigree
+        </button>
       </div>
 
-      <div class="spotlight-card p-6">
-        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-          <span>DEVELOPER REACH</span>
-          <span class="text-indigo-400 font-semibold">Top 1% Global</span>
-        </div>
-        <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono-val mb-1">12,400+</div>
-        <div class="text-sm font-semibold text-slate-200 mb-1">GitHub Stars</div>
-        <p class="text-xs text-slate-400">Open source protocols &amp; developer tools.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       VENTURES & SCALED CORE
-       ======================================================================== -->
-  <section id="ventures" class="relative z-10 py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          <span>VENTURE PORTFOLIO &amp; SCALE</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Active Ventures &amp; Core Systems</h2>
-      </div>
-      <p class="text-slate-400 text-sm max-w-md">
-        Proven capability shipping high-impact software from initial napkin prototype to enterprise contracts.
-      </p>
-    </div>
-
-    <div id="ventures-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamic rendering from js/config.js via main.js -->
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       TECHNICAL DEFESIBILITY & ARCHITECTURE MOAT
-       ======================================================================== -->
-  <section id="architecture" class="relative z-10 py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-    <div class="spotlight-card p-8 sm:p-12 border border-white/10">
-      
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-3">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>DEEP TECH ARCHITECTURE &amp; MOAT</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-          Defensibility Engineered at the Systems Level
-        </h2>
-        <p class="text-slate-300 text-base leading-relaxed">
-          While thin software wrappers face instant commoditization, our value lies in low-level distributed performance, deterministic state machines, and verified compliance gates.
+      <div class="p-5 rounded-lg bg-black/60 border border-white/5 min-h-[80px] flex items-center">
+        <p id="ai-response-text" class="text-zinc-300 text-xs sm:text-sm leading-relaxed font-light">
+          System initialized. Click any suggested prompt above or type your inquiry to inspect verified round dynamics, architectural moats, or metrics.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="p-6 rounded-2xl bg-slate-950/70 border border-white/5 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-            <i data-lucide="git-merge" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold text-white">Deterministic Graphs</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Stateful graph execution with zero-hallucination verification gates, ensuring 99.7% workflow correctness across enterprise tasks.
-          </p>
-        </div>
+    </div>
+  </section>
 
-        <div class="p-6 rounded-2xl bg-slate-950/70 border border-white/5 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-            <i data-lucide="zap" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold text-white">Sub-30ms Latency</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Written in Go and Rust with zero-copy serialization, executing streaming queries and telemetry at over 180,000 writes/second.
-          </p>
-        </div>
+  <!-- ========================================================================
+       TECHNICAL MOAT & DEFESIBILITY
+       ======================================================================== -->
+  <section id="architecture" class="relative z-10 py-16 px-4 sm:px-8 max-w-6xl mx-auto">
+    <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">04 // DEFESIBILITY MATRIX</div>
+    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Architectural Moat</h2>
+    <p class="text-zinc-400 text-sm font-light max-w-2xl mb-12">
+      Defensibility engineered at the systems level, resisting foundation model commoditization through deterministic state machines and high-throughput pipelines.
+    </p>
 
-        <div class="p-6 rounded-2xl bg-slate-950/70 border border-white/5 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <i data-lucide="shield" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold text-white">Enterprise Enclaves</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Zero-knowledge customer data isolation designed for strict SOC2 Type II, HIPAA, and GDPR enterprise compliance requirements.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-slate-950/70 border border-white/5 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
-            <i data-lucide="network" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold text-white">Multi-Region Cloud</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Kubernetes-native distributed orchestration across AWS and GCP with automatic failover, multi-tenant isolation, and 99.99% uptime.
-          </p>
-        </div>
-
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="p-6 rounded-xl bg-white/[0.02] border border-white/5 space-y-3">
+        <div class="text-xs font-mono text-zinc-500">01 // RELIABILITY</div>
+        <h3 class="text-base font-bold text-white">Deterministic Graphs</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed font-light">
+          Stateful graph execution with zero-hallucination verification gates, achieving 99.7% execution fidelity.
+        </p>
       </div>
 
+      <div class="p-6 rounded-xl bg-white/[0.02] border border-white/5 space-y-3">
+        <div class="text-xs font-mono text-zinc-500">02 // PERFORMANCE</div>
+        <h3 class="text-base font-bold text-white">Sub-30ms Latency</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed font-light">
+          Written in Rust and Go with zero-copy serialization, executing telemetries at 180,000 writes/second.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/[0.02] border border-white/5 space-y-3">
+        <div class="text-xs font-mono text-zinc-500">03 // COMPLIANCE</div>
+        <h3 class="text-base font-bold text-white">Enterprise Enclaves</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed font-light">
+          Zero-knowledge tenant isolation meeting rigorous SOC2 Type II, HIPAA, and GDPR standards.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/[0.02] border border-white/5 space-y-3">
+        <div class="text-xs font-mono text-zinc-500">04 // ORCHESTRATION</div>
+        <h3 class="text-base font-bold text-white">Multi-Region Cloud</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed font-light">
+          Kubernetes-native distributed deployment across AWS and GCP with automatic self-healing failover.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ========================================================================
        FOUNDER MILESTONES & PEDIGREE
        ======================================================================== -->
-  <section id="track-record" class="relative z-10 py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+  <section id="track-record" class="relative z-10 py-16 px-4 sm:px-8 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       
       <div class="lg:col-span-5 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-          <i data-lucide="user" class="w-3.5 h-3.5"></i>
-          <span>FOUNDER PEDIGREE</span>
-        </div>
-
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Execution-Obsessed <br />
-          <span class="text-gradient-accent">Technical Leadership</span>
-        </h2>
-
-        <p class="text-slate-300 text-sm leading-relaxed">
-          I combine the deep technical mastery of a systems architect with the commercial clarity of a founder. Having built and shipped platforms reaching millions of users and high-scale enterprise contracts, I understand how to turn bleeding-edge engineering into commercial scale.
+        <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest">05 // OPERATOR PEDIGREE</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Execution-Driven Leadership</h2>
+        <p class="text-zinc-400 text-sm font-light leading-relaxed">
+          I combine the low-level systems engineering depth of a principal architect with the commercial clarity of a founder. Experienced scaling distributed infrastructure from day-zero napkin sketches to multi-million active users.
         </p>
-
-        <div class="p-5 rounded-2xl bg-slate-950/80 border border-white/10 space-y-3">
-          <div class="text-xs font-mono uppercase tracking-wider text-slate-400">Core Attributes:</div>
-          <div class="flex items-center gap-2 text-xs text-slate-200">
-            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-            <span>Hands-on 0-to-1 builder: Architecture, Code, Security &amp; Hiring</span>
-          </div>
-          <div class="flex items-center gap-2 text-xs text-slate-200">
-            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-            <span>Disciplined capital steward: Focused on high ROI &amp; lean runway</span>
-          </div>
-          <div class="flex items-center gap-2 text-xs text-slate-200">
-            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-            <span>Strong developer network: Track record attracting tier-1 engineering talent</span>
-          </div>
-        </div>
-
         <div class="pt-2 flex items-center gap-4">
-          <button data-open-contact class="btn-elite-primary text-xs py-2.5 px-4">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>Get in Touch Directly</span>
+          <button data-open-contact class="btn-white text-xs py-2 px-4">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>Get in Touch</span>
           </button>
-          <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener" class="btn-elite-secondary text-xs py-2.5 px-3">
-            <i data-lucide="github" class="w-4 h-4"></i>
+          <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener" class="btn-ghost text-xs py-2 px-3.5">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
             <span>github.com/Shubh-creations</span>
           </a>
         </div>
       </div>
 
       <div class="lg:col-span-7">
-        <div class="spotlight-card p-6 sm:p-8 border border-white/10">
-          <h3 class="text-xl font-bold text-white mb-6 flex items-center justify-between">
-            <span>Career Milestones &amp; Operator Roles</span>
-            <span class="text-xs font-mono text-slate-400">2018 — Present</span>
-          </h3>
+        <div class="minimal-card p-6 sm:p-8 border border-white/10">
+          <h3 class="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-6">Milestones (2018 — Present)</h3>
           <div id="timeline-list">
-            <!-- Dynamic rendering from js/config.js -->
+            <!-- Injected by main.js -->
           </div>
         </div>
       </div>
@@ -556,72 +457,39 @@
        INVESTOR FAQ ACCORDION
        ======================================================================== -->
   <section id="faq" class="relative z-10 py-16 px-4 sm:px-8 max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
-        <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
-        <span>DUE DILIGENCE QUESTIONS</span>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Investor FAQ</h2>
-      <p class="text-slate-400 text-sm">Transparent answers regarding round terms, moats, and execution roadmaps.</p>
+    <div class="text-center mb-10">
+      <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">06 // DUE DILIGENCE</div>
+      <h2 class="text-3xl font-bold text-white tracking-tight mb-2">Frequently Asked Questions</h2>
+      <p class="text-zinc-500 text-xs sm:text-sm font-light">Transparent answers regarding round dynamics, defensibility, and runway.</p>
     </div>
 
-    <div id="faq-accordion" class="space-y-3">
-      <!-- Dynamic rendering from js/config.js -->
-    </div>
-
-    <!-- Bottom Action Card -->
-    <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-indigo-950/60 to-slate-900 border border-indigo-500/20 text-center space-y-4">
-      <h3 class="text-2xl font-bold text-white">Have Specific Questions or Diligence Requests?</h3>
-      <p class="text-slate-300 text-sm max-w-xl mx-auto">
-        Schedule a 20-minute introductory call or email directly to receive our full financial projections, cap table, and customer discovery insights.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-        <button data-open-contact class="btn-elite-primary text-sm">
-          <i data-lucide="calendar" class="w-4 h-4"></i>
-          <span>Schedule 20-Min Intro Call</span>
-        </button>
-        <button data-copy-email class="btn-elite-secondary text-sm">
-          <i data-lucide="copy" class="w-4 h-4 text-indigo-400"></i>
-          <span>Copy Founder Email</span>
-        </button>
-      </div>
+    <div id="faq-accordion" class="space-y-2">
+      <!-- Injected by main.js -->
     </div>
   </section>
 
   <!-- ========================================================================
        FOOTER
        ======================================================================== -->
-  <footer class="relative z-10 border-t border-white/5 py-12 px-4 sm:px-8 mt-16 text-slate-400 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+  <footer class="relative z-10 border-t border-white/5 py-12 px-4 sm:px-8 mt-20 text-zinc-500 text-xs font-mono">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white font-mono text-xs">S</div>
+        <div class="w-6 h-6 rounded bg-white text-black font-bold flex items-center justify-center text-xs">S</div>
         <div>
-          <span class="font-bold text-slate-200">Shubh</span> &copy; 2026. Hosted on <a id="footer-domain-link" href="#" class="text-indigo-400 hover:underline">shubh-creations.github.io</a>
+          <span class="text-white font-medium">Shubh</span> &copy; 2026. Hosted on <a id="footer-domain-link" href="#" class="text-zinc-400 hover:text-white underline">shubh.github.io</a>
         </div>
       </div>
 
       <div class="flex items-center gap-6">
-        <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="https://linkedin.com/in/shubh" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://twitter.com/shubh" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="twitter" class="w-4 h-4"></i>
-          <span>Twitter / X</span>
-        </a>
-        <button data-copy-email class="hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          <span>Email</span>
-        </button>
+        <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/shubh" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+        <a href="https://twitter.com/shubh" target="_blank" rel="noopener" class="hover:text-white transition-colors">Twitter / X</a>
+        <button data-copy-email class="hover:text-white transition-colors">Email</button>
       </div>
 
-      <div class="text-slate-500 text-[11px] max-w-xs text-center md:text-right">
-        Super Intelligent Personnel OS // Strictly for authorized informational review.
+      <div class="text-zinc-600 text-[10px]">
+        CONFIDENTIAL // QUALIFIED INVESTORS ONLY
       </div>
 
     </div>
@@ -631,119 +499,103 @@
        MODAL 1: COMMAND PALETTE (⌘K / Ctrl+K)
        ======================================================================== -->
   <div id="cmd-modal" class="fixed inset-0 z-50 cmd-modal-backdrop hidden items-center justify-center p-4">
-    <div class="cmd-modal-box w-full max-w-xl rounded-2xl overflow-hidden flex flex-col">
-      
-      <!-- Input -->
-      <div class="px-5 py-4 border-b border-white/10 flex items-center gap-3 bg-slate-900/90">
-        <i data-lucide="search" class="w-5 h-5 text-indigo-400"></i>
-        <input type="text" id="cmd-search-input" placeholder="Type a command or jump to section..." class="w-full bg-transparent text-white text-sm focus:outline-none placeholder:text-slate-500" />
+    <div class="cmd-modal-box w-full max-w-lg rounded-xl overflow-hidden flex flex-col">
+      <div class="px-4 py-3.5 border-b border-white/10 flex items-center gap-3 bg-zinc-950">
+        <i data-lucide="search" class="w-4 h-4 text-zinc-400"></i>
+        <input type="text" id="cmd-search-input" placeholder="Type a command or jump to section..." class="w-full bg-transparent text-white text-xs sm:text-sm focus:outline-none placeholder:text-zinc-600" />
         <span class="kbd-badge">ESC</span>
       </div>
 
-      <!-- Items List -->
       <div class="p-2 overflow-y-auto max-h-80 space-y-1">
-        <button class="cmd-item w-full px-4 py-3 rounded-xl flex items-center justify-between text-left text-sm text-slate-300" data-action="open-deck">
-          <div class="flex items-center gap-3">
-            <i data-lucide="presentation" class="w-4 h-4 text-indigo-400"></i>
-            <span>Open Interactive Pitch Deck (8 Slides)</span>
+        <button class="cmd-item w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between text-left text-xs text-zinc-300" data-action="open-deck">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="presentation" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Open Pitch Deck (8 Slides)</span>
           </div>
           <span class="kbd-badge">D</span>
         </button>
 
-        <button class="cmd-item w-full px-4 py-3 rounded-xl flex items-center justify-between text-left text-sm text-slate-300" data-action="query-ai">
-          <div class="flex items-center gap-3">
-            <i data-lucide="bot" class="w-4 h-4 text-cyan-400"></i>
+        <button class="cmd-item w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between text-left text-xs text-zinc-300" data-action="query-ai">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="bot" class="w-3.5 h-3.5 text-zinc-400"></i>
             <span>Query Shubh's Neural Digital Twin</span>
           </div>
           <span class="kbd-badge">AI</span>
         </button>
 
-        <button class="cmd-item w-full px-4 py-3 rounded-xl flex items-center justify-between text-left text-sm text-slate-300" data-action="open-contact">
-          <div class="flex items-center gap-3">
-            <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+        <button class="cmd-item w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between text-left text-xs text-zinc-300" data-action="open-contact">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-zinc-400"></i>
             <span>Schedule Founder Intro Call</span>
           </div>
           <span class="kbd-badge">C</span>
         </button>
 
-        <button class="cmd-item w-full px-4 py-3 rounded-xl flex items-center justify-between text-left text-sm text-slate-300" data-action="toggle-sound">
-          <div class="flex items-center gap-3">
-            <i data-lucide="volume-2" class="w-4 h-4 text-purple-400"></i>
-            <span>Toggle Sound Effects &amp; Audio HUD</span>
+        <button class="cmd-item w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between text-left text-xs text-zinc-300" data-action="toggle-sound">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Toggle Audio HUD</span>
           </div>
           <span class="kbd-badge">M</span>
         </button>
 
-        <button class="cmd-item w-full px-4 py-3 rounded-xl flex items-center justify-between text-left text-sm text-slate-300" data-action="copy-email">
-          <div class="flex items-center gap-3">
-            <i data-lucide="copy" class="w-4 h-4 text-amber-400"></i>
-            <span>Copy Founder Email (founder@shubhcreations.github.io)</span>
+        <button class="cmd-item w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between text-left text-xs text-zinc-300" data-action="copy-email">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Copy Founder Email</span>
           </div>
           <span class="kbd-badge">@</span>
         </button>
       </div>
-
-      <!-- Footer Info -->
-      <div class="px-5 py-2.5 bg-slate-950/80 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
-        <span>Navigation: Click or Enter</span>
-        <span>OS v4.9</span>
-      </div>
-
     </div>
   </div>
 
   <!-- ========================================================================
-       MODAL 2: Interactive Pitch Deck & Memo Viewer
+       MODAL 2: PITCH DECK READER
        ======================================================================== -->
   <div id="deck-modal" class="fixed inset-0 z-50 cmd-modal-backdrop hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true">
-    <div class="cmd-modal-box w-full max-w-4xl rounded-2xl flex flex-col max-h-[90vh] overflow-hidden">
+    <div class="cmd-modal-box w-full max-w-3xl rounded-xl flex flex-col max-h-[90vh] overflow-hidden">
       
-      <!-- Top Bar -->
-      <div class="px-6 py-4 bg-slate-900/90 border-b border-white/10 flex items-center justify-between">
+      <div class="px-5 py-3.5 bg-zinc-950 border-b border-white/10 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
-            <i data-lucide="presentation" class="w-4 h-4"></i>
-          </div>
+          <div class="w-7 h-7 rounded bg-white text-black font-bold flex items-center justify-center text-xs">P</div>
           <div>
-            <h2 class="text-sm sm:text-base font-bold text-white">Investor Deck &amp; Executive Memo</h2>
-            <div id="slide-indicator" class="text-xs font-mono text-indigo-400">Slide 1 of 8</div>
+            <h2 class="text-xs sm:text-sm font-bold text-white">Investor Deck &amp; Executive Memo</h2>
+            <div id="slide-indicator" class="text-[10px] font-mono text-zinc-500">01 / 08</div>
           </div>
         </div>
 
         <div class="flex items-center gap-2">
-          <button data-open-contact class="btn-elite-primary text-xs py-1.5 px-3 hidden sm:inline-flex">
+          <button data-open-contact class="btn-white text-[11px] py-1 px-2.5 hidden sm:inline-flex">
             <span>Request Full Data Room</span>
           </button>
-          <button data-close-deck class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Close Deck">
-            <i data-lucide="x" class="w-5 h-5"></i>
+          <button data-close-deck class="p-1.5 rounded text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Close Deck">
+            <i data-lucide="x" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- Progress Line -->
-      <div class="w-full bg-slate-800 h-1">
-        <div id="slide-progress-bar" class="bg-indigo-500 h-full transition-all duration-300" style="width: 12.5%"></div>
+      <div class="w-full bg-zinc-900 h-0.5">
+        <div id="slide-progress-bar" class="bg-white h-full transition-all duration-300" style="width: 12.5%"></div>
       </div>
 
-      <!-- Slide Body Container -->
-      <div id="deck-slide-content" class="p-6 sm:p-10 flex-1 overflow-y-auto min-h-[360px] bg-slate-950/90">
-        <!-- Injected dynamically by main.js renderSlide() -->
+      <div id="deck-slide-content" class="p-6 sm:p-8 flex-1 overflow-y-auto min-h-[320px] bg-black">
+        <!-- Injected by main.js -->
       </div>
 
-      <!-- Navigation Controls -->
-      <div class="px-6 py-4 bg-slate-900/90 border-t border-white/10 flex items-center justify-between">
-        <button id="deck-prev-btn" class="btn-elite-secondary text-xs sm:text-sm py-2 px-4 disabled:opacity-40 disabled:pointer-events-none">
-          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+      <div class="px-5 py-3 bg-zinc-950 border-t border-white/10 flex items-center justify-between">
+        <button id="deck-prev-btn" class="btn-ghost text-xs py-1.5 px-3 disabled:opacity-30 disabled:pointer-events-none">
+          <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
           <span>Previous</span>
         </button>
 
-        <div class="hidden sm:flex items-center gap-1.5">
-          <span class="text-xs font-mono text-slate-400">Keyboard: [←] / [→] keys</span>
+        <div class="hidden sm:flex items-center gap-1 text-[10px] font-mono text-zinc-600">
+          <span>Navigate: [←] / [→] keys</span>
         </div>
 
-        <button id="deck-next-btn" class="btn-elite-primary text-xs sm:text-sm py-2 px-4 disabled:opacity-40 disabled:pointer-events-none">
+        <button id="deck-next-btn" class="btn-white text-xs py-1.5 px-3.5 disabled:opacity-30 disabled:pointer-events-none">
           <span>Next Slide</span>
-          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
 
@@ -751,68 +603,62 @@
   </div>
 
   <!-- ========================================================================
-       MODAL 3: Contact & Meeting Scheduler
+       MODAL 3: CONTACT & MEETING SCHEDULER
        ======================================================================== -->
   <div id="contact-modal" class="fixed inset-0 z-50 cmd-modal-backdrop hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true">
-    <div class="cmd-modal-box w-full max-w-lg rounded-2xl flex flex-col max-h-[90vh] overflow-hidden">
+    <div class="cmd-modal-box w-full max-w-md rounded-xl flex flex-col max-h-[90vh] overflow-hidden">
       
-      <div class="px-6 py-4 bg-slate-900/90 border-b border-white/10 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-            <i data-lucide="calendar" class="w-4 h-4"></i>
-          </div>
-          <div>
-            <h2 class="text-base font-bold text-white">Connect with Shubh</h2>
-            <p class="text-xs text-slate-400 font-mono">Direct Founder &amp; Investor Channel</p>
-          </div>
+      <div class="px-5 py-3.5 bg-zinc-950 border-b border-white/10 flex items-center justify-between">
+        <div>
+          <h2 class="text-sm font-bold text-white">Connect with Shubh</h2>
+          <p class="text-[10px] text-zinc-500 font-mono">Founder &amp; Investor Channel</p>
         </div>
-        <button data-close-contact class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Close Contact Modal">
-          <i data-lucide="x" class="w-5 h-5"></i>
+        <button data-close-contact class="p-1.5 rounded text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Close Contact Modal">
+          <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <div class="p-6 overflow-y-auto space-y-5 bg-slate-950/80">
-        <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs text-slate-300 space-y-2">
-          <div class="font-semibold text-indigo-300 flex items-center gap-1.5">
-            <i data-lucide="clock" class="w-4 h-4"></i>
-            <span>Calendar Slot Booking</span>
+      <div class="p-5 overflow-y-auto space-y-4 bg-black">
+        <div class="p-3.5 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 space-y-1.5">
+          <div class="font-medium text-white flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Direct Calendar Booking</span>
           </div>
-          <p>Book a direct 20-minute intro call on my live calendar:</p>
-          <a href="https://calendly.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-indigo-400 font-semibold hover:underline">
-            <span>Open Calendly / Cal.com Scheduler</span>
-            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <p class="text-zinc-400 text-[11px]">Pick a direct 20-minute intro slot on my calendar:</p>
+          <a href="https://calendly.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-white font-semibold hover:underline text-xs pt-1">
+            <span>Open Calendly / Cal.com</span>
+            <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
         </div>
 
         <div class="relative flex items-center justify-center">
           <div class="border-t border-white/10 w-full"></div>
-          <span class="bg-slate-900 px-3 text-xs text-slate-400 font-mono absolute">OR SEND DIRECT NOTE</span>
+          <span class="bg-black px-2 text-[10px] text-zinc-600 font-mono absolute">OR SEND DIRECT NOTE</span>
         </div>
 
-        <form id="investor-contact-form" class="space-y-4">
+        <form id="investor-contact-form" class="space-y-3.5">
           <div>
-            <label for="investor-name" class="block text-xs font-semibold text-slate-300 mb-1">Your Name *</label>
-            <input type="text" id="investor-name" required placeholder="e.g. Sarah Chen" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm focus:border-indigo-500 focus:outline-none" />
+            <label for="investor-name" class="block text-[11px] font-mono text-zinc-400 mb-1">Your Name *</label>
+            <input type="text" id="investor-name" required placeholder="Sarah Chen" class="w-full px-3 py-2 rounded-lg bg-zinc-950 border border-white/10 text-white text-xs focus:border-white focus:outline-none" />
           </div>
 
           <div>
-            <label for="investor-firm" class="block text-xs font-semibold text-slate-300 mb-1">Firm / Syndicate / Angel</label>
-            <input type="text" id="investor-firm" placeholder="e.g. Apex Ventures" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm focus:border-indigo-500 focus:outline-none" />
+            <label for="investor-firm" class="block text-[11px] font-mono text-zinc-400 mb-1">Firm / Syndicate</label>
+            <input type="text" id="investor-firm" placeholder="Apex Ventures" class="w-full px-3 py-2 rounded-lg bg-zinc-950 border border-white/10 text-white text-xs focus:border-white focus:outline-none" />
           </div>
 
           <div>
-            <label for="investor-email" class="block text-xs font-semibold text-slate-300 mb-1">Email Address *</label>
-            <input type="email" id="investor-email" required placeholder="sarah@fund.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm focus:border-indigo-500 focus:outline-none" />
+            <label for="investor-email" class="block text-[11px] font-mono text-zinc-400 mb-1">Email Address *</label>
+            <input type="email" id="investor-email" required placeholder="sarah@fund.com" class="w-full px-3 py-2 rounded-lg bg-zinc-950 border border-white/10 text-white text-xs focus:border-white focus:outline-none" />
           </div>
 
           <div>
-            <label for="investor-note" class="block text-xs font-semibold text-slate-300 mb-1">Inquiry / Allocation Request</label>
-            <textarea id="investor-note" rows="3" placeholder="Interested in reviewing your seed round SAFE terms, cap table, and technical architecture..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm focus:border-indigo-500 focus:outline-none"></textarea>
+            <label for="investor-note" class="block text-[11px] font-mono text-zinc-400 mb-1">Inquiry Focus</label>
+            <textarea id="investor-note" rows="3" placeholder="Interested in reviewing your seed round SAFE terms, cap table, and technical architecture..." class="w-full px-3 py-2 rounded-lg bg-zinc-950 border border-white/10 text-white text-xs focus:border-white focus:outline-none"></textarea>
           </div>
 
-          <button type="submit" class="btn-elite-primary w-full justify-center py-3 text-sm">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>Send Note / Request Data Room</span>
+          <button type="submit" class="btn-white w-full justify-center py-2.5 text-xs">
+            <span>Send Direct Message</span>
           </button>
         </form>
       </div>
@@ -821,12 +667,12 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden max-w-sm p-4 rounded-xl spotlight-card border border-indigo-500/30 bg-slate-900/95 shadow-2xl flex items-center gap-3">
-    <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
-    <div id="toast-message" class="text-xs sm:text-sm text-slate-200">Action completed successfully.</div>
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden max-w-xs p-3.5 rounded-lg minimal-card border border-white/20 bg-zinc-950 shadow-2xl flex items-center gap-2.5">
+    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+    <div id="toast-message" class="text-xs text-white">Action completed.</div>
   </div>
 
-  <!-- Application Scripts -->
+  <!-- Scripts -->
   <script src="js/canvas-bg.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/config.js"></script>

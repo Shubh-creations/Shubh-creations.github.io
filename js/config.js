@@ -7,20 +7,20 @@ const SITE_CONFIG = {
   founder: {
     name: "Shubh",
     fullName: "Shubh",
-    title: "Founder & Principal Systems Architect",
-    location: "Global Remote (San Francisco / Bengaluru)",
-    status: "Active // Raising Pre-Seed & Seed Round",
-    headline: "Building high-throughput autonomous software at the intersection of AI, distributed systems, and enterprise scale.",
-    subheadline: "Proven track record taking technical products from 0 to 1, scaling systems to 1.2M+ users, and engineering defensible technical moats.",
+    title: "Founder & Systems Architect",
+    location: "Global Remote",
+    status: "Raising Pre-Seed & Seed Round",
+    headline: "Engineering autonomous enterprise systems & deterministic AI infrastructure at scale.",
+    subheadline: "Proven track record taking technical products from 0 to 1, scaling distributed systems to 1.2M+ users, and generating tangible enterprise value.",
     avatar: "assets/avatar.svg",
     links: {
       github: "https://github.com/Shubh-creations",
       repo: "https://github.com/Shubh-creations/Shubhcreations.github.io",
-      siteUrl: "https://shubh-creations.github.io",
+      siteUrl: "https://shubh.github.io",
       linkedin: "https://linkedin.com/in/shubh",
       twitter: "https://twitter.com/shubh",
-      email: "founder@shubh-creations.github.io",
-      calendly: "https://calendly.com", // Replace with your Calendly / Cal.com link
+      email: "founder@shubh.github.io",
+      calendly: "https://calendly.com",
       deckUrl: "#deck-modal"
     }
   },
