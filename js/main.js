@@ -1,6 +1,7 @@
 /**
  * Shubham Pawar // Founder & Systems Architect - Master Orchestrator
  * Co-founder (COO) at Rodimus Tech (rodimus-tech.com)
+ * 1 Year Stealth Founder @ Sarvaflow (Automated Workflows Marketplace)
  * Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
  */
 
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Setup Dynamic Data & Minimal Card Spotlight Tracking
   initSiteData();
   setupSpotlightCards();
+  setupVenturesFilter();
 
   // 4. Setup Real-Time HUD Clock & Telemetry
   setupHUDTelemetry();
@@ -74,72 +76,8 @@ function initSiteData() {
     `).join('');
   }
 
-  // Render Ventures List
-  const venturesContainer = document.getElementById("ventures-list");
-  if (venturesContainer && config.ventures) {
-    venturesContainer.innerHTML = config.ventures.map((v, idx) => `
-      <div class="minimal-card p-6 sm:p-8 flex flex-col justify-between group">
-        <div>
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white/5 text-zinc-300 border border-white/10">
-              0${idx + 1} // ${v.status}
-            </span>
-            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${v.category}</span>
-          </div>
-
-          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${v.name}</h3>
-          <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${v.tagline}</p>
-          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${v.description}</p>
-
-          <!-- Metrics Ledger Row -->
-          <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
-            ${v.metrics.map(m => `
-              <div class="text-center">
-                <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
-                <div class="text-xs sm:text-sm font-bold text-white font-mono-val mt-0.5 truncate">${m.val}</div>
-              </div>
-            `).join('')}
-          </div>
-
-          <!-- Proof points -->
-          <div class="space-y-2 mb-6">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Highlights:</div>
-            ${v.tractionPoints.map(point => `
-              <div class="flex items-start gap-2 text-xs text-zinc-300 font-light">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
-                <span>${point}</span>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-5">
-            ${v.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
-          </div>
-
-          <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
-            ${v.links.site ? `
-              <a href="${v.links.site}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
-                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-                <span>rodimus-tech.com</span>
-              </a>
-            ` : ''}
-            ${v.links.github ? `
-              <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
-                <i data-lucide="github" class="w-3.5 h-3.5"></i>
-                <span>Repository</span>
-              </a>
-            ` : ''}
-            <button onclick="openDeckToSlide(${idx + 1})" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors ml-auto">
-              <span>Dossier</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
+  // Initial Render of All Ventures
+  renderVentures("all");
 
   // Render Milestones (Track Record)
   const timelineContainer = document.getElementById("timeline-list");
@@ -161,7 +99,7 @@ function initSiteData() {
       <div class="minimal-card p-6 border border-white/10 space-y-4">
         <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
           <span>0${idx + 1} // DOMAIN</span>
-          <span class="text-emerald-400 font-semibold">${grp.items.length} Techs</span>
+          <span class="text-emerald-400 font-semibold">${grp.items.length} Technologies</span>
         </div>
         <h3 class="text-base sm:text-lg font-bold text-white">${grp.category}</h3>
         <div class="flex flex-wrap gap-2 pt-1">
@@ -231,6 +169,104 @@ function initSiteData() {
   }
 
   if (window.lucide) window.lucide.createIcons();
+}
+
+/* Render Ventures with Category Filtering */
+function renderVentures(filter = "all") {
+  const container = document.getElementById("ventures-list");
+  const config = window.SITE_CONFIG;
+  if (!container || !config?.ventures) return;
+
+  const filtered = config.ventures.filter(v => {
+    if (filter === "all") return true;
+    if (filter === "ventures") return v.id === "rodimus-tech" || v.id === "sarvaflow-stealth";
+    if (filter === "defense-vision") return v.id === "cuas-defense" || v.id === "vehicle-detection-adas";
+    if (filter === "agents-rl") return v.id === "vcare-super-agent" || v.id === "devprime-adk" || v.id === "ml-dl-research" || v.id === "sentiment-opinion-mining";
+    return true;
+  });
+
+  container.innerHTML = filtered.map((v, idx) => `
+    <div class="minimal-card p-6 sm:p-8 flex flex-col justify-between group">
+      <div>
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white/5 text-zinc-300 border border-white/10">
+            0${idx + 1} // ${v.status}
+          </span>
+          <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${v.category}</span>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${v.name}</h3>
+        <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${v.tagline}</p>
+        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${v.description}</p>
+
+        <!-- Metrics Ledger Row -->
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
+          ${v.metrics.map(m => `
+            <div class="text-center">
+              <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
+              <div class="text-xs sm:text-sm font-bold text-white font-mono-val mt-0.5 truncate">${m.val}</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Proof points -->
+        <div class="space-y-2 mb-6">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Highlights:</div>
+          ${v.tractionPoints.map(point => `
+            <div class="flex items-start gap-2 text-xs text-zinc-300 font-light">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
+              <span>${point}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          ${v.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
+        </div>
+
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
+          ${v.links.site ? `
+            <a href="${v.links.site}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              <span>rodimus-tech.com</span>
+            </a>
+          ` : ''}
+          ${v.links.github ? `
+            <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i>
+              <span>Repository</span>
+            </a>
+          ` : ''}
+          <button onclick="openDeckToSlide(${idx + 1})" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors ml-auto">
+            <span>Dossier</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function setupVenturesFilter() {
+  const buttons = document.querySelectorAll(".venture-filter-btn");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => {
+        b.classList.remove("bg-white", "text-black");
+        b.classList.add("bg-white/[0.03]", "text-zinc-400");
+      });
+      btn.classList.add("bg-white", "text-black");
+      btn.classList.remove("bg-white/[0.03]", "text-zinc-400");
+      
+      const filter = btn.getAttribute("data-filter") || "all";
+      renderVentures(filter);
+      if (window.soundEngine) window.soundEngine.playClick(800, 0.02);
+    });
+  });
 }
 
 /* Mouse spotlight calculation on minimal cards */
@@ -322,8 +358,14 @@ function setupCommandPalette() {
       closeCMD();
       if (window.soundEngine) window.soundEngine.playClick();
 
-      if (action === "open-linkedin") {
+      if (action === "open-sarvaflow") {
+        openDeckToSlide(2);
+      } else if (action === "open-linkedin") {
         window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
+      } else if (action === "open-cuas") {
+        window.open("https://github.com/Shubh-creations/Counter-UAS", "_blank");
+      } else if (action === "open-devprime") {
+        window.open("https://github.com/Shubh-creations/Devprime-adk", "_blank");
       } else if (action === "open-rodimus") {
         window.open("https://www.rodimus-tech.com", "_blank");
       } else if (action === "open-github") {
