@@ -1,19 +1,24 @@
 /* ==========================================================================
-   Shubh // Super Minimalist & High-Luxury Personnel OS
-   Editorial Minimalist Standard (Dieter Rams, Jony Ive, Teenage Engineering)
+   Shubham Pawar // AI Startup Founder & Systems Engineer
+   Design System: Deep Obsidian Theme (Linear, Vercel & Stripe Craft Standard)
    ========================================================================== */
 
 :root {
-  --bg-primary: #000000;
-  --bg-surface: rgba(255, 255, 255, 0.02);
-  --bg-surface-hover: rgba(255, 255, 255, 0.04);
+  --bg-primary: #090A0F;
+  --bg-secondary: #0E1017;
+  --bg-surface: rgba(255, 255, 255, 0.025);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.045);
+  --bg-surface-hover: rgba(255, 255, 255, 0.07);
   --border-hairline: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(255, 255, 255, 0.25);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(255, 255, 255, 0.28);
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
   --accent-emerald: #10b981;
+  --accent-cyan: #06b6d4;
   --accent-indigo: #6366f1;
+  --accent-purple: #8b5cf6;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
@@ -36,11 +41,24 @@ body {
   background: var(--bg-primary);
 }
 
+/* Subtle Engineering Grid Backdrop */
+.engineering-grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.05), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.04), transparent 40%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
 /* Subtle Matte Noise Grain */
 .noise-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   content: "";
@@ -48,6 +66,11 @@ body {
   pointer-events: none;
   z-index: 99;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Section scroll margin for fixed navigation */
+section {
+  scroll-margin-top: 5.5rem;
 }
 
 /* Minimalist Hairline Card with Cursor Spotlight */
@@ -68,8 +91,8 @@ body {
   right: 0;
   bottom: 0;
   background: radial-gradient(
-    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.06),
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.07),
     transparent 45%
   );
   opacity: 0;
@@ -85,11 +108,44 @@ body {
 .minimal-card:hover {
   border-color: var(--border-focus);
   background: var(--bg-surface-hover);
+  transform: translateY(-1px);
+}
+
+/* Flagship Elevated Feature Card */
+.flagship-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.flagship-card:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.05);
+  transform: translateY(-2px);
+}
+
+.flagship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #34d399;
 }
 
 /* Ultra-minimal Header Navigation */
 .minimal-nav {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(9, 10, 15, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-hairline);
@@ -134,7 +190,7 @@ body {
   100% { transform: scale(3); opacity: 0; }
 }
 
-/* Minimalist Button Styles */
+/* Button Styles */
 .btn-white {
   background: #ffffff;
   color: #000000;
@@ -145,6 +201,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn-white:hover {
@@ -165,11 +222,33 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn-ghost:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-emerald:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -194,42 +273,15 @@ body {
   color: #a1a1aa;
 }
 
-/* Custom Interactive Range Slider (Calculator) */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: #18181b;
-  border-radius: 9999px;
-  height: 6px;
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #000000;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: transform 0.15s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-}
-
 /* Command Palette (⌘K) Modal */
 .cmd-modal-backdrop {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(5, 6, 10, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
 
 .cmd-modal-box {
-  background: #09090b;
+  background: #0E1017;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.95);
   animation: cmdZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -249,6 +301,26 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #ffffff;
 }
 
+/* Interactive Architecture / Spec Drawer */
+.spec-drawer-backdrop {
+  background: rgba(5, 6, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: opacity 0.3s ease;
+}
+
+.spec-drawer-panel {
+  background: #0B0D13;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.85);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spec-drawer-panel.open {
+  transform: translateX(0);
+}
+
 /* Accordion Smooth Transitions */
 .accordion-content {
   max-height: 0;
@@ -257,7 +329,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .accordion-content.open {
-  max-height: 500px;
+  max-height: 600px;
 }
 
 .accordion-chevron {
@@ -282,23 +354,29 @@ input[type="range"]::-webkit-slider-thumb:hover {
   pointer-events: auto;
 }
 
+/* Focus Visible for A11y */
+:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
 /* Minimal Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #090A0F;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #232733;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #373e52;
 }
 
 /* Print Stylesheet */
@@ -307,6 +385,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     background: #ffffff !important;
     color: #000000 !important;
   }
+  .engineering-grid-bg,
   .noise-overlay,
   #neural-canvas,
   nav,
@@ -314,11 +393,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
   #deck-modal,
   #cmd-modal,
   #contact-modal,
+  #spec-drawer,
   #toast-notification,
   .no-print {
     display: none !important;
   }
-  .minimal-card {
+  .minimal-card, .flagship-card {
     background: #ffffff !important;
     border: 1px solid #e4e4e7 !important;
     color: #000000 !important;

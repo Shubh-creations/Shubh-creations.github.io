@@ -1,7 +1,7 @@
-# Jekyll Site Configuration for Shubham Pawar // Founder & Systems Architect
-title: "Shubham Pawar // Founder & Systems Architect"
-tagline: "Co-founder (COO) @ Rodimus Tech • 1 Yr Stealth @ Sarvaflow • Reality Layer for AI"
-description: "Personal site of Shubham Pawar (@builtfor101). Co-founder & COO at Rodimus Tech (rodimus-tech.com). 1 year building Sarvaflow (stealth automated workflows marketplace). Architect of Counter-UAS (C-UAS) defense, CUDA vision, and RL robotics."
+# Jekyll Site Configuration for Shubham Pawar
+title: "Shubham Pawar — AI Startup Founder & Systems Engineer | Suranyx & VV"
+tagline: "Founder of Suranyx • Creator of Vadhu-Var (VV) • Systems & AI Engineer"
+description: "Shubham Pawar — AI Startup Founder & Systems Engineer. Co-Founder & Lead Systems Architect at Suranyx (suranyx.com) and Creator of Vadhu-Var (vadhu-var.vercel.app). Deep expertise in multi-tenant RLS, atomic PostgreSQL RPCs, reinforcement learning (Devprime ADK), and autonomous AI systems."
 author: "Shubham Pawar"
 email: "shubhampawar0610@gmail.com"
 twitter_username: "builtfor101"

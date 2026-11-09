@@ -1,42 +1,64 @@
 /**
  * Shubham Pawar Neural Digital Twin & Query Engine
- * Co-founder (COO) at Rodimus Tech (rodimus-tech.com)
+ * Co-Founder @ Suranyx (https://suranyx.com)
+ * Creator @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
+ * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
  * 1 Year Stealth Founder @ Sarvaflow (Automated Workflows Marketplace)
- * Founder & Systems Architect | Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
+ * GitHub: https://github.com/Shubh-creations | Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
  */
 
 class NeuralAssistant {
   constructor() {
     this.knowledgeBase = [
       {
+        triggers: ["suranyx", "fintech", "compliance", "runway", "reconciliation", "rebit", "account aggregator", "audit", "sha-256", "ledger"],
+        response: "Suranyx (https://suranyx.com) is an AI-native financial operating system, cash runway intelligence, and automated B2B compliance platform for Indian SMEs. As Co-Founder & Lead Systems Architect, Shubham engineered multi-tenant PostgreSQL/Supabase Row-Level Security (RLS) isolation, tamper-evident SHA-256 hash-chained audit ledgers with trigger-based balance verification, idempotent financial mutation workflows, and RBI ReBIT Account Aggregator (Setu / Finvu) consent pipeline architectures.",
+        badge: "Flagship // Suranyx"
+      },
+      {
+        triggers: ["vadhu-var", "vadhu var", "vv", "matrimony", "pwa", "marathi", "hindi", "trilingual", "rpc", "initplan", "atomic"],
+        response: "Vadhu-Var (https://vadhu-var.vercel.app) is a modern, culturally grounded trilingual matrimony progressive web application (PWA) created by Shubham. Technical highlights: custom atomic PostgreSQL RPC functions (send_contextual_interest, respond_to_interest, close_match_gracefully, swap_or_replace_profile_media), RLS InitPlan optimizations ((SELECT auth.uid())) collapsing query latencies from 85ms to sub-millisecond times, strict media invariants, and seamless runtime localization in English, Marathi, and Hindi.",
+        badge: "Flagship // Vadhu-Var (VV)"
+      },
+      {
         triggers: ["sarvaflow", "sarva", "workflow", "marketplace", "stealth", "automation", "dag"],
-        response: "Shubham spent one whole year (2023–2024) building Sarvaflow, a stealth startup creating an automated workflows marketplace. He architected distributed DAG execution engines, modular third-party connectors, and sandboxed execution environments allowing developers to publish, discover, and monetize automated workflows.",
+        response: "Shubham spent one full year (2023–2024) building Sarvaflow, a stealth startup creating an automated workflows marketplace. He architected distributed DAG execution engines, modular third-party integration connectors, and workflow orchestration graphs for automated multi-step enterprise pipelines.",
         badge: "Sarvaflow // 1 Year Stealth"
       },
       {
         triggers: ["who", "shubham", "pawar", "founder", "background", "bio", "experience", "story", "about"],
-        response: "Shubham Pawar is a founder, systems architect, and the Co-founder & Chief Operating Officer (COO) at Rodimus Tech (rodimus-tech.com). He also spent one full year building Sarvaflow (automated workflows marketplace in stealth). He specializes in edge AI, robotics, CUDA GPU acceleration, and counter-drone defense (C-UAS). He studies Automation & Robotics at Dr. D. Y. Patil Institute of Technology, Pune.",
+        response: "Shubham Pawar is an AI Startup Founder and Systems Engineer. He is Co-Founder & Lead Systems Architect at Suranyx (AI-native financial OS at suranyx.com), Creator of Vadhu-Var (trilingual matrimony PWA at vadhu-var.vercel.app), and Co-founder & COO at Rodimus Tech (rodimus-tech.com). He also spent a full year building Sarvaflow (automated workflows marketplace). His technical stack spans multi-tenant PostgreSQL RLS, cryptographic ledgers, PyTorch, TorchScript, RL agent benchmarks (Devprime ADK), and NVIDIA Jetson edge systems.",
         badge: "Founder Identity"
       },
       {
         triggers: ["rodimus", "coo", "co-founder", "cofounder", "reality", "layer", "venture"],
-        response: "Shubham is Co-founder & COO at Rodimus Tech (https://www.rodimus-tech.com), which is building the 'Reality Layer for AI'. Rodimus unites spatial world perception, sensor hardware, and edge intelligence to ground autonomous systems in the physical world.",
+        response: "Shubham served as Co-founder & COO at Rodimus Tech (https://www.rodimus-tech.com), which builds the 'Reality Layer for AI'. Rodimus unifies spatial perception, sensor hardware, and edge intelligence to ground autonomous systems in the physical world.",
         badge: "Rodimus Tech // COO"
       },
       {
         triggers: ["cuas", "drone", "counter", "uav", "defense", "jetson", "aerial", "yolov8", "vit"],
-        response: "CUAS is an AI-native counter-drone defense framework engineered by Shubham. Running on NVIDIA Jetson Nano / Xavier, it uses YOLOv8, Vision Transformers (ViT), and CLIP with CUDA acceleration. Benchmarks: 92.4% mAP@0.5 detection accuracy, <100ms threat-to-action latency, RF triangulation, and MLflow real-time drift monitoring.",
+        response: "CUAS is an AI-native counter-drone defense framework engineered by Shubham. Running on NVIDIA Jetson Nano / Xavier, it uses YOLOv8, Vision Transformers (ViT), and CUDA acceleration. Benchmarks: 92.4% mAP@0.5 detection accuracy, <100ms threat-to-action latency, RF triangulation, and MLflow real-time drift monitoring.",
         badge: "C-UAS Defense Tech"
       },
       {
         triggers: ["devprime", "adk", "benchmark", "rl", "reinforcement", "gridworld", "pybullet", "dqn", "ppo"],
-        response: "Devprime-ADK (Benchmark-ADK) is a modular, reproducible Reinforcement Learning toolkit built by Shubham for GridWorld and PyBullet robotics environments. It supports DQN and PPO agents with TorchScript export, multi-agent evaluation, and automated reward curve visualization.",
-        badge: "Devprime-ADK // RL"
+        response: "Devprime ADK (Benchmark-ADK) is an open-source, modular Reinforcement Learning agent development and benchmarking toolkit built by Shubham for GridWorld and PyBullet robotic simulation environments. It supports DQN and PPO agents with TorchScript export for zero-latency execution in real-time robotic control systems.",
+        badge: "Devprime ADK // RL"
       },
       {
-        triggers: ["vcare", "life-os", "life os", "agent", "super-agent", "cognitive"],
-        response: "Life-OS Prime (Vcare) is a self-evolving, multi-domain cognitive architecture interface engineered by Shubham to optimize biological, financial, and psychological trajectories with conversational AI, stateful execution, and modular service integrations.",
-        badge: "Life-OS Prime"
+        triggers: ["myconet", "fungal", "fungi", "grad-cam", "gradcam", "microscopic", "heatmap"],
+        response: "MycoNet is a Deep Learning CNN architecture engineered by Shubham for classifying microscopic fungal pathogens. It features Grad-CAM visual explainability heatmaps overlaid directly onto microscopic slide inputs, providing interpretable diagnostic evidence for clinical microbiologists.",
+        badge: "MycoNet // Explainable AI"
+      },
+      {
+        triggers: ["allergy", "food", "patent", "dialogflow", "ocr", "barcode", "ingredient"],
+        response: "Shubham is the patent author of an Intelligent Food Allergy Detection System that integrates multi-modal input channels (Tesseract OCR, barcode scanning, and conversational Dialogflow AI) to cross-reference packaged food ingredients against global allergen databases and personal immuno-profiles in real time.",
+        badge: "Patent-Authored System"
+      },
+      {
+        triggers: ["video", "pipeline", "remastering", "ffmpeg", "transcoding"],
+        response: "Shubham developed an Automated AI Video & Media Remastering Pipeline leveraging Python, PyTorch, and FFmpeg. It automates high-throughput batch transcoding, resolution upscaling, dynamic range enhancement, and multi-format distribution.",
+        badge: "Media Pipeline"
       },
       {
         triggers: ["vehicle", "tracking", "adas", "cuda", "opencv", "fps", "speedup"],
@@ -44,23 +66,23 @@ class NeuralAssistant {
         badge: "ADAS & Vision AI"
       },
       {
-        triggers: ["research", "xgboost", "energy", "meter", "ad", "ucb", "svm"],
-        response: "Shubham's ML/DL research suite includes XGBoost tumor classification, Upper Confidence Bound (UCB) reinforcement learning for web ad optimization, IoT smart energy meter consumption modeling, and SVM regression algorithms.",
-        badge: "ML/DL Research"
+        triggers: ["github", "repos", "commits", "open source", "code"],
+        response: "Explore Shubham's open-source repositories and engineering activity at https://github.com/Shubh-creations. Key repos include Counter-UAS, CUAS-MAin-, Devprime-adk, Vehicle-detection-and-tracking, and Vcare.",
+        badge: "GitHub // Shubh-creations"
       },
       {
         triggers: ["linkedin", "profile", "connect", "network", "link"],
-        response: "You can connect with Shubham on LinkedIn at https://www.linkedin.com/in/shubhampawar-in/ to discuss deep tech, robotics, AI systems, and venture partnerships.",
+        response: "You can connect with Shubham on LinkedIn at https://www.linkedin.com/in/shubhampawar-in/ to discuss systems architecture, AI platforms, and venture collaborations.",
         badge: "LinkedIn Profile"
       },
       {
         triggers: ["twitter", "x", "builtfor101", "social", "follow", "handle"],
-        response: "Follow Shubham on X/Twitter at @builtfor101 (https://x.com/builtfor101), where he shares regular technical breakdowns on edge AI, robotics architecture, systems design, and 0-to-1 founder execution.",
+        response: "Follow Shubham on X/Twitter at @builtfor101 (https://x.com/builtfor101), where he shares technical deep dives on distributed systems, multi-tenant RLS, edge AI, and 0-to-1 founder execution.",
         badge: "Twitter / @builtfor101"
       },
       {
         triggers: ["education", "college", "degree", "robotics", "automation", "patil", "pimpri"],
-        response: "Shubham is pursuing a Bachelor of Engineering in Automation and Robotics (2022–2026) at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune. Core coursework includes AI in Robots, Modeling & Simulation, Sensors & Vision Systems, and Numerical Methods.",
+        response: "Shubham is pursuing a Bachelor of Engineering in Automation and Robotics (2022–2026) at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune. Core coursework includes AI in Robots, Modeling & Simulation, Sensors & Vision Systems, and Statistical Data Analysis.",
         badge: "Robotics Pedigree"
       },
       {
@@ -74,23 +96,18 @@ class NeuralAssistant {
         badge: "Vision & MLflow"
       },
       {
-        triggers: ["certifications", "certificate", "udemy", "ibm", "matlab", "bcgx"],
-        response: "Shubham's certifications include: 1) Machine Learning A-Z (Udemy), 2) Python for Data Science (IBM), 3) Simulink & Onramp Certified (MATLAB MathWorks), and 4) Generative AI Virtual Experience (BCGX Forage).",
-        badge: "Certifications"
-      },
-      {
         triggers: ["contact", "email", "phone", "reach", "call", "schedule"],
         response: "Reach Shubham directly via Email at shubhampawar0610@gmail.com, Phone: +91 9623422350, LinkedIn: https://www.linkedin.com/in/shubhampawar-in/, or Twitter DM: @builtfor101.",
         badge: "Direct Contact"
       },
       {
         triggers: ["dossier", "deck", "slides", "keynote"],
-        response: "Click 'Dossier' in the navbar or press 'D' on your keyboard to open Shubham's 8-slide executive presentation covering Rodimus Tech, Sarvaflow (1-year stealth startup), C-UAS Defense, Edge Vision, Robotics Pedigree, and Founder Contact.",
+        response: "Click 'Dossier' in the navbar or press 'D' on your keyboard to open Shubham's executive presentation covering Suranyx, Vadhu-Var, Rodimus Tech, Sarvaflow (1-year stealth), C-UAS Defense, Edge Vision, and Systems Architecture.",
         badge: "Executive Dossier"
       }
     ];
 
-    this.defaultResponse = "I'm Shubham Pawar's Neural Digital Twin. Ask me about his role as Co-founder (COO) at Rodimus Tech, 1 year building Sarvaflow (automated workflows marketplace), C-UAS drone defense, Devprime-ADK, ADAS vision, robotics background, or LinkedIn. What would you like to explore?";
+    this.defaultResponse = "I'm Shubham Pawar's Neural Digital Twin. Ask me about his flagship platforms Suranyx (suranyx.com) and Vadhu-Var (vadhu-var.vercel.app), his role as Co-founder (COO) at Rodimus Tech, 1 year building Sarvaflow, Devprime ADK, C-UAS drone defense, or systems architecture. What would you like to explore?";
   }
 
   query(userQuery) {

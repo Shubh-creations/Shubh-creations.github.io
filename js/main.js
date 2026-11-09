@@ -1,8 +1,10 @@
 /**
- * Shubham Pawar // Founder & Systems Architect - Master Orchestrator
- * Co-founder (COO) at Rodimus Tech (rodimus-tech.com)
+ * Shubham Pawar // AI Startup Founder & Systems Engineer - Master Orchestrator
+ * Co-Founder @ Suranyx (https://suranyx.com)
+ * Creator @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
+ * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
  * 1 Year Stealth Founder @ Sarvaflow (Automated Workflows Marketplace)
- * Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
+ * GitHub: https://github.com/Shubh-creations | Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,10 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.lucide.createIcons();
   }
 
-  // 3. Setup Dynamic Data & Minimal Card Spotlight Tracking
+  // 3. Initialize Site Data, Flagships, Production Stack, Deep-Tech Systems
   initSiteData();
   setupSpotlightCards();
-  setupVenturesFilter();
+  setupDeepTechFilter();
+  setupArchitectureDrawer();
+  renderGitHubPulse();
 
   // 4. Setup Real-Time HUD Clock & Telemetry
   setupHUDTelemetry();
@@ -40,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 9. Setup FAQ Accordion & Copy Buttons
   setupFAQ();
   setupCopyButtons();
+
+  // 10. Developer Console Easter Egg
+  setupConsoleEasterEgg();
 });
 
 window.addEventListener("load", () => {
@@ -47,20 +54,29 @@ window.addEventListener("load", () => {
 });
 
 /* ==========================================================================
-   1. Data Binding & Minimalist Spotlight Cards
+   1. Data Binding & Flagship / Systems Renderers
    ========================================================================== */
 function initSiteData() {
   const config = window.SITE_CONFIG;
   if (!config) return;
 
-  document.title = `${config.founder.name} // Founder & Systems Architect (@builtfor101)`;
+  document.title = `${config.founder.name} — AI Startup Founder & Systems Engineer | Suranyx & VV`;
 
-  // Dynamically reflect current host
+  // Dynamically reflect current host in telemetry bar
   const currentHost = window.location.hostname || "shubh-creations.github.io";
   const navDomain = document.getElementById("nav-domain-label");
   if (navDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
     navDomain.textContent = currentHost;
   }
+
+  // Render Flagship Production Platforms (Suranyx & Vadhu-Var)
+  renderFlagships();
+
+  // Render Production Stack & Systems Matrix
+  renderProductionStack();
+
+  // Initial Render of Deep-Tech Systems
+  renderDeepTechSystems("all");
 
   // Render Founder Principles
   const principlesContainer = document.getElementById("principles-list");
@@ -76,9 +92,6 @@ function initSiteData() {
     `).join('');
   }
 
-  // Initial Render of All Ventures
-  renderVentures("all");
-
   // Render Milestones (Track Record)
   const timelineContainer = document.getElementById("timeline-list");
   if (timelineContainer && config.milestones) {
@@ -92,40 +105,7 @@ function initSiteData() {
     `).join('');
   }
 
-  // Render Skills Arsenal
-  const skillsContainer = document.getElementById("skills-container");
-  if (skillsContainer && config.skillsArsenal) {
-    skillsContainer.innerHTML = config.skillsArsenal.map((grp, idx) => `
-      <div class="minimal-card p-6 border border-white/10 space-y-4">
-        <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
-          <span>0${idx + 1} // DOMAIN</span>
-          <span class="text-emerald-400 font-semibold">${grp.items.length} Technologies</span>
-        </div>
-        <h3 class="text-base sm:text-lg font-bold text-white">${grp.category}</h3>
-        <div class="flex flex-wrap gap-2 pt-1">
-          ${grp.items.map(item => `
-            <span class="px-2.5 py-1 rounded text-xs font-mono bg-white/[0.04] text-zinc-300 border border-white/10 hover:border-white/30 hover:text-white transition-colors">
-              ${item}
-            </span>
-          `).join('')}
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // Render Certifications
-  const certsContainer = document.getElementById("certifications-container");
-  if (certsContainer && config.certifications) {
-    certsContainer.innerHTML = config.certifications.map((c) => `
-      <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 space-y-2 hover:border-white/20 transition-colors">
-        <div class="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">${c.issuer}</div>
-        <h4 class="text-xs sm:text-sm font-semibold text-white leading-snug">${c.title}</h4>
-        <p class="text-[11px] text-zinc-400 font-light leading-relaxed">${c.highlight}</p>
-      </div>
-    `).join('');
-  }
-
-  // Render Essays
+  // Render Technical Essays & Notes
   const essaysContainer = document.getElementById("essays-list");
   if (essaysContainer && config.essays) {
     essaysContainer.innerHTML = config.essays.map((e) => `
@@ -135,10 +115,10 @@ function initSiteData() {
             <span>${e.date}</span>
             <span>${e.readTime}</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-zinc-200 transition-colors">${e.title}</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-zinc-200 transition-colors">${e.title}</h3>
           <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
-          <div class="p-3.5 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-light leading-relaxed">
-            "${e.body}"
+          <div class="p-3.5 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-mono text-[11px] leading-relaxed">
+            ${e.body}
           </div>
         </div>
         <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
@@ -171,51 +151,182 @@ function initSiteData() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-/* Render Ventures with Category Filtering */
-function renderVentures(filter = "all") {
-  const container = document.getElementById("ventures-list");
+/* ==========================================================================
+   2. Render Flagship Platforms (Suranyx & Vadhu-Var)
+   ========================================================================== */
+function renderFlagships() {
+  const container = document.getElementById("flagships-list");
   const config = window.SITE_CONFIG;
-  if (!container || !config?.ventures) return;
+  if (!container || !config?.flagships) return;
 
-  const filtered = config.ventures.filter(v => {
-    if (filter === "all") return true;
-    if (filter === "ventures") return v.id === "rodimus-tech" || v.id === "sarvaflow-stealth";
-    if (filter === "defense-vision") return v.id === "cuas-defense" || v.id === "vehicle-detection-adas";
-    if (filter === "agents-rl") return v.id === "vcare-super-agent" || v.id === "devprime-adk" || v.id === "ml-dl-research" || v.id === "sentiment-opinion-mining";
-    return true;
-  });
-
-  container.innerHTML = filtered.map((v, idx) => `
-    <div class="minimal-card p-6 sm:p-8 flex flex-col justify-between group">
+  container.innerHTML = config.flagships.map((f, idx) => `
+    <article class="flagship-card p-6 sm:p-9 flex flex-col justify-between group">
       <div>
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white/5 text-zinc-300 border border-white/10">
-            0${idx + 1} // ${v.status}
-          </span>
-          <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${v.category}</span>
+        <!-- Card Header Badges -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div class="flex items-center gap-2">
+            <span class="flagship-badge">${f.badge}</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              ${f.status}
+            </span>
+          </div>
+          <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">${f.category}</span>
         </div>
 
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${v.name}</h3>
-        <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${v.tagline}</p>
-        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${v.description}</p>
+        <!-- Title & Subtitle -->
+        <div class="mb-4">
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
+            <span>${f.name}</span>
+            <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" title="Visit ${f.displayUrl}">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </h3>
+          <div class="text-xs font-mono text-emerald-400 mt-1">${f.role}</div>
+        </div>
 
-        <!-- Metrics Ledger Row -->
-        <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
-          ${v.metrics.map(m => `
+        <!-- Tagline & Description -->
+        <p class="text-zinc-200 text-sm sm:text-base font-medium mb-3 leading-snug">${f.tagline}</p>
+        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
+
+        <!-- Technical Metrics Grid -->
+        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 mb-6">
+          ${f.metrics.map(m => `
             <div class="text-center">
-              <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
-              <div class="text-xs sm:text-sm font-bold text-white font-mono-val mt-0.5 truncate">${m.val}</div>
+              <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider truncate">${m.label}</div>
+              <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
             </div>
           `).join('')}
         </div>
 
-        <!-- Proof points -->
+        <!-- Invariants & Highlights -->
         <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Highlights:</div>
-          ${v.tractionPoints.map(point => `
-            <div class="flex items-start gap-2 text-xs text-zinc-300 font-light">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Production Invariants &amp; Architecture:</div>
+          ${f.highlights.map(h => `
+            <div class="flex items-start gap-2.5 text-xs text-zinc-300 font-light leading-relaxed">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span>${h}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div>
+        <!-- Tech Stack Pills -->
+        <div class="flex flex-wrap gap-1.5 mb-6">
+          ${f.stack.map(s => `
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-300 border border-white/10">
+              ${s}
+            </span>
+          `).join('')}
+        </div>
+
+        <!-- Interactive CTAs -->
+        <div class="flex items-center gap-3 pt-5 border-t border-white/10 flex-wrap">
+          <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="btn-emerald text-xs py-2 px-4 inline-flex items-center gap-1.5">
+            <span>Launch ${f.name}</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+
+          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-3.5 inline-flex items-center gap-1.5 text-zinc-300 hover:text-white">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>View Architecture Spec</span>
+          </button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+/* ==========================================================================
+   3. Render Production Stack & Systems Matrix
+   ========================================================================== */
+function renderProductionStack() {
+  const container = document.getElementById("production-stack-container");
+  const config = window.SITE_CONFIG;
+  if (!container || !config?.productionStack) return;
+
+  container.innerHTML = config.productionStack.map((domain, idx) => `
+    <div class="minimal-card p-6 sm:p-7 border border-white/10 space-y-5 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
+          <span>0${idx + 1} // DOMAIN MATRIX</span>
+          <span class="text-emerald-400 font-semibold">${domain.technologies.length} Shipped Primitives</span>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="${domain.icon}" class="w-4 h-4 text-zinc-400"></i>
+          <span>${domain.category}</span>
+        </h3>
+        <p class="text-zinc-400 text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
+      </div>
+
+      <div class="space-y-2.5 pt-3 border-t border-white/5">
+        ${domain.technologies.map(tech => `
+          <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-white/20 transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-white">${tech.name}</span>
+            </div>
+            <p class="text-[11px] text-zinc-400 font-light mt-0.5 leading-snug">${tech.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+/* ==========================================================================
+   4. Render Deep-Tech Systems with Filtering
+   ========================================================================== */
+function renderDeepTechSystems(filter = "all") {
+  const container = document.getElementById("deep-tech-list");
+  const config = window.SITE_CONFIG;
+  if (!container || !config?.deepTechSystems) return;
+
+  const filtered = config.deepTechSystems.filter(sys => {
+    if (filter === "all") return true;
+    if (filter === "ai-ml") return sys.categoryKey === "ai-ml";
+    if (filter === "robotics-defense") return sys.categoryKey === "robotics-defense";
+    if (filter === "ventures") return sys.categoryKey === "ventures";
+    return true;
+  });
+
+  container.innerHTML = filtered.map((sys, idx) => `
+    <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
+      <div>
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white/5 text-zinc-300 border border-white/10">
+            0${idx + 1} // ${sys.status}
+          </span>
+          <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${sys.category}</span>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors flex items-center justify-between">
+          <span>${sys.name}</span>
+        </h3>
+        <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${sys.tagline}</p>
+        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
+
+        <!-- Metrics Row -->
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
+          ${sys.metrics.map(m => `
+            <div class="text-center">
+              <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
+              <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Highlights -->
+        <div class="space-y-2 mb-6">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Engineering Highlights:</div>
+          ${sys.highlights.map(h => `
+            <div class="flex items-start gap-2 text-xs text-zinc-300 font-light leading-relaxed">
               <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
-              <span>${point}</span>
+              <span>${h}</span>
             </div>
           `).join('')}
         </div>
@@ -223,26 +334,28 @@ function renderVentures(filter = "all") {
 
       <div>
         <div class="flex flex-wrap gap-1.5 mb-5">
-          ${v.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
+          ${sys.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
         </div>
 
         <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
-          ${v.links.site ? `
-            <a href="${v.links.site}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+          ${sys.links.site ? `
+            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
               <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-              <span>rodimus-tech.com</span>
+              <span>Website</span>
             </a>
           ` : ''}
-          ${v.links.github ? `
-            <a href="${v.links.github}" target="_blank" rel="noopener" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
+          ${sys.links.github ? `
+            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
               <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>Repository</span>
+              <span>Source</span>
             </a>
           ` : ''}
-          <button onclick="openDeckToSlide(${idx + 1})" class="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-1 transition-colors ml-auto">
-            <span>Dossier</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </button>
+          ${sys.links.specId ? `
+            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-zinc-400 hover:text-white inline-flex items-center gap-1 transition-colors ml-auto">
+              <span>View Specs</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          ` : ''}
         </div>
       </div>
     </div>
@@ -251,8 +364,8 @@ function renderVentures(filter = "all") {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function setupVenturesFilter() {
-  const buttons = document.querySelectorAll(".venture-filter-btn");
+function setupDeepTechFilter() {
+  const buttons = document.querySelectorAll(".tech-filter-btn");
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       buttons.forEach(b => {
@@ -261,18 +374,228 @@ function setupVenturesFilter() {
       });
       btn.classList.add("bg-white", "text-black");
       btn.classList.remove("bg-white/[0.03]", "text-zinc-400");
-      
+
       const filter = btn.getAttribute("data-filter") || "all";
-      renderVentures(filter);
+      renderDeepTechSystems(filter);
       if (window.soundEngine) window.soundEngine.playClick(800, 0.02);
     });
   });
 }
 
+/* ==========================================================================
+   5. Interactive Architecture Spec Drawer
+   ========================================================================== */
+function setupArchitectureDrawer() {
+  const drawerBackdrop = document.getElementById("architecture-drawer");
+  const closeBtn = document.getElementById("close-spec-drawer");
+
+  if (!drawerBackdrop) return;
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeSpecDrawer);
+  }
+
+  drawerBackdrop.addEventListener("click", (e) => {
+    if (e.target === drawerBackdrop) {
+      closeSpecDrawer();
+    }
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !drawerBackdrop.classList.contains("hidden")) {
+      closeSpecDrawer();
+    }
+  });
+}
+
+window.openSpecDrawer = function(specId) {
+  const config = window.SITE_CONFIG;
+  const drawerBackdrop = document.getElementById("architecture-drawer");
+  const content = document.getElementById("spec-drawer-content");
+  if (!drawerBackdrop || !content || !config?.architectureSpecs) return;
+
+  const spec = config.architectureSpecs[specId];
+  if (!spec) return;
+
+  content.innerHTML = `
+    <div class="space-y-6">
+      <!-- Header -->
+      <div class="border-b border-white/10 pb-5">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
+          <span>SYSTEM ARCHITECTURE SPECIFICATION</span>
+          <span class="text-emerald-400 font-bold">${spec.primaryInvariants.length} Production Invariants</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">${spec.title}</h2>
+        <p class="text-zinc-400 text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
+      </div>
+
+      <!-- Topology Diagram (Ascii / SVG block) -->
+      <div>
+        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+          <i data-lucide="network" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Execution Topology &amp; Boundary Flow</span>
+        </div>
+        <pre class="spec-topology-diagram">${spec.topologyText}</pre>
+      </div>
+
+      <!-- Production Invariants -->
+      <div class="space-y-2.5">
+        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Security &amp; Structural Invariants</div>
+        <div class="space-y-2">
+          ${spec.primaryInvariants.map(inv => `
+            <div class="flex items-start gap-2.5 p-3 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-light">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span>${inv}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- Code Snippet -->
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2">
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>Production Implementation Snippet</span>
+          </span>
+          <span class="text-zinc-500 font-mono text-[10px]">${spec.codeSnippet.lang}</span>
+        </div>
+        <pre class="p-4 rounded-xl bg-zinc-950 border border-white/10 text-emerald-300 font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
+      </div>
+
+      <!-- Engineering Trade-Offs -->
+      <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Engineering Trade-Offs &amp; Decision Record</div>
+        <p class="text-xs text-zinc-300 font-light leading-relaxed">${spec.tradeOffs}</p>
+      </div>
+    </div>
+  `;
+
+  drawerBackdrop.classList.remove("hidden");
+  drawerBackdrop.classList.add("flex");
+  document.body.style.overflow = "hidden";
+
+  if (window.lucide) window.lucide.createIcons();
+  if (window.soundEngine) window.soundEngine.playOpen();
+};
+
+window.closeSpecDrawer = function() {
+  const drawerBackdrop = document.getElementById("architecture-drawer");
+  if (!drawerBackdrop) return;
+  drawerBackdrop.classList.add("hidden");
+  drawerBackdrop.classList.remove("flex");
+  document.body.style.overflow = "";
+};
+
+function escapeHtml(string) {
+  return String(string)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ==========================================================================
+   6. Live GitHub Engineering Pulse
+   ========================================================================== */
+async function renderGitHubPulse() {
+  const pulseContainer = document.getElementById("github-repos-grid");
+  const statsContainer = document.getElementById("github-user-stats");
+  const fallback = window.SITE_CONFIG?.githubPulseFallback;
+  if (!pulseContainer) return;
+
+  // Render static cache first for instant load
+  if (fallback) {
+    renderGitHubUI(fallback.user, fallback.pinnedRepos);
+  }
+
+  // Attempt live asynchronous fetch
+  try {
+    const userRes = await fetch("https://api.github.com/users/Shubh-creations");
+    if (!userRes.ok) throw new Error("GitHub user API rate limited");
+    const userData = await userRes.json();
+
+    const reposRes = await fetch("https://api.github.com/users/Shubh-creations/repos?sort=updated&per_page=6");
+    if (!reposRes.ok) throw new Error("GitHub repos API rate limited");
+    const reposData = await reposRes.json();
+
+    const formattedRepos = reposData.map(r => ({
+      name: r.name,
+      description: r.description || "Core systems engineering repository by Shubham Pawar.",
+      language: r.language || "Python",
+      stars: r.stargazers_count,
+      forks: r.forks_count,
+      url: r.html_url
+    }));
+
+    const formattedUser = {
+      login: userData.login,
+      public_repos: userData.public_repos,
+      followers: userData.followers,
+      avatar_url: userData.avatar_url
+    };
+
+    renderGitHubUI(formattedUser, formattedRepos);
+  } catch (err) {
+    // Graceful fallback to verified cache
+    console.info("GitHub API fetch fallback engaged:", err.message);
+  }
+}
+
+function renderGitHubUI(user, repos) {
+  const pulseContainer = document.getElementById("github-repos-grid");
+  const statsContainer = document.getElementById("github-user-stats");
+
+  if (statsContainer && user) {
+    statsContainer.innerHTML = `
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <i data-lucide="github" class="w-5 h-5 text-white"></i>
+          <span class="font-mono font-bold text-white text-sm">@${user.login}</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-mono text-zinc-400">
+        <div><span class="text-white font-bold">${user.public_repos}</span> Public Repos</div>
+        <div><span class="text-white font-bold">${user.followers}</span> Followers</div>
+      </div>
+    `;
+  }
+
+  if (pulseContainer && repos) {
+    pulseContainer.innerHTML = repos.map(repo => `
+      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-white/30 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-mono font-bold text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5 truncate">
+              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-zinc-500 shrink-0"></i>
+              <span class="truncate">${repo.name}</span>
+            </span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-600 group-hover:text-white transition-colors shrink-0"></i>
+          </div>
+          <p class="text-xs text-zinc-400 font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-3 border-t border-white/5">
+          <span class="flex items-center gap-1.5 text-zinc-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            ${repo.language}
+          </span>
+          <div class="flex items-center gap-3">
+            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-amber-400"></i> ${repo.stars}</span>
+            <span class="flex items-center gap-1"><i data-lucide="git-fork" class="w-3 h-3 text-zinc-400"></i> ${repo.forks}</span>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
 /* Mouse spotlight calculation on minimal cards */
 function setupSpotlightCards() {
   document.addEventListener("mousemove", (e) => {
-    document.querySelectorAll(".minimal-card").forEach((card) => {
+    document.querySelectorAll(".minimal-card, .flagship-card").forEach((card) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -282,9 +605,7 @@ function setupSpotlightCards() {
   });
 }
 
-/* ==========================================================================
-   2. Real-Time HUD Telemetry & Clock
-   ========================================================================== */
+/* Real-Time HUD Telemetry & Clock */
 function setupHUDTelemetry() {
   const clockEl = document.getElementById("hud-time");
   if (clockEl) {
@@ -298,7 +619,7 @@ function setupHUDTelemetry() {
 }
 
 /* ==========================================================================
-   3. Command Palette (⌘K / Ctrl+K)
+   7. Command Palette (⌘K / Ctrl+K)
    ========================================================================== */
 function setupCommandPalette() {
   const modal = document.getElementById("cmd-modal");
@@ -358,7 +679,19 @@ function setupCommandPalette() {
       closeCMD();
       if (window.soundEngine) window.soundEngine.playClick();
 
-      if (action === "open-sarvaflow") {
+      if (action === "open-suranyx") {
+        window.open("https://suranyx.com", "_blank");
+      } else if (action === "open-vadhuvar") {
+        window.open("https://vadhu-var.vercel.app", "_blank");
+      } else if (action === "open-spec-suranyx") {
+        openSpecDrawer("suranyx");
+      } else if (action === "open-spec-vadhuvar") {
+        openSpecDrawer("vadhu-var");
+      } else if (action === "open-spec-devprime") {
+        openSpecDrawer("devprime-adk");
+      } else if (action === "open-spec-myconet") {
+        openSpecDrawer("myconet");
+      } else if (action === "open-sarvaflow") {
         openDeckToSlide(2);
       } else if (action === "open-linkedin") {
         window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
@@ -394,7 +727,7 @@ function setupCommandPalette() {
 }
 
 /* ==========================================================================
-   4. Super Intelligent AI Assistant
+   8. Founder AI Assistant (Digital Twin)
    ========================================================================== */
 function setupAIAssistant() {
   const input = document.getElementById("ai-query-input");
@@ -449,7 +782,7 @@ function setupAIAssistant() {
 }
 
 /* ==========================================================================
-   5. Interactive Founder Dossier Modal
+   9. Interactive Founder Dossier Modal
    ========================================================================== */
 let currentSlideIndex = 0;
 
@@ -566,8 +899,10 @@ function renderSlide(index) {
         <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono flex-wrap gap-2">
           <div>SHUBHAM PAWAR // @builtfor101</div>
           <div class="flex items-center gap-3">
-            <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener" class="text-blue-400 hover:underline">LinkedIn</a>
-            <a href="https://rodimus-tech.com" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">rodimus-tech.com</a>
+            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Suranyx</a>
+            <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">Vadhu-Var</a>
+            <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">LinkedIn</a>
+            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:underline">GitHub</a>
           </div>
         </div>
       </div>
@@ -583,7 +918,7 @@ function renderSlide(index) {
 }
 
 /* ==========================================================================
-   6. Contact Modal & Audio Toggle
+   10. Contact Modal & Audio Toggle
    ========================================================================== */
 function setupContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -611,7 +946,7 @@ function setupContactModal() {
       const email = document.getElementById("investor-email")?.value || "";
       const note = document.getElementById("investor-note")?.value || "";
 
-      const subject = encodeURIComponent(`Direct Connect: ${name} (${firm})`);
+      const subject = encodeURIComponent(`Founder Connect: ${name} (${firm})`);
       const body = encodeURIComponent(`Hi Shubham,\n\nI reviewed your portfolio at shubh-creations.github.io.\n\nFrom: ${name} (${firm})\nEmail: ${email}\n\nNote:\n${note}\n\nBest,\n${name}`);
 
       window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
@@ -676,7 +1011,7 @@ window.toggleSoundHUD = function() {
 };
 
 /* ==========================================================================
-   7. FAQ Accordion & Copy Buttons
+   11. FAQ Accordion & Copy Buttons
    ========================================================================== */
 function setupFAQ() {
   document.addEventListener("click", (e) => {
@@ -736,3 +1071,27 @@ function showToast(message, type = "info") {
   }, 3000);
 }
 window.showToast = showToast;
+
+/* ==========================================================================
+   12. Developer Console Easter Egg
+   ========================================================================== */
+function setupConsoleEasterEgg() {
+  const banner = `
+%c  ▲ SHUBHAM PAWAR // FOUNDER & SYSTEMS ARCHITECT  
+%c  Co-Founder @ Suranyx (suranyx.com)  
+  Creator @ Vadhu-Var / VV (vadhu-var.vercel.app)  
+  Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)  
+  1 Year Stealth Founder @ Sarvaflow (Workflows Marketplace)  
+  GitHub: https://github.com/Shubh-creations  
+  Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in  
+  
+  Press ⌘K or Ctrl+K anywhere on the site for instant Command Palette.
+  System Status: Optimal | Multi-Tenant RLS: Active | SHA-256 Ledger: Verified
+  `;
+
+  console.log(
+    banner,
+    "background: #090A0F; color: #10B981; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #10B981;",
+    "background: #090A0F; color: #E4E4E7; font-size: 12px; line-height: 1.6;"
+  );
+}
