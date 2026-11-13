@@ -1,5 +1,6 @@
 /**
  * Shubham Pawar // AI Startup Founder & Systems Engineer - Master Orchestrator
+ * Palette: Gray (#2B2D31), Silver (#D9DADC), Yellow (#FFC93C)
  * Co-Founder @ Suranyx (https://suranyx.com)
  * Creator @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
  * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Initialize Site Data, Flagships, Production Stack, Deep-Tech Systems
   initSiteData();
   setupSpotlightCards();
+  setupHeroDeviceSwitcher();
   setupDeepTechFilter();
   setupArchitectureDrawer();
   renderGitHubPulse();
@@ -84,9 +86,9 @@ function initSiteData() {
     principlesContainer.innerHTML = config.principles.map(p => `
       <div class="minimal-card p-6 flex flex-col justify-between group">
         <div>
-          <div class="text-xs font-mono text-zinc-500 mb-3">${p.num} // PRINCIPLE</div>
-          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors">${p.title}</h3>
-          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
+          <div class="text-xs font-mono text-[#FFC93C] font-bold mb-3">${p.num} // PRINCIPLE</div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#FFC93C] transition-colors">${p.title}</h3>
+          <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
         </div>
       </div>
     `).join('');
@@ -97,10 +99,10 @@ function initSiteData() {
   if (timelineContainer && config.milestones) {
     timelineContainer.innerHTML = config.milestones.map((m) => `
       <div class="relative pl-6 pb-8 last:pb-2 border-l border-white/10 group">
-        <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-900 border border-white/40 group-hover:scale-125 transition-transform"></div>
-        <div class="text-[11px] font-mono text-zinc-500 mb-1">${m.period}</div>
-        <h4 class="text-base font-bold text-white group-hover:text-zinc-300 transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
-        <p class="text-zinc-400 text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
+        <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[#18191C] border border-[#FFC93C] group-hover:scale-125 transition-transform"></div>
+        <div class="text-[11px] font-mono text-[#FFC93C] font-semibold mb-1">${m.period}</div>
+        <h4 class="text-base font-bold text-white group-hover:text-[#FFC93C] transition-colors">${m.role} <span class="text-[#8E9297] font-normal">at ${m.organization}</span></h4>
+        <p class="text-[#D9DADC] text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
       </div>
     `).join('');
   }
@@ -111,22 +113,22 @@ function initSiteData() {
     essaysContainer.innerHTML = config.essays.map((e) => `
       <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-3">
             <span>${e.date}</span>
-            <span>${e.readTime}</span>
+            <span class="text-[#FFC93C] font-semibold">${e.readTime}</span>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-zinc-200 transition-colors">${e.title}</h3>
-          <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
-          <div class="p-3.5 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-mono text-[11px] leading-relaxed">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#FFC93C] transition-colors">${e.title}</h3>
+          <p class="text-[#D9DADC] text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
+          <div class="p-3.5 rounded-xl bg-[#18191C] border border-white/5 text-xs text-[#D9DADC] font-mono text-[11px] leading-relaxed">
             ${e.body}
           </div>
         </div>
         <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
-          <a href="https://x.com/builtfor101" target="_blank" rel="noopener" class="text-xs font-mono text-zinc-400 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+          <a href="https://x.com/builtfor101" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#D9DADC] hover:text-[#FFC93C] inline-flex items-center gap-1.5 transition-colors">
             <span>Discuss on X</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
+            <i data-lucide="external-link" class="w-3 h-3 text-[#FFC93C]"></i>
           </a>
-          <span class="text-[10px] font-mono text-zinc-600">@builtfor101</span>
+          <span class="text-[10px] font-mono text-[#8E9297]">@builtfor101</span>
         </div>
       </div>
     `).join('');
@@ -136,12 +138,12 @@ function initSiteData() {
   const faqContainer = document.getElementById("faq-accordion");
   if (faqContainer && config.faq) {
     faqContainer.innerHTML = config.faq.map((item, idx) => `
-      <div class="minimal-card rounded-lg overflow-hidden border border-white/5">
+      <div class="minimal-card rounded-xl overflow-hidden border border-white/5">
         <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors" data-faq="${idx}">
-          <span class="text-sm font-medium text-zinc-200">${item.q}</span>
-          <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-zinc-500 shrink-0"></i>
+          <span class="text-sm font-semibold text-white">${item.q}</span>
+          <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#FFC93C] shrink-0"></i>
         </button>
-        <div class="accordion-content px-5 pb-4 text-zinc-400 text-xs sm:text-sm leading-relaxed border-t border-white/5 pt-3 font-light">
+        <div class="accordion-content px-5 pb-4 text-[#D9DADC] text-xs sm:text-sm leading-relaxed border-t border-white/5 pt-3 font-light">
           ${item.a}
         </div>
       </div>
@@ -166,34 +168,34 @@ function renderFlagships() {
         <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
           <div class="flex items-center gap-2">
             <span class="flagship-badge">${f.badge}</span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[#FFC93C] bg-[#FFC93C]/10 border border-[#FFC93C]/30 font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#FFC93C] animate-pulse"></span>
               ${f.status}
             </span>
           </div>
-          <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">${f.category}</span>
+          <span class="text-xs font-mono text-[#8E9297] uppercase tracking-wider">${f.category}</span>
         </div>
 
         <!-- Title & Subtitle -->
         <div class="mb-4">
           <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
             <span>${f.name}</span>
-            <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" title="Visit ${f.displayUrl}">
+            <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FFC93C] transition-colors" title="Visit ${f.displayUrl}">
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
           </h3>
-          <div class="text-xs font-mono text-emerald-400 mt-1">${f.role}</div>
+          <div class="text-xs font-mono text-[#FFC93C] font-semibold mt-1">${f.role}</div>
         </div>
 
         <!-- Tagline & Description -->
-        <p class="text-zinc-200 text-sm sm:text-base font-medium mb-3 leading-snug">${f.tagline}</p>
-        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
+        <p class="text-white text-sm sm:text-base font-medium mb-3 leading-snug">${f.tagline}</p>
+        <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
 
         <!-- Technical Metrics Grid -->
-        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 mb-6">
+        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#18191C] border border-white/5 mb-6">
           ${f.metrics.map(m => `
             <div class="text-center">
-              <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider truncate">${m.label}</div>
+              <div class="text-[9px] font-mono text-[#8E9297] uppercase tracking-wider truncate">${m.label}</div>
               <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
             </div>
           `).join('')}
@@ -201,10 +203,10 @@ function renderFlagships() {
 
         <!-- Invariants & Highlights -->
         <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Production Invariants &amp; Architecture:</div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Production Invariants &amp; Architecture:</div>
           ${f.highlights.map(h => `
-            <div class="flex items-start gap-2.5 text-xs text-zinc-300 font-light leading-relaxed">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2.5 text-xs text-[#D9DADC] font-light leading-relaxed">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
               <span>${h}</span>
             </div>
           `).join('')}
@@ -215,21 +217,21 @@ function renderFlagships() {
         <!-- Tech Stack Pills -->
         <div class="flex flex-wrap gap-1.5 mb-6">
           ${f.stack.map(s => `
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-300 border border-white/10">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/10">
               ${s}
             </span>
           `).join('')}
         </div>
 
-        <!-- Interactive CTAs -->
+        <!-- Interactive CTAs (Using .btn-yellow for primary action!) -->
         <div class="flex items-center gap-3 pt-5 border-t border-white/10 flex-wrap">
-          <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="btn-emerald text-xs py-2 px-4 inline-flex items-center gap-1.5">
+          <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="btn-yellow text-xs py-2 px-5 inline-flex items-center gap-1.5">
             <span>Launch ${f.name}</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
           </a>
 
-          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-3.5 inline-flex items-center gap-1.5 text-zinc-300 hover:text-white">
-            <i data-lucide="terminal" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-4 inline-flex items-center gap-1.5 text-[#D9DADC] hover:text-white">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
             <span>View Architecture Spec</span>
           </button>
         </div>
@@ -251,24 +253,24 @@ function renderProductionStack() {
   container.innerHTML = config.productionStack.map((domain, idx) => `
     <div class="minimal-card p-6 sm:p-7 border border-white/10 space-y-5 flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
+        <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-2">
           <span>0${idx + 1} // DOMAIN MATRIX</span>
-          <span class="text-emerald-400 font-semibold">${domain.technologies.length} Shipped Primitives</span>
+          <span class="text-[#FFC93C] font-bold">${domain.technologies.length} Shipped Primitives</span>
         </div>
         <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-          <i data-lucide="${domain.icon}" class="w-4 h-4 text-zinc-400"></i>
+          <i data-lucide="${domain.icon}" class="w-4 h-4 text-[#FFC93C]"></i>
           <span>${domain.category}</span>
         </h3>
-        <p class="text-zinc-400 text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
+        <p class="text-[#D9DADC] text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
       </div>
 
       <div class="space-y-2.5 pt-3 border-t border-white/5">
         ${domain.technologies.map(tech => `
-          <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-white/20 transition-colors">
+          <div class="p-2.5 rounded-xl bg-[#18191C] border border-white/5 hover:border-[#FFC93C]/30 transition-colors">
             <div class="flex items-center justify-between">
               <span class="text-xs font-mono font-bold text-white">${tech.name}</span>
             </div>
-            <p class="text-[11px] text-zinc-400 font-light mt-0.5 leading-snug">${tech.desc}</p>
+            <p class="text-[11px] text-[#D9DADC] font-light mt-0.5 leading-snug">${tech.desc}</p>
           </div>
         `).join('')}
       </div>
@@ -298,23 +300,23 @@ function renderDeepTechSystems(filter = "all") {
     <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
       <div>
         <div class="flex items-start justify-between gap-4 mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white/5 text-zinc-300 border border-white/10">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#FFC93C]/10 text-[#FFC93C] border border-[#FFC93C]/30">
             0${idx + 1} // ${sys.status}
           </span>
-          <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">${sys.category}</span>
+          <span class="text-xs font-mono text-[#8E9297] uppercase tracking-widest">${sys.category}</span>
         </div>
 
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-zinc-200 transition-colors flex items-center justify-between">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#FFC93C] transition-colors flex items-center justify-between">
           <span>${sys.name}</span>
         </h3>
-        <p class="text-zinc-300 text-xs sm:text-sm font-medium mb-3">${sys.tagline}</p>
-        <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
+        <p class="text-white text-xs sm:text-sm font-medium mb-3">${sys.tagline}</p>
+        <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
 
         <!-- Metrics Row -->
-        <div class="grid grid-cols-3 gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 mb-6">
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#18191C] border border-white/5 mb-6">
           ${sys.metrics.map(m => `
             <div class="text-center">
-              <div class="text-[9px] font-mono text-zinc-500 uppercase truncate">${m.label}</div>
+              <div class="text-[9px] font-mono text-[#8E9297] uppercase truncate">${m.label}</div>
               <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
             </div>
           `).join('')}
@@ -322,10 +324,10 @@ function renderDeepTechSystems(filter = "all") {
 
         <!-- Highlights -->
         <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Engineering Highlights:</div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Engineering Highlights:</div>
           ${sys.highlights.map(h => `
-            <div class="flex items-start gap-2 text-xs text-zinc-300 font-light leading-relaxed">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2 text-xs text-[#D9DADC] font-light leading-relaxed">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
               <span>${h}</span>
             </div>
           `).join('')}
@@ -334,26 +336,26 @@ function renderDeepTechSystems(filter = "all") {
 
       <div>
         <div class="flex flex-wrap gap-1.5 mb-5">
-          ${sys.tags.map(t => `<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-400 border border-white/5">${t}</span>`).join('')}
+          ${sys.tags.map(t => `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/5">${t}</span>`).join('')}
         </div>
 
         <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
           ${sys.links.site ? `
-            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#FFC93C] hover:underline inline-flex items-center gap-1 transition-colors">
               <i data-lucide="globe" class="w-3.5 h-3.5"></i>
               <span>Website</span>
             </a>
           ` : ''}
           ${sys.links.github ? `
-            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-300 hover:text-white inline-flex items-center gap-1 transition-colors">
+            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-[#D9DADC] hover:text-white inline-flex items-center gap-1 transition-colors">
               <i data-lucide="github" class="w-3.5 h-3.5"></i>
               <span>Source</span>
             </a>
           ` : ''}
           ${sys.links.specId ? `
-            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-zinc-400 hover:text-white inline-flex items-center gap-1 transition-colors ml-auto">
+            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-[#8E9297] hover:text-[#FFC93C] inline-flex items-center gap-1 transition-colors ml-auto">
               <span>View Specs</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
             </button>
           ` : ''}
         </div>
@@ -369,11 +371,11 @@ function setupDeepTechFilter() {
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       buttons.forEach(b => {
-        b.classList.remove("bg-white", "text-black");
-        b.classList.add("bg-white/[0.03]", "text-zinc-400");
+        b.classList.remove("bg-[#FFC93C]", "text-black", "font-bold");
+        b.classList.add("bg-white/[0.04]", "text-[#D9DADC]");
       });
-      btn.classList.add("bg-white", "text-black");
-      btn.classList.remove("bg-white/[0.03]", "text-zinc-400");
+      btn.classList.add("bg-[#FFC93C]", "text-black", "font-bold");
+      btn.classList.remove("bg-white/[0.04]", "text-[#D9DADC]");
 
       const filter = btn.getAttribute("data-filter") || "all";
       renderDeepTechSystems(filter);
@@ -383,7 +385,206 @@ function setupDeepTechFilter() {
 }
 
 /* ==========================================================================
-   5. Interactive Architecture Spec Drawer
+   5. Interactive Hero Device Screen Switcher (Matches Video Phone Preview!)
+   ========================================================================== */
+function setupHeroDeviceSwitcher() {
+  const tabs = document.querySelectorAll(".hero-device-tab");
+  const screenContent = document.getElementById("hero-device-screen");
+  if (!tabs.length || !screenContent) return;
+
+  const views = {
+    suranyx: `
+      <!-- Phone Header -->
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+          <span class="font-mono text-white text-[11px] font-bold">Suranyx Intelligence</span>
+        </div>
+        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30">● LIVE</span>
+      </div>
+
+      <!-- Main Metric with Glow Curve -->
+      <div class="py-1 w-full text-left">
+        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Projected Cash Runway</div>
+        <div class="flex items-baseline gap-2 mt-0.5">
+          <span class="text-3xl font-extrabold text-white font-mono">₹4.2M</span>
+          <span class="text-xs font-mono font-bold text-[#FFC93C]">+8.4 mo</span>
+        </div>
+      </div>
+
+      <!-- Route / Graph Line SVG (With signature electric yellow curve!) -->
+      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-2 border border-white/5 overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(217,218,220,0.08)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
+        <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 10 65 Q 40 60, 70 45 T 130 30 T 190 12" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
+          <circle cx="190" cy="12" r="4" fill="#FFC93C" />
+          <circle cx="10" cy="65" r="3" fill="#D9DADC" />
+        </svg>
+      </div>
+
+      <!-- Telemetry Ledger Row -->
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">NET BURN</div>
+          <div class="text-[11px] font-bold text-white font-mono mt-0.5">₹3.2L/mo</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">RLS LEVEL</div>
+          <div class="text-[11px] font-bold text-[#FFC93C] font-mono mt-0.5">Tenant</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">LEDGER</div>
+          <div class="text-[11px] font-bold text-white font-mono mt-0.5">SHA-256</div>
+        </div>
+      </div>
+
+      <!-- Action Button (Matching yellow action button in reference!) -->
+      <div class="flex items-center justify-between pt-1 w-full">
+        <div class="text-[10px] font-mono text-[#D9DADC]">Reconciliation: 100%</div>
+        <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Launch Suranyx">
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    `,
+    vadhuvar: `
+      <!-- Phone Header -->
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+          <span class="font-mono text-white text-[11px] font-bold">Vadhu-Var PWA</span>
+        </div>
+        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">● TRILINGUAL</span>
+      </div>
+
+      <!-- Profile & Matching Card -->
+      <div class="py-1 w-full text-left">
+        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Match Interface &amp; Prompts</div>
+        <div class="flex items-baseline gap-2 mt-0.5">
+          <span class="text-2xl font-extrabold text-white font-mono">36 Prompts</span>
+          <span class="text-xs font-mono font-bold text-[#FFC93C]">Sub-ms RLS</span>
+        </div>
+      </div>
+
+      <!-- Matrimony Match Mockup -->
+      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-3 border border-white/5 flex flex-col justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-[#FFC93C]/20 border border-[#FFC93C] flex items-center justify-center text-xs font-bold text-[#FFC93C]">VV</div>
+          <div>
+            <div class="text-xs font-bold text-white">Ananya, 26 • Pune</div>
+            <div class="text-[9px] text-[#D9DADC] font-mono">Software Architect // Verified ID</div>
+          </div>
+        </div>
+        <div class="flex gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D9DADC]">English</span>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30">मराठी</span>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D9DADC]">हिंदी</span>
+        </div>
+      </div>
+
+      <!-- Atomic RPC Telemetry -->
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">RPC FUNCTION</div>
+          <div class="text-[10px] font-bold text-white font-mono mt-0.5 truncate">send_interest</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">POLICY EXEC</div>
+          <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">0.8ms InitPlan</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">MEDIA LIMIT</div>
+          <div class="text-[10px] font-bold text-white font-mono mt-0.5">Max 3 Slots</div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center justify-between pt-1 w-full">
+        <div class="text-[10px] font-mono text-[#D9DADC]">Family Co-Sign Invariant</div>
+        <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Explore Vadhu-Var">
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    `,
+    devprime: `
+      <!-- Phone Header -->
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+          <span class="font-mono text-white text-[11px] font-bold">Devprime ADK // PyBullet</span>
+        </div>
+        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">● RL BENCHMARK</span>
+      </div>
+
+      <!-- Main Metric with Glow Curve -->
+      <div class="py-1 w-full text-left">
+        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Episodic Return / Reward</div>
+        <div class="flex items-baseline gap-2 mt-0.5">
+          <span class="text-3xl font-extrabold text-white font-mono">+842.6</span>
+          <span class="text-xs font-mono font-bold text-[#FFC93C]">TorchScript</span>
+        </div>
+      </div>
+
+      <!-- Reward Curve SVG -->
+      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-2 border border-white/5 overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(217,218,220,0.08)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
+        <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 10 70 Q 30 65, 60 50 T 110 32 T 150 20 T 190 8" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
+          <circle cx="190" cy="8" r="4" fill="#FFC93C" />
+          <circle cx="10" cy="70" r="3" fill="#D9DADC" />
+        </svg>
+      </div>
+
+      <!-- Telemetry Ledger Row -->
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">ENV</div>
+          <div class="text-[10px] font-bold text-white font-mono mt-0.5">PyBullet</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">POLICY</div>
+          <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">PPO / DQN</div>
+        </div>
+        <div>
+          <div class="text-[8px] font-mono text-[#8E9297] uppercase">EXPORT</div>
+          <div class="text-[10px] font-bold text-white font-mono mt-0.5">Zero-Latency</div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center justify-between pt-1 w-full">
+        <div class="text-[10px] font-mono text-[#D9DADC]">TorchScript C++ Engine</div>
+        <a href="https://github.com/Shubh-creations/Devprime-adk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="View Devprime ADK">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+      </div>
+    `
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => {
+        t.classList.remove("bg-[#FFC93C]", "text-black");
+        t.classList.add("bg-white/5", "text-[#D9DADC]");
+      });
+      tab.classList.add("bg-[#FFC93C]", "text-black");
+      tab.classList.remove("bg-white/5", "text-[#D9DADC]");
+
+      const view = tab.getAttribute("data-tab");
+      if (views[view]) {
+        screenContent.innerHTML = views[view];
+        if (window.lucide) window.lucide.createIcons();
+        if (window.soundEngine) window.soundEngine.playClick(900, 0.02);
+      }
+    });
+  });
+
+  // Initial load
+  screenContent.innerHTML = views.suranyx;
+  if (window.lucide) window.lucide.createIcons();
+}
+
+/* ==========================================================================
+   6. Interactive Architecture Spec Drawer
    ========================================================================== */
 function setupArchitectureDrawer() {
   const drawerBackdrop = document.getElementById("architecture-drawer");
@@ -421,18 +622,18 @@ window.openSpecDrawer = function(specId) {
     <div class="space-y-6">
       <!-- Header -->
       <div class="border-b border-white/10 pb-5">
-        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
+        <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-2">
           <span>SYSTEM ARCHITECTURE SPECIFICATION</span>
-          <span class="text-emerald-400 font-bold">${spec.primaryInvariants.length} Production Invariants</span>
+          <span class="text-[#FFC93C] font-bold">${spec.primaryInvariants.length} Production Invariants</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">${spec.title}</h2>
-        <p class="text-zinc-400 text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
+        <p class="text-[#D9DADC] text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
       </div>
 
       <!-- Topology Diagram (Ascii / SVG block) -->
       <div>
-        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-          <i data-lucide="network" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider mb-2 flex items-center gap-2 font-bold">
+          <i data-lucide="network" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
           <span>Execution Topology &amp; Boundary Flow</span>
         </div>
         <pre class="spec-topology-diagram">${spec.topologyText}</pre>
@@ -440,11 +641,11 @@ window.openSpecDrawer = function(specId) {
 
       <!-- Production Invariants -->
       <div class="space-y-2.5">
-        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Security &amp; Structural Invariants</div>
+        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Security &amp; Structural Invariants</div>
         <div class="space-y-2">
           ${spec.primaryInvariants.map(inv => `
-            <div class="flex items-start gap-2.5 p-3 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-light">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#18191C] border border-white/5 text-xs text-[#D9DADC] font-light">
+              <i data-lucide="shield-check" class="w-4 h-4 text-[#FFC93C] shrink-0 mt-0.5"></i>
               <span>${inv}</span>
             </div>
           `).join('')}
@@ -453,20 +654,20 @@ window.openSpecDrawer = function(specId) {
 
       <!-- Code Snippet -->
       <div>
-        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2">
-          <span class="flex items-center gap-1.5">
-            <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+        <div class="flex items-center justify-between text-[11px] font-mono text-[#D9DADC] uppercase tracking-wider mb-2">
+          <span class="flex items-center gap-1.5 font-bold text-white">
+            <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
             <span>Production Implementation Snippet</span>
           </span>
-          <span class="text-zinc-500 font-mono text-[10px]">${spec.codeSnippet.lang}</span>
+          <span class="text-[#8E9297] font-mono text-[10px]">${spec.codeSnippet.lang}</span>
         </div>
-        <pre class="p-4 rounded-xl bg-zinc-950 border border-white/10 text-emerald-300 font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
+        <pre class="p-4 rounded-xl bg-[#18191C] border border-white/10 text-[#FFC93C] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
       </div>
 
       <!-- Engineering Trade-Offs -->
-      <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
-        <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Engineering Trade-Offs &amp; Decision Record</div>
-        <p class="text-xs text-zinc-300 font-light leading-relaxed">${spec.tradeOffs}</p>
+      <div class="p-4 rounded-xl bg-[#18191C] border border-white/5 space-y-2">
+        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
+        <p class="text-xs text-[#D9DADC] font-light leading-relaxed">${spec.tradeOffs}</p>
       </div>
     </div>
   `;
@@ -496,7 +697,7 @@ function escapeHtml(string) {
 }
 
 /* ==========================================================================
-   6. Live GitHub Engineering Pulse
+   7. Live GitHub Engineering Pulse
    ========================================================================== */
 async function renderGitHubPulse() {
   const pulseContainer = document.getElementById("github-repos-grid");
@@ -537,7 +738,6 @@ async function renderGitHubPulse() {
 
     renderGitHubUI(formattedUser, formattedRepos);
   } catch (err) {
-    // Graceful fallback to verified cache
     console.info("GitHub API fetch fallback engaged:", err.message);
   }
 }
@@ -554,34 +754,34 @@ function renderGitHubUI(user, repos) {
           <span class="font-mono font-bold text-white text-sm">@${user.login}</span>
         </a>
       </div>
-      <div class="flex items-center gap-4 text-xs font-mono text-zinc-400">
-        <div><span class="text-white font-bold">${user.public_repos}</span> Public Repos</div>
-        <div><span class="text-white font-bold">${user.followers}</span> Followers</div>
+      <div class="flex items-center gap-4 text-xs font-mono text-[#D9DADC]">
+        <div><span class="text-[#FFC93C] font-bold">${user.public_repos}</span> Public Repos</div>
+        <div><span class="text-[#FFC93C] font-bold">${user.followers}</span> Followers</div>
       </div>
     `;
   }
 
   if (pulseContainer && repos) {
     pulseContainer.innerHTML = repos.map(repo => `
-      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-white/30 transition-all">
+      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-[#FFC93C]/40 transition-all">
         <div>
           <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-mono font-bold text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5 truncate">
-              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-zinc-500 shrink-0"></i>
+            <span class="text-sm font-mono font-bold text-white group-hover:text-[#FFC93C] transition-colors flex items-center gap-1.5 truncate">
+              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0"></i>
               <span class="truncate">${repo.name}</span>
             </span>
-            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-600 group-hover:text-white transition-colors shrink-0"></i>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#FFC93C] transition-colors shrink-0"></i>
           </div>
-          <p class="text-xs text-zinc-400 font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
+          <p class="text-xs text-[#D9DADC] font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
         </div>
 
-        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-3 border-t border-white/5">
-          <span class="flex items-center gap-1.5 text-zinc-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <div class="flex items-center justify-between text-[11px] font-mono text-[#8E9297] pt-3 border-t border-white/5">
+          <span class="flex items-center gap-1.5 text-white">
+            <span class="w-2 h-2 rounded-full bg-[#FFC93C]"></span>
             ${repo.language}
           </span>
           <div class="flex items-center gap-3">
-            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-amber-400"></i> ${repo.stars}</span>
+            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-[#FFC93C]"></i> ${repo.stars}</span>
             <span class="flex items-center gap-1"><i data-lucide="git-fork" class="w-3 h-3 text-zinc-400"></i> ${repo.forks}</span>
           </div>
         </div>
@@ -619,7 +819,7 @@ function setupHUDTelemetry() {
 }
 
 /* ==========================================================================
-   7. Command Palette (⌘K / Ctrl+K)
+   8. Command Palette (⌘K / Ctrl+K)
    ========================================================================== */
 function setupCommandPalette() {
   const modal = document.getElementById("cmd-modal");
@@ -689,16 +889,12 @@ function setupCommandPalette() {
         openSpecDrawer("vadhu-var");
       } else if (action === "open-spec-devprime") {
         openSpecDrawer("devprime-adk");
-      } else if (action === "open-spec-myconet") {
-        openSpecDrawer("myconet");
       } else if (action === "open-sarvaflow") {
         openDeckToSlide(2);
       } else if (action === "open-linkedin") {
         window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
       } else if (action === "open-cuas") {
         window.open("https://github.com/Shubh-creations/Counter-UAS", "_blank");
-      } else if (action === "open-devprime") {
-        window.open("https://github.com/Shubh-creations/Devprime-adk", "_blank");
       } else if (action === "open-rodimus") {
         window.open("https://www.rodimus-tech.com", "_blank");
       } else if (action === "open-github") {
@@ -715,8 +911,6 @@ function setupCommandPalette() {
           input.scrollIntoView({ behavior: "smooth" });
           input.focus();
         }
-      } else if (action === "toggle-sound") {
-        toggleSoundHUD();
       } else if (action === "copy-email") {
         const email = window.SITE_CONFIG?.founder?.links?.email || "shubhampawar0610@gmail.com";
         navigator.clipboard.writeText(email);
@@ -727,8 +921,8 @@ function setupCommandPalette() {
 }
 
 /* ==========================================================================
-   8. Founder AI Assistant (Digital Twin)
-   ========================================================================== */
+   9. Founder AI Assistant (Digital Twin)
+   ========================================================================= */
 function setupAIAssistant() {
   const input = document.getElementById("ai-query-input");
   const submitBtn = document.getElementById("ai-submit-btn");
@@ -743,7 +937,7 @@ function setupAIAssistant() {
 
     if (badgeEl) {
       badgeEl.textContent = "Processing...";
-      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20";
+      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFC93C]/20 text-[#FFC93C] border border-[#FFC93C]/40 font-bold";
     }
 
     if (window.soundEngine) window.soundEngine.playClick();
@@ -753,14 +947,14 @@ function setupAIAssistant() {
 
       if (badgeEl) {
         badgeEl.textContent = res.badge || "Verified";
-        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20";
+        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30 font-bold";
       }
 
       window.neuralAssistant.typewriter(responseBox, res.text, () => {
         if (badgeEl) {
           setTimeout(() => {
             badgeEl.textContent = "Ready";
-            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/10";
+            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-[#D9DADC] border border-white/10";
           }, 3000);
         }
       });
@@ -782,7 +976,7 @@ function setupAIAssistant() {
 }
 
 /* ==========================================================================
-   9. Interactive Founder Dossier Modal
+   10. Interactive Founder Dossier Modal
    ========================================================================== */
 let currentSlideIndex = 0;
 
@@ -874,35 +1068,35 @@ function renderSlide(index) {
       <div class="flex flex-col justify-between h-full space-y-6">
         <div>
           <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+            <span class="text-xs font-mono text-[#8E9297] uppercase tracking-widest font-bold">
               0${slide.slideNumber} // ${slide.subtitle}
             </span>
-            <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-white/5 text-white border border-white/10">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#FFC93C]/10 text-[#FFC93C] border border-[#FFC93C]/30">
               ${slide.keyMetric}
             </span>
           </div>
 
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">${slide.title}</h2>
-          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
+          <p class="text-[#D9DADC] text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
 
-          <div class="space-y-2.5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">Key Architecture Points:</div>
+          <div class="space-y-2.5 p-5 rounded-2xl bg-[#18191C] border border-white/5">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Key Architecture Points:</div>
             ${slide.bullets.map(b => `
-              <div class="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 font-light">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5"></i>
+              <div class="flex items-start gap-3 text-xs sm:text-sm text-[#D9DADC] font-light">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
                 <span>${b}</span>
               </div>
             `).join('')}
           </div>
         </div>
 
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono flex-wrap gap-2">
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-[#8E9297] font-mono flex-wrap gap-2">
           <div>SHUBHAM PAWAR // @builtfor101</div>
           <div class="flex items-center gap-3">
-            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Suranyx</a>
-            <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">Vadhu-Var</a>
+            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-[#FFC93C] hover:underline">Suranyx</a>
+            <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:underline">Vadhu-Var</a>
             <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">LinkedIn</a>
-            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:underline">GitHub</a>
+            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-[#D9DADC] hover:underline">GitHub</a>
           </div>
         </div>
       </div>
@@ -918,7 +1112,7 @@ function renderSlide(index) {
 }
 
 /* ==========================================================================
-   10. Contact Modal & Audio Toggle
+   11. Contact Modal & Audio Toggle
    ========================================================================== */
 function setupContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -981,8 +1175,8 @@ function setupAudioHUDToggle() {
   function updateAudioHUDIcon() {
     const isMuted = window.soundEngine ? window.soundEngine.isMuted() : true;
     toggleBtn.innerHTML = isMuted 
-      ? `<i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-500"></i><span class="text-[11px] font-mono text-zinc-500">Audio: OFF</span>`
-      : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-[11px] font-mono text-emerald-400">Audio: ON</span>`;
+      ? `<i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-400"></i><span class="text-[11px] font-mono text-zinc-400">Audio: OFF</span>`
+      : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#FFC93C]"></i><span class="text-[11px] font-mono text-[#FFC93C] font-bold">Audio: ON</span>`;
     if (window.lucide) window.lucide.createIcons();
   }
 
@@ -996,22 +1190,8 @@ function setupAudioHUDToggle() {
   updateAudioHUDIcon();
 }
 
-window.toggleSoundHUD = function() {
-  if (window.soundEngine) {
-    window.soundEngine.toggleSound();
-    const toggleBtn = document.getElementById("hud-audio-toggle");
-    if (toggleBtn) {
-      const isMuted = window.soundEngine.isMuted();
-      toggleBtn.innerHTML = isMuted 
-        ? `<i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-500"></i><span class="text-[11px] font-mono text-zinc-500">Audio: OFF</span>`
-        : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-[11px] font-mono text-emerald-400">Audio: ON</span>`;
-      if (window.lucide) window.lucide.createIcons();
-    }
-  }
-};
-
 /* ==========================================================================
-   11. FAQ Accordion & Copy Buttons
+   12. FAQ Accordion & Copy Buttons
    ========================================================================== */
 function setupFAQ() {
   document.addEventListener("click", (e) => {
@@ -1073,7 +1253,7 @@ function showToast(message, type = "info") {
 window.showToast = showToast;
 
 /* ==========================================================================
-   12. Developer Console Easter Egg
+   13. Developer Console Easter Egg
    ========================================================================== */
 function setupConsoleEasterEgg() {
   const banner = `
@@ -1085,13 +1265,14 @@ function setupConsoleEasterEgg() {
   GitHub: https://github.com/Shubh-creations  
   Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in  
   
+  Color Palette: Gray (#2B2D31), Silver (#D9DADC), Yellow (#FFC93C)
   Press ⌘K or Ctrl+K anywhere on the site for instant Command Palette.
   System Status: Optimal | Multi-Tenant RLS: Active | SHA-256 Ledger: Verified
   `;
 
   console.log(
     banner,
-    "background: #090A0F; color: #10B981; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #10B981;",
-    "background: #090A0F; color: #E4E4E7; font-size: 12px; line-height: 1.6;"
+    "background: #202225; color: #FFC93C; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #FFC93C;",
+    "background: #24262A; color: #D9DADC; font-size: 12px; line-height: 1.6;"
   );
 }

@@ -1,6 +1,7 @@
 /**
  * Super Minimalist Particle & Constellation Canvas
  * Subtle, luxury monochrome particles with fluid cursor attraction.
+ * Palette: Silver (#D9DADC) & Yellow (#FFC93C) on Gray (#2B2D31)
  */
 
 class NeuralCanvas {
@@ -9,9 +10,9 @@ class NeuralCanvas {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext("2d");
     this.particles = [];
-    this.mouse = { x: null, y: null, radius: 150 };
-    this.particleCount = window.innerWidth < 768 ? 35 : 65;
-    this.maxDistance = 120;
+    this.mouse = { x: null, y: null, radius: 140 };
+    this.particleCount = window.innerWidth < 768 ? 30 : 60;
+    this.maxDistance = 110;
     this.animationFrameId = null;
 
     this.init();
@@ -23,13 +24,15 @@ class NeuralCanvas {
     this.resize();
     this.particles = [];
     for (let i = 0; i < this.particleCount; i++) {
+      const isAccent = Math.random() < 0.25; // 25% particles tinted with accent yellow
       this.particles.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: Math.random() * 1.2 + 0.6,
-        baseAlpha: Math.random() * 0.22 + 0.1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: isAccent ? Math.random() * 1.5 + 0.8 : Math.random() * 1.2 + 0.6,
+        baseAlpha: Math.random() * 0.25 + 0.1,
+        color: isAccent ? "255, 201, 60" : "217, 218, 220"
       });
     }
   }
@@ -83,7 +86,7 @@ class NeuralCanvas {
       if (p.x < 0 || p.x > this.width) p.vx *= -1;
       if (p.y < 0 || p.y > this.height) p.vy *= -1;
 
-      // Mouse attraction / gentle interaction
+      // Mouse attraction
       if (this.mouse.x !== null) {
         const dx = this.mouse.x - p.x;
         const dy = this.mouse.y - p.y;
@@ -91,18 +94,18 @@ class NeuralCanvas {
 
         if (dist < this.mouse.radius) {
           const force = (this.mouse.radius - dist) / this.mouse.radius;
-          p.x -= (dx / dist) * force * 1.2;
-          p.y -= (dy / dist) * force * 1.2;
+          p.x -= (dx / dist) * force * 1.1;
+          p.y -= (dy / dist) * force * 1.1;
         }
       }
 
-      // Draw subtle particle
+      // Draw particle
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(255, 255, 255, ${p.baseAlpha})`;
+      this.ctx.fillStyle = `rgba(${p.color}, ${p.baseAlpha})`;
       this.ctx.fill();
 
-      // Draw delicate hairline connectors
+      // Hairline connectors
       for (let j = i + 1; j < this.particles.length; j++) {
         const p2 = this.particles[j];
         const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
@@ -112,7 +115,7 @@ class NeuralCanvas {
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(255, 255, 255, ${lineAlpha})`;
+          this.ctx.strokeStyle = `rgba(217, 218, 220, ${lineAlpha})`;
           this.ctx.lineWidth = 0.5;
           this.ctx.stroke();
         }
