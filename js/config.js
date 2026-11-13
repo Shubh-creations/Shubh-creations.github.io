@@ -17,7 +17,7 @@ const SITE_CONFIG = {
     tagline: "4x Founder • CEO @ Suranyx • Solo Founder @ Vadhu-Var (VV) • Co-Founder (COO) @ Rodimus Tech",
     location: "Pune, India // Remote",
     status: "CEO @ Suranyx (suranyx.com) • Solo Founder @ Vadhu-Var (VV)",
-    headline: "4x Founder building production-grade platforms, sovereign distributed systems, and real-time edge intelligence.",
+    headline: "Shubham Pawar — 4x AI Founder & Systems Architect.",
     subheadline: "CEO & Co-Founder at Suranyx (AI-Native Financial OS & B2B compliance) • Solo Founder of Vadhu-Var (trilingual matrimony PWA with atomic PostgreSQL RPCs) • Co-Founder (COO) at Rodimus Tech (rodimus-tech.com). Architect of multi-tenant RLS, tamper-evident SHA-256 ledgers, Devprime ADK, and tactical edge perception systems.",
     avatar: "assets/avatar.svg",
     links: {

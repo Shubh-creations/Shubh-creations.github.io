@@ -85,9 +85,9 @@ function initSiteData() {
     principlesContainer.innerHTML = config.principles.map(p => `
       <div class="minimal-card p-6 flex flex-col justify-between group">
         <div>
-          <div class="text-xs font-mono text-[#FFC93C] font-bold mb-3">${p.num} // PRINCIPLE</div>
-          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#FFC93C] transition-colors">${p.title}</h3>
-          <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
+          <div class="text-xs font-mono text-[#D8CBB3] font-bold mb-3">${p.num} // PRINCIPLE</div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#D8CBB3] transition-colors">${p.title}</h3>
+          <p class="text-[#D8CBB3] text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
         </div>
       </div>
     `).join('');
@@ -110,12 +110,12 @@ function initSiteData() {
 
     timelineContainer.innerHTML = config.milestones.map((m) => `
       <div class="relative pl-9 pb-8 last:pb-2 border-l border-white/[0.08] group">
-        <div class="absolute -left-[15px] top-0.5 w-7 h-7 rounded-xl bg-[#08080A] border border-white/10 flex items-center justify-center group-hover:border-[#FFC93C] group-hover:scale-110 transition-all shadow-md">
+        <div class="absolute -left-[15px] top-0.5 w-7 h-7 rounded-xl bg-[#171715] border border-white/10 flex items-center justify-center group-hover:border-[#D8CBB3] group-hover:scale-110 transition-all shadow-md">
           ${getOrgBadge(m.organization)}
         </div>
-        <div class="text-[11px] font-mono text-[#FFC93C] font-semibold mb-1">${m.period}</div>
-        <h4 class="text-base font-bold text-white group-hover:text-[#FFC93C] transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
-        <p class="text-[#D9DADC] text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
+        <div class="text-[11px] font-mono text-[#D8CBB3] font-semibold mb-1">${m.period}</div>
+        <h4 class="text-base font-bold text-white group-hover:text-[#D8CBB3] transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
+        <p class="text-[#D8CBB3] text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
       </div>
     `).join('');
   }
@@ -128,18 +128,18 @@ function initSiteData() {
         <div>
           <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
             <span>${e.date}</span>
-            <span class="text-[#FFC93C] font-semibold">${e.readTime}</span>
+            <span class="text-[#D8CBB3] font-semibold">${e.readTime}</span>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#FFC93C] transition-colors">${e.title}</h3>
-          <p class="text-[#D9DADC] text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
-          <div class="p-3.5 rounded-xl bg-[#08080A] border border-white/[0.06] text-xs text-[#D9DADC] font-mono text-[11px] leading-relaxed">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#D8CBB3] transition-colors">${e.title}</h3>
+          <p class="text-[#D8CBB3] text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
+          <div class="p-3.5 rounded-xl bg-[#171715] border border-white/[0.06] text-xs text-[#D8CBB3] font-mono text-[11px] leading-relaxed">
             ${e.body}
           </div>
         </div>
         <div class="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between">
-          <a href="https://x.com/builtfor101" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#D9DADC] hover:text-[#FFC93C] inline-flex items-center gap-1.5 transition-colors">
+          <a href="https://x.com/builtfor101" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#D8CBB3] hover:text-[#D8CBB3] inline-flex items-center gap-1.5 transition-colors">
             <span>Discuss on X</span>
-            <i data-lucide="external-link" class="w-3 h-3 text-[#FFC93C]"></i>
+            <i data-lucide="external-link" class="w-3 h-3 text-[#D8CBB3]"></i>
           </a>
           <span class="text-[10px] font-mono text-zinc-500">@builtfor101</span>
         </div>
@@ -151,15 +151,15 @@ function initSiteData() {
   const faqContainer = document.getElementById("faq-accordion");
   if (faqContainer && config.faq) {
     faqContainer.innerHTML = config.faq.map((item, idx) => `
-      <div class="faq-box rounded-2xl bg-[#0B0B0E] border border-white/[0.08] hover:border-[#FFC93C]/40 transition-all overflow-hidden group">
+      <div class="faq-box rounded-2xl bg-[#252522] border border-white/[0.08] hover:border-[#D8CBB3]/40 transition-all overflow-hidden group">
         <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 transition-colors" data-faq="${idx}">
-          <span class="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-[#FFC93C] transition-colors">${item.q}</span>
+          <span class="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-[#D8CBB3] transition-colors">${item.q}</span>
           <div class="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
-            <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#FFC93C]"></i>
+            <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#D8CBB3]"></i>
           </div>
         </button>
         <div class="accordion-content">
-          <div class="px-6 pb-6 pt-1 text-[#D9DADC] text-xs sm:text-sm leading-relaxed border-t border-white/[0.05] font-light mt-1">
+          <div class="px-6 pb-6 pt-1 text-[#D8CBB3] text-xs sm:text-sm leading-relaxed border-t border-white/[0.05] font-light mt-1">
             ${item.a}
           </div>
         </div>
@@ -190,8 +190,8 @@ function renderFlagships() {
         <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
           <div class="flex items-center gap-2">
             <span class="flagship-badge">${f.badge}</span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[#FFC93C] bg-[#FFC93C]/10 border border-[#FFC93C]/30 font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#FFC93C] animate-pulse"></span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[#D8CBB3] bg-[#D8CBB3]/10 border border-[#D8CBB3]/30 font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#D8CBB3] animate-pulse"></span>
               ${f.status}
             </span>
           </div>
@@ -207,21 +207,21 @@ function renderFlagships() {
             <div>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
                 <span>${f.name}</span>
-                <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-[#FFC93C] transition-colors" title="Visit ${f.displayUrl}">
+                <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-[#D8CBB3] transition-colors" title="Visit ${f.displayUrl}">
                   <i data-lucide="external-link" class="w-4 h-4"></i>
                 </a>
               </h3>
-              <div class="text-xs font-mono text-[#FFC93C] font-semibold mt-0.5">${f.role}</div>
+              <div class="text-xs font-mono text-[#D8CBB3] font-semibold mt-0.5">${f.role}</div>
             </div>
           </div>
         </div>
 
         <!-- Tagline & Description -->
         <p class="text-white text-sm sm:text-base font-medium mb-3 leading-snug">${f.tagline}</p>
-        <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
+        <p class="text-[#D8CBB3] text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
 
         <!-- Technical Metrics Grid -->
-        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#08080A] border border-white/[0.06] mb-6">
+        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#171715] border border-white/[0.06] mb-6">
           ${f.metrics.map(m => `
             <div class="text-center">
               <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider truncate">${m.label}</div>
@@ -232,10 +232,10 @@ function renderFlagships() {
 
         <!-- Invariants & Highlights -->
         <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Production Invariants &amp; Architecture:</div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[#D8CBB3] font-bold">Production Invariants &amp; Architecture:</div>
           ${f.highlights.map(h => `
-            <div class="flex items-start gap-2.5 text-xs text-[#D9DADC] font-light leading-relaxed">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2.5 text-xs text-[#D8CBB3] font-light leading-relaxed">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#D8CBB3] shrink-0 mt-0.5"></i>
               <span>${h}</span>
             </div>
           `).join('')}
@@ -246,7 +246,7 @@ function renderFlagships() {
         <!-- Tech Stack Pills with Logos -->
         <div class="flex flex-wrap gap-1.5 mb-6">
           ${f.stack.map(s => `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/[0.08]">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D8CBB3] border border-white/[0.08]">
               ${window.getTechLogo ? window.getTechLogo(s) : ''}
               <span>${s}</span>
             </span>
@@ -260,8 +260,8 @@ function renderFlagships() {
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
           </a>
 
-          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-4 inline-flex items-center gap-1.5 text-[#D9DADC] hover:text-white">
-            <i data-lucide="terminal" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
+          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-4 inline-flex items-center gap-1.5 text-[#D8CBB3] hover:text-white">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
             <span>View Architecture Spec</span>
           </button>
         </div>
@@ -286,18 +286,18 @@ function renderProductionStack() {
       <div>
         <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
           <span>0${idx + 1} // DOMAIN MATRIX</span>
-          <span class="text-[#FFC93C] font-bold">${domain.technologies.length} Shipped Primitives</span>
+          <span class="text-[#D8CBB3] font-bold">${domain.technologies.length} Shipped Primitives</span>
         </div>
         <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-          <i data-lucide="${domain.icon}" class="w-4 h-4 text-[#FFC93C]"></i>
+          <i data-lucide="${domain.icon}" class="w-4 h-4 text-[#D8CBB3]"></i>
           <span>${domain.category}</span>
         </h3>
-        <p class="text-[#D9DADC] text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
+        <p class="text-[#D8CBB3] text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
       </div>
 
       <div class="space-y-2.5 pt-3 border-t border-white/[0.06]">
         ${domain.technologies.map(tech => `
-          <div class="p-3 rounded-xl bg-[#08080A] border border-white/[0.06] hover:border-[#FFC93C]/40 transition-all flex items-start gap-3">
+          <div class="p-3 rounded-xl bg-[#171715] border border-white/[0.06] hover:border-[#D8CBB3]/40 transition-all flex items-start gap-3">
             <div class="pt-0.5 shrink-0">
               ${window.getTechLogo ? window.getTechLogo(tech.name) : ''}
             </div>
@@ -334,20 +334,20 @@ function renderDeepTechSystems(filter = "all") {
     <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
       <div>
         <div class="flex items-start justify-between gap-4 mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#FFC93C]/10 text-[#FFC93C] border border-[#FFC93C]/30">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#D8CBB3]/10 text-[#D8CBB3] border border-[#D8CBB3]/30">
             0${idx + 1} // ${sys.status}
           </span>
           <span class="text-xs font-mono text-[#8E9297] uppercase tracking-widest">${sys.category}</span>
         </div>
 
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#FFC93C] transition-colors flex items-center justify-between">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#D8CBB3] transition-colors flex items-center justify-between">
           <span>${sys.name}</span>
         </h3>
         <p class="text-white text-xs sm:text-sm font-medium mb-3">${sys.tagline}</p>
-        <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
+        <p class="text-[#D8CBB3] text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
 
         <!-- Metrics Row -->
-        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#08080A] border border-white/[0.06] mb-6">
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#171715] border border-white/[0.06] mb-6">
           ${sys.metrics.map(m => `
             <div class="text-center">
               <div class="text-[9px] font-mono text-[#8E9297] uppercase truncate">${m.label}</div>
@@ -358,10 +358,10 @@ function renderDeepTechSystems(filter = "all") {
 
         <!-- Highlights -->
         <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Engineering Highlights:</div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[#D8CBB3] font-bold">Engineering Highlights:</div>
           ${sys.highlights.map(h => `
-            <div class="flex items-start gap-2 text-xs text-[#D9DADC] font-light leading-relaxed">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2 text-xs text-[#D8CBB3] font-light leading-relaxed">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#D8CBB3] shrink-0 mt-0.5"></i>
               <span>${h}</span>
             </div>
           `).join('')}
@@ -370,26 +370,26 @@ function renderDeepTechSystems(filter = "all") {
 
       <div>
         <div class="flex flex-wrap gap-1.5 mb-5">
-          ${sys.tags.map(t => `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/5">${t}</span>`).join('')}
+          ${sys.tags.map(t => `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D8CBB3] border border-white/5">${t}</span>`).join('')}
         </div>
 
         <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
           ${sys.links.site ? `
-            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#FFC93C] hover:underline inline-flex items-center gap-1 transition-colors">
+            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#D8CBB3] hover:underline inline-flex items-center gap-1 transition-colors">
               <i data-lucide="globe" class="w-3.5 h-3.5"></i>
               <span>Website</span>
             </a>
           ` : ''}
           ${sys.links.github ? `
-            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-[#D9DADC] hover:text-white inline-flex items-center gap-1 transition-colors">
+            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-[#D8CBB3] hover:text-white inline-flex items-center gap-1 transition-colors">
               <i data-lucide="github" class="w-3.5 h-3.5"></i>
               <span>Source</span>
             </a>
           ` : ''}
           ${sys.links.specId ? `
-            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-[#8E9297] hover:text-[#FFC93C] inline-flex items-center gap-1 transition-colors ml-auto">
+            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-[#8E9297] hover:text-[#D8CBB3] inline-flex items-center gap-1 transition-colors ml-auto">
               <span>View Specs</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
             </button>
           ` : ''}
         </div>
@@ -405,11 +405,11 @@ function setupDeepTechFilter() {
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       buttons.forEach(b => {
-        b.classList.remove("bg-[#FFC93C]", "text-black", "font-bold");
-        b.classList.add("bg-white/[0.04]", "text-[#D9DADC]");
+        b.classList.remove("bg-[#D8CBB3]", "text-[#1E1E1C]", "font-bold");
+        b.classList.add("bg-white/[0.04]", "text-[#D8CBB3]");
       });
-      btn.classList.add("bg-[#FFC93C]", "text-black", "font-bold");
-      btn.classList.remove("bg-white/[0.04]", "text-[#D9DADC]");
+      btn.classList.add("bg-[#D8CBB3]", "text-[#1E1E1C]", "font-bold");
+      btn.classList.remove("bg-white/[0.04]", "text-[#D8CBB3]");
 
       const filter = btn.getAttribute("data-filter") || "all";
       renderDeepTechSystems(filter);
@@ -433,10 +433,10 @@ function setupHeroDeviceSwitcher() {
       <!-- Phone Header -->
       <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
         <div class="flex items-center gap-2">
-          ${logos.suranyx || '<span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>'}
+          ${logos.suranyx || '<span class="w-2 h-2 rounded-full bg-[#D8CBB3] animate-pulse"></span>'}
           <span class="font-mono text-white text-[11px] font-bold">Suranyx Intelligence</span>
         </div>
-        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30">● LIVE</span>
+        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-[#D8CBB3]/15 text-[#D8CBB3] border border-[#D8CBB3]/30">● LIVE</span>
       </div>
 
       <!-- Main Metric with Glow Curve -->
@@ -444,29 +444,29 @@ function setupHeroDeviceSwitcher() {
         <div class="text-[10px] font-mono text-zinc-500 uppercase">Projected Cash Runway</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-3xl font-extrabold text-white font-mono">₹4.2M</span>
-          <span class="text-xs font-mono font-bold text-[#FFC93C]">+8.4 mo</span>
+          <span class="text-xs font-mono font-bold text-[#D8CBB3]">+8.4 mo</span>
         </div>
       </div>
 
       <!-- Route / Graph Line SVG (With signature electric yellow curve!) -->
-      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
+      <div class="relative h-28 w-full bg-[#171715] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
         <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 10 65 Q 40 60, 70 45 T 130 30 T 190 12" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
-          <circle cx="190" cy="12" r="4" fill="#FFC93C" />
-          <circle cx="10" cy="65" r="3" fill="#D9DADC" />
+          <path d="M 10 65 Q 40 60, 70 45 T 130 30 T 190 12" stroke="#D8CBB3" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
+          <circle cx="190" cy="12" r="4" fill="#D8CBB3" />
+          <circle cx="10" cy="65" r="3" fill="#D8CBB3" />
         </svg>
       </div>
 
       <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#171715] border border-white/[0.06] text-center w-full">
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">NET BURN</div>
           <div class="text-[11px] font-bold text-white font-mono mt-0.5">₹3.2L/mo</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">RLS LEVEL</div>
-          <div class="text-[11px] font-bold text-[#FFC93C] font-mono mt-0.5">Tenant</div>
+          <div class="text-[11px] font-bold text-[#D8CBB3] font-mono mt-0.5">Tenant</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">LEDGER</div>
@@ -476,8 +476,8 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Action Button (Matching yellow action button in reference!) -->
       <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#D9DADC]">Reconciliation: 100%</div>
-        <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Launch Suranyx">
+        <div class="text-[10px] font-mono text-[#D8CBB3]">Reconciliation: 100%</div>
+        <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#D8CBB3] hover:bg-[#E5DAC4] text-[#1E1E1C] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Launch Suranyx">
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
       </div>
@@ -497,37 +497,37 @@ function setupHeroDeviceSwitcher() {
         <div class="text-[10px] font-mono text-zinc-500 uppercase">Match Interface &amp; Prompts</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-2xl font-extrabold text-white font-mono">36 Prompts</span>
-          <span class="text-xs font-mono font-bold text-[#FFC93C]">Sub-ms RLS</span>
+          <span class="text-xs font-mono font-bold text-[#D8CBB3]">Sub-ms RLS</span>
         </div>
       </div>
 
       <!-- Matrimony Match Mockup -->
-      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-3 border border-white/[0.06] flex flex-col justify-between">
+      <div class="relative h-28 w-full bg-[#171715] rounded-xl p-3 border border-white/[0.06] flex flex-col justify-between">
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-400/50 flex items-center justify-center text-xs font-bold text-purple-300">
             ${logos.vadhuVar || 'VV'}
           </div>
           <div>
             <div class="text-xs font-bold text-white">Ananya, 26 • Pune</div>
-            <div class="text-[9px] text-[#D9DADC] font-mono">Software Architect // Verified ID</div>
+            <div class="text-[9px] text-[#D8CBB3] font-mono">Software Architect // Verified ID</div>
           </div>
         </div>
         <div class="flex gap-1.5">
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D9DADC]">English</span>
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30">मराठी</span>
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D9DADC]">हिंदी</span>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D8CBB3]">English</span>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-[#D8CBB3]/15 text-[#D8CBB3] border border-[#D8CBB3]/30">मराठी</span>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#D8CBB3]">हिंदी</span>
         </div>
       </div>
 
       <!-- Atomic RPC Telemetry -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#171715] border border-white/[0.06] text-center w-full">
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">RPC FUNCTION</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5 truncate">send_interest</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY EXEC</div>
-          <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">0.8ms InitPlan</div>
+          <div class="text-[10px] font-bold text-[#D8CBB3] font-mono mt-0.5">0.8ms InitPlan</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">MEDIA LIMIT</div>
@@ -537,8 +537,8 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Action Button -->
       <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#D9DADC]">Family Co-Sign Invariant</div>
-        <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Explore Vadhu-Var">
+        <div class="text-[10px] font-mono text-[#D8CBB3]">Family Co-Sign Invariant</div>
+        <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#D8CBB3] hover:bg-[#E5DAC4] text-[#1E1E1C] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Explore Vadhu-Var">
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
       </div>
@@ -547,7 +547,7 @@ function setupHeroDeviceSwitcher() {
       <!-- Phone Header -->
       <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
         <div class="flex items-center gap-2">
-          ${logos.pytorch || '<span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>'}
+          ${logos.pytorch || '<span class="w-2 h-2 rounded-full bg-[#D8CBB3] animate-pulse"></span>'}
           <span class="font-mono text-white text-[11px] font-bold">Devprime ADK // PyBullet</span>
         </div>
         <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">● RL BENCHMARK</span>
@@ -558,29 +558,29 @@ function setupHeroDeviceSwitcher() {
         <div class="text-[10px] font-mono text-zinc-500 uppercase">Episodic Return / Reward</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-3xl font-extrabold text-white font-mono">+842.6</span>
-          <span class="text-xs font-mono font-bold text-[#FFC93C]">TorchScript</span>
+          <span class="text-xs font-mono font-bold text-[#D8CBB3]">TorchScript</span>
         </div>
       </div>
 
       <!-- Reward Curve SVG -->
-      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
+      <div class="relative h-28 w-full bg-[#171715] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
         <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 10 70 Q 30 65, 60 50 T 110 32 T 150 20 T 190 8" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
-          <circle cx="190" cy="8" r="4" fill="#FFC93C" />
-          <circle cx="10" cy="70" r="3" fill="#D9DADC" />
+          <path d="M 10 70 Q 30 65, 60 50 T 110 32 T 150 20 T 190 8" stroke="#D8CBB3" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
+          <circle cx="190" cy="8" r="4" fill="#D8CBB3" />
+          <circle cx="10" cy="70" r="3" fill="#D8CBB3" />
         </svg>
       </div>
 
       <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#171715] border border-white/[0.06] text-center w-full">
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">ENV</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5">PyBullet</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY</div>
-          <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">PPO / DQN</div>
+          <div class="text-[10px] font-bold text-[#D8CBB3] font-mono mt-0.5">PPO / DQN</div>
         </div>
         <div>
           <div class="text-[8px] font-mono text-zinc-500 uppercase">EXPORT</div>
@@ -590,8 +590,8 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Action Button -->
       <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#D9DADC]">TorchScript C++ Engine</div>
-        <a href="https://github.com/Shubh-creations/Devprime-adk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#FFC93C] hover:bg-[#ffbe1a] text-black font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="View Devprime ADK">
+        <div class="text-[10px] font-mono text-[#D8CBB3]">TorchScript C++ Engine</div>
+        <a href="https://github.com/Shubh-creations/Devprime-adk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#D8CBB3] hover:bg-[#E5DAC4] text-[#1E1E1C] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="View Devprime ADK">
           <i data-lucide="github" class="w-4 h-4"></i>
         </a>
       </div>
@@ -601,11 +601,11 @@ function setupHeroDeviceSwitcher() {
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       tabs.forEach(t => {
-        t.classList.remove("bg-[#FFC93C]", "text-black");
-        t.classList.add("bg-white/5", "text-[#D9DADC]");
+        t.classList.remove("bg-[#D8CBB3]", "text-[#1E1E1C]");
+        t.classList.add("bg-white/5", "text-[#D8CBB3]");
       });
-      tab.classList.add("bg-[#FFC93C]", "text-black");
-      tab.classList.remove("bg-white/5", "text-[#D9DADC]");
+      tab.classList.add("bg-[#D8CBB3]", "text-[#1E1E1C]");
+      tab.classList.remove("bg-white/5", "text-[#D8CBB3]");
 
       const view = tab.getAttribute("data-tab");
       if (views[view]) {
@@ -662,16 +662,16 @@ window.openSpecDrawer = function(specId) {
       <div class="border-b border-white/10 pb-5">
         <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-2">
           <span>SYSTEM ARCHITECTURE SPECIFICATION</span>
-          <span class="text-[#FFC93C] font-bold">${spec.primaryInvariants.length} Production Invariants</span>
+          <span class="text-[#D8CBB3] font-bold">${spec.primaryInvariants.length} Production Invariants</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">${spec.title}</h2>
-        <p class="text-[#D9DADC] text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
+        <p class="text-[#D8CBB3] text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
       </div>
 
       <!-- Topology Diagram (Ascii / SVG block) -->
       <div>
-        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider mb-2 flex items-center gap-2 font-bold">
-          <i data-lucide="network" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
+        <div class="text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider mb-2 flex items-center gap-2 font-bold">
+          <i data-lucide="network" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
           <span>Execution Topology &amp; Boundary Flow</span>
         </div>
         <pre class="spec-topology-diagram">${spec.topologyText}</pre>
@@ -679,11 +679,11 @@ window.openSpecDrawer = function(specId) {
 
       <!-- Production Invariants -->
       <div class="space-y-2.5">
-        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Security &amp; Structural Invariants</div>
+        <div class="text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider font-bold">Security &amp; Structural Invariants</div>
         <div class="space-y-2">
           ${spec.primaryInvariants.map(inv => `
-            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#08080A] border border-white/[0.06] text-xs text-[#D9DADC] font-light">
-              <i data-lucide="shield-check" class="w-4 h-4 text-[#FFC93C] shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#171715] border border-white/[0.06] text-xs text-[#D8CBB3] font-light">
+              <i data-lucide="shield-check" class="w-4 h-4 text-[#D8CBB3] shrink-0 mt-0.5"></i>
               <span>${inv}</span>
             </div>
           `).join('')}
@@ -692,20 +692,20 @@ window.openSpecDrawer = function(specId) {
 
       <!-- Code Snippet -->
       <div>
-        <div class="flex items-center justify-between text-[11px] font-mono text-[#D9DADC] uppercase tracking-wider mb-2">
+        <div class="flex items-center justify-between text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider mb-2">
           <span class="flex items-center gap-1.5 font-bold text-white">
-            <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
+            <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
             <span>Production Implementation Snippet</span>
           </span>
           <span class="text-zinc-500 font-mono text-[10px]">${spec.codeSnippet.lang}</span>
         </div>
-        <pre class="p-4 rounded-xl bg-[#08080A] border border-white/10 text-[#FFC93C] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
+        <pre class="p-4 rounded-xl bg-[#171715] border border-white/10 text-[#D8CBB3] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
       </div>
 
       <!-- Engineering Trade-Offs -->
-      <div class="p-4 rounded-xl bg-[#08080A] border border-white/[0.06] space-y-2">
-        <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
-        <p class="text-xs text-[#D9DADC] font-light leading-relaxed">${spec.tradeOffs}</p>
+      <div class="p-4 rounded-xl bg-[#171715] border border-white/[0.06] space-y-2">
+        <div class="text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
+        <p class="text-xs text-[#D8CBB3] font-light leading-relaxed">${spec.tradeOffs}</p>
       </div>
     </div>
   `;
@@ -792,34 +792,34 @@ function renderGitHubUI(user, repos) {
           <span class="font-mono font-bold text-white text-sm">@${user.login}</span>
         </a>
       </div>
-      <div class="flex items-center gap-4 text-xs font-mono text-[#D9DADC]">
-        <div><span class="text-[#FFC93C] font-bold">${user.public_repos}</span> Public Repos</div>
-        <div><span class="text-[#FFC93C] font-bold">${user.followers}</span> Followers</div>
+      <div class="flex items-center gap-4 text-xs font-mono text-[#D8CBB3]">
+        <div><span class="text-[#D8CBB3] font-bold">${user.public_repos}</span> Public Repos</div>
+        <div><span class="text-[#D8CBB3] font-bold">${user.followers}</span> Followers</div>
       </div>
     `;
   }
 
   if (pulseContainer && repos) {
     pulseContainer.innerHTML = repos.map(repo => `
-      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-[#FFC93C]/40 transition-all">
+      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-[#D8CBB3]/40 transition-all">
         <div>
           <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-mono font-bold text-white group-hover:text-[#FFC93C] transition-colors flex items-center gap-1.5 truncate">
-              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0"></i>
+            <span class="text-sm font-mono font-bold text-white group-hover:text-[#D8CBB3] transition-colors flex items-center gap-1.5 truncate">
+              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#D8CBB3] shrink-0"></i>
               <span class="truncate">${repo.name}</span>
             </span>
-            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#FFC93C] transition-colors shrink-0"></i>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#D8CBB3] transition-colors shrink-0"></i>
           </div>
-          <p class="text-xs text-[#D9DADC] font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
+          <p class="text-xs text-[#D8CBB3] font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
         </div>
 
         <div class="flex items-center justify-between text-[11px] font-mono text-[#8E9297] pt-3 border-t border-white/5">
           <span class="flex items-center gap-1.5 text-white">
-            <span class="w-2 h-2 rounded-full bg-[#FFC93C]"></span>
+            <span class="w-2 h-2 rounded-full bg-[#D8CBB3]"></span>
             ${repo.language}
           </span>
           <div class="flex items-center gap-3">
-            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-[#FFC93C]"></i> ${repo.stars}</span>
+            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-[#D8CBB3]"></i> ${repo.stars}</span>
             <span class="flex items-center gap-1"><i data-lucide="git-fork" class="w-3 h-3 text-zinc-400"></i> ${repo.forks}</span>
           </div>
         </div>
@@ -975,7 +975,7 @@ function setupAIAssistant() {
 
     if (badgeEl) {
       badgeEl.textContent = "Processing...";
-      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFC93C]/20 text-[#FFC93C] border border-[#FFC93C]/40 font-bold";
+      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#D8CBB3]/20 text-[#D8CBB3] border border-[#D8CBB3]/40 font-bold";
     }
 
     if (window.soundEngine) window.soundEngine.playClick();
@@ -985,14 +985,14 @@ function setupAIAssistant() {
 
       if (badgeEl) {
         badgeEl.textContent = res.badge || "Verified";
-        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30 font-bold";
+        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#D8CBB3]/15 text-[#D8CBB3] border border-[#D8CBB3]/30 font-bold";
       }
 
       window.neuralAssistant.typewriter(responseBox, res.text, () => {
         if (badgeEl) {
           setTimeout(() => {
             badgeEl.textContent = "Ready";
-            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-[#D9DADC] border border-white/10";
+            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-[#D8CBB3] border border-white/10";
           }, 3000);
         }
       });
@@ -1109,19 +1109,19 @@ function renderSlide(index) {
             <span class="text-xs font-mono text-[#8E9297] uppercase tracking-widest font-bold">
               0${slide.slideNumber} // ${slide.subtitle}
             </span>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#FFC93C]/10 text-[#FFC93C] border border-[#FFC93C]/30">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#D8CBB3]/10 text-[#D8CBB3] border border-[#D8CBB3]/30">
               ${slide.keyMetric}
             </span>
           </div>
 
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">${slide.title}</h2>
-          <p class="text-[#D9DADC] text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
+          <p class="text-[#D8CBB3] text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
 
-          <div class="space-y-2.5 p-5 rounded-2xl bg-[#08080A] border border-white/[0.06]">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Key Architecture Points:</div>
+          <div class="space-y-2.5 p-5 rounded-2xl bg-[#171715] border border-white/[0.06]">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[#D8CBB3] font-bold">Key Architecture Points:</div>
             ${slide.bullets.map(b => `
-              <div class="flex items-start gap-3 text-xs sm:text-sm text-[#D9DADC] font-light">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#FFC93C] shrink-0 mt-0.5"></i>
+              <div class="flex items-start gap-3 text-xs sm:text-sm text-[#D8CBB3] font-light">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-[#D8CBB3] shrink-0 mt-0.5"></i>
                 <span>${b}</span>
               </div>
             `).join('')}
@@ -1131,10 +1131,10 @@ function renderSlide(index) {
         <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-[#8E9297] font-mono flex-wrap gap-2">
           <div>SHUBHAM PAWAR // @builtfor101</div>
           <div class="flex items-center gap-3">
-            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-[#FFC93C] hover:underline">Suranyx</a>
+            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-[#D8CBB3] hover:underline">Suranyx</a>
             <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:underline">Vadhu-Var</a>
             <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">LinkedIn</a>
-            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-[#D9DADC] hover:underline">GitHub</a>
+            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-[#D8CBB3] hover:underline">GitHub</a>
           </div>
         </div>
       </div>
@@ -1214,7 +1214,7 @@ function setupAudioHUDToggle() {
     const isMuted = window.soundEngine ? window.soundEngine.isMuted() : true;
     toggleBtn.innerHTML = isMuted 
       ? `<i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-400"></i><span class="text-[11px] font-mono text-zinc-400">Audio: OFF</span>`
-      : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#FFC93C]"></i><span class="text-[11px] font-mono text-[#FFC93C] font-bold">Audio: ON</span>`;
+      : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#D8CBB3]"></i><span class="text-[11px] font-mono text-[#D8CBB3] font-bold">Audio: ON</span>`;
     if (window.lucide) window.lucide.createIcons();
   }
 

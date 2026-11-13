@@ -160,8 +160,8 @@
   <!-- ========================================================================
        TOP TELEMETRY DIAGNOSTIC BAR (Single clean line on desktop)
        ======================================================================== -->
-  <div class="w-full bg-[#171715]/95 border-b border-[#D8CBB3]/[0.10] px-4 sm:px-6 lg:px-8 py-2 relative z-50 text-[11px] font-mono text-[#D8CBB3]">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
+  <div class="w-full bg-[#171715]/95 border-b border-[#D8CBB3]/[0.10] px-3 sm:px-6 lg:px-8 py-2 relative z-50 text-[11px] font-mono text-[#D8CBB3] overflow-hidden">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 overflow-x-auto no-scrollbar">
       
       <div class="flex items-center gap-3 sm:gap-4 shrink-0">
         <div class="flex items-center gap-2 text-white">
@@ -226,7 +226,7 @@
             <span class="font-extrabold text-white tracking-tight text-sm sm:text-base">Shubham Pawar</span>
             <span class="px-2 py-0.5 rounded-full bg-[#D8CBB3]/15 text-[#D8CBB3] border border-[#D8CBB3]/30 text-[10px] font-mono font-bold uppercase">4x Founder</span>
           </div>
-          <span class="text-[10px] font-mono text-[#9E9889] block -mt-0.5">CEO @ Suranyx • Solo Founder @ Vadhu-Var (VV)</span>
+          <span class="text-[10px] font-mono text-[#9E9889] hidden sm:block -mt-0.5">CEO @ Suranyx • Solo Founder @ Vadhu-Var (VV)</span>
         </div>
       </a>
 
@@ -290,37 +290,37 @@
           <span>CEO @ Suranyx • Solo Founder @ Vadhu-Var (VV)</span>
         </div>
 
-        <!-- Giant Bold Headline with Signature Sand Word Box -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.04] mb-6 text-white">
-          The AI systems you <span class="hero-highlight">won't</span> see break in production.
+        <!-- Giant Bold Headline: Name & AI Founder Experience Tagline in One Liner -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-5 text-white">
+          Shubham Pawar — <span class="hero-highlight">4x AI Founder</span> &amp; Systems Architect.
         </h1>
 
         <!-- High-Signal Founder Narrative Copy -->
-        <p class="text-[#D8CBB3] text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-xl">
-          CEO &amp; Co-Founder at <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-[#D8CBB3] hover:text-[#D8CBB3] transition-colors">Suranyx</a> (AI-native financial operating system &amp; B2B compliance for Indian SMEs) • Solo Founder of <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-[#D8CBB3] hover:text-[#D8CBB3] transition-colors">Vadhu-Var</a> (trilingual matrimony PWA with atomic PostgreSQL RPCs and sub-millisecond RLS InitPlan policies) • Co-founder &amp; COO at Rodimus Tech.
+        <p class="text-[#D8CBB3] text-sm sm:text-base lg:text-lg font-normal leading-relaxed mb-8 max-w-xl">
+          CEO &amp; Co-Founder at <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-[#D8CBB3] hover:text-[#D8CBB3] transition-colors">Suranyx</a> (AI-native financial operating system &amp; B2B compliance for Indian SMEs) • Solo Founder of <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-[#D8CBB3] hover:text-[#D8CBB3] transition-colors">Vadhu-Var</a> (trilingual matrimony PWA with atomic PostgreSQL RPCs and sub-millisecond RLS InitPlan policies) • Co-founder &amp; COO at <a href="https://rodimus-tech.com" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-[#D8CBB3] hover:text-[#D8CBB3] transition-colors">Rodimus Tech</a>.
         </p>
 
         <!-- Primary CTA Row -->
         <div class="flex flex-wrap items-center gap-3.5 mb-8">
-          <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="btn-sand text-sm px-7 py-3.5 inline-flex items-center gap-2">
+          <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="btn-sand text-sm px-6 sm:px-7 py-3 sm:py-3.5 inline-flex items-center gap-2">
             <i data-lucide="globe" class="w-4 h-4"></i>
             <span>Launch Suranyx ↗</span>
           </a>
-          <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm px-6 py-3.5 inline-flex items-center gap-2">
+          <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm px-5 sm:px-6 py-3 sm:py-3.5 inline-flex items-center gap-2">
             <span>Explore VV Live ↗</span>
           </a>
-          <button onclick="openSpecDrawer('suranyx')" class="btn-ghost text-xs px-4 py-3.5 inline-flex items-center gap-1.5" title="View System Architecture Specs">
+          <button onclick="openSpecDrawer('suranyx')" class="btn-ghost text-xs px-4 py-3 sm:py-3.5 inline-flex items-center gap-1.5" title="View System Architecture Specs">
             <i data-lucide="terminal" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
             <span>Specs</span>
           </button>
-          <button data-copy-email class="btn-ghost text-xs px-3.5 py-3.5" title="Copy Email">
+          <button data-copy-email class="btn-ghost text-xs px-3.5 py-3 sm:py-3.5" title="Copy Email">
             <i data-lucide="copy" class="w-3.5 h-3.5 text-[#9E9889]"></i>
           </button>
         </div>
 
         <!-- Invariant Verification & Trust Line (With Clean SVG Logos) -->
         <div class="flex items-center gap-3 mb-10 text-xs">
-          <div class="flex -space-x-2">
+          <div class="flex -space-x-2 shrink-0">
             <div class="w-7 h-7 rounded-full bg-[#D8CBB3] text-[#1E1E1C] font-black flex items-center justify-center text-[10px] ring-2 ring-[#1E1E1C] shadow-md">SP</div>
             <div class="w-7 h-7 rounded-full bg-[#252522] border border-[#D8CBB3]/30 flex items-center justify-center text-[9px] font-mono ring-2 ring-[#1E1E1C]">
               <span class="text-[#D8CBB3] font-bold">SX</span>
@@ -335,21 +335,21 @@
         </div>
 
         <!-- 3-Column Metrics Ledger -->
-        <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-[#D8CBB3]/[0.10]">
-          <div>
-            <div class="text-2xl sm:text-3xl font-black text-white font-mono">Suranyx</div>
-            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5">Financial OS</div>
-            <div class="text-[10px] text-[#9E9889] font-mono">suranyx.com</div>
+        <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-6 border-t border-[#D8CBB3]/[0.10]">
+          <div class="min-w-0">
+            <div class="text-lg sm:text-2xl lg:text-3xl font-black text-white font-mono truncate">Suranyx</div>
+            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5 truncate">Financial OS</div>
+            <div class="text-[10px] text-[#9E9889] font-mono truncate">suranyx.com</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-black text-white font-mono">Vadhu-Var</div>
-            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5">Trilingual PWA</div>
-            <div class="text-[10px] text-[#9E9889] font-mono">Sub-ms RLS InitPlan</div>
+          <div class="min-w-0">
+            <div class="text-lg sm:text-2xl lg:text-3xl font-black text-white font-mono truncate">Vadhu-Var</div>
+            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5 truncate">Trilingual PWA</div>
+            <div class="text-[10px] text-[#9E9889] font-mono truncate">Sub-ms RLS</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-black text-white font-mono">92.4%</div>
-            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5">mAP@0.5 C-UAS</div>
-            <div class="text-[10px] text-[#9E9889] font-mono">&lt;100ms Edge Defense</div>
+          <div class="min-w-0">
+            <div class="text-lg sm:text-2xl lg:text-3xl font-black text-white font-mono truncate">92.4%</div>
+            <div class="text-xs font-semibold text-[#D8CBB3] mt-0.5 truncate">mAP@0.5 C-UAS</div>
+            <div class="text-[10px] text-[#9E9889] font-mono truncate">&lt;100ms Latency</div>
           </div>
         </div>
 
@@ -374,7 +374,7 @@
           </div>
 
           <!-- Floating Glass Chips -->
-          <div class="flex items-center justify-between w-full max-w-[320px] mt-4 gap-2">
+          <div class="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between w-full max-w-[320px] mt-4 gap-2">
             <div class="floating-glass-chip flex items-center gap-1.5 text-[10px] font-mono text-[#D8CBB3]">
               <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#D8CBB3]"></i>
               <span>Multi-Tenant RLS</span>
@@ -653,9 +653,9 @@
         <span class="text-xs font-mono text-[#9E9889]">Knowledge: Suranyx, Vadhu-Var, Devprime ADK, C-UAS, Vcare, Rodimus Tech</span>
       </div>
 
-      <div class="flex items-center gap-2 mb-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mb-4">
         <input type="text" id="ai-query-input" placeholder="Ask about Suranyx (suranyx.com), Vadhu-Var (VV), Devprime ADK, C-UAS defense, or systems architecture..." class="w-full px-4 py-3 rounded-full bg-[#171715] border border-[#D8CBB3]/20 text-white text-xs sm:text-sm focus:border-[#D8CBB3] focus:outline-none placeholder:text-[#9E9889]" />
-        <button id="ai-submit-btn" class="btn-sand text-xs py-3 px-6 shrink-0">
+        <button id="ai-submit-btn" class="btn-sand text-xs py-3 px-6 shrink-0 justify-center">
           <span>Query</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
