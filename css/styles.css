@@ -1,29 +1,33 @@
 /* ==========================================================================
-   Shubham Pawar // AI Startup Founder & Systems Engineer
-   Design System: Deep Obsidian Black (#000000), Metallic Silver (#D9DADC), Electric Golden Yellow (#FFC93C)
-   High-Craft Developer & Founder Interface (Linear, Stripe, Vercel aesthetics)
+   Shubham Pawar // 4x Founder & Systems Architect
+   Design System: Matte Charcoal (#1E1E1C) & Warm Sand (#D8CBB3)
+   High-Craft Founder & Systems Architecture Interface (Volta & Linear aesthetics)
    ========================================================================== */
 
 :root {
-  --bg-primary: #000000;          /* Pure Pitch Black Canvas */
-  --bg-secondary: #08080A;        /* Deepest Charcoal Obsidian */
-  --bg-card: #0B0B0E;             /* Elevated Bento Box Surface */
-  --bg-card-hover: #111216;       /* Subtle Card Elevation on Hover */
-  --bg-surface: rgba(255, 255, 255, 0.03);
-  --bg-surface-elevated: rgba(255, 255, 255, 0.05);
-  --bg-surface-hover: rgba(255, 255, 255, 0.08);
+  --bg-primary: #1E1E1C;          /* Signature Matte Charcoal Canvas */
+  --bg-secondary: #171715;        /* Deep Charcoal / Header Bar */
+  --bg-card: #252522;             /* Elevated Bento Box Surface */
+  --bg-card-hover: #2C2C28;       /* Subtle Card Elevation on Hover */
+  --bg-surface: rgba(216, 203, 179, 0.04);
+  --bg-surface-elevated: rgba(216, 203, 179, 0.08);
+  --bg-surface-hover: rgba(216, 203, 179, 0.12);
 
-  --border-hairline: rgba(255, 255, 255, 0.08); /* Crisp 1px border */
-  --border-subtle: rgba(255, 255, 255, 0.14);
-  --border-focus: rgba(255, 201, 60, 0.5);
+  --border-hairline: rgba(216, 203, 179, 0.12); /* Crisp 1px Sand hairline border */
+  --border-subtle: rgba(216, 203, 179, 0.20);
+  --border-focus: rgba(216, 203, 179, 0.55);
 
   --text-primary: #FFFFFF;        /* Pure White for Headings */
-  --text-secondary: #D9DADC;      /* Refined Metallic Silver */
-  --text-muted: #71717A;          /* Slate Telemetry Copy */
+  --text-secondary: #D8CBB3;      /* Signature Warm Sand */
+  --text-muted: #9E9889;          /* Muted Sand Slate */
 
-  --accent-yellow: #FFC93C;       /* Signature Electric/Warm Golden Yellow */
-  --accent-yellow-hover: #ffbe1a;
-  --accent-yellow-glow: rgba(255, 201, 60, 0.28);
+  --accent-sand: #D8CBB3;         /* Signature Warm Sand / Cream from Reference */
+  --accent-sand-hover: #E5DAC4;
+  --accent-sand-glow: rgba(216, 203, 179, 0.25);
+
+  --accent-yellow: #D8CBB3;       /* Map legacy yellow tokens to Sand */
+  --accent-yellow-hover: #E5DAC4;
+  --accent-yellow-glow: rgba(216, 203, 179, 0.25);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
@@ -42,23 +46,25 @@ html {
 
 body {
   overflow-x: hidden;
+  max-width: 100vw;
+  box-sizing: border-box;
   min-height: 100vh;
   position: relative;
   background-color: var(--bg-primary);
   color: var(--text-secondary);
 }
 
-/* Subtle Engineering Grid Backdrop on Pitch Black */
+/* Subtle Engineering Grid Backdrop on Matte Charcoal */
 .engineering-grid-bg {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   background-image: 
-    radial-gradient(circle at 50% -10%, rgba(255, 201, 60, 0.09), transparent 50%),
-    radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.035), transparent 45%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    radial-gradient(circle at 50% -10%, rgba(216, 203, 179, 0.08), transparent 50%),
+    radial-gradient(circle at 85% 25%, rgba(216, 203, 179, 0.04), transparent 45%),
+    linear-gradient(to right, rgba(216, 203, 179, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(216, 203, 179, 0.04) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
@@ -69,7 +75,7 @@ body {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.02;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 99;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -81,17 +87,17 @@ section {
 }
 
 /* ==========================================================================
-   Signature Headline Word Highlight (Rounded yellow box with black bold text)
+   Signature Headline Word Highlight (Rounded Sand box with Charcoal bold text)
    ========================================================================== */
 .hero-highlight {
-  background-color: var(--accent-yellow);
-  color: #000000;
+  background-color: var(--accent-sand);
+  color: #1E1E1C;
   padding: 0.12rem 0.6rem;
   border-radius: 0.5rem;
   display: inline-block;
   font-weight: 900;
   letter-spacing: -0.02em;
-  box-shadow: 0 4px 16px rgba(255, 201, 60, 0.35);
+  box-shadow: 0 4px 16px rgba(216, 203, 179, 0.28);
 }
 
 /* Minimalist Hairline Bento Card with Cursor Spotlight */
@@ -113,7 +119,7 @@ section {
   bottom: 0;
   background: radial-gradient(
     450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 201, 60, 0.09),
+    rgba(216, 203, 179, 0.08),
     transparent 50%
   );
   opacity: 0;
@@ -127,16 +133,16 @@ section {
 }
 
 .minimal-card:hover {
-  border-color: rgba(255, 201, 60, 0.4);
+  border-color: rgba(216, 203, 179, 0.38);
   background: var(--bg-card-hover);
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 201, 60, 0.06);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(216, 203, 179, 0.06);
 }
 
 /* Flagship Elevated Feature Card */
 .flagship-card {
   position: relative;
-  background: linear-gradient(145deg, #0E0F13 0%, #070709 100%);
+  background: linear-gradient(145deg, #262623 0%, #1E1E1C 100%);
   border: 1px solid var(--border-hairline);
   border-radius: 1.5rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -144,8 +150,8 @@ section {
 }
 
 .flagship-card:hover {
-  border-color: rgba(255, 201, 60, 0.5);
-  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 201, 60, 0.09);
+  border-color: rgba(216, 203, 179, 0.45);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px rgba(216, 203, 179, 0.08);
   transform: translateY(-3px);
 }
 
@@ -160,17 +166,20 @@ section {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(255, 201, 60, 0.12);
-  border: 1px solid rgba(255, 201, 60, 0.3);
-  color: #FFC93C;
+  background: rgba(216, 203, 179, 0.12);
+  border: 1px solid rgba(216, 203, 179, 0.3);
+  color: var(--accent-sand);
 }
 
 /* Ultra-minimal Header Navigation */
 .minimal-nav {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(30, 30, 28, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-hairline);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 /* Status Pill */
@@ -182,16 +191,16 @@ section {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  background: rgba(255, 201, 60, 0.1);
-  border: 1px solid rgba(255, 201, 60, 0.25);
-  color: #FFC93C;
+  background: rgba(216, 203, 179, 0.1);
+  border: 1px solid rgba(216, 203, 179, 0.25);
+  color: var(--accent-sand);
 }
 
 .pulsing-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--accent-yellow);
+  background-color: var(--accent-sand);
   position: relative;
 }
 
@@ -215,12 +224,12 @@ section {
 /* ==========================================================================
    Button Styles (Clean, Robust, Never Wrapping or Squishing)
    ========================================================================== */
-/* Signature Yellow Pill Button */
-.btn-yellow {
-  background: var(--accent-yellow);
-  color: #000000;
+/* Signature Warm Sand Pill Button */
+.btn-sand, .btn-yellow {
+  background: var(--accent-sand);
+  color: #1E1E1C !important;
   font-weight: 700;
-  padding: 9px 20px;
+  padding: 8px 18px;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
@@ -229,23 +238,23 @@ section {
   gap: 8px;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(255, 201, 60, 0.28);
+  box-shadow: 0 4px 16px rgba(216, 203, 179, 0.22);
   flex-shrink: 0;
 }
 
-.btn-yellow:hover {
-  background: var(--accent-yellow-hover);
+.btn-sand:hover, .btn-yellow:hover {
+  background: var(--accent-sand-hover);
   transform: translateY(-1.5px);
-  box-shadow: 0 8px 24px rgba(255, 201, 60, 0.42);
-  color: #000000;
+  box-shadow: 0 8px 24px rgba(216, 203, 179, 0.35);
+  color: #1E1E1C !important;
 }
 
-/* Clean Silver / White Pill Button */
+/* Clean White Pill Button */
 .btn-white {
   background: #ffffff;
-  color: #000000;
+  color: #1E1E1C !important;
   font-weight: 700;
-  padding: 9px 20px;
+  padding: 8px 18px;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
@@ -265,11 +274,11 @@ section {
 
 /* Ghost Pill Button */
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(216, 203, 179, 0.05);
   color: var(--text-secondary);
   border: 1px solid var(--border-hairline);
   font-weight: 600;
-  padding: 9px 18px;
+  padding: 8px 16px;
   border-radius: 9999px;
   backdrop-filter: blur(12px);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -283,9 +292,9 @@ section {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(216, 203, 179, 0.12);
   color: #ffffff;
-  border-color: rgba(255, 201, 60, 0.35);
+  border-color: rgba(216, 203, 179, 0.35);
   transform: translateY(-1px);
 }
 
@@ -297,7 +306,7 @@ section {
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(216, 203, 179, 0.05);
   border: 1px solid var(--border-hairline);
   color: var(--text-secondary);
   transition: all 0.2s ease;
@@ -305,9 +314,9 @@ section {
 }
 
 .btn-icon:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(216, 203, 179, 0.12);
   color: #ffffff;
-  border-color: rgba(255, 201, 60, 0.4);
+  border-color: rgba(216, 203, 179, 0.4);
   transform: translateY(-1px);
 }
 
@@ -327,20 +336,20 @@ section {
   font-weight: 600;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(216, 203, 179, 0.08);
   border: 1px solid var(--border-hairline);
   color: var(--text-secondary);
 }
 
 /* ==========================================================================
-   Device / Product Hero Mockup (Pure Pitch Black Bezel & Screen)
+   Device / Product Hero Mockup (Charcoal Bezel & Screen)
    ========================================================================== */
 .hero-device-wrapper {
-  background: linear-gradient(145deg, #141519 0%, #08080A 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #262623 0%, #171715 100%);
+  border: 1px solid rgba(216, 203, 179, 0.15);
   border-radius: 2rem;
   padding: 1.5rem;
-  box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 201, 60, 0.04);
+  box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(216, 203, 179, 0.04);
   position: relative;
   overflow: hidden;
 }
@@ -349,16 +358,16 @@ section {
   width: 100%;
   max-width: 320px;
   margin: 0 auto;
-  background: #000000;
-  border: 4px solid #1E2024;
+  background: #171715;
+  border: 4px solid #2A2A27;
   border-radius: 2.25rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(216, 203, 179, 0.1);
   overflow: hidden;
   position: relative;
 }
 
 .hero-phone-screen {
-  background: #000000;
+  background: #171715;
   padding: 1.1rem;
   display: flex;
   flex-direction: column;
@@ -380,28 +389,28 @@ section {
 
 /* Floating Glass Chip */
 .floating-glass-chip {
-  background: rgba(14, 15, 19, 0.88);
+  background: rgba(30, 30, 28, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(216, 203, 179, 0.15);
   border-radius: 0.75rem;
   padding: 0.5rem 0.85rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
    Command Palette (⌘K) Modal
    ========================================================================== */
 .cmd-modal-backdrop {
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(23, 23, 21, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
 
 .cmd-modal-box {
-  background: #0B0B0E;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 201, 60, 0.05);
+  background: #252522;
+  border: 1px solid rgba(216, 203, 179, 0.15);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(216, 203, 179, 0.05);
   animation: cmdZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -415,34 +424,34 @@ section {
 }
 
 .cmd-item:hover, .cmd-item.active {
-  background: rgba(255, 201, 60, 0.12);
-  color: #FFC93C;
+  background: rgba(216, 203, 179, 0.15);
+  color: var(--accent-sand);
 }
 
 /* ==========================================================================
    Interactive Architecture Spec Drawer
    ========================================================================== */
 .spec-drawer-backdrop {
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(23, 23, 21, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: opacity 0.3s ease;
 }
 
 .spec-drawer-panel {
-  background: #0B0B0E;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  background: #252522;
+  border-left: 1px solid rgba(216, 203, 179, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
 }
 
 .spec-topology-diagram {
-  background: #050507;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #171715;
+  border: 1px solid rgba(216, 203, 179, 0.1);
   border-radius: 0.75rem;
   padding: 1rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #FFC93C;
+  color: var(--accent-sand);
   overflow-x: auto;
   line-height: 1.5;
 }
@@ -459,7 +468,7 @@ section {
 }
 
 .faq-box:hover {
-  border-color: rgba(255, 201, 60, 0.35);
+  border-color: rgba(216, 203, 179, 0.35);
   background: var(--bg-card-hover);
 }
 
@@ -499,27 +508,27 @@ section {
 
 /* Focus Visible for A11y */
 :focus-visible {
-  outline: 2px solid var(--accent-yellow);
+  outline: 2px solid var(--accent-sand);
   outline-offset: 2px;
 }
 
-/* Custom Scrollbar for True Black Theme */
+/* Custom Scrollbar for True Matte Charcoal Theme */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #1E1E1C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272A;
+  background: #3A3A34;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3F3F46;
+  background: #4E4E46;
 }
 
 /* Print Stylesheet */

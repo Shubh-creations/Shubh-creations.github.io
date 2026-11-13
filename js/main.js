@@ -1,10 +1,9 @@
 /**
- * Shubham Pawar // AI Startup Founder & Systems Engineer - Master Orchestrator
- * Palette: Deep Obsidian Black (#000000), Metallic Silver (#D9DADC), Electric Golden Yellow (#FFC93C)
- * Co-Founder @ Suranyx (https://suranyx.com)
- * Creator @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
+ * Shubham Pawar // 4x Founder & Systems Architect
+ * Palette: Matte Charcoal (#1E1E1C) & Warm Sand (#D8CBB3)
+ * CEO & Co-Founder @ Suranyx (https://suranyx.com)
+ * Solo Founder @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
  * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
- * 1 Year Stealth Founder @ Sarvaflow (Automated Workflows Marketplace)
  * GitHub: https://github.com/Shubh-creations | Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
  */
 
@@ -100,13 +99,13 @@ function initSiteData() {
     const getOrgBadge = (org) => {
       const o = (org || '').toLowerCase();
       const logos = window.PORTFOLIO_LOGOS || {};
-      if (o.includes('suranyx')) return logos.suranyx || `<span class="w-2.5 h-2.5 rounded-full bg-[#FFC93C]"></span>`;
+      if (o.includes('suranyx')) return logos.suranyx || `<span class="w-2.5 h-2.5 rounded-full bg-[#D8CBB3]"></span>`;
       if (o.includes('vadhu') || o.includes('vv')) return logos.vadhuVar || `<span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>`;
       if (o.includes('rodimus')) return logos.rodimus || `<span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>`;
-      if (o.includes('sarvaflow')) return logos.sarvaflow || `<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>`;
+      if (o.includes('vcare')) return logos.vcare || `<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>`;
       if (o.includes('postman')) return logos.postman || `<span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>`;
       if (o.includes('patil') || o.includes('dyp')) return logos.dypatil || `<span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>`;
-      return `<span class="w-2.5 h-2.5 rounded-full bg-[#FFC93C]"></span>`;
+      return `<span class="w-2.5 h-2.5 rounded-full bg-[#D8CBB3]"></span>`;
     };
 
     timelineContainer.innerHTML = config.milestones.map((m) => `
@@ -928,8 +927,8 @@ function setupCommandPalette() {
         openSpecDrawer("vadhu-var");
       } else if (action === "open-spec-devprime") {
         openSpecDrawer("devprime-adk");
-      } else if (action === "open-sarvaflow") {
-        openDeckToSlide(2);
+      } else if (action === "open-vcare") {
+        window.open("https://github.com/Shubh-creations/Vcare", "_blank");
       } else if (action === "open-linkedin") {
         window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
       } else if (action === "open-cuas") {
@@ -1296,22 +1295,20 @@ window.showToast = showToast;
    ========================================================================== */
 function setupConsoleEasterEgg() {
   const banner = `
-%c  ▲ SHUBHAM PAWAR // FOUNDER & SYSTEMS ARCHITECT  
-%c  Co-Founder @ Suranyx (suranyx.com)  
-  Creator @ Vadhu-Var / VV (vadhu-var.vercel.app)  
+%c  ▲ SHUBHAM PAWAR // 4x FOUNDER & SYSTEMS ARCHITECT  
+%c  CEO & Co-Founder @ Suranyx (suranyx.com)  
+  Solo Founder @ Vadhu-Var / VV (vadhu-var.vercel.app)  
   Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)  
-  1 Year Stealth Founder @ Sarvaflow (Workflows Marketplace)  
   GitHub: https://github.com/Shubh-creations  
   Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in  
   
-  Color Palette: Obsidian Black (#000000), Metallic Silver (#D9DADC), Electric Golden Yellow (#FFC93C)
   Press ⌘K or Ctrl+K anywhere on the site for instant Command Palette.
   System Status: Optimal | Multi-Tenant RLS: Active | SHA-256 Ledger: Verified
   `;
 
   console.log(
     banner,
-    "background: #000000; color: #FFC93C; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #FFC93C;",
-    "background: #0B0B0E; color: #D9DADC; font-size: 12px; line-height: 1.6;"
+    "background: #1E1E1C; color: #D8CBB3; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #D8CBB3;",
+    "background: #252522; color: #D8CBB3; font-size: 12px; line-height: 1.6;"
   );
 }

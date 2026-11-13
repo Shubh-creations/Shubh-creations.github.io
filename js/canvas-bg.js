@@ -1,7 +1,7 @@
 /**
  * Super Minimalist Particle & Constellation Canvas
  * Subtle, luxury monochrome particles with fluid cursor attraction.
- * Palette: Silver (#D9DADC) & Yellow (#FFC93C) on Gray (#2B2D31)
+ * Palette: Matte Charcoal (#1E1E1C) & Warm Sand (#D8CBB3)
  */
 
 class NeuralCanvas {
@@ -24,7 +24,7 @@ class NeuralCanvas {
     this.resize();
     this.particles = [];
     for (let i = 0; i < this.particleCount; i++) {
-      const isAccent = Math.random() < 0.25; // 25% particles tinted with accent yellow
+      const isAccent = Math.random() < 0.25; // 25% particles tinted with warm sand
       this.particles.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
@@ -32,7 +32,7 @@ class NeuralCanvas {
         vy: (Math.random() - 0.5) * 0.3,
         radius: isAccent ? Math.random() * 1.5 + 0.8 : Math.random() * 1.2 + 0.6,
         baseAlpha: Math.random() * 0.25 + 0.1,
-        color: isAccent ? "255, 201, 60" : "217, 218, 220"
+        color: isAccent ? "216, 203, 179" : "235, 230, 220"
       });
     }
   }
@@ -115,7 +115,7 @@ class NeuralCanvas {
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(217, 218, 220, ${lineAlpha})`;
+          this.ctx.strokeStyle = `rgba(216, 203, 179, ${lineAlpha})`;
           this.ctx.lineWidth = 0.5;
           this.ctx.stroke();
         }
