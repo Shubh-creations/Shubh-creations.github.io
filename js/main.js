@@ -1,6 +1,6 @@
 /**
  * Shubham Pawar // AI Startup Founder & Systems Engineer - Master Orchestrator
- * Palette: Gray (#2B2D31), Silver (#D9DADC), Yellow (#FFC93C)
+ * Palette: Deep Obsidian Black (#000000), Metallic Silver (#D9DADC), Electric Golden Yellow (#FFC93C)
  * Co-Founder @ Suranyx (https://suranyx.com)
  * Creator @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
  * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
@@ -94,14 +94,28 @@ function initSiteData() {
     `).join('');
   }
 
-  // Render Milestones (Track Record)
+  // Render Milestones (Track Record) with Org Logo Badges
   const timelineContainer = document.getElementById("timeline-list");
   if (timelineContainer && config.milestones) {
+    const getOrgBadge = (org) => {
+      const o = (org || '').toLowerCase();
+      const logos = window.PORTFOLIO_LOGOS || {};
+      if (o.includes('suranyx')) return logos.suranyx || `<span class="w-2.5 h-2.5 rounded-full bg-[#FFC93C]"></span>`;
+      if (o.includes('vadhu') || o.includes('vv')) return logos.vadhuVar || `<span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>`;
+      if (o.includes('rodimus')) return logos.rodimus || `<span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>`;
+      if (o.includes('sarvaflow')) return logos.sarvaflow || `<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>`;
+      if (o.includes('postman')) return logos.postman || `<span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>`;
+      if (o.includes('patil') || o.includes('dyp')) return logos.dypatil || `<span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>`;
+      return `<span class="w-2.5 h-2.5 rounded-full bg-[#FFC93C]"></span>`;
+    };
+
     timelineContainer.innerHTML = config.milestones.map((m) => `
-      <div class="relative pl-6 pb-8 last:pb-2 border-l border-white/10 group">
-        <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[#18191C] border border-[#FFC93C] group-hover:scale-125 transition-transform"></div>
+      <div class="relative pl-9 pb-8 last:pb-2 border-l border-white/[0.08] group">
+        <div class="absolute -left-[15px] top-0.5 w-7 h-7 rounded-xl bg-[#08080A] border border-white/10 flex items-center justify-center group-hover:border-[#FFC93C] group-hover:scale-110 transition-all shadow-md">
+          ${getOrgBadge(m.organization)}
+        </div>
         <div class="text-[11px] font-mono text-[#FFC93C] font-semibold mb-1">${m.period}</div>
-        <h4 class="text-base font-bold text-white group-hover:text-[#FFC93C] transition-colors">${m.role} <span class="text-[#8E9297] font-normal">at ${m.organization}</span></h4>
+        <h4 class="text-base font-bold text-white group-hover:text-[#FFC93C] transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
         <p class="text-[#D9DADC] text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
       </div>
     `).join('');
@@ -113,38 +127,42 @@ function initSiteData() {
     essaysContainer.innerHTML = config.essays.map((e) => `
       <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
             <span>${e.date}</span>
             <span class="text-[#FFC93C] font-semibold">${e.readTime}</span>
           </div>
           <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#FFC93C] transition-colors">${e.title}</h3>
           <p class="text-[#D9DADC] text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
-          <div class="p-3.5 rounded-xl bg-[#18191C] border border-white/5 text-xs text-[#D9DADC] font-mono text-[11px] leading-relaxed">
+          <div class="p-3.5 rounded-xl bg-[#08080A] border border-white/[0.06] text-xs text-[#D9DADC] font-mono text-[11px] leading-relaxed">
             ${e.body}
           </div>
         </div>
-        <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
+        <div class="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between">
           <a href="https://x.com/builtfor101" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#D9DADC] hover:text-[#FFC93C] inline-flex items-center gap-1.5 transition-colors">
             <span>Discuss on X</span>
             <i data-lucide="external-link" class="w-3 h-3 text-[#FFC93C]"></i>
           </a>
-          <span class="text-[10px] font-mono text-[#8E9297]">@builtfor101</span>
+          <span class="text-[10px] font-mono text-zinc-500">@builtfor101</span>
         </div>
       </div>
     `).join('');
   }
 
-  // Render FAQs
+  // Render FAQs (Flawless Accordion without text bleeding when closed!)
   const faqContainer = document.getElementById("faq-accordion");
   if (faqContainer && config.faq) {
     faqContainer.innerHTML = config.faq.map((item, idx) => `
-      <div class="minimal-card rounded-xl overflow-hidden border border-white/5">
-        <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors" data-faq="${idx}">
-          <span class="text-sm font-semibold text-white">${item.q}</span>
-          <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#FFC93C] shrink-0"></i>
+      <div class="faq-box rounded-2xl bg-[#0B0B0E] border border-white/[0.08] hover:border-[#FFC93C]/40 transition-all overflow-hidden group">
+        <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 transition-colors" data-faq="${idx}">
+          <span class="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-[#FFC93C] transition-colors">${item.q}</span>
+          <div class="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#FFC93C]"></i>
+          </div>
         </button>
-        <div class="accordion-content px-5 pb-4 text-[#D9DADC] text-xs sm:text-sm leading-relaxed border-t border-white/5 pt-3 font-light">
-          ${item.a}
+        <div class="accordion-content">
+          <div class="px-6 pb-6 pt-1 text-[#D9DADC] text-xs sm:text-sm leading-relaxed border-t border-white/[0.05] font-light mt-1">
+            ${item.a}
+          </div>
         </div>
       </div>
     `).join('');
@@ -161,7 +179,12 @@ function renderFlagships() {
   const config = window.SITE_CONFIG;
   if (!container || !config?.flagships) return;
 
-  container.innerHTML = config.flagships.map((f, idx) => `
+  container.innerHTML = config.flagships.map((f, idx) => {
+    const isSuranyx = f.id === 'suranyx';
+    const logos = window.PORTFOLIO_LOGOS || {};
+    const platformLogo = isSuranyx ? (logos.suranyx || '') : (logos.vadhuVar || '');
+
+    return `
     <article class="flagship-card p-6 sm:p-9 flex flex-col justify-between group">
       <div>
         <!-- Card Header Badges -->
@@ -173,18 +196,25 @@ function renderFlagships() {
               ${f.status}
             </span>
           </div>
-          <span class="text-xs font-mono text-[#8E9297] uppercase tracking-wider">${f.category}</span>
+          <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">${f.category}</span>
         </div>
 
-        <!-- Title & Subtitle -->
+        <!-- Title, Logo & Role -->
         <div class="mb-4">
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-            <span>${f.name}</span>
-            <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FFC93C] transition-colors" title="Visit ${f.displayUrl}">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </h3>
-          <div class="text-xs font-mono text-[#FFC93C] font-semibold mt-1">${f.role}</div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
+              ${platformLogo}
+            </div>
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
+                <span>${f.name}</span>
+                <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-[#FFC93C] transition-colors" title="Visit ${f.displayUrl}">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </h3>
+              <div class="text-xs font-mono text-[#FFC93C] font-semibold mt-0.5">${f.role}</div>
+            </div>
+          </div>
         </div>
 
         <!-- Tagline & Description -->
@@ -192,10 +222,10 @@ function renderFlagships() {
         <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
 
         <!-- Technical Metrics Grid -->
-        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#18191C] border border-white/5 mb-6">
+        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#08080A] border border-white/[0.06] mb-6">
           ${f.metrics.map(m => `
             <div class="text-center">
-              <div class="text-[9px] font-mono text-[#8E9297] uppercase tracking-wider truncate">${m.label}</div>
+              <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider truncate">${m.label}</div>
               <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
             </div>
           `).join('')}
@@ -214,17 +244,18 @@ function renderFlagships() {
       </div>
 
       <div>
-        <!-- Tech Stack Pills -->
+        <!-- Tech Stack Pills with Logos -->
         <div class="flex flex-wrap gap-1.5 mb-6">
           ${f.stack.map(s => `
-            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/10">
-              ${s}
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#D9DADC] border border-white/[0.08]">
+              ${window.getTechLogo ? window.getTechLogo(s) : ''}
+              <span>${s}</span>
             </span>
           `).join('')}
         </div>
 
         <!-- Interactive CTAs (Using .btn-yellow for primary action!) -->
-        <div class="flex items-center gap-3 pt-5 border-t border-white/10 flex-wrap">
+        <div class="flex items-center gap-3 pt-5 border-t border-white/[0.08] flex-wrap">
           <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="btn-yellow text-xs py-2 px-5 inline-flex items-center gap-1.5">
             <span>Launch ${f.name}</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -237,7 +268,8 @@ function renderFlagships() {
         </div>
       </div>
     </article>
-  `).join('');
+    `;
+  }).join('');
 
   if (window.lucide) window.lucide.createIcons();
 }
@@ -251,9 +283,9 @@ function renderProductionStack() {
   if (!container || !config?.productionStack) return;
 
   container.innerHTML = config.productionStack.map((domain, idx) => `
-    <div class="minimal-card p-6 sm:p-7 border border-white/10 space-y-5 flex flex-col justify-between">
+    <div class="minimal-card p-6 sm:p-7 border border-white/[0.08] space-y-5 flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between text-xs font-mono text-[#8E9297] mb-2">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
           <span>0${idx + 1} // DOMAIN MATRIX</span>
           <span class="text-[#FFC93C] font-bold">${domain.technologies.length} Shipped Primitives</span>
         </div>
@@ -264,13 +296,16 @@ function renderProductionStack() {
         <p class="text-[#D9DADC] text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
       </div>
 
-      <div class="space-y-2.5 pt-3 border-t border-white/5">
+      <div class="space-y-2.5 pt-3 border-t border-white/[0.06]">
         ${domain.technologies.map(tech => `
-          <div class="p-2.5 rounded-xl bg-[#18191C] border border-white/5 hover:border-[#FFC93C]/30 transition-colors">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-white">${tech.name}</span>
+          <div class="p-3 rounded-xl bg-[#08080A] border border-white/[0.06] hover:border-[#FFC93C]/40 transition-all flex items-start gap-3">
+            <div class="pt-0.5 shrink-0">
+              ${window.getTechLogo ? window.getTechLogo(tech.name) : ''}
             </div>
-            <p class="text-[11px] text-[#D9DADC] font-light mt-0.5 leading-snug">${tech.desc}</p>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-mono font-bold text-white">${tech.name}</div>
+              <p class="text-[11px] text-[#A1A1AA] font-light mt-0.5 leading-snug">${tech.desc}</p>
+            </div>
           </div>
         `).join('')}
       </div>
@@ -313,7 +348,7 @@ function renderDeepTechSystems(filter = "all") {
         <p class="text-[#D9DADC] text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
 
         <!-- Metrics Row -->
-        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#18191C] border border-white/5 mb-6">
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#08080A] border border-white/[0.06] mb-6">
           ${sys.metrics.map(m => `
             <div class="text-center">
               <div class="text-[9px] font-mono text-[#8E9297] uppercase truncate">${m.label}</div>
@@ -392,12 +427,14 @@ function setupHeroDeviceSwitcher() {
   const screenContent = document.getElementById("hero-device-screen");
   if (!tabs.length || !screenContent) return;
 
+  const logos = window.PORTFOLIO_LOGOS || {};
+
   const views = {
     suranyx: `
       <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
-        <div class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
+        <div class="flex items-center gap-2">
+          ${logos.suranyx || '<span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>'}
           <span class="font-mono text-white text-[11px] font-bold">Suranyx Intelligence</span>
         </div>
         <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-[#FFC93C]/15 text-[#FFC93C] border border-[#FFC93C]/30">● LIVE</span>
@@ -405,7 +442,7 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Main Metric with Glow Curve -->
       <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Projected Cash Runway</div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase">Projected Cash Runway</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-3xl font-extrabold text-white font-mono">₹4.2M</span>
           <span class="text-xs font-mono font-bold text-[#FFC93C]">+8.4 mo</span>
@@ -413,8 +450,8 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Route / Graph Line SVG (With signature electric yellow curve!) -->
-      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-2 border border-white/5 overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(217,218,220,0.08)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
+      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
         <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M 10 65 Q 40 60, 70 45 T 130 30 T 190 12" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
           <circle cx="190" cy="12" r="4" fill="#FFC93C" />
@@ -423,17 +460,17 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">NET BURN</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">NET BURN</div>
           <div class="text-[11px] font-bold text-white font-mono mt-0.5">₹3.2L/mo</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">RLS LEVEL</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">RLS LEVEL</div>
           <div class="text-[11px] font-bold text-[#FFC93C] font-mono mt-0.5">Tenant</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">LEDGER</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">LEDGER</div>
           <div class="text-[11px] font-bold text-white font-mono mt-0.5">SHA-256</div>
         </div>
       </div>
@@ -448,9 +485,9 @@ function setupHeroDeviceSwitcher() {
     `,
     vadhuvar: `
       <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
-        <div class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
+        <div class="flex items-center gap-2">
+          ${logos.vadhuVar || '<span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>'}
           <span class="font-mono text-white text-[11px] font-bold">Vadhu-Var PWA</span>
         </div>
         <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">● TRILINGUAL</span>
@@ -458,7 +495,7 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Profile & Matching Card -->
       <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Match Interface &amp; Prompts</div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase">Match Interface &amp; Prompts</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-2xl font-extrabold text-white font-mono">36 Prompts</span>
           <span class="text-xs font-mono font-bold text-[#FFC93C]">Sub-ms RLS</span>
@@ -466,9 +503,11 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Matrimony Match Mockup -->
-      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-3 border border-white/5 flex flex-col justify-between">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-[#FFC93C]/20 border border-[#FFC93C] flex items-center justify-center text-xs font-bold text-[#FFC93C]">VV</div>
+      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-3 border border-white/[0.06] flex flex-col justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-400/50 flex items-center justify-center text-xs font-bold text-purple-300">
+            ${logos.vadhuVar || 'VV'}
+          </div>
           <div>
             <div class="text-xs font-bold text-white">Ananya, 26 • Pune</div>
             <div class="text-[9px] text-[#D9DADC] font-mono">Software Architect // Verified ID</div>
@@ -482,17 +521,17 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Atomic RPC Telemetry -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">RPC FUNCTION</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">RPC FUNCTION</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5 truncate">send_interest</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">POLICY EXEC</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY EXEC</div>
           <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">0.8ms InitPlan</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">MEDIA LIMIT</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">MEDIA LIMIT</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5">Max 3 Slots</div>
         </div>
       </div>
@@ -507,9 +546,9 @@ function setupHeroDeviceSwitcher() {
     `,
     devprime: `
       <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/10 w-full">
-        <div class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>
+      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
+        <div class="flex items-center gap-2">
+          ${logos.pytorch || '<span class="w-2 h-2 rounded-full bg-[#FFC93C] animate-pulse"></span>'}
           <span class="font-mono text-white text-[11px] font-bold">Devprime ADK // PyBullet</span>
         </div>
         <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">● RL BENCHMARK</span>
@@ -517,7 +556,7 @@ function setupHeroDeviceSwitcher() {
 
       <!-- Main Metric with Glow Curve -->
       <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-[#8E9297] uppercase">Episodic Return / Reward</div>
+        <div class="text-[10px] font-mono text-zinc-500 uppercase">Episodic Return / Reward</div>
         <div class="flex items-baseline gap-2 mt-0.5">
           <span class="text-3xl font-extrabold text-white font-mono">+842.6</span>
           <span class="text-xs font-mono font-bold text-[#FFC93C]">TorchScript</span>
@@ -525,8 +564,8 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Reward Curve SVG -->
-      <div class="relative h-28 w-full bg-[#202225] rounded-xl p-2 border border-white/5 overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(217,218,220,0.08)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
+      <div class="relative h-28 w-full bg-[#08080A] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
         <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M 10 70 Q 30 65, 60 50 T 110 32 T 150 20 T 190 8" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
           <circle cx="190" cy="8" r="4" fill="#FFC93C" />
@@ -535,17 +574,17 @@ function setupHeroDeviceSwitcher() {
       </div>
 
       <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#202225] border border-white/5 text-center w-full">
+      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#08080A] border border-white/[0.06] text-center w-full">
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">ENV</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">ENV</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5">PyBullet</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">POLICY</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY</div>
           <div class="text-[10px] font-bold text-[#FFC93C] font-mono mt-0.5">PPO / DQN</div>
         </div>
         <div>
-          <div class="text-[8px] font-mono text-[#8E9297] uppercase">EXPORT</div>
+          <div class="text-[8px] font-mono text-zinc-500 uppercase">EXPORT</div>
           <div class="text-[10px] font-bold text-white font-mono mt-0.5">Zero-Latency</div>
         </div>
       </div>
@@ -644,7 +683,7 @@ window.openSpecDrawer = function(specId) {
         <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Security &amp; Structural Invariants</div>
         <div class="space-y-2">
           ${spec.primaryInvariants.map(inv => `
-            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#18191C] border border-white/5 text-xs text-[#D9DADC] font-light">
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#08080A] border border-white/[0.06] text-xs text-[#D9DADC] font-light">
               <i data-lucide="shield-check" class="w-4 h-4 text-[#FFC93C] shrink-0 mt-0.5"></i>
               <span>${inv}</span>
             </div>
@@ -659,13 +698,13 @@ window.openSpecDrawer = function(specId) {
             <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#FFC93C]"></i>
             <span>Production Implementation Snippet</span>
           </span>
-          <span class="text-[#8E9297] font-mono text-[10px]">${spec.codeSnippet.lang}</span>
+          <span class="text-zinc-500 font-mono text-[10px]">${spec.codeSnippet.lang}</span>
         </div>
-        <pre class="p-4 rounded-xl bg-[#18191C] border border-white/10 text-[#FFC93C] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
+        <pre class="p-4 rounded-xl bg-[#08080A] border border-white/10 text-[#FFC93C] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
       </div>
 
       <!-- Engineering Trade-Offs -->
-      <div class="p-4 rounded-xl bg-[#18191C] border border-white/5 space-y-2">
+      <div class="p-4 rounded-xl bg-[#08080A] border border-white/[0.06] space-y-2">
         <div class="text-[11px] font-mono text-[#FFC93C] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
         <p class="text-xs text-[#D9DADC] font-light leading-relaxed">${spec.tradeOffs}</p>
       </div>
@@ -1079,7 +1118,7 @@ function renderSlide(index) {
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">${slide.title}</h2>
           <p class="text-[#D9DADC] text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
 
-          <div class="space-y-2.5 p-5 rounded-2xl bg-[#18191C] border border-white/5">
+          <div class="space-y-2.5 p-5 rounded-2xl bg-[#08080A] border border-white/[0.06]">
             <div class="text-[10px] font-mono uppercase tracking-widest text-[#FFC93C] font-bold">Key Architecture Points:</div>
             ${slide.bullets.map(b => `
               <div class="flex items-start gap-3 text-xs sm:text-sm text-[#D9DADC] font-light">
@@ -1265,14 +1304,14 @@ function setupConsoleEasterEgg() {
   GitHub: https://github.com/Shubh-creations  
   Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in  
   
-  Color Palette: Gray (#2B2D31), Silver (#D9DADC), Yellow (#FFC93C)
+  Color Palette: Obsidian Black (#000000), Metallic Silver (#D9DADC), Electric Golden Yellow (#FFC93C)
   Press ⌘K or Ctrl+K anywhere on the site for instant Command Palette.
   System Status: Optimal | Multi-Tenant RLS: Active | SHA-256 Ledger: Verified
   `;
 
   console.log(
     banner,
-    "background: #202225; color: #FFC93C; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #FFC93C;",
-    "background: #24262A; color: #D9DADC; font-size: 12px; line-height: 1.6;"
+    "background: #000000; color: #FFC93C; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #FFC93C;",
+    "background: #0B0B0E; color: #D9DADC; font-size: 12px; line-height: 1.6;"
   );
 }
