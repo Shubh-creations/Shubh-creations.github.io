@@ -26,6 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
   setupArchitectureDrawer();
   renderGitHubPulse();
 
+  // 3b. Mount Live Interactive Simulations in Systems Lab
+  if (window.mountLedgerSimulation) {
+    window.mountLedgerSimulation('suranyx-ledger-sim');
+  }
+  if (window.mountInitPlanSimulation) {
+    window.mountInitPlanSimulation('vadhuvar-initplan-sim');
+  }
+  if (window.mountCuasSimulation) {
+    window.mountCuasSimulation('cuas-telemetry-sim');
+  }
+
+  // 3c. Setup Vim-Style Keyboard Navigation
+  setupVimNavigation();
+
   // 4. Setup Real-Time HUD Clock & Telemetry
   setupHUDTelemetry();
 
@@ -707,12 +721,35 @@ window.openSpecDrawer = function(specId) {
         <div class="text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
         <p class="text-xs text-[#D8CBB3] font-light leading-relaxed">${spec.tradeOffs}</p>
       </div>
+
+      <!-- Live Executable Simulation Inside Spec Drawer -->
+      <div class="p-5 rounded-xl bg-[#171715] border border-[#D8CBB3]/20 space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="text-[11px] font-mono text-[#D8CBB3] uppercase tracking-wider font-bold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#D8CBB3] animate-pulse"></span>
+            <span>Live In-Browser Verification Benchmark</span>
+          </div>
+          <span class="text-[10px] font-mono text-[#9E9889]">Interactive Lab</span>
+        </div>
+        <div id="spec-simulation-mount" class="mt-2 min-h-[200px]"></div>
+      </div>
     </div>
   `;
 
   drawerBackdrop.classList.remove("hidden");
   drawerBackdrop.classList.add("flex");
   document.body.style.overflow = "hidden";
+
+  // Mount corresponding interactive simulation inside drawer
+  setTimeout(() => {
+    if (specId === "suranyx" && window.mountLedgerSimulation) {
+      window.mountLedgerSimulation("spec-simulation-mount");
+    } else if (specId === "vadhu-var" && window.mountInitPlanSimulation) {
+      window.mountInitPlanSimulation("spec-simulation-mount");
+    } else if ((specId === "devprime-adk" || specId === "cuas") && window.mountCuasSimulation) {
+      window.mountCuasSimulation("spec-simulation-mount");
+    }
+  }, 50);
 
   if (window.lucide) window.lucide.createIcons();
   if (window.soundEngine) window.soundEngine.playOpen();
@@ -830,10 +867,14 @@ function renderGitHubUI(user, repos) {
   if (window.lucide) window.lucide.createIcons();
 }
 
-/* Mouse spotlight calculation on minimal cards */
+/* Mouse spotlight calculation & Spring Damped Specular Border Controller */
 function setupSpotlightCards() {
+  if (window.initSpringSpotlights) {
+    window.initSpringSpotlights();
+    return;
+  }
   document.addEventListener("mousemove", (e) => {
-    document.querySelectorAll(".minimal-card, .flagship-card").forEach((card) => {
+    document.querySelectorAll(".minimal-card, .flagship-card, .bento-card").forEach((card) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -901,14 +942,61 @@ function setupCommandPalette() {
   closeBtns.forEach(btn => btn.addEventListener("click", closeCMD));
   modal.addEventListener("click", (e) => { if (e.target === modal) closeCMD(); });
 
+  let selectedIndex = -1;
+
+  function getVisibleItems() {
+    return Array.from(items).filter(item => item.style.display !== "none");
+  }
+
+  function updateSelected() {
+    const visible = getVisibleItems();
+    visible.forEach((item, idx) => {
+      if (idx === selectedIndex) {
+        item.classList.add("bg-[#D8CBB3]/20", "border", "border-[#D8CBB3]/50", "text-white");
+        item.scrollIntoView({ block: "nearest" });
+      } else {
+        item.classList.remove("bg-[#D8CBB3]/20", "border", "border-[#D8CBB3]/50", "text-white");
+      }
+    });
+  }
+
   input.addEventListener("input", (e) => filterItems(e.target.value));
+
+  input.addEventListener("keydown", (e) => {
+    const visible = getVisibleItems();
+    if (visible.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      selectedIndex = (selectedIndex + 1) % visible.length;
+      updateSelected();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      selectedIndex = (selectedIndex - 1 + visible.length) % visible.length;
+      updateSelected();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < visible.length) {
+        visible[selectedIndex].click();
+      } else if (visible.length > 0) {
+        visible[0].click();
+      }
+    }
+  });
 
   function filterItems(query) {
     const q = query.toLowerCase().trim();
+    selectedIndex = -1;
     items.forEach(item => {
       const text = item.textContent.toLowerCase();
       item.style.display = (!q || text.includes(q)) ? "flex" : "none";
+      item.classList.remove("bg-[#D8CBB3]/20", "border", "border-[#D8CBB3]/50", "text-white");
     });
+    const visible = getVisibleItems();
+    if (visible.length > 0) {
+      selectedIndex = 0;
+      updateSelected();
+    }
   }
 
   items.forEach(item => {
@@ -917,7 +1005,20 @@ function setupCommandPalette() {
       closeCMD();
       if (window.soundEngine) window.soundEngine.playClick();
 
-      if (action === "open-suranyx") {
+      if (action === "jump-ledger-sim") {
+        const el = document.getElementById("systems-lab");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const inp = document.querySelector("#suranyx-ledger-sim input");
+          if (inp) inp.focus();
+        }, 500);
+      } else if (action === "jump-initplan-sim") {
+        const el = document.getElementById("systems-lab");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else if (action === "jump-cuas-sim") {
+        const el = document.getElementById("systems-lab");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else if (action === "open-suranyx") {
         window.open("https://suranyx.com", "_blank");
       } else if (action === "open-vadhuvar") {
         window.open("https://vadhu-var.vercel.app", "_blank");
@@ -955,6 +1056,70 @@ function setupCommandPalette() {
         showToast("Copied email: " + email, "success");
       }
     });
+  });
+}
+
+/* ==========================================================================
+   Vim-Style Global Keyboard Navigation
+   ========================================================================== */
+function setupVimNavigation() {
+  let pendingG = false;
+  let gTimeout = null;
+
+  window.addEventListener("keydown", (e) => {
+    const target = e.target;
+    const isInput = target && (
+      target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.isContentEditable ||
+      target.closest("#cmd-modal") ||
+      target.closest("#architecture-drawer") ||
+      target.closest("#deck-modal") ||
+      target.closest("#contact-modal")
+    );
+    if (isInput) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    const key = e.key.toLowerCase();
+
+    if (key === "?") {
+      e.preventDefault();
+      showToast("Shortcuts: g h (Hero), g f (Flagships), g s (Systems Lab), g m (Matrix), g d (Deep-Tech), g t (Track Record), g g (GitHub), ⌘K (Command)", "info");
+      return;
+    }
+
+    if (key === "g" && !pendingG) {
+      pendingG = true;
+      if (gTimeout) clearTimeout(gTimeout);
+      gTimeout = setTimeout(() => { pendingG = false; }, 900);
+      return;
+    }
+
+    if (pendingG) {
+      pendingG = false;
+      if (gTimeout) clearTimeout(gTimeout);
+
+      const navMap = {
+        h: "#top",
+        f: "#flagships",
+        s: "#systems-lab",
+        m: "#systems-matrix",
+        d: "#deep-tech",
+        t: "#experience",
+        g: "#github-pulse"
+      };
+
+      const targetId = navMap[key];
+      if (targetId) {
+        e.preventDefault();
+        const el = document.querySelector(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          if (window.soundEngine) window.soundEngine.playClick();
+          showToast(`Jumped to: ${targetId}`, "success");
+        }
+      }
+    }
   });
 }
 

@@ -1,135 +1,123 @@
 /**
- * Super Minimalist Particle & Constellation Canvas
- * Subtle, luxury monochrome particles with fluid cursor attraction.
- * Palette: Matte Charcoal (#1E1E1C) & Warm Sand (#D8CBB3)
+ * js/canvas-bg.js — Spatial Reality Layer Topological Wave
+ * Subtle, GPU-friendly LiDAR depth-grid ripple aligned with Rodimus Tech's
+ * "Reality Layer for AI" motif.
+ * Palette: Matte Charcoal (#1E1E1C) & Warm Sand (#D8CBB3).
+ * Automatically pauses on document.hidden (visibilitychange) to preserve CPU/battery.
  */
 
-class NeuralCanvas {
-  constructor(canvasId) {
-    this.canvas = document.getElementById(canvasId);
-    if (!this.canvas) return;
-    this.ctx = this.canvas.getContext("2d");
-    this.particles = [];
-    this.mouse = { x: null, y: null, radius: 140 };
-    this.particleCount = window.innerWidth < 768 ? 30 : 60;
-    this.maxDistance = 110;
-    this.animationFrameId = null;
+export function initSpatialField(canvasId = 'neural-canvas') {
+  if (typeof window === 'undefined') return null;
 
-    this.init();
-    this.bindEvents();
-    this.loop();
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return null;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    canvas.style.display = 'none';
+    return null;
   }
 
-  init() {
-    this.resize();
-    this.particles = [];
-    for (let i = 0; i < this.particleCount; i++) {
-      const isAccent = Math.random() < 0.25; // 25% particles tinted with warm sand
-      this.particles.push({
-        x: Math.random() * this.width,
-        y: Math.random() * this.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: isAccent ? Math.random() * 1.5 + 0.8 : Math.random() * 1.2 + 0.6,
-        baseAlpha: Math.random() * 0.25 + 0.1,
-        color: isAccent ? "216, 203, 179" : "235, 230, 220"
-      });
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) return null;
+
+  let width = 0;
+  let height = 0;
+  let rafId = null;
+  let mouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+
+  window.addEventListener('pointermove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  }, { passive: true });
+
+  window.addEventListener('pointerleave', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
     }
-  }
+  }, { passive: true });
 
-  resize() {
-    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.width = window.innerWidth;
-    this.height = window.innerHeight;
-    this.canvas.width = this.width * this.dpr;
-    this.canvas.height = this.height * this.dpr;
-    this.canvas.style.width = `${this.width}px`;
-    this.canvas.style.height = `${this.height}px`;
-    this.ctx.scale(this.dpr, this.dpr);
-  }
+  window.addEventListener('touchend', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
 
-  bindEvents() {
-    window.addEventListener("resize", () => this.resize());
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    } else if (!document.hidden && !rafId) {
+      rafId = requestAnimationFrame(draw);
+    }
+  });
 
-    window.addEventListener("mousemove", (e) => {
-      this.mouse.x = e.clientX;
-      this.mouse.y = e.clientY;
-    });
+  resize();
+  const spacing = window.innerWidth < 768 ? 52 : 46;
 
-    window.addEventListener("mouseleave", () => {
-      this.mouse.x = null;
-      this.mouse.y = null;
-    });
+  function draw(t) {
+    ctx.clearRect(0, 0, width, height);
+    const time = t * 0.0008;
 
-    window.addEventListener("touchmove", (e) => {
-      if (e.touches.length > 0) {
-        this.mouse.x = e.touches[0].clientX;
-        this.mouse.y = e.touches[0].clientY;
-      }
-    }, { passive: true });
-
-    window.addEventListener("touchend", () => {
-      this.mouse.x = null;
-      this.mouse.y = null;
-    });
-  }
-
-  loop() {
-    this.ctx.clearRect(0, 0, this.width, this.height);
-
-    for (let i = 0; i < this.particles.length; i++) {
-      const p = this.particles[i];
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > this.width) p.vx *= -1;
-      if (p.y < 0 || p.y > this.height) p.vy *= -1;
-
-      // Mouse attraction
-      if (this.mouse.x !== null) {
-        const dx = this.mouse.x - p.x;
-        const dy = this.mouse.y - p.y;
+    for (let x = spacing / 2; x < width; x += spacing) {
+      for (let y = spacing / 2; y < height; y += spacing) {
+        const dx = x - mouse.x;
+        const dy = y - mouse.y;
         const dist = Math.hypot(dx, dy);
+        const proximity = Math.max(0, 1 - dist / 220);
+        const wave = Math.sin(x * 0.015 + time) * Math.cos(y * 0.015 + time);
 
-        if (dist < this.mouse.radius) {
-          const force = (this.mouse.radius - dist) / this.mouse.radius;
-          p.x -= (dx / dist) * force * 1.1;
-          p.y -= (dy / dist) * force * 1.1;
-        }
-      }
+        const alpha = 0.035 + proximity * 0.24 + wave * 0.018;
+        const radius = 0.85 + proximity * 1.4;
 
-      // Draw particle
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(${p.color}, ${p.baseAlpha})`;
-      this.ctx.fill();
-
-      // Hairline connectors
-      for (let j = i + 1; j < this.particles.length; j++) {
-        const p2 = this.particles[j];
-        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-
-        if (dist < this.maxDistance) {
-          const lineAlpha = (1 - dist / this.maxDistance) * 0.08;
-          this.ctx.beginPath();
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(216, 203, 179, ${lineAlpha})`;
-          this.ctx.lineWidth = 0.5;
-          this.ctx.stroke();
-        }
+        ctx.fillStyle = `rgba(216, 203, 179, ${Math.max(0.02, alpha).toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
-
-    this.animationFrameId = requestAnimationFrame(() => this.loop());
+    rafId = requestAnimationFrame(draw);
   }
 
+  rafId = requestAnimationFrame(draw);
+
+  return {
+    destroy: () => {
+      if (rafId) cancelAnimationFrame(rafId);
+    }
+  };
+}
+
+// Backwards-compatible class wrapper for existing call in main.js
+class NeuralCanvas {
+  constructor(canvasId = 'neural-canvas') {
+    this.field = initSpatialField(canvasId);
+  }
   destroy() {
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
+    if (this.field && this.field.destroy) {
+      this.field.destroy();
     }
   }
 }
 
-window.NeuralCanvas = NeuralCanvas;
+if (typeof window !== 'undefined') {
+  window.NeuralCanvas = NeuralCanvas;
+  window.initSpatialField = initSpatialField;
+}
