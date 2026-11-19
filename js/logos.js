@@ -13,27 +13,27 @@ const LOGOS = {
 
   // Custom Founder Platforms
   suranyx: `<svg class="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="8" fill="#D8CBB3" fill-opacity="0.15" stroke="#D8CBB3" stroke-width="1.5"/>
-    <path d="M8 16L13 21L24 10" stroke="#D8CBB3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="24" cy="10" r="2.5" fill="#D8CBB3"/>
+    <rect width="32" height="32" rx="8" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M8 16L13 21L24 10" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="10" r="2.5" fill="#38BDF8"/>
   </svg>`,
 
   vadhuVar: `<svg class="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="8" fill="#A855F7" fill-opacity="0.15" stroke="#C084FC" stroke-width="1.5"/>
-    <path d="M12 16C12 13.79 13.79 12 16 12C18.21 12 20 13.79 20 16C20 18.21 18.21 20 16 20C13.79 20 12 18.21 12 16Z" stroke="#C084FC" stroke-width="2"/>
-    <path d="M9 16C9 12.13 12.13 9 16 9C19.87 9 23 12.13 23 16C23 19.87 19.87 23 16 23" stroke="#D8CBB3" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+    <rect width="32" height="32" rx="8" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M12 16C12 13.79 13.79 12 16 12C18.21 12 20 13.79 20 16C20 18.21 18.21 20 16 20C13.79 20 12 18.21 12 16Z" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M9 16C9 12.13 12.13 9 16 9C19.87 9 23 12.13 23 16C23 19.87 19.87 23 16 23" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
   </svg>`,
 
   rodimus: `<svg class="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="8" fill="#3B82F6" fill-opacity="0.15" stroke="#60A5FA" stroke-width="1.5"/>
-    <path d="M16 8L24 13V19L16 24L8 19V13L16 8Z" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-    <circle cx="16" cy="16" r="2.5" fill="#D8CBB3"/>
+    <rect width="32" height="32" rx="8" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M16 8L24 13V19L16 24L8 19V13L16 8Z" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="16" cy="16" r="2.5" fill="#7DD3FC"/>
   </svg>`,
 
   vcare: `<svg class="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="8" fill="#10B981" fill-opacity="0.15" stroke="#34D399" stroke-width="1.5"/>
-    <path d="M16 9V23M9 16H23" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="16" cy="16" r="3" fill="#D8CBB3"/>
+    <rect width="32" height="32" rx="8" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M16 9V23M9 16H23" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="3" fill="#7DD3FC"/>
   </svg>`,
 
   postman: `<svg class="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +102,7 @@ function getTechLogo(name) {
   if (n.includes("postman")) return LOGOS.postman;
   
   // Default micro circuit icon
-  return `<svg class="w-3.5 h-3.5 text-[#D8CBB3] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>`;
+  return `<svg class="w-3.5 h-3.5 text-[#38BDF8] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>`;
 }
 
 window.PORTFOLIO_LOGOS = LOGOS;

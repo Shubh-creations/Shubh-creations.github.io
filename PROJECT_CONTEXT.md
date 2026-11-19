@@ -5,7 +5,7 @@
 > - `https://github.com/Shubh-creations/Shubh-creations.github.io`  
 > - `https://github.com/Shubh-creations/Shubhcreations.github.io`  
 > **Target Audience:** Technical Founders, CTOs, Principal Systems Engineers, Tier-1 Venture Capitalists & Deep-Tech Collaborators.  
-> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Matte Charcoal (`#1E1E1C`) and Warm Sand (`#D8CBB3`).
+> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Dark Shades of Grey (`#0B0D13`, `#161B26`) and Signature Light Blue (`#38BDF8`).
 
 ---
 
@@ -103,21 +103,22 @@
 ## 5. DESIGN SYSTEM & VISUAL CRAFT SPECIFICATIONS
 
 - **Surfaces:**
-  - Base Canvas: `var(--bg-primary)` = `#1E1E1C` (Matte Charcoal)
-  - Secondary Bar / Deep Backdrops: `var(--bg-secondary)` = `#171715`
-  - Bento Card Elevation: `var(--bg-card)` = `#252522`
-  - Bento Card Hover Elevation: `var(--bg-card-hover)` = `#2C2C28`
-  - Subtle Surface Tint: `rgba(216, 203, 179, 0.04)`
+  - Base Canvas: `var(--bg-primary)` = `#0B0D13` (Deep Dark Obsidian Grey)
+  - Secondary Bar / Deep Backdrops: `var(--bg-secondary)` = `#11151E`
+  - Bento Card Elevation: `var(--bg-card)` = `#161B26`
+  - Bento Card Hover Elevation: `var(--bg-card-hover)` = `#1D2331`
+  - Inset Surface: `var(--bg-card-inset)` = `#0F131C`
+  - Subtle Surface Tint: `rgba(56, 189, 248, 0.04)`
 - **Accents & Borders:**
-  - Signature Accent: `var(--accent-sand)` = `#D8CBB3` (Warm Sand)
-  - Hover Accent: `var(--accent-sand-hover)` = `#E5DAC4`
-  - 1px Hairline Borders: `var(--border-hairline)` = `rgba(216, 203, 179, 0.12)`
-  - Active / Focus Borders: `rgba(216, 203, 179, 0.45)`
+  - Signature Accent: `var(--accent-blue)` = `#38BDF8` (Light Sky Blue)
+  - Hover Accent: `var(--accent-blue-hover)` = `#7DD3FC`
+  - 1px Hairline Borders: `var(--border-hairline)` = `rgba(56, 189, 248, 0.14)`
+  - Active / Focus Borders: `rgba(56, 189, 248, 0.60)`
 - **Typography:**
   - Sans-Serif: `Inter`, system UI font stack for narrative, headlines, and cards.
   - Monospace: `JetBrains Mono`, `SF Mono` for all metrics, architecture tags, status badges, and telemetry.
 - **Signature UI Elements:**
-  - `.hero-highlight`: Rounded warm sand highlight box (`background-color: #D8CBB3; color: #1E1E1C; padding: 0.12rem 0.6rem; border-radius: 0.5rem; font-weight: 900;`).
+  - `.hero-highlight`: Rounded light blue highlight box (`background-color: #38BDF8; color: #0B0D13; padding: 0.12rem 0.6rem; border-radius: 0.5rem; font-weight: 900;`).
   - Cursor Spotlight Bento Cards: Hardware-accelerated radial spotlight effect tracking mouse `(x, y)` relative to card boundaries.
   - Interactive Architecture Spec Drawer: Slide-over spec sheet showing ASCII network topology, production invariants, and syntax-highlighted SQL/PyTorch code.
   - Interactive Command Palette (`⌘K` / `Ctrl+K`): Instant keyboard navigation to Suranyx, Vadhu-Var, Devprime ADK, GitHub, LinkedIn, and email copy.
