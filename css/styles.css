@@ -1,6 +1,6 @@
 /* ==========================================================================
    Shubham Pawar // 4x Founder & Systems Architect
-   Design System: Dark Shades of Grey (#0B0D13, #161B26) & Light Blue (#38BDF8)
+   Design System: Dark Shades of Grey (#0B0D13, #161B26) & Crimson (#80182A)
    High-Craft Founder & Systems Architecture Interface (Volta & Linear aesthetics)
    ========================================================================== */
 
@@ -10,31 +10,34 @@
   --bg-card: #161B26;             /* Elevated Dark Grey Bento Box Surface */
   --bg-card-hover: #1D2331;       /* Subtle Card Elevation on Hover */
   --bg-card-inset: #0F131C;       /* Inset / Terminal / Code Block Grey */
-  --bg-surface: rgba(56, 189, 248, 0.04);
-  --bg-surface-elevated: rgba(56, 189, 248, 0.08);
-  --bg-surface-hover: rgba(56, 189, 248, 0.14);
+  --bg-surface: rgba(128, 24, 42, 0.05);
+  --bg-surface-elevated: rgba(128, 24, 42, 0.12);
+  --bg-surface-hover: rgba(128, 24, 42, 0.20);
 
-  --border-hairline: rgba(56, 189, 248, 0.14); /* Crisp 1px Light Blue hairline border */
-  --border-subtle: rgba(56, 189, 248, 0.25);
-  --border-focus: rgba(56, 189, 248, 0.65);
+  --border-hairline: rgba(168, 38, 61, 0.22); /* Crisp 1px Crimson hairline border */
+  --border-subtle: rgba(168, 38, 61, 0.35);
+  --border-focus: rgba(196, 61, 85, 0.70);
 
   --text-primary: #FFFFFF;        /* Pure White for Headings */
   --text-secondary: #CBD5E1;      /* Light Slate Grey for Body */
   --text-muted: #94A3B8;          /* Muted Slate Grey */
   --text-dim: #64748B;            /* Dim Slate Grey */
 
-  --accent-blue: #38BDF8;         /* Signature Light Blue (Sky 400) */
-  --accent-blue-hover: #7DD3FC;   /* Lighter Blue (Sky 300) */
-  --accent-blue-glow: rgba(56, 189, 248, 0.30);
-  --accent-blue-subtle: rgba(56, 189, 248, 0.12);
+  --accent-crimson: #80182A;      /* Signature Exact Crimson from Reference */
+  --accent-crimson-hover: #9C2237;/* Lighter / Rich Crimson Hover */
+  --accent-crimson-light: #E06D82;/* High-Contrast Rose-Crimson for text on dark bg */
+  --accent-crimson-glow: rgba(128, 24, 42, 0.40);
+  --accent-crimson-subtle: rgba(128, 24, 42, 0.18);
 
   /* Compatibility mappings */
-  --accent-sand: #38BDF8;
-  --accent-sand-hover: #7DD3FC;
-  --accent-sand-glow: rgba(56, 189, 248, 0.30);
-  --accent-yellow: #38BDF8;
-  --accent-yellow-hover: #7DD3FC;
-  --accent-yellow-glow: rgba(56, 189, 248, 0.30);
+  --accent-blue: #80182A;
+  --accent-blue-hover: #9C2237;
+  --accent-sand: #80182A;
+  --accent-sand-hover: #9C2237;
+  --accent-sand-glow: rgba(128, 24, 42, 0.40);
+  --accent-yellow: #80182A;
+  --accent-yellow-hover: #9C2237;
+  --accent-yellow-glow: rgba(128, 24, 42, 0.40);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
@@ -68,10 +71,10 @@ body {
   pointer-events: none;
   z-index: 0;
   background-image: 
-    radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.08), transparent 50%),
-    radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.03), transparent 45%),
-    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    radial-gradient(circle at 50% -10%, rgba(128, 24, 42, 0.10), transparent 50%),
+    radial-gradient(circle at 85% 25%, rgba(128, 24, 42, 0.04), transparent 45%),
+    linear-gradient(to right, rgba(128, 24, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 24, 42, 0.04) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
@@ -97,14 +100,14 @@ section {
    Signature Headline Word Highlight (Rounded Sand box with Charcoal bold text)
    ========================================================================== */
 .hero-highlight {
-  background-color: var(--accent-sand);
-  color: #0B0D13;
+  background-color: var(--accent-crimson);
+  color: #FFFFFF;
   padding: 0.12rem 0.6rem;
   border-radius: 0.5rem;
   display: inline-block;
   font-weight: 900;
   letter-spacing: -0.02em;
-  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.28);
+  box-shadow: 0 4px 16px rgba(128, 24, 42, 0.40);
 }
 
 /* ==========================================================================
@@ -115,7 +118,7 @@ section {
   position: relative;
   background: var(--bg-card, #161B26);
   border-radius: 1.25rem;
-  border: 1px solid rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(128, 24, 42, 0.18);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.25s ease,
               border-color 0.25s ease,
@@ -133,8 +136,8 @@ section {
   padding: 1px;
   background: radial-gradient(
     320px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-    rgba(56, 189, 248, 0.65),
-    rgba(56, 189, 248, 0.15) 42%,
+    rgba(168, 38, 61, 0.70),
+    rgba(128, 24, 42, 0.20) 42%,
     transparent 78%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -154,7 +157,7 @@ section {
   border-radius: inherit;
   background: radial-gradient(
     420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-    rgba(56, 189, 248, 0.055),
+    rgba(128, 24, 42, 0.06),
     transparent 70%
   );
   pointer-events: none;
@@ -166,7 +169,7 @@ section {
 .bento-card:hover, .minimal-card:hover {
   background: var(--bg-card-hover, #1D2331);
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.06);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(128, 24, 42, 0.08);
 }
 
 /* Flagship Elevated Feature Card */
@@ -188,8 +191,8 @@ section {
   padding: 1px;
   background: radial-gradient(
     360px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-    rgba(56, 189, 248, 0.70),
-    rgba(56, 189, 248, 0.18) 45%,
+    rgba(168, 38, 61, 0.75),
+    rgba(128, 24, 42, 0.22) 45%,
     transparent 80%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -208,7 +211,7 @@ section {
   border-radius: inherit;
   background: radial-gradient(
     480px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-    rgba(56, 189, 248, 0.06),
+    rgba(128, 24, 42, 0.08),
     transparent 70%
   );
   pointer-events: none;
@@ -218,8 +221,8 @@ section {
 }
 
 .flagship-card:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.08);
+  border-color: rgba(128, 24, 42, 0.50);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px rgba(128, 24, 42, 0.10);
   transform: translateY(-3px);
 }
 
@@ -234,9 +237,9 @@ section {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.30);
-  color: var(--accent-sand);
+  background: rgba(128, 24, 42, 0.25);
+  border: 1px solid rgba(168, 38, 61, 0.45);
+  color: #E06D82;
 }
 
 /* Ultra-minimal Header Navigation */
@@ -259,8 +262,8 @@ section {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  background: rgba(56, 189, 248, 0.10);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: rgba(128, 24, 42, 0.15);
+  border: 1px solid rgba(128, 24, 42, 0.30);
   color: var(--accent-sand);
 }
 
@@ -293,9 +296,9 @@ section {
    Button Styles (Clean, Robust, Never Wrapping or Squishing)
    ========================================================================== */
 /* Signature Warm Sand Pill Button */
-.btn-sand, .btn-yellow {
-  background: var(--accent-sand);
-  color: #0B0D13 !important;
+.btn-sand, .btn-yellow, .btn-crimson {
+  background: var(--accent-crimson);
+  color: #FFFFFF !important;
   font-weight: 700;
   padding: 8px 18px;
   border-radius: 9999px;
@@ -306,15 +309,15 @@ section {
   gap: 8px;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.22);
+  box-shadow: 0 4px 16px rgba(128, 24, 42, 0.35);
   flex-shrink: 0;
 }
 
-.btn-sand:hover, .btn-yellow:hover {
-  background: var(--accent-sand-hover);
+.btn-sand:hover, .btn-yellow:hover, .btn-crimson:hover {
+  background: var(--accent-crimson-hover);
   transform: translateY(-1.5px);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
-  color: #0B0D13 !important;
+  box-shadow: 0 8px 24px rgba(128, 24, 42, 0.50);
+  color: #FFFFFF !important;
 }
 
 /* Clean White Pill Button */
@@ -342,7 +345,7 @@ section {
 
 /* Ghost Pill Button */
 .btn-ghost {
-  background: rgba(56, 189, 248, 0.05);
+  background: rgba(128, 24, 42, 0.08);
   color: var(--text-secondary);
   border: 1px solid var(--border-hairline);
   font-weight: 600;
@@ -360,9 +363,9 @@ section {
 }
 
 .btn-ghost:hover {
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(128, 24, 42, 0.18);
   color: #ffffff;
-  border-color: rgba(56, 189, 248, 0.35);
+  border-color: rgba(128, 24, 42, 0.40);
   transform: translateY(-1px);
 }
 
@@ -374,7 +377,7 @@ section {
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  background: rgba(56, 189, 248, 0.05);
+  background: rgba(128, 24, 42, 0.08);
   border: 1px solid var(--border-hairline);
   color: var(--text-secondary);
   transition: all 0.2s ease;
@@ -382,9 +385,9 @@ section {
 }
 
 .btn-icon:hover {
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(128, 24, 42, 0.18);
   color: #ffffff;
-  border-color: rgba(56, 189, 248, 0.40);
+  border-color: rgba(128, 24, 42, 0.45);
   transform: translateY(-1px);
 }
 
@@ -415,7 +418,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(56, 189, 248, 0.08);
+  background: rgba(128, 24, 42, 0.10);
   border: 1px solid var(--border-hairline);
   color: var(--text-secondary);
 }
@@ -425,10 +428,10 @@ h1, h2, h3, h4 {
    ========================================================================== */
 .hero-device-wrapper {
   background: linear-gradient(145deg, #18202E 0%, #0F131C 100%);
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(128, 24, 42, 0.20);
   border-radius: 2rem;
   padding: 1.5rem;
-  box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.03);
+  box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(128, 24, 42, 0.04);
   position: relative;
   overflow: hidden;
 }
@@ -440,7 +443,7 @@ h1, h2, h3, h4 {
   background: #0F131C;
   border: 4px solid #1E2535;
   border-radius: 2.25rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(56, 189, 248, 0.10);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(128, 24, 42, 0.15);
   overflow: hidden;
   position: relative;
 }
@@ -471,7 +474,7 @@ h1, h2, h3, h4 {
   background: rgba(15, 19, 28, 0.90);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(128, 24, 42, 0.20);
   border-radius: 0.75rem;
   padding: 0.5rem 0.85rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -488,8 +491,8 @@ h1, h2, h3, h4 {
 
 .cmd-modal-box {
   background: #161B26;
-  border: 1px solid rgba(56, 189, 248, 0.15);
-  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(128, 24, 42, 0.20);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(128, 24, 42, 0.08);
   animation: cmdZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -503,7 +506,7 @@ h1, h2, h3, h4 {
 }
 
 .cmd-item:hover, .cmd-item.active {
-  background: rgba(56, 189, 248, 0.15);
+  background: rgba(128, 24, 42, 0.20);
   color: var(--accent-sand);
 }
 
@@ -519,13 +522,13 @@ h1, h2, h3, h4 {
 
 .spec-drawer-panel {
   background: #161B26;
-  border-left: 1px solid rgba(56, 189, 248, 0.15);
+  border-left: 1px solid rgba(128, 24, 42, 0.20);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
 }
 
 .spec-topology-diagram {
   background: #0F131C;
-  border: 1px solid rgba(56, 189, 248, 0.10);
+  border: 1px solid rgba(128, 24, 42, 0.15);
   border-radius: 0.75rem;
   padding: 1rem;
   font-family: var(--font-mono);
@@ -547,7 +550,7 @@ h1, h2, h3, h4 {
 }
 
 .faq-box:hover {
-  border-color: rgba(56, 189, 248, 0.35);
+  border-color: rgba(128, 24, 42, 0.40);
   background: var(--bg-card-hover);
 }
 
@@ -587,7 +590,7 @@ h1, h2, h3, h4 {
 
 /* Focus Visible for A11y */
 :focus-visible {
-  outline: 2px solid var(--accent-sand);
+  outline: 2px solid var(--accent-crimson);
   outline-offset: 2px;
 }
 

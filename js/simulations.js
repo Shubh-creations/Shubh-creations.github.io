@@ -64,7 +64,7 @@ export async function mountLedgerSimulation(containerId = 'suranyx-ledger-sim') 
       rowsHtml.push(`
         <div class="p-3.5 rounded-xl border font-mono text-xs transition-all ${
           isValid
-            ? 'bg-[#0F131C] border-[#38BDF8]/15 text-[#38BDF8]'
+            ? 'bg-[#0F131C] border-[#80182A]/15 text-[#80182A]'
             : 'bg-red-950/30 border-red-500/50 text-red-300 ring-1 ring-red-500/30'
         }">
           <div class="flex items-center justify-between gap-2 mb-2">
@@ -90,7 +90,7 @@ export async function mountLedgerSimulation(containerId = 'suranyx-ledger-sim') 
                   data-idx="${i}"
                   value="${b.amount}"
                   aria-label="Edit amount for ${b.id}"
-                  class="ledger-amt-input w-full bg-[#0B0D13] border border-[#38BDF8]/25 rounded-lg pl-6 pr-2 py-1 text-white font-mono text-xs focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8]/40 transition"
+                  class="ledger-amt-input w-full bg-[#0B0D13] border border-[#80182A]/25 rounded-lg pl-6 pr-2 py-1 text-white font-mono text-xs focus:outline-none focus:border-[#80182A] focus:ring-1 focus:ring-[#80182A]/40 transition"
                 />
               </div>
             </div>
@@ -101,7 +101,7 @@ export async function mountLedgerSimulation(containerId = 'suranyx-ledger-sim') 
 
           <div class="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[10px] text-[#94A3B8]">
             <span class="truncate">
-              <span class="text-[#38BDF8]/60">sha256:</span> <span class="font-mono ${isValid ? 'text-emerald-400/90' : 'text-red-400 font-bold'}">${computedHash.slice(0, 32)}…</span>
+              <span class="text-[#80182A]/60">sha256:</span> <span class="font-mono ${isValid ? 'text-emerald-400/90' : 'text-red-400 font-bold'}">${computedHash.slice(0, 32)}…</span>
             </span>
             <span class="shrink-0 text-[9px] px-1.5 py-0.5 rounded bg-white/[0.03] text-white/50">Block 0${i + 1}</span>
           </div>
@@ -114,10 +114,10 @@ export async function mountLedgerSimulation(containerId = 'suranyx-ledger-sim') 
       <div class="space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono pb-2 border-b border-white/[0.08]">
           <div class="flex items-center gap-2">
-            <span class="text-[#38BDF8] font-bold">Suranyx SHA-256 Ledger Audit:</span>
+            <span class="text-[#80182A] font-bold">Suranyx SHA-256 Ledger Audit:</span>
             <span class="text-[11px] text-[#94A3B8]">${chainBroken ? `Breach at Block 0${breakIndex + 1}` : 'Zero Tamper Delta'}</span>
           </div>
-          <button id="reseal-ledger-btn" class="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-[#38BDF8] text-[#0B0D13] font-bold text-xs hover:bg-[#7DD3FC] transition shadow-md shadow-[#38BDF8]/20">
+          <button id="reseal-ledger-btn" class="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-[#80182A] text-white font-bold text-xs hover:bg-[#9C2237] transition shadow-md shadow-[#80182A]/20">
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
             <span>Re-Seal Chain</span>
           </button>
@@ -129,7 +129,7 @@ export async function mountLedgerSimulation(containerId = 'suranyx-ledger-sim') 
 
         <div class="p-2.5 rounded-lg bg-[#0F131C] border border-white/[0.06] text-[11px] font-mono text-[#94A3B8] flex items-center justify-between">
           <span>Formula: <code>SHA256(prev_hash + id + tenant + amount)</code></span>
-          <span class="text-[#38BDF8]">Cryptographic Invariant #02</span>
+          <span class="text-[#80182A]">Cryptographic Invariant #02</span>
         </div>
       </div>
     `;
@@ -176,13 +176,13 @@ export function mountInitPlanSimulation(containerId = 'vadhuvar-initplan-sim') {
     root.innerHTML = `
       <div class="space-y-3 font-mono text-xs">
         <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-          <span class="text-[#38BDF8] font-bold">PostgreSQL RLS Execution Optimizer:</span>
+          <span class="text-[#80182A] font-bold">PostgreSQL RLS Execution Optimizer:</span>
           <div class="flex items-center p-0.5 rounded-full bg-[#0F131C] border border-white/10 text-[11px]">
             <button id="mode-naive-btn" class="px-3 py-1 rounded-full transition-all ${
               !isOptimized ? 'bg-red-500/20 text-red-300 font-bold border border-red-500/30' : 'text-[#94A3B8] hover:text-white'
             }">Naive (auth.uid())</button>
             <button id="mode-opt-btn" class="px-3 py-1 rounded-full transition-all ${
-              isOptimized ? 'bg-[#38BDF8] text-[#0B0D13] font-bold shadow-md shadow-[#38BDF8]/20' : 'text-[#94A3B8] hover:text-white'
+              isOptimized ? 'bg-[#80182A] text-white font-bold shadow-md shadow-[#80182A]/20' : 'text-[#94A3B8] hover:text-white'
             }">Hoisted InitPlan</button>
           </div>
         </div>
@@ -208,15 +208,15 @@ export function mountInitPlanSimulation(containerId = 'vadhuvar-initplan-sim') {
               <span class="text-white/40">Query Cost:</span> <span class="text-white font-bold">${queryCost}</span>
             </div>
             <div class="text-right">
-              <span class="text-white/40">Strategy:</span> <span class="text-[#38BDF8]">${scanStrategy}</span>
+              <span class="text-white/40">Strategy:</span> <span class="text-[#80182A]">${scanStrategy}</span>
             </div>
           </div>
         </div>
 
         <!-- Explanatory SQL Code Snippet -->
-        <div class="p-3 rounded-xl bg-[#0B0D13] border border-white/[0.06] text-[11px] text-[#38BDF8] overflow-x-auto leading-relaxed">
+        <div class="p-3 rounded-xl bg-[#0B0D13] border border-white/[0.06] text-[11px] text-[#80182A] overflow-x-auto leading-relaxed">
           ${isOptimized
-            ? `<span class="text-emerald-400 font-bold">-- ⚡ OPTIMIZED: Evaluated ONCE via single-pass InitPlan</span>\nCREATE POLICY feed_read ON profiles FOR SELECT\nUSING (user_id != <span class="bg-[#38BDF8]/20 text-[#38BDF8] px-1 py-0.5 rounded font-bold">(SELECT auth.uid())</span>);`
+            ? `<span class="text-emerald-400 font-bold">-- ⚡ OPTIMIZED: Evaluated ONCE via single-pass InitPlan</span>\nCREATE POLICY feed_read ON profiles FOR SELECT\nUSING (user_id != <span class="bg-[#80182A]/20 text-[#80182A] px-1 py-0.5 rounded font-bold">(SELECT auth.uid())</span>);`
             : `<span class="text-red-400 font-bold">-- ❌ NAIVE: Evaluates auth.uid() on EVERY single row scanned</span>\nCREATE POLICY feed_read ON profiles FOR SELECT\nUSING (user_id != <span class="bg-red-500/20 text-red-300 px-1 py-0.5 rounded font-bold">auth.uid()</span>);`
           }
         </div>
@@ -260,7 +260,7 @@ export function mountCuasSimulation(containerId = 'cuas-telemetry-sim') {
     root.innerHTML = `
       <div class="space-y-3 font-mono text-xs">
         <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-          <span class="text-[#38BDF8] font-bold">Jetson Xavier Sensor Fusion Pipeline:</span>
+          <span class="text-[#80182A] font-bold">Jetson Xavier Sensor Fusion Pipeline:</span>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
             92ms &lt; 100ms BUDGET
           </span>
@@ -271,17 +271,17 @@ export function mountCuasSimulation(containerId = 'cuas-telemetry-sim') {
           <div class="p-2.5 rounded-lg bg-[#0F131C] border border-white/5">
             <div class="text-[10px] text-[#94A3B8]">RGB YOLOv8</div>
             <div class="text-sm font-bold text-white mt-0.5">${yoloTime} ms</div>
-            <div class="text-[9px] text-[#38BDF8]">Frame Buffer</div>
+            <div class="text-[9px] text-[#80182A]">Frame Buffer</div>
           </div>
           <div class="p-2.5 rounded-lg bg-[#0F131C] border border-white/5">
             <div class="text-[10px] text-[#94A3B8]">Thermal ViT</div>
             <div class="text-sm font-bold text-white mt-0.5">${vitTime} ms</div>
-            <div class="text-[9px] text-[#38BDF8]">TensorRT Core</div>
+            <div class="text-[9px] text-[#80182A]">TensorRT Core</div>
           </div>
           <div class="p-2.5 rounded-lg bg-[#0F131C] border border-white/5">
             <div class="text-[10px] text-[#94A3B8]">RF Triangulation</div>
             <div class="text-sm font-bold text-white mt-0.5">${rfTime} ms</div>
-            <div class="text-[9px] text-[#38BDF8]">SDR Spectrum</div>
+            <div class="text-[9px] text-[#80182A]">SDR Spectrum</div>
           </div>
           <div class="p-2.5 rounded-lg bg-[#0F131C] border border-white/5">
             <div class="text-[10px] text-[#94A3B8]">Interception Lock</div>
@@ -294,7 +294,7 @@ export function mountCuasSimulation(containerId = 'cuas-telemetry-sim') {
         <div class="p-3 rounded-xl bg-[#0F131C] border border-white/[0.06] space-y-2">
           <div class="flex items-center justify-between text-[11px]">
             <span class="text-[#94A3B8]">Target UAV Velocity: <strong class="text-white">${droneVelocity} m/s</strong> (~${Math.round(droneVelocity * 3.6)} km/h)</span>
-            <span class="text-[#38BDF8] font-bold">mAP: ${confidence}%</span>
+            <span class="text-[#80182A] font-bold">mAP: ${confidence}%</span>
           </div>
           <input
             type="range"
@@ -302,7 +302,7 @@ export function mountCuasSimulation(containerId = 'cuas-telemetry-sim') {
             max="60"
             value="${droneVelocity}"
             id="uav-velocity-slider"
-            class="w-full accent-[#38BDF8] bg-[#0B0D13] cursor-pointer"
+            class="w-full accent-[#80182A] bg-[#0B0D13] cursor-pointer"
           />
           <div class="flex items-center justify-between text-[10px] text-[#94A3B8] pt-1">
             <span>UAV Displacement in 92ms Compute: <strong class="text-white">${interceptDist} m</strong></span>

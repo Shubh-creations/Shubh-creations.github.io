@@ -2,7 +2,7 @@
  * js/canvas-bg.js — Spatial Reality Layer Topological Wave
  * Subtle, GPU-friendly LiDAR depth-grid ripple aligned with Rodimus Tech's
  * "Reality Layer for AI" motif.
- * Palette: Deep Dark Grey (#0B0D13) & Light Blue (#38BDF8).
+ * Palette: Deep Dark Grey (#0B0D13) & Crimson (#80182A).
  * Automatically pauses on document.hidden (visibilitychange) to preserve CPU/battery.
  */
 
@@ -87,7 +87,7 @@ export function initSpatialField(canvasId = 'neural-canvas') {
         const alpha = 0.035 + proximity * 0.24 + wave * 0.018;
         const radius = 0.85 + proximity * 1.4;
 
-        ctx.fillStyle = `rgba(56, 189, 248, ${Math.max(0.02, alpha).toFixed(3)})`;
+        ctx.fillStyle = `rgba(168, 38, 61, ${Math.max(0.02, alpha).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
         ctx.fill();

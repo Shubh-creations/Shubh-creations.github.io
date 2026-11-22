@@ -5,7 +5,7 @@
 > - `https://github.com/Shubh-creations/Shubh-creations.github.io`  
 > - `https://github.com/Shubh-creations/Shubhcreations.github.io`  
 > **Target Audience:** Technical Founders, CTOs, Principal Systems Engineers, Tier-1 Venture Capitalists & Deep-Tech Collaborators.  
-> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Dark Shades of Grey (`#0B0D13`, `#161B26`) and Signature Light Blue (`#38BDF8`).
+> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Dark Shades of Grey (`#0B0D13`, `#161B26`) and Signature Light Blue (`#80182A`).
 
 ---
 
@@ -110,15 +110,15 @@
   - Inset Surface: `var(--bg-card-inset)` = `#0F131C`
   - Subtle Surface Tint: `rgba(56, 189, 248, 0.04)`
 - **Accents & Borders:**
-  - Signature Accent: `var(--accent-blue)` = `#38BDF8` (Light Sky Blue)
-  - Hover Accent: `var(--accent-blue-hover)` = `#7DD3FC`
+  - Signature Accent: `var(--accent-blue)` = `#80182A` (Light Sky Blue)
+  - Hover Accent: `var(--accent-blue-hover)` = `#9C2237`
   - 1px Hairline Borders: `var(--border-hairline)` = `rgba(56, 189, 248, 0.14)`
   - Active / Focus Borders: `rgba(56, 189, 248, 0.60)`
 - **Typography:**
   - Sans-Serif: `Inter`, system UI font stack for narrative, headlines, and cards.
   - Monospace: `JetBrains Mono`, `SF Mono` for all metrics, architecture tags, status badges, and telemetry.
 - **Signature UI Elements:**
-  - `.hero-highlight`: Rounded light blue highlight box (`background-color: #38BDF8; color: #0B0D13; padding: 0.12rem 0.6rem; border-radius: 0.5rem; font-weight: 900;`).
+  - `.hero-highlight`: Rounded light blue highlight box (`background-color: #80182A; color: #0B0D13; padding: 0.12rem 0.6rem; border-radius: 0.5rem; font-weight: 900;`).
   - Cursor Spotlight Bento Cards: Hardware-accelerated radial spotlight effect tracking mouse `(x, y)` relative to card boundaries.
   - Interactive Architecture Spec Drawer: Slide-over spec sheet showing ASCII network topology, production invariants, and syntax-highlighted SQL/PyTorch code.
   - Interactive Command Palette (`⌘K` / `Ctrl+K`): Instant keyboard navigation to Suranyx, Vadhu-Var, Devprime ADK, GitHub, LinkedIn, and email copy.
