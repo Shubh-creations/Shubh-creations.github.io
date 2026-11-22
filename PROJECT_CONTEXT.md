@@ -5,7 +5,7 @@
 > - `https://github.com/Shubh-creations/Shubh-creations.github.io`  
 > - `https://github.com/Shubh-creations/Shubhcreations.github.io`  
 > **Target Audience:** Technical Founders, CTOs, Principal Systems Engineers, Tier-1 Venture Capitalists & Deep-Tech Collaborators.  
-> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Dark Shades of Grey (`#0B0D13`, `#161B26`) and Signature Light Blue (`#80182A`).
+> **Core Aesthetic:** Linear / Volta / Stripe Developer Craft — Dark Shades of Grey (`#0B0D13`, `#161B26`) and Exact Signature Crimson (`#80182A`).
 
 ---
 
