@@ -1,14 +1,12 @@
 /**
  * Shubham Pawar // 4x Founder & Systems Architect
- * Palette: Dark Shades of Grey (#0B0D13, #161B26) & Crimson (#80182A)
- * CEO & Co-Founder @ Suranyx (https://suranyx.com)
- * Solo Founder @ Vadhu-Var / VV (https://vadhu-var.vercel.app)
- * Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)
- * GitHub: https://github.com/Shubh-creations | Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in
+ * Ultra-Minimalist Founder Portfolio Engine
+ * Benchmarked: Paco Coursey, Rauno Freiberg, Linear
+ * Palette: Matte Black (#0B0B0D) + Warm Sand (#D8CBB3)
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Initialize Minimalist Canvas Background
+  // 1. Initialize Canvas Background (Subtle Warm Sand Dot Grid)
   if (window.NeuralCanvas) {
     window.neuralMesh = new NeuralCanvas("neural-canvas");
   }
@@ -18,49 +16,32 @@ document.addEventListener("DOMContentLoaded", () => {
     window.lucide.createIcons();
   }
 
-  // 3. Initialize Site Data, Flagships, Production Stack, Deep-Tech Systems
+  // 3. Initialize Specular Spring Spotlights
+  if (window.initSpringSpotlights) {
+    window.initSpringSpotlights();
+  }
+
+  // 4. Initialize Core Data & UI Renderers
   initSiteData();
-  setupSpotlightCards();
   setupHeroDeviceSwitcher();
-  setupDeepTechFilter();
   setupArchitectureDrawer();
-  renderGitHubPulse();
-
-  // 3b. Mount Live Interactive Simulations in Systems Lab
-  if (window.mountLedgerSimulation) {
-    window.mountLedgerSimulation('suranyx-ledger-sim');
-  }
-  if (window.mountInitPlanSimulation) {
-    window.mountInitPlanSimulation('vadhuvar-initplan-sim');
-  }
-  if (window.mountCuasSimulation) {
-    window.mountCuasSimulation('cuas-telemetry-sim');
-  }
-
-  // 3c. Setup Vim-Style Keyboard Navigation
-  setupVimNavigation();
-
-  // 4. Setup Real-Time HUD Clock & Telemetry
-  setupHUDTelemetry();
-
-  // 5. Setup Command Palette (⌘K / Ctrl+K)
   setupCommandPalette();
-
-  // 6. Setup Founder AI Assistant (Digital Twin)
-  setupAIAssistant();
-
-  // 7. Setup Interactive Founder Dossier Modal
+  setupVimNavigation();
   setupDossierModal();
-
-  // 8. Setup Contact Modal & Audio Toggle
   setupContactModal();
-  setupAudioHUDToggle();
-
-  // 9. Setup FAQ Accordion & Copy Buttons
-  setupFAQ();
   setupCopyButtons();
 
-  // 10. Developer Console Easter Egg
+  // 5. Mount Systems Lab (Compact 2-Tab Interactive Proofs)
+  if (window.mountSystemsLab) {
+    window.mountSystemsLab("systems-lab-container");
+  } else if (window.mountLedgerSimulation) {
+    window.mountLedgerSimulation("suranyx-ledger-sim");
+    if (window.mountInitPlanSimulation) {
+      window.mountInitPlanSimulation("vadhuvar-initplan-sim");
+    }
+  }
+
+  // 6. Developer Console Easter Egg
   setupConsoleEasterEgg();
 });
 
@@ -69,1411 +50,771 @@ window.addEventListener("load", () => {
 });
 
 /* ==========================================================================
-   1. Data Binding & Flagship / Systems Renderers
+   1. Core Data Initialization & Renderers
    ========================================================================== */
 function initSiteData() {
   const config = window.SITE_CONFIG;
   if (!config) return;
 
-  document.title = `${config.founder.name} — AI Startup Founder & Systems Engineer | Suranyx & VV`;
+  document.title = `${config.founder.name} — ${config.founder.title}`;
 
-  // Dynamically reflect current host in telemetry bar
-  const currentHost = window.location.hostname || "shubh-creations.github.io";
-  const navDomain = document.getElementById("nav-domain-label");
-  if (navDomain && currentHost !== "localhost" && currentHost !== "127.0.0.1") {
-    navDomain.textContent = currentHost;
-  }
+  // Render Section 2: Flagship Ventures & Active Builds (5 Active Systems + Rodimus)
+  renderVenturesAndBuilds();
 
-  // Render Flagship Production Platforms (Suranyx & Vadhu-Var)
-  renderFlagships();
+  // Render Section 3: AI-Native Velocity (3-Column Strip)
+  renderVelocityStrip();
 
-  // Render Production Stack & Systems Matrix
-  renderProductionStack();
-
-  // Initial Render of Deep-Tech Systems
-  renderDeepTechSystems("all");
-
-  // Render Founder Principles
-  const principlesContainer = document.getElementById("principles-list");
-  if (principlesContainer && config.principles) {
-    principlesContainer.innerHTML = config.principles.map(p => `
-      <div class="minimal-card p-6 flex flex-col justify-between group">
-        <div>
-          <div class="text-xs font-mono text-[#E06D82] font-bold mb-3">${p.num} // PRINCIPLE</div>
-          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#E06D82] transition-colors">${p.title}</h3>
-          <p class="text-[#CBD5E1] text-xs sm:text-sm leading-relaxed font-light">${p.desc}</p>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // Render Milestones (Track Record) with Org Logo Badges
-  const timelineContainer = document.getElementById("timeline-list");
-  if (timelineContainer && config.milestones) {
-    const getOrgBadge = (org) => {
-      const o = (org || '').toLowerCase();
-      const logos = window.PORTFOLIO_LOGOS || {};
-      if (o.includes('suranyx')) return logos.suranyx || `<span class="w-2.5 h-2.5 rounded-full bg-[#80182A]"></span>`;
-      if (o.includes('vadhu') || o.includes('vv')) return logos.vadhuVar || `<span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>`;
-      if (o.includes('rodimus')) return logos.rodimus || `<span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>`;
-      if (o.includes('vcare')) return logos.vcare || `<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>`;
-      if (o.includes('postman')) return logos.postman || `<span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>`;
-      if (o.includes('patil') || o.includes('dyp')) return logos.dypatil || `<span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>`;
-      return `<span class="w-2.5 h-2.5 rounded-full bg-[#80182A]"></span>`;
-    };
-
-    timelineContainer.innerHTML = config.milestones.map((m) => `
-      <div class="relative pl-9 pb-8 last:pb-2 border-l border-white/[0.08] group">
-        <div class="absolute -left-[15px] top-0.5 w-7 h-7 rounded-xl bg-[#0F131C] border border-white/10 flex items-center justify-center group-hover:border-[#80182A] group-hover:scale-110 transition-all shadow-md">
-          ${getOrgBadge(m.organization)}
-        </div>
-        <div class="text-[11px] font-mono text-[#E06D82] font-semibold mb-1">${m.period}</div>
-        <h4 class="text-base font-bold text-white group-hover:text-[#E06D82] transition-colors">${m.role} <span class="text-zinc-500 font-normal">at ${m.organization}</span></h4>
-        <p class="text-[#CBD5E1] text-xs sm:text-sm mt-1.5 leading-relaxed font-light">${m.summary}</p>
-      </div>
-    `).join('');
-  }
-
-  // Render Technical Essays & Notes
-  const essaysContainer = document.getElementById("essays-list");
-  if (essaysContainer && config.essays) {
-    essaysContainer.innerHTML = config.essays.map((e) => `
-      <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
-        <div>
-          <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">
-            <span>${e.date}</span>
-            <span class="text-[#E06D82] font-semibold">${e.readTime}</span>
-          </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#E06D82] transition-colors">${e.title}</h3>
-          <p class="text-[#CBD5E1] text-xs sm:text-sm font-light leading-relaxed mb-4">${e.snippet}</p>
-          <div class="p-3.5 rounded-xl bg-[#0F131C] border border-white/[0.06] text-xs text-[#E06D82] font-mono text-[11px] leading-relaxed">
-            ${e.body}
-          </div>
-        </div>
-        <div class="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between">
-          <a href="https://x.com/builtfor101" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#E06D82] hover:text-[#E06D82] inline-flex items-center gap-1.5 transition-colors">
-            <span>Discuss on X</span>
-            <i data-lucide="external-link" class="w-3 h-3 text-[#E06D82]"></i>
-          </a>
-          <span class="text-[10px] font-mono text-zinc-500">@builtfor101</span>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // Render FAQs (Flawless Accordion without text bleeding when closed!)
-  const faqContainer = document.getElementById("faq-accordion");
-  if (faqContainer && config.faq) {
-    faqContainer.innerHTML = config.faq.map((item, idx) => `
-      <div class="faq-box rounded-2xl bg-[#161B26] border border-white/[0.08] hover:border-[#80182A]/40 transition-all overflow-hidden group">
-        <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 transition-colors" data-faq="${idx}">
-          <span class="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-[#E06D82] transition-colors">${item.q}</span>
-          <div class="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
-            <i data-lucide="chevron-down" class="accordion-chevron w-4 h-4 text-[#E06D82]"></i>
-          </div>
-        </button>
-        <div class="accordion-content">
-          <div class="px-6 pb-6 pt-1 text-[#CBD5E1] text-xs sm:text-sm leading-relaxed border-t border-white/[0.05] font-light mt-1">
-            ${item.a}
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  if (window.lucide) window.lucide.createIcons();
+  // Render Section 5: Founder Experience & Open-Source Index
+  renderFounderTrackRecord();
+  renderOpenSourceIndex();
 }
 
-/* ==========================================================================
-   2. Render Flagship Platforms (Suranyx & Vadhu-Var)
-   ========================================================================== */
-function renderFlagships() {
-  const container = document.getElementById("flagships-list");
+/**
+ * Section 2: Flagship Ventures & Active Builds (Bento Grid)
+ */
+function renderVenturesAndBuilds() {
+  const container = document.getElementById("ventures-grid");
   const config = window.SITE_CONFIG;
-  if (!container || !config?.flagships) return;
+  if (!container || !config?.venturesAndBuilds) return;
 
-  container.innerHTML = config.flagships.map((f, idx) => {
-    const isSuranyx = f.id === 'suranyx';
-    const logos = window.PORTFOLIO_LOGOS || {};
-    const platformLogo = isSuranyx ? (logos.suranyx || '') : (logos.vadhuVar || '');
+  const showSarvaFlow = config.showSarvaFlowName !== false;
+
+  container.innerHTML = config.venturesAndBuilds.map((item) => {
+    const isLive = item.isLive;
+    const displayName = (item.id === "sarva-flow" && !showSarvaFlow)
+      ? item.stealthName
+      : item.name;
+
+    const hasLiveUrl = item.url && item.url.startsWith("http");
+    const isGithub = item.url && item.url.includes("github.com");
+
+    const linkLabel = isGithub
+      ? "GitHub ↗"
+      : isLive
+      ? "Live Platform ↗"
+      : "View System ↗";
 
     return `
-    <article class="flagship-card p-6 sm:p-9 flex flex-col justify-between group">
-      <div>
-        <!-- Card Header Badges -->
-        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <div class="flex items-center gap-2">
-            <span class="flagship-badge">${f.badge}</span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[#E06D82] bg-[#80182A]/10 border border-[#80182A]/30 font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#80182A] animate-pulse"></span>
-              ${f.status}
+      <article class="bento-card p-6 sm:p-7 flex flex-col justify-between group">
+        <div>
+          <!-- Header Row -->
+          <div class="flex items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400' : 'bg-[var(--accent)]'} ${isLive ? 'animate-pulse' : ''}"></span>
+              <span class="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">${item.role}</span>
+            </div>
+            <span class="text-[10px] font-mono text-[#71717A] bg-white/[0.03] px-2 py-0.5 rounded border border-white/5">
+              ${item.status}
             </span>
           </div>
-          <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">${f.category}</span>
+
+          <!-- Title & Tagline -->
+          <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2 flex items-center gap-2">
+            <span>${displayName}</span>
+          </h3>
+
+          <p class="text-sm text-[#A1A1AA] font-normal leading-relaxed mb-5">
+            ${item.tagline}
+          </p>
         </div>
 
-        <!-- Title, Logo & Role -->
-        <div class="mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
-              ${platformLogo}
-            </div>
-            <div>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-                <span>${f.name}</span>
-                <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-[#E06D82] transition-colors" title="Visit ${f.displayUrl}">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </h3>
-              <div class="text-xs font-mono text-[#E06D82] font-semibold mt-0.5">${f.role}</div>
-            </div>
+        <div>
+          <!-- 3 Monospace Invariant Tags -->
+          <div class="flex flex-wrap items-center gap-1.5 mb-5 font-mono text-[11px]">
+            ${item.tags.map(tag => `
+              <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[var(--accent)] border border-white/[0.06]">
+                ${tag}
+              </span>
+            `).join('')}
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-2.5 pt-4 border-t border-white/[0.06]">
+            ${hasLiveUrl ? `
+              <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-sand text-xs py-1.5 px-3.5 inline-flex items-center gap-1.5">
+                <span>${linkLabel}</span>
+              </a>
+            ` : ''}
+
+            <button onclick="openSpecDrawer('${item.specId}')" class="btn-ghost text-xs py-1.5 px-3 inline-flex items-center gap-1.5" title="View Technical Architecture">
+              <i data-lucide="terminal" class="w-3.5 h-3.5 text-[var(--accent)]"></i>
+              <span>Architecture</span>
+            </button>
           </div>
         </div>
-
-        <!-- Tagline & Description -->
-        <p class="text-white text-sm sm:text-base font-medium mb-3 leading-snug">${f.tagline}</p>
-        <p class="text-[#CBD5E1] text-xs sm:text-sm leading-relaxed mb-6 font-light">${f.description}</p>
-
-        <!-- Technical Metrics Grid -->
-        <div class="grid grid-cols-3 gap-2.5 p-3.5 rounded-xl bg-[#0F131C] border border-white/[0.06] mb-6">
-          ${f.metrics.map(m => `
-            <div class="text-center">
-              <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider truncate">${m.label}</div>
-              <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
-            </div>
-          `).join('')}
-        </div>
-
-        <!-- Invariants & Highlights -->
-        <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-[#E06D82] font-bold">Production Invariants &amp; Architecture:</div>
-          ${f.highlights.map(h => `
-            <div class="flex items-start gap-2.5 text-xs text-[#CBD5E1] font-light leading-relaxed">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#E06D82] shrink-0 mt-0.5"></i>
-              <span>${h}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-
-      <div>
-        <!-- Tech Stack Pills with Logos -->
-        <div class="flex flex-wrap gap-1.5 mb-6">
-          ${f.stack.map(s => `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#E06D82] border border-white/[0.08]">
-              ${window.getTechLogo ? window.getTechLogo(s) : ''}
-              <span>${s}</span>
-            </span>
-          `).join('')}
-        </div>
-
-        <!-- Interactive CTAs (Using .btn-yellow for primary action!) -->
-        <div class="flex items-center gap-3 pt-5 border-t border-white/[0.08] flex-wrap">
-          <a href="${f.url}" target="_blank" rel="noopener noreferrer" class="btn-yellow text-xs py-2 px-5 inline-flex items-center gap-1.5">
-            <span>Launch ${f.name}</span>
-            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-          </a>
-
-          <button onclick="openSpecDrawer('${f.id}')" class="btn-ghost text-xs py-2 px-4 inline-flex items-center gap-1.5 text-[#E06D82] hover:text-white">
-            <i data-lucide="terminal" class="w-3.5 h-3.5 text-[#E06D82]"></i>
-            <span>View Architecture Spec</span>
-          </button>
-        </div>
-      </div>
-    </article>
+      </article>
     `;
   }).join('');
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-/* ==========================================================================
-   3. Render Production Stack & Systems Matrix
-   ========================================================================== */
-function renderProductionStack() {
-  const container = document.getElementById("production-stack-container");
+/**
+ * Section 3: AI-Native Velocity (3-Column Strip)
+ */
+function renderVelocityStrip() {
+  const container = document.getElementById("velocity-strip-container");
   const config = window.SITE_CONFIG;
-  if (!container || !config?.productionStack) return;
+  if (!container || !config?.velocityPrinciples) return;
 
-  container.innerHTML = config.productionStack.map((domain, idx) => `
-    <div class="minimal-card p-6 sm:p-7 border border-white/[0.08] space-y-5 flex flex-col justify-between">
+  container.innerHTML = config.velocityPrinciples.map((item) => `
+    <div class="bento-card p-6 flex flex-col justify-between group">
       <div>
-        <div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-2">
-          <span>0${idx + 1} // DOMAIN MATRIX</span>
-          <span class="text-[#E06D82] font-bold">${domain.technologies.length} Shipped Primitives</span>
+        <div class="text-xs font-mono text-[var(--accent)] font-bold mb-2">
+          ${item.step} // PRINCIPLE
         </div>
-        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-          <i data-lucide="${domain.icon}" class="w-4 h-4 text-[#E06D82]"></i>
-          <span>${domain.category}</span>
+        <h3 class="text-lg font-bold text-white tracking-tight mb-2">
+          ${item.title}
         </h3>
-        <p class="text-[#E06D82] text-xs sm:text-sm font-light mt-1 leading-relaxed">${domain.summary}</p>
-      </div>
-
-      <div class="space-y-2.5 pt-3 border-t border-white/[0.06]">
-        ${domain.technologies.map(tech => `
-          <div class="p-3 rounded-xl bg-[#0F131C] border border-white/[0.06] hover:border-[#80182A]/40 transition-all flex items-start gap-3">
-            <div class="pt-0.5 shrink-0">
-              ${window.getTechLogo ? window.getTechLogo(tech.name) : ''}
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono font-bold text-white">${tech.name}</div>
-              <p class="text-[11px] text-[#A1A1AA] font-light mt-0.5 leading-snug">${tech.desc}</p>
-            </div>
-          </div>
-        `).join('')}
+        <p class="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-normal">
+          ${item.desc}
+        </p>
       </div>
     </div>
   `).join('');
-
-  if (window.lucide) window.lucide.createIcons();
 }
 
-/* ==========================================================================
-   4. Render Deep-Tech Systems with Filtering
-   ========================================================================== */
-function renderDeepTechSystems(filter = "all") {
-  const container = document.getElementById("deep-tech-list");
+/**
+ * Section 5 Left: Founder Track Record
+ */
+function renderFounderTrackRecord() {
+  const container = document.getElementById("founder-experience-list");
   const config = window.SITE_CONFIG;
-  if (!container || !config?.deepTechSystems) return;
+  if (!container || !config?.founderExperience) return;
 
-  const filtered = config.deepTechSystems.filter(sys => {
-    if (filter === "all") return true;
-    if (filter === "ai-ml") return sys.categoryKey === "ai-ml";
-    if (filter === "robotics-defense") return sys.categoryKey === "robotics-defense";
-    if (filter === "ventures") return sys.categoryKey === "ventures";
-    return true;
-  });
-
-  container.innerHTML = filtered.map((sys, idx) => `
-    <div class="minimal-card p-6 sm:p-7 flex flex-col justify-between group">
-      <div>
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#80182A]/10 text-[#E06D82] border border-[#80182A]/30">
-            0${idx + 1} // ${sys.status}
-          </span>
-          <span class="text-xs font-mono text-[#94A3B8] uppercase tracking-widest">${sys.category}</span>
-        </div>
-
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#E06D82] transition-colors flex items-center justify-between">
-          <span>${sys.name}</span>
-        </h3>
-        <p class="text-white text-xs sm:text-sm font-medium mb-3">${sys.tagline}</p>
-        <p class="text-[#CBD5E1] text-xs sm:text-sm leading-relaxed mb-6 font-light">${sys.description}</p>
-
-        <!-- Metrics Row -->
-        <div class="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#0F131C] border border-white/[0.06] mb-6">
-          ${sys.metrics.map(m => `
-            <div class="text-center">
-              <div class="text-[9px] font-mono text-[#94A3B8] uppercase truncate">${m.label}</div>
-              <div class="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 truncate">${m.val}</div>
-            </div>
-          `).join('')}
-        </div>
-
-        <!-- Highlights -->
-        <div class="space-y-2 mb-6">
-          <div class="text-[10px] font-mono uppercase tracking-widest text-[#E06D82] font-bold">Engineering Highlights:</div>
-          ${sys.highlights.map(h => `
-            <div class="flex items-start gap-2 text-xs text-[#CBD5E1] font-light leading-relaxed">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-[#E06D82] shrink-0 mt-0.5"></i>
-              <span>${h}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-
-      <div>
-        <div class="flex flex-wrap gap-1.5 mb-5">
-          ${sys.tags.map(t => `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-white/[0.04] text-[#E06D82] border border-white/5">${t}</span>`).join('')}
-        </div>
-
-        <div class="flex items-center gap-3 pt-4 border-t border-white/5 flex-wrap">
-          ${sys.links.site ? `
-            <a href="${sys.links.site}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#E06D82] hover:underline inline-flex items-center gap-1 transition-colors">
-              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-              <span>Website</span>
-            </a>
-          ` : ''}
-          ${sys.links.github ? `
-            <a href="${sys.links.github}" target="_blank" rel="noopener noreferrer" class="text-xs text-[#E06D82] hover:text-white inline-flex items-center gap-1 transition-colors">
-              <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>Source</span>
-            </a>
-          ` : ''}
-          ${sys.links.specId ? `
-            <button onclick="openSpecDrawer('${sys.links.specId}')" class="text-xs font-mono text-[#94A3B8] hover:text-[#E06D82] inline-flex items-center gap-1 transition-colors ml-auto">
-              <span>View Specs</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#E06D82]"></i>
-            </button>
-          ` : ''}
-        </div>
-      </div>
+  container.innerHTML = config.founderExperience.map((item) => `
+    <div class="relative pl-6 pb-6 last:pb-1 border-l border-white/[0.08] group">
+      <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--accent)] ring-4 ring-[#0B0B0D]"></div>
+      <div class="text-[11px] font-mono text-[var(--accent)] mb-0.5">${item.period}</div>
+      <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-[var(--accent)] transition-colors">
+        ${item.role} <span class="text-[#71717A] font-normal">at ${item.organization}</span>
+      </h4>
+      <p class="text-xs text-[#A1A1AA] mt-1.5 leading-relaxed font-normal">
+        ${item.detail}
+      </p>
     </div>
   `).join('');
-
-  if (window.lucide) window.lucide.createIcons();
 }
 
-function setupDeepTechFilter() {
-  const buttons = document.querySelectorAll(".tech-filter-btn");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      buttons.forEach(b => {
-        b.classList.remove("bg-[#80182A]", "text-[#0B0D13]", "font-bold");
-        b.classList.add("bg-white/[0.04]", "text-[#E06D82]");
-      });
-      btn.classList.add("bg-[#80182A]", "text-[#0B0D13]", "font-bold");
-      btn.classList.remove("bg-white/[0.04]", "text-[#E06D82]");
-
-      const filter = btn.getAttribute("data-filter") || "all";
-      renderDeepTechSystems(filter);
-      if (window.soundEngine) window.soundEngine.playClick(800, 0.02);
-    });
-  });
-}
-
-/* ==========================================================================
-   5. Interactive Hero Device Screen Switcher (Matches Video Phone Preview!)
-   ========================================================================== */
-function setupHeroDeviceSwitcher() {
-  const tabs = document.querySelectorAll(".hero-device-tab");
-  const screenContent = document.getElementById("hero-device-screen");
-  if (!tabs.length || !screenContent) return;
-
-  const logos = window.PORTFOLIO_LOGOS || {};
-
-  const views = {
-    suranyx: `
-      <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
-        <div class="flex items-center gap-2">
-          ${logos.suranyx || '<span class="w-2 h-2 rounded-full bg-[#80182A] animate-pulse"></span>'}
-          <span class="font-mono text-white text-[11px] font-bold">Suranyx Intelligence</span>
-        </div>
-        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-[#80182A]/15 text-[#E06D82] border border-[#80182A]/30">● LIVE</span>
-      </div>
-
-      <!-- Main Metric with Glow Curve -->
-      <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-zinc-500 uppercase">Projected Cash Runway</div>
-        <div class="flex items-baseline gap-2 mt-0.5">
-          <span class="text-3xl font-extrabold text-white font-mono">₹4.2M</span>
-          <span class="text-xs font-mono font-bold text-[#E06D82]">+8.4 mo</span>
-        </div>
-      </div>
-
-      <!-- Route / Graph Line SVG (With signature electric yellow curve!) -->
-      <div class="relative h-28 w-full bg-[#0F131C] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
-        <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 10 65 Q 40 60, 70 45 T 130 30 T 190 12" stroke="#80182A" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
-          <circle cx="190" cy="12" r="4" fill="#80182A" />
-          <circle cx="10" cy="65" r="3" fill="#80182A" />
-        </svg>
-      </div>
-
-      <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#0F131C] border border-white/[0.06] text-center w-full">
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">NET BURN</div>
-          <div class="text-[11px] font-bold text-white font-mono mt-0.5">₹3.2L/mo</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">RLS LEVEL</div>
-          <div class="text-[11px] font-bold text-[#E06D82] font-mono mt-0.5">Tenant</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">LEDGER</div>
-          <div class="text-[11px] font-bold text-white font-mono mt-0.5">SHA-256</div>
-        </div>
-      </div>
-
-      <!-- Action Button (Matching yellow action button in reference!) -->
-      <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#E06D82]">Reconciliation: 100%</div>
-        <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#80182A] hover:bg-[#E5DAC4] text-[#0B0D13] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Launch Suranyx">
-          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        </a>
-      </div>
-    `,
-    vadhuvar: `
-      <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
-        <div class="flex items-center gap-2">
-          ${logos.vadhuVar || '<span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>'}
-          <span class="font-mono text-white text-[11px] font-bold">Vadhu-Var PWA</span>
-        </div>
-        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">● TRILINGUAL</span>
-      </div>
-
-      <!-- Profile & Matching Card -->
-      <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-zinc-500 uppercase">Match Interface &amp; Prompts</div>
-        <div class="flex items-baseline gap-2 mt-0.5">
-          <span class="text-2xl font-extrabold text-white font-mono">36 Prompts</span>
-          <span class="text-xs font-mono font-bold text-[#E06D82]">Sub-ms RLS</span>
-        </div>
-      </div>
-
-      <!-- Matrimony Match Mockup -->
-      <div class="relative h-28 w-full bg-[#0F131C] rounded-xl p-3 border border-white/[0.06] flex flex-col justify-between">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-400/50 flex items-center justify-center text-xs font-bold text-purple-300">
-            ${logos.vadhuVar || 'VV'}
-          </div>
-          <div>
-            <div class="text-xs font-bold text-white">Ananya, 26 • Pune</div>
-            <div class="text-[9px] text-[#E06D82] font-mono">Software Architect // Verified ID</div>
-          </div>
-        </div>
-        <div class="flex gap-1.5">
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#E06D82]">English</span>
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-[#80182A]/15 text-[#E06D82] border border-[#80182A]/30">मराठी</span>
-          <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-white/10 text-[#E06D82]">हिंदी</span>
-        </div>
-      </div>
-
-      <!-- Atomic RPC Telemetry -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#0F131C] border border-white/[0.06] text-center w-full">
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">RPC FUNCTION</div>
-          <div class="text-[10px] font-bold text-white font-mono mt-0.5 truncate">send_interest</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY EXEC</div>
-          <div class="text-[10px] font-bold text-[#E06D82] font-mono mt-0.5">0.8ms InitPlan</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">MEDIA LIMIT</div>
-          <div class="text-[10px] font-bold text-white font-mono mt-0.5">Max 3 Slots</div>
-        </div>
-      </div>
-
-      <!-- Action Button -->
-      <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#E06D82]">Family Co-Sign Invariant</div>
-        <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#80182A] hover:bg-[#E5DAC4] text-[#0B0D13] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="Explore Vadhu-Var">
-          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        </a>
-      </div>
-    `,
-    devprime: `
-      <!-- Phone Header -->
-      <div class="flex items-center justify-between text-xs text-zinc-400 pb-2 border-b border-white/[0.08] w-full">
-        <div class="flex items-center gap-2">
-          ${logos.pytorch || '<span class="w-2 h-2 rounded-full bg-[#80182A] animate-pulse"></span>'}
-          <span class="font-mono text-white text-[11px] font-bold">Devprime ADK // PyBullet</span>
-        </div>
-        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">● RL BENCHMARK</span>
-      </div>
-
-      <!-- Main Metric with Glow Curve -->
-      <div class="py-1 w-full text-left">
-        <div class="text-[10px] font-mono text-zinc-500 uppercase">Episodic Return / Reward</div>
-        <div class="flex items-baseline gap-2 mt-0.5">
-          <span class="text-3xl font-extrabold text-white font-mono">+842.6</span>
-          <span class="text-xs font-mono font-bold text-[#E06D82]">TorchScript</span>
-        </div>
-      </div>
-
-      <!-- Reward Curve SVG -->
-      <div class="relative h-28 w-full bg-[#0F131C] rounded-xl p-2 border border-white/[0.06] overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
-        <svg class="w-full h-full" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 10 70 Q 30 65, 60 50 T 110 32 T 150 20 T 190 8" stroke="#80182A" stroke-width="3" stroke-linecap="round" class="hero-svg-path" />
-          <circle cx="190" cy="8" r="4" fill="#80182A" />
-          <circle cx="10" cy="70" r="3" fill="#80182A" />
-        </svg>
-      </div>
-
-      <!-- Telemetry Ledger Row -->
-      <div class="grid grid-cols-3 gap-1.5 p-2 rounded-lg bg-[#0F131C] border border-white/[0.06] text-center w-full">
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">ENV</div>
-          <div class="text-[10px] font-bold text-white font-mono mt-0.5">PyBullet</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">POLICY</div>
-          <div class="text-[10px] font-bold text-[#E06D82] font-mono mt-0.5">PPO / DQN</div>
-        </div>
-        <div>
-          <div class="text-[8px] font-mono text-zinc-500 uppercase">EXPORT</div>
-          <div class="text-[10px] font-bold text-white font-mono mt-0.5">Zero-Latency</div>
-        </div>
-      </div>
-
-      <!-- Action Button -->
-      <div class="flex items-center justify-between pt-1 w-full">
-        <div class="text-[10px] font-mono text-[#E06D82]">TorchScript C++ Engine</div>
-        <a href="https://github.com/Shubh-creations/Devprime-adk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#80182A] hover:bg-[#E5DAC4] text-[#0B0D13] font-bold flex items-center justify-center shadow-lg transition-transform hover:scale-105" title="View Devprime ADK">
-          <i data-lucide="github" class="w-4 h-4"></i>
-        </a>
-      </div>
-    `
-  };
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => {
-        t.classList.remove("bg-[#80182A]", "text-[#0B0D13]");
-        t.classList.add("bg-white/5", "text-[#E06D82]");
-      });
-      tab.classList.add("bg-[#80182A]", "text-[#0B0D13]");
-      tab.classList.remove("bg-white/5", "text-[#E06D82]");
-
-      const view = tab.getAttribute("data-tab");
-      if (views[view]) {
-        screenContent.innerHTML = views[view];
-        if (window.lucide) window.lucide.createIcons();
-        if (window.soundEngine) window.soundEngine.playClick(900, 0.02);
-      }
-    });
-  });
-
-  // Initial load
-  screenContent.innerHTML = views.suranyx;
-  if (window.lucide) window.lucide.createIcons();
-}
-
-/* ==========================================================================
-   6. Interactive Architecture Spec Drawer
-   ========================================================================== */
-function setupArchitectureDrawer() {
-  const drawerBackdrop = document.getElementById("architecture-drawer");
-  const closeBtn = document.getElementById("close-spec-drawer");
-
-  if (!drawerBackdrop) return;
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeSpecDrawer);
-  }
-
-  drawerBackdrop.addEventListener("click", (e) => {
-    if (e.target === drawerBackdrop) {
-      closeSpecDrawer();
-    }
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !drawerBackdrop.classList.contains("hidden")) {
-      closeSpecDrawer();
-    }
-  });
-}
-
-window.openSpecDrawer = function(specId) {
+/**
+ * Section 5 Right: Verified Open-Source GitHub Index
+ */
+async function renderOpenSourceIndex() {
+  const container = document.getElementById("opensource-index-list");
   const config = window.SITE_CONFIG;
-  const drawerBackdrop = document.getElementById("architecture-drawer");
-  const content = document.getElementById("spec-drawer-content");
-  if (!drawerBackdrop || !content || !config?.architectureSpecs) return;
+  if (!container || !config?.openSourceIndex) return;
 
-  const spec = config.architectureSpecs[specId];
-  if (!spec) return;
-
-  content.innerHTML = `
-    <div class="space-y-6">
-      <!-- Header -->
-      <div class="border-b border-white/10 pb-5">
-        <div class="flex items-center justify-between text-xs font-mono text-[#94A3B8] mb-2">
-          <span>SYSTEM ARCHITECTURE SPECIFICATION</span>
-          <span class="text-[#E06D82] font-bold">${spec.primaryInvariants.length} Production Invariants</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">${spec.title}</h2>
-        <p class="text-[#CBD5E1] text-xs sm:text-sm font-light mt-1">${spec.subtitle}</p>
-      </div>
-
-      <!-- Topology Diagram (Ascii / SVG block) -->
+  // Render static cache first
+  container.innerHTML = config.openSourceIndex.map((repo) => `
+    <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="bento-card p-4 sm:p-5 flex flex-col justify-between group block transition-all">
       <div>
-        <div class="text-[11px] font-mono text-[#E06D82] uppercase tracking-wider mb-2 flex items-center gap-2 font-bold">
-          <i data-lucide="network" class="w-3.5 h-3.5 text-[#E06D82]"></i>
-          <span>Execution Topology &amp; Boundary Flow</span>
-        </div>
-        <pre class="spec-topology-diagram">${spec.topologyText}</pre>
-      </div>
-
-      <!-- Production Invariants -->
-      <div class="space-y-2.5">
-        <div class="text-[11px] font-mono text-[#E06D82] uppercase tracking-wider font-bold">Security &amp; Structural Invariants</div>
-        <div class="space-y-2">
-          ${spec.primaryInvariants.map(inv => `
-            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#0F131C] border border-white/[0.06] text-xs text-[#E06D82] font-light">
-              <i data-lucide="shield-check" class="w-4 h-4 text-[#E06D82] shrink-0 mt-0.5"></i>
-              <span>${inv}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-
-      <!-- Code Snippet -->
-      <div>
-        <div class="flex items-center justify-between text-[11px] font-mono text-[#E06D82] uppercase tracking-wider mb-2">
-          <span class="flex items-center gap-1.5 font-bold text-white">
-            <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#E06D82]"></i>
-            <span>Production Implementation Snippet</span>
-          </span>
-          <span class="text-zinc-500 font-mono text-[10px]">${spec.codeSnippet.lang}</span>
-        </div>
-        <pre class="p-4 rounded-xl bg-[#0F131C] border border-white/10 text-[#CBD5E1] font-mono text-xs overflow-x-auto leading-relaxed"><code>${escapeHtml(spec.codeSnippet.code)}</code></pre>
-      </div>
-
-      <!-- Engineering Trade-Offs -->
-      <div class="p-4 rounded-xl bg-[#0F131C] border border-white/[0.06] space-y-2">
-        <div class="text-[11px] font-mono text-[#E06D82] uppercase tracking-wider font-bold">Engineering Trade-Offs &amp; Decision Record</div>
-        <p class="text-xs text-[#CBD5E1] font-light leading-relaxed">${spec.tradeOffs}</p>
-      </div>
-
-      <!-- Live Executable Simulation Inside Spec Drawer -->
-      <div class="p-5 rounded-xl bg-[#0F131C] border border-[#80182A]/20 space-y-3">
-        <div class="flex items-center justify-between">
-          <div class="text-[11px] font-mono text-[#E06D82] uppercase tracking-wider font-bold flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#80182A] animate-pulse"></span>
-            <span>Live In-Browser Verification Benchmark</span>
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="folder-git-2" class="w-4 h-4 text-[var(--accent)] shrink-0"></i>
+            <span class="font-mono font-bold text-sm text-white group-hover:text-[var(--accent)] transition-colors">${repo.name}</span>
           </div>
-          <span class="text-[10px] font-mono text-[#94A3B8]">Interactive Lab</span>
-        </div>
-        <div id="spec-simulation-mount" class="mt-2 min-h-[200px]"></div>
-      </div>
-    </div>
-  `;
-
-  drawerBackdrop.classList.remove("hidden");
-  drawerBackdrop.classList.add("flex");
-  document.body.style.overflow = "hidden";
-
-  // Mount corresponding interactive simulation inside drawer
-  setTimeout(() => {
-    if (specId === "suranyx" && window.mountLedgerSimulation) {
-      window.mountLedgerSimulation("spec-simulation-mount");
-    } else if (specId === "vadhu-var" && window.mountInitPlanSimulation) {
-      window.mountInitPlanSimulation("spec-simulation-mount");
-    } else if ((specId === "devprime-adk" || specId === "cuas") && window.mountCuasSimulation) {
-      window.mountCuasSimulation("spec-simulation-mount");
-    }
-  }, 50);
-
-  if (window.lucide) window.lucide.createIcons();
-  if (window.soundEngine) window.soundEngine.playOpen();
-};
-
-window.closeSpecDrawer = function() {
-  const drawerBackdrop = document.getElementById("architecture-drawer");
-  if (!drawerBackdrop) return;
-  drawerBackdrop.classList.add("hidden");
-  drawerBackdrop.classList.remove("flex");
-  document.body.style.overflow = "";
-};
-
-function escapeHtml(string) {
-  return String(string)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-/* ==========================================================================
-   7. Live GitHub Engineering Pulse
-   ========================================================================== */
-async function renderGitHubPulse() {
-  const pulseContainer = document.getElementById("github-repos-grid");
-  const statsContainer = document.getElementById("github-user-stats");
-  const fallback = window.SITE_CONFIG?.githubPulseFallback;
-  if (!pulseContainer) return;
-
-  // Render static cache first for instant load
-  if (fallback) {
-    renderGitHubUI(fallback.user, fallback.pinnedRepos);
-  }
-
-  // Attempt live asynchronous fetch
-  try {
-    const userRes = await fetch("https://api.github.com/users/Shubh-creations");
-    if (!userRes.ok) throw new Error("GitHub user API rate limited");
-    const userData = await userRes.json();
-
-    const reposRes = await fetch("https://api.github.com/users/Shubh-creations/repos?sort=updated&per_page=6");
-    if (!reposRes.ok) throw new Error("GitHub repos API rate limited");
-    const reposData = await reposRes.json();
-
-    const formattedRepos = reposData.map(r => ({
-      name: r.name,
-      description: r.description || "Core systems engineering repository by Shubham Pawar.",
-      language: r.language || "Python",
-      stars: r.stargazers_count,
-      forks: r.forks_count,
-      url: r.html_url
-    }));
-
-    const formattedUser = {
-      login: userData.login,
-      public_repos: userData.public_repos,
-      followers: userData.followers,
-      avatar_url: userData.avatar_url
-    };
-
-    renderGitHubUI(formattedUser, formattedRepos);
-  } catch (err) {
-    console.info("GitHub API fetch fallback engaged:", err.message);
-  }
-}
-
-function renderGitHubUI(user, repos) {
-  const pulseContainer = document.getElementById("github-repos-grid");
-  const statsContainer = document.getElementById("github-user-stats");
-
-  if (statsContainer && user) {
-    statsContainer.innerHTML = `
-      <div class="flex items-center gap-3">
-        <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <i data-lucide="github" class="w-5 h-5 text-white"></i>
-          <span class="font-mono font-bold text-white text-sm">@${user.login}</span>
-        </a>
-      </div>
-      <div class="flex items-center gap-4 text-xs font-mono text-[#E06D82]">
-        <div><span class="text-[#E06D82] font-bold">${user.public_repos}</span> Public Repos</div>
-        <div><span class="text-[#E06D82] font-bold">${user.followers}</span> Followers</div>
-      </div>
-    `;
-  }
-
-  if (pulseContainer && repos) {
-    pulseContainer.innerHTML = repos.map(repo => `
-      <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="minimal-card p-5 border border-white/10 flex flex-col justify-between group hover:border-[#80182A]/40 transition-all">
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-mono font-bold text-white group-hover:text-[#E06D82] transition-colors flex items-center gap-1.5 truncate">
-              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#E06D82] shrink-0"></i>
-              <span class="truncate">${repo.name}</span>
-            </span>
-            <i data-lucide="external-link" class="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#E06D82] transition-colors shrink-0"></i>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-light leading-relaxed mb-4 line-clamp-2">${repo.description}</p>
-        </div>
-
-        <div class="flex items-center justify-between text-[11px] font-mono text-[#94A3B8] pt-3 border-t border-white/5">
-          <span class="flex items-center gap-1.5 text-white">
-            <span class="w-2 h-2 rounded-full bg-[#80182A]"></span>
+          <span class="text-[10px] font-mono text-[#A1A1AA] flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
             ${repo.language}
           </span>
-          <div class="flex items-center gap-3">
-            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 text-[#E06D82]"></i> ${repo.stars}</span>
-            <span class="flex items-center gap-1"><i data-lucide="git-fork" class="w-3 h-3 text-zinc-400"></i> ${repo.forks}</span>
-          </div>
         </div>
-      </a>
-    `).join('');
-  }
+        <p class="text-xs text-[#A1A1AA] leading-relaxed mb-3">
+          ${repo.desc}
+        </p>
+      </div>
+      <div class="flex items-center justify-between text-[11px] font-mono text-[#71717A] pt-2 border-t border-white/[0.05]">
+        <div class="flex items-center gap-1 text-[var(--accent)]">
+          <i data-lucide="star" class="w-3 h-3"></i>
+          <span class="repo-star-count" data-repo="${repo.name}">★ Active</span>
+        </div>
+        <span class="group-hover:text-white transition-colors">View Source ↗</span>
+      </div>
+    </a>
+  `).join('');
 
   if (window.lucide) window.lucide.createIcons();
-}
 
-/* Mouse spotlight calculation & Spring Damped Specular Border Controller */
-function setupSpotlightCards() {
-  if (window.initSpringSpotlights) {
-    window.initSpringSpotlights();
-    return;
-  }
-  document.addEventListener("mousemove", (e) => {
-    document.querySelectorAll(".minimal-card, .flagship-card, .bento-card").forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    });
-  });
-}
-
-/* Real-Time HUD Telemetry & Clock */
-function setupHUDTelemetry() {
-  const clockEl = document.getElementById("hud-time");
-  if (clockEl) {
-    const updateTime = () => {
-      const now = new Date();
-      clockEl.textContent = now.toUTCString().slice(17, 25) + " UTC";
-    };
-    updateTime();
-    setInterval(updateTime, 1000);
+  // Async GitHub API verification (rate-limit safe)
+  try {
+    const res = await fetch("https://api.github.com/users/Shubh-creations/repos?sort=updated&per_page=20");
+    if (!res.ok) return;
+    const data = await res.json();
+    if (Array.isArray(data)) {
+      data.forEach((r) => {
+        const starEl = document.querySelector(`.repo-star-count[data-repo="${r.name}"]`);
+        if (starEl && typeof r.stargazers_count === "number") {
+          starEl.textContent = `★ ${r.stargazers_count}`;
+        }
+      });
+    }
+  } catch (err) {
+    // Graceful fallback to static cache
   }
 }
 
 /* ==========================================================================
-   8. Command Palette (⌘K / Ctrl+K)
+   2. Hero Live Device Switcher (Suranyx, Vadhu-Var, CUAS)
    ========================================================================== */
-function setupCommandPalette() {
-  const modal = document.getElementById("cmd-modal");
-  const input = document.getElementById("cmd-search-input");
-  const triggerBtns = document.querySelectorAll("[data-open-cmd]");
-  const closeBtns = document.querySelectorAll("[data-close-cmd]");
-  const items = document.querySelectorAll(".cmd-item");
+function setupHeroDeviceSwitcher() {
+  const container = document.getElementById("hero-device-screen");
+  if (!container) return;
 
-  if (!modal || !input) return;
+  const devices = [
+    {
+      id: "suranyx",
+      name: "Suranyx",
+      badge: "LIVE FINANCIAL OS",
+      metricLabel: "Runway Security",
+      metricVal: "100% Invariant",
+      subMetric: "SHA-256 Ledger Verified",
+      telemetry: "Multi-Tenant RLS · ReBIT AA · FastAPI",
+      color: "var(--accent)"
+    },
+    {
+      id: "vadhu-var",
+      name: "Vadhu-Var (VV)",
+      badge: "LIVE MATRIMONY PWA",
+      metricLabel: "Policy Latency",
+      metricVal: "<0.42 ms",
+      subMetric: "RLS InitPlan Cached",
+      telemetry: "PostgreSQL · Atomic RPCs · Trilingual",
+      color: "var(--accent)"
+    },
+    {
+      id: "cuas",
+      name: "CUAS Tactical",
+      badge: "EDGE DEFENSE AI",
+      metricLabel: "Threat Latency",
+      metricVal: "<100 ms",
+      subMetric: "TensorRT 92.4% mAP",
+      telemetry: "Jetson Orin · mmWave Radar + YOLOv8",
+      color: "var(--accent)"
+    }
+  ];
 
-  function openCMD() {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    input.value = "";
-    input.focus();
-    filterItems("");
-    if (window.soundEngine) window.soundEngine.playOpen();
-    document.body.style.overflow = "hidden";
+  let currentIdx = 0;
+
+  function renderDevice(idx) {
+    const dev = devices[idx];
+    container.innerHTML = `
+      <!-- Device Top Status Bar -->
+      <div class="flex items-center justify-between text-[10px] font-mono text-[#A1A1AA] pb-2 border-b border-white/[0.08]">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-bold text-white">${dev.name}</span>
+        </div>
+        <span class="text-[9px] uppercase tracking-wider text-[var(--accent)] font-semibold">${dev.badge}</span>
+      </div>
+
+      <!-- Center Metric Hero Box -->
+      <div class="p-3.5 rounded-xl bg-[#08080A] border border-white/[0.06] text-center space-y-1 my-1">
+        <div class="text-[10px] font-mono uppercase tracking-widest text-[#71717A]">${dev.metricLabel}</div>
+        <div class="text-2xl font-black font-mono text-white tracking-tight">${dev.metricVal}</div>
+        <div class="text-[11px] font-mono text-emerald-400 font-medium">${dev.subMetric}</div>
+      </div>
+
+      <!-- Architecture Telemetry Row -->
+      <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.05] text-[10px] font-mono text-[#A1A1AA] space-y-1">
+        <div class="text-[9px] text-[#71717A] uppercase tracking-wider font-semibold">Active Invariant Stack</div>
+        <div class="text-white font-medium truncate">${dev.telemetry}</div>
+      </div>
+
+      <!-- Bottom Interactive Switcher Tabs -->
+      <div class="pt-2 border-t border-white/[0.08] flex items-center justify-between gap-1 text-[10px] font-mono">
+        ${devices.map((d, i) => `
+          <button data-device-idx="${i}" class="px-2 py-1 rounded transition-colors ${
+            i === idx
+              ? 'bg-[var(--accent)] text-[var(--accent-fg)] font-bold'
+              : 'text-[#71717A] hover:text-white bg-white/[0.02]'
+          }">
+            ${d.name.split(' ')[0]}
+          </button>
+        `).join('')}
+      </div>
+    `;
+
+    container.querySelectorAll('[data-device-idx]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const i = Number(e.currentTarget.getAttribute('data-device-idx'));
+        currentIdx = i;
+        if (window.soundEngine) window.soundEngine.playClick(750, 0.02);
+        renderDevice(currentIdx);
+      });
+    });
   }
 
-  function closeCMD() {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
+  renderDevice(currentIdx);
+
+  // Auto-cycle device previews every 8 seconds when tab is active
+  setInterval(() => {
+    if (document.hidden) return;
+    currentIdx = (currentIdx + 1) % devices.length;
+    renderDevice(currentIdx);
+  }, 8000);
+}
+
+/* ==========================================================================
+   3. Interactive Architecture Spec Drawer
+   ========================================================================== */
+function setupArchitectureDrawer() {
+  const drawer = document.getElementById("architecture-drawer");
+  const closeBtn = document.getElementById("close-spec-drawer");
+  if (!drawer) return;
+
+  function closeDrawer() {
+    drawer.classList.add("hidden");
+    drawer.classList.remove("flex");
     document.body.style.overflow = "";
   }
 
-  window.addEventListener("keydown", (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-      e.preventDefault();
-      if (modal.classList.contains("hidden")) {
-        openCMD();
-      } else {
-        closeCMD();
-      }
-    } else if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeCMD();
-    }
+  closeBtn?.addEventListener("click", closeDrawer);
+  drawer.addEventListener("click", (e) => {
+    if (e.target === drawer) closeDrawer();
   });
 
-  triggerBtns.forEach(btn => btn.addEventListener("click", openCMD));
-  closeBtns.forEach(btn => btn.addEventListener("click", closeCMD));
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeCMD(); });
+  window.openSpecDrawer = (specId) => {
+    const config = window.SITE_CONFIG;
+    if (!config?.architectureSpecs || !drawer) return;
+    const spec = config.architectureSpecs[specId];
+    if (!spec) return;
 
-  let selectedIndex = -1;
+    const content = document.getElementById("spec-drawer-content");
+    if (!content) return;
 
-  function getVisibleItems() {
-    return Array.from(items).filter(item => item.style.display !== "none");
-  }
-
-  function updateSelected() {
-    const visible = getVisibleItems();
-    visible.forEach((item, idx) => {
-      if (idx === selectedIndex) {
-        item.classList.add("bg-[#80182A]/20", "border", "border-[#80182A]/50", "text-white");
-        item.scrollIntoView({ block: "nearest" });
-      } else {
-        item.classList.remove("bg-[#80182A]/20", "border", "border-[#80182A]/50", "text-white");
-      }
-    });
-  }
-
-  input.addEventListener("input", (e) => filterItems(e.target.value));
-
-  input.addEventListener("keydown", (e) => {
-    const visible = getVisibleItems();
-    if (visible.length === 0) return;
-
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      selectedIndex = (selectedIndex + 1) % visible.length;
-      updateSelected();
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      selectedIndex = (selectedIndex - 1 + visible.length) % visible.length;
-      updateSelected();
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      if (selectedIndex >= 0 && selectedIndex < visible.length) {
-        visible[selectedIndex].click();
-      } else if (visible.length > 0) {
-        visible[0].click();
-      }
-    }
-  });
-
-  function filterItems(query) {
-    const q = query.toLowerCase().trim();
-    selectedIndex = -1;
-    items.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = (!q || text.includes(q)) ? "flex" : "none";
-      item.classList.remove("bg-[#80182A]/20", "border", "border-[#80182A]/50", "text-white");
-    });
-    const visible = getVisibleItems();
-    if (visible.length > 0) {
-      selectedIndex = 0;
-      updateSelected();
-    }
-  }
-
-  items.forEach(item => {
-    item.addEventListener("click", () => {
-      const action = item.getAttribute("data-action");
-      closeCMD();
-      if (window.soundEngine) window.soundEngine.playClick();
-
-      if (action === "jump-ledger-sim") {
-        const el = document.getElementById("systems-lab");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        setTimeout(() => {
-          const inp = document.querySelector("#suranyx-ledger-sim input");
-          if (inp) inp.focus();
-        }, 500);
-      } else if (action === "jump-initplan-sim") {
-        const el = document.getElementById("systems-lab");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      } else if (action === "jump-cuas-sim") {
-        const el = document.getElementById("systems-lab");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      } else if (action === "open-suranyx") {
-        window.open("https://suranyx.com", "_blank");
-      } else if (action === "open-vadhuvar") {
-        window.open("https://vadhu-var.vercel.app", "_blank");
-      } else if (action === "open-spec-suranyx") {
-        openSpecDrawer("suranyx");
-      } else if (action === "open-spec-vadhuvar") {
-        openSpecDrawer("vadhu-var");
-      } else if (action === "open-spec-devprime") {
-        openSpecDrawer("devprime-adk");
-      } else if (action === "open-vcare") {
-        window.open("https://github.com/Shubh-creations/Vcare", "_blank");
-      } else if (action === "open-linkedin") {
-        window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank");
-      } else if (action === "open-cuas") {
-        window.open("https://github.com/Shubh-creations/Counter-UAS", "_blank");
-      } else if (action === "open-rodimus") {
-        window.open("https://www.rodimus-tech.com", "_blank");
-      } else if (action === "open-github") {
-        window.open("https://github.com/Shubh-creations", "_blank");
-      } else if (action === "open-deck") {
-        openDeckModal();
-      } else if (action === "open-contact") {
-        openContactModal();
-      } else if (action === "open-twitter") {
-        window.open("https://x.com/builtfor101", "_blank");
-      } else if (action === "query-ai") {
-        const input = document.getElementById("ai-query-input");
-        if (input) {
-          input.scrollIntoView({ behavior: "smooth" });
-          input.focus();
-        }
-      } else if (action === "copy-email") {
-        const email = window.SITE_CONFIG?.founder?.links?.email || "shubhampawar0610@gmail.com";
-        navigator.clipboard.writeText(email);
-        showToast("Copied email: " + email, "success");
-      }
-    });
-  });
-}
-
-/* ==========================================================================
-   Vim-Style Global Keyboard Navigation
-   ========================================================================== */
-function setupVimNavigation() {
-  let pendingG = false;
-  let gTimeout = null;
-
-  window.addEventListener("keydown", (e) => {
-    const target = e.target;
-    const isInput = target && (
-      target.tagName === "INPUT" ||
-      target.tagName === "TEXTAREA" ||
-      target.isContentEditable ||
-      target.closest("#cmd-modal") ||
-      target.closest("#architecture-drawer") ||
-      target.closest("#deck-modal") ||
-      target.closest("#contact-modal")
-    );
-    if (isInput) return;
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-
-    const key = e.key.toLowerCase();
-
-    if (key === "?") {
-      e.preventDefault();
-      showToast("Shortcuts: g h (Hero), g f (Flagships), g s (Systems Lab), g m (Matrix), g d (Deep-Tech), g t (Track Record), g g (GitHub), ⌘K (Command)", "info");
-      return;
-    }
-
-    if (key === "g" && !pendingG) {
-      pendingG = true;
-      if (gTimeout) clearTimeout(gTimeout);
-      gTimeout = setTimeout(() => { pendingG = false; }, 900);
-      return;
-    }
-
-    if (pendingG) {
-      pendingG = false;
-      if (gTimeout) clearTimeout(gTimeout);
-
-      const navMap = {
-        h: "#top",
-        f: "#flagships",
-        s: "#systems-lab",
-        m: "#systems-matrix",
-        d: "#deep-tech",
-        t: "#experience",
-        g: "#github-pulse"
-      };
-
-      const targetId = navMap[key];
-      if (targetId) {
-        e.preventDefault();
-        const el = document.querySelector(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-          if (window.soundEngine) window.soundEngine.playClick();
-          showToast(`Jumped to: ${targetId}`, "success");
-        }
-      }
-    }
-  });
-}
-
-/* ==========================================================================
-   9. Founder AI Assistant (Digital Twin)
-   ========================================================================= */
-function setupAIAssistant() {
-  const input = document.getElementById("ai-query-input");
-  const submitBtn = document.getElementById("ai-submit-btn");
-  const responseBox = document.getElementById("ai-response-text");
-  const badgeEl = document.getElementById("ai-response-badge");
-
-  if (!input || !submitBtn || !responseBox) return;
-
-  function runQuery(queryString) {
-    const query = queryString || input.value.trim();
-    if (!query) return;
-
-    if (badgeEl) {
-      badgeEl.textContent = "Processing...";
-      badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#80182A]/20 text-[#E06D82] border border-[#80182A]/40 font-bold";
-    }
-
-    if (window.soundEngine) window.soundEngine.playClick();
-
-    setTimeout(() => {
-      const res = window.neuralAssistant.query(query);
-
-      if (badgeEl) {
-        badgeEl.textContent = res.badge || "Verified";
-        badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-[#80182A]/15 text-[#E06D82] border border-[#80182A]/30 font-bold";
-      }
-
-      window.neuralAssistant.typewriter(responseBox, res.text, () => {
-        if (badgeEl) {
-          setTimeout(() => {
-            badgeEl.textContent = "Ready";
-            badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-[#E06D82] border border-white/10";
-          }, 3000);
-        }
-      });
-    }, 180);
-  }
-
-  submitBtn.addEventListener("click", () => runQuery());
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") runQuery();
-  });
-
-  document.querySelectorAll(".ai-query-chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      const q = chip.getAttribute("data-query");
-      input.value = q;
-      runQuery(q);
-    });
-  });
-}
-
-/* ==========================================================================
-   10. Interactive Founder Dossier Modal
-   ========================================================================== */
-let currentSlideIndex = 0;
-
-function setupDossierModal() {
-  const modal = document.getElementById("deck-modal");
-  const openButtons = document.querySelectorAll("[data-open-deck]");
-  const closeButtons = document.querySelectorAll("[data-close-deck]");
-  const prevBtn = document.getElementById("deck-prev-btn");
-  const nextBtn = document.getElementById("deck-next-btn");
-
-  if (!modal) return;
-
-  openButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      openDeckModal();
-    });
-  });
-
-  closeButtons.forEach(btn => btn.addEventListener("click", closeDeckModal));
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeDeckModal(); });
-
-  if (prevBtn) prevBtn.addEventListener("click", () => navigateSlide(-1));
-  if (nextBtn) nextBtn.addEventListener("click", () => navigateSlide(1));
-
-  window.addEventListener("keydown", (e) => {
-    if (!modal.classList.contains("hidden")) {
-      if (e.key === "Escape") closeDeckModal();
-      if (e.key === "ArrowLeft") navigateSlide(-1);
-      if (e.key === "ArrowRight") navigateSlide(1);
-    }
-  });
-}
-
-function openDeckModal() {
-  const modal = document.getElementById("deck-modal");
-  if (!modal) return;
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
-  if (window.soundEngine) window.soundEngine.playOpen();
-  renderSlide(currentSlideIndex);
-}
-
-function closeDeckModal() {
-  const modal = document.getElementById("deck-modal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-  document.body.style.overflow = "";
-}
-
-window.openDeckToSlide = function(slideNumber) {
-  currentSlideIndex = Math.max(0, slideNumber - 1);
-  openDeckModal();
-};
-
-function navigateSlide(direction) {
-  const slides = window.SITE_CONFIG?.founderDossier || [];
-  if (!slides.length) return;
-
-  currentSlideIndex += direction;
-  if (currentSlideIndex < 0) currentSlideIndex = 0;
-  if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
-
-  if (window.soundEngine) window.soundEngine.playClick();
-  renderSlide(currentSlideIndex);
-}
-
-function renderSlide(index) {
-  const slides = window.SITE_CONFIG?.founderDossier || [];
-  if (!slides.length || !slides[index]) return;
-
-  const slide = slides[index];
-  const total = slides.length;
-
-  const indicator = document.getElementById("slide-indicator");
-  if (indicator) indicator.textContent = `0${index + 1} / 0${total}`;
-
-  const progressBar = document.getElementById("slide-progress-bar");
-  if (progressBar) {
-    const percent = ((index + 1) / total) * 100;
-    progressBar.style.width = `${percent}%`;
-  }
-
-  const slideContent = document.getElementById("deck-slide-content");
-  if (slideContent) {
-    slideContent.innerHTML = `
-      <div class="flex flex-col justify-between h-full space-y-6">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-[#94A3B8] uppercase tracking-widest font-bold">
-              0${slide.slideNumber} // ${slide.subtitle}
-            </span>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#80182A]/10 text-[#E06D82] border border-[#80182A]/30">
-              ${slide.keyMetric}
-            </span>
+    content.innerHTML = `
+      <div class="space-y-6">
+        <!-- Header -->
+        <div class="pb-4 border-b border-white/[0.08]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+            <span class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider">${spec.badge}</span>
           </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">${spec.title}</h3>
+          <p class="text-xs sm:text-sm text-[#A1A1AA] mt-1">${spec.subtitle}</p>
+        </div>
 
-          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">${slide.title}</h2>
-          <p class="text-[#E06D82] text-sm sm:text-base leading-relaxed mb-6 font-light">${slide.content}</p>
+        <!-- Topology Diagram -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-[#71717A] mb-2 font-semibold">Topology & Execution Flow</h4>
+          <pre class="spec-topology-diagram"><code>${escapeHtml(spec.topologyText)}</code></pre>
+        </div>
 
-          <div class="space-y-2.5 p-5 rounded-2xl bg-[#0F131C] border border-white/[0.06]">
-            <div class="text-[10px] font-mono uppercase tracking-widest text-[#E06D82] font-bold">Key Architecture Points:</div>
-            ${slide.bullets.map(b => `
-              <div class="flex items-start gap-3 text-xs sm:text-sm text-[#E06D82] font-light">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#E06D82] shrink-0 mt-0.5"></i>
-                <span>${b}</span>
+        <!-- Architectural Invariants -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-[#71717A] mb-3 font-semibold">Core Invariants & Guarantees</h4>
+          <div class="space-y-2.5">
+            ${spec.invariants.map(inv => `
+              <div class="p-3.5 rounded-xl bg-[#0E0E12] border border-white/[0.06]">
+                <h5 class="text-sm font-bold text-white mb-1">${inv.name}</h5>
+                <p class="text-xs text-[#A1A1AA] leading-relaxed font-normal">${inv.desc}</p>
               </div>
             `).join('')}
           </div>
         </div>
 
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-[#94A3B8] font-mono flex-wrap gap-2">
-          <div>SHUBHAM PAWAR // @builtfor101</div>
-          <div class="flex items-center gap-3">
-            <a href="https://suranyx.com" target="_blank" rel="noopener noreferrer" class="text-[#E06D82] hover:underline">Suranyx</a>
-            <a href="https://vadhu-var.vercel.app" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:underline">Vadhu-Var</a>
-            <a href="https://www.linkedin.com/in/shubhampawar-in/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">LinkedIn</a>
-            <a href="https://github.com/Shubh-creations" target="_blank" rel="noopener noreferrer" class="text-[#E06D82] hover:underline">GitHub</a>
+        <!-- Code Snippet -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-[#71717A] font-semibold">${spec.codeSnippetTitle}</h4>
+            <button onclick="navigator.clipboard.writeText(document.getElementById('drawer-code-block').innerText); showToast('Code copied');" class="text-[11px] font-mono text-[var(--accent)] hover:underline">
+              Copy Code
+            </button>
           </div>
+          <pre class="p-4 rounded-xl bg-[#08080A] border border-white/[0.08] text-xs font-mono text-[#A1A1AA] overflow-x-auto"><code id="drawer-code-block">${escapeHtml(spec.codeSnippet)}</code></pre>
         </div>
       </div>
     `;
 
-    if (window.lucide) window.lucide.createIcons();
-  }
+    drawer.classList.remove("hidden");
+    drawer.classList.add("flex");
+    document.body.style.overflow = "hidden";
+    if (window.soundEngine) window.soundEngine.playOpen();
+  };
+}
 
-  const prevBtn = document.getElementById("deck-prev-btn");
-  const nextBtn = document.getElementById("deck-next-btn");
-  if (prevBtn) prevBtn.disabled = index === 0;
-  if (nextBtn) nextBtn.disabled = index === total - 1;
+function escapeHtml(string) {
+  const entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  };
+  return String(string).replace(/[&<>"']/g, s => entityMap[s]);
 }
 
 /* ==========================================================================
-   11. Contact Modal & Audio Toggle
+   4. Command Palette (⌘K / Ctrl+K)
+   ========================================================================== */
+function setupCommandPalette() {
+  const modal = document.getElementById("cmd-modal");
+  const input = document.getElementById("cmd-search-input");
+  const itemsContainer = document.getElementById("cmd-items-list");
+  if (!modal || !input || !itemsContainer) return;
+
+  const commands = [
+    // Navigation Anchors
+    { title: "Jump to Flagship Ventures", section: "Ventures & Systems", shortcut: "G V", action: () => scrollToSection("#ventures") },
+    { title: "Jump to Active Builds & Tooling", section: "Ventures & Systems", shortcut: "G B", action: () => scrollToSection("#builds") },
+    { title: "Jump to Interactive Systems Lab", section: "Proof of Work", shortcut: "G L", action: () => scrollToSection("#lab") },
+    { title: "Jump to Founder Track Record", section: "Pedigree", shortcut: "G E", action: () => scrollToSection("#experience") },
+    { title: "Jump to Direct Contact", section: "Connect", shortcut: "G C", action: () => scrollToSection("#contact") },
+
+    // Live Production Platforms
+    { title: "Launch Suranyx ↗ (Financial OS)", section: "Live Platforms", shortcut: "↵", action: () => window.open("https://suranyx.com", "_blank", "noopener,noreferrer") },
+    { title: "Explore Vadhu-Var ↗ (Matrimony PWA)", section: "Live Platforms", shortcut: "↵", action: () => window.open("https://vadhu-var.vercel.app", "_blank", "noopener,noreferrer") },
+    { title: "Visit Rodimus Tech ↗ (Spatial AI)", section: "Live Platforms", shortcut: "↵", action: () => window.open("https://rodimus-tech.com", "_blank", "noopener,noreferrer") },
+    { title: "View GitHub (@Shubh-creations) ↗", section: "Verified Links", shortcut: "G G", action: () => window.open("https://github.com/Shubh-creations", "_blank", "noopener,noreferrer") },
+    { title: "View LinkedIn Profile ↗", section: "Verified Links", shortcut: "↵", action: () => window.open("https://www.linkedin.com/in/shubhampawar-in/", "_blank", "noopener,noreferrer") },
+    { title: "View Twitter / X (@builtfor101) ↗", section: "Verified Links", shortcut: "↵", action: () => window.open("https://x.com/builtfor101", "_blank", "noopener,noreferrer") },
+
+    // Interactive Architecture Actions
+    { title: "Architecture Spec: Suranyx (RLS & SHA-256)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("suranyx"); } },
+    { title: "Architecture Spec: Vadhu-Var (Atomic RPCs)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("vadhu-var"); } },
+    { title: "Architecture Spec: CUAS (Jetson & TensorRT)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("cuas"); } },
+    { title: "Architecture Spec: AI-Shorts-Factory (FFmpeg)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("ai-shorts-factory"); } },
+    { title: "Architecture Spec: Sarva Flow (DAG Engine)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("sarva-flow"); } },
+    { title: "Architecture Spec: Rodimus Tech (Spatial AI)", section: "Architecture", shortcut: "SPEC", action: () => { closeModal(); window.openSpecDrawer("rodimus"); } },
+
+    // Communication Actions
+    { title: "Copy Email: shubhampawar0610@gmail.com", section: "Actions", shortcut: "COPY", action: () => copyText("shubhampawar0610@gmail.com", "Email copied to clipboard") },
+    { title: "Copy Direct Phone / WhatsApp: +91 9623422350", section: "Actions", shortcut: "COPY", action: () => copyText("+919623422350", "Phone copied to clipboard") },
+    { title: "Open Executive Presentation Dossier", section: "Actions", shortcut: "D", action: () => { closeModal(); window.openDeckModal(); } }
+  ];
+
+  let selectedIndex = 0;
+  let filteredCommands = [...commands];
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    input.value = "";
+    selectedIndex = 0;
+    filterCommands("");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => input.focus(), 50);
+    if (window.soundEngine) window.soundEngine.playOpen();
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  function renderList() {
+    if (filteredCommands.length === 0) {
+      itemsContainer.innerHTML = `
+        <div class="p-6 text-center text-xs font-mono text-[#71717A]">
+          No matching command found. Press Esc to close.
+        </div>
+      `;
+      return;
+    }
+
+    itemsContainer.innerHTML = filteredCommands.map((cmd, idx) => `
+      <div data-cmd-idx="${idx}" class="cmd-item px-4 py-2.5 flex items-center justify-between cursor-pointer rounded-lg text-xs font-mono ${
+        idx === selectedIndex ? 'bg-[var(--accent)]/15 text-[var(--accent)]' : 'text-[#A1A1AA] hover:bg-white/[0.03] hover:text-white'
+      }">
+        <div class="flex items-center gap-2.5 truncate">
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[var(--accent)] shrink-0 ${idx === selectedIndex ? 'opacity-100' : 'opacity-0'}"></i>
+          <span class="truncate font-medium text-white">${cmd.title}</span>
+          <span class="text-[10px] text-[#71717A] hidden sm:inline">(${cmd.section})</span>
+        </div>
+        ${cmd.shortcut ? `<span class="kbd-badge shrink-0">${cmd.shortcut}</span>` : ''}
+      </div>
+    `).join('');
+
+    if (window.lucide) window.lucide.createIcons();
+
+    itemsContainer.querySelectorAll('.cmd-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = Number(el.getAttribute('data-cmd-idx'));
+        filteredCommands[idx].action();
+        closeModal();
+      });
+    });
+  }
+
+  function filterCommands(query) {
+    const q = (query || "").toLowerCase().trim();
+    if (!q) {
+      filteredCommands = [...commands];
+    } else {
+      filteredCommands = commands.filter(c =>
+        c.title.toLowerCase().includes(q) ||
+        c.section.toLowerCase().includes(q) ||
+        (c.shortcut && c.shortcut.toLowerCase().includes(q))
+      );
+    }
+    selectedIndex = 0;
+    renderList();
+  }
+
+  input.addEventListener("input", (e) => filterCommands(e.target.value));
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      selectedIndex = (selectedIndex + 1) % Math.max(1, filteredCommands.length);
+      renderList();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      selectedIndex = (selectedIndex - 1 + filteredCommands.length) % Math.max(1, filteredCommands.length);
+      renderList();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (filteredCommands[selectedIndex]) {
+        filteredCommands[selectedIndex].action();
+        closeModal();
+      }
+    } else if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  document.querySelectorAll("[data-open-cmd]").forEach(btn => {
+    btn.addEventListener("click", openModal);
+  });
+
+  document.getElementById("close-cmd-modal")?.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (modal.classList.contains("hidden")) openModal();
+      else closeModal();
+    }
+  });
+}
+
+function scrollToSection(selector) {
+  const el = document.querySelector(selector);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+/* ==========================================================================
+   5. Vim-Style Single-Key Navigation
+   ========================================================================== */
+function setupVimNavigation() {
+  let lastKey = "";
+  let keyTimeout = null;
+
+  window.addEventListener("keydown", (e) => {
+    // Ignore when focus is inside form input, textarea, or contentEditable
+    if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName) || document.activeElement?.isContentEditable) {
+      return;
+    }
+
+    if (e.key === "Escape") {
+      document.getElementById("cmd-modal")?.classList.add("hidden");
+      document.getElementById("architecture-drawer")?.classList.add("hidden");
+      document.getElementById("deck-modal")?.classList.add("hidden");
+      document.getElementById("contact-modal")?.classList.add("hidden");
+      document.body.style.overflow = "";
+      return;
+    }
+
+    const key = e.key.toLowerCase();
+
+    if (key === "d" && !e.metaKey && !e.ctrlKey) {
+      window.openDeckModal?.();
+      return;
+    }
+
+    if (lastKey === "g") {
+      if (key === "v") scrollToSection("#ventures");
+      else if (key === "b") scrollToSection("#builds");
+      else if (key === "l") scrollToSection("#lab");
+      else if (key === "e") scrollToSection("#experience");
+      else if (key === "c") scrollToSection("#contact");
+      else if (key === "t") scrollToSection("#top");
+      else if (key === "g") window.open("https://github.com/Shubh-creations", "_blank", "noopener,noreferrer");
+      lastKey = "";
+      clearTimeout(keyTimeout);
+      return;
+    }
+
+    if (key === "g") {
+      lastKey = "g";
+      keyTimeout = setTimeout(() => { lastKey = ""; }, 1000);
+    }
+  });
+}
+
+/* ==========================================================================
+   6. Executive Dossier Modal
+   ========================================================================== */
+function setupDossierModal() {
+  const modal = document.getElementById("deck-modal");
+  const config = window.SITE_CONFIG;
+  if (!modal || !config?.founderDossier) return;
+
+  let currentSlide = 0;
+  const slides = config.founderDossier;
+
+  function renderSlide(idx) {
+    const slide = slides[idx];
+    const content = document.getElementById("deck-slide-content");
+    const indicator = document.getElementById("slide-indicator");
+    const progressBar = document.getElementById("slide-progress-bar");
+
+    if (indicator) indicator.textContent = `0${idx + 1} / 0${slides.length}`;
+    if (progressBar) progressBar.style.width = `${((idx + 1) / slides.length) * 100}%`;
+
+    if (content) {
+      content.innerHTML = `
+        <div class="space-y-5">
+          <div class="pb-3 border-b border-white/[0.08]">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[var(--accent)] font-semibold">${slide.keyMetric}</div>
+            <h3 class="text-2xl font-bold text-white tracking-tight mt-1">${slide.title}</h3>
+            <p class="text-xs text-[#A1A1AA] mt-0.5">${slide.subtitle}</p>
+          </div>
+          <p class="text-sm text-[#F4F4F5] leading-relaxed font-normal">${slide.content}</p>
+          <div class="p-4 rounded-xl bg-[#08080A] border border-white/[0.06] space-y-2">
+            <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717A] font-semibold">Key Architecture Invariants</div>
+            <ul class="space-y-1.5 text-xs text-[#A1A1AA]">
+              ${slide.bullets.map(b => `<li class="flex items-start gap-2"><span class="text-[var(--accent)] shrink-0 font-bold">•</span><span>${b}</span></li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  window.openDeckModal = () => {
+    currentSlide = 0;
+    renderSlide(currentSlide);
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+    if (window.soundEngine) window.soundEngine.playOpen();
+  };
+
+  window.closeDeckModal = () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll("[data-open-deck]").forEach(btn => {
+    btn.addEventListener("click", window.openDeckModal);
+  });
+
+  document.getElementById("close-deck-modal")?.addEventListener("click", window.closeDeckModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) window.closeDeckModal();
+  });
+
+  document.getElementById("prev-slide-btn")?.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    renderSlide(currentSlide);
+    if (window.soundEngine) window.soundEngine.playClick(600, 0.02);
+  });
+
+  document.getElementById("next-slide-btn")?.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    renderSlide(currentSlide);
+    if (window.soundEngine) window.soundEngine.playClick(800, 0.02);
+  });
+}
+
+/* ==========================================================================
+   7. Contact Modal & 1-Click Copy Buttons
    ========================================================================== */
 function setupContactModal() {
   const modal = document.getElementById("contact-modal");
-  const openButtons = document.querySelectorAll("[data-open-contact]");
-  const closeButtons = document.querySelectorAll("[data-close-contact]");
-  const form = document.getElementById("investor-contact-form");
-
   if (!modal) return;
 
-  openButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      openContactModal();
-    });
+  window.openContactModal = () => {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+    if (window.soundEngine) window.soundEngine.playOpen();
+  };
+
+  window.closeContactModal = () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll("[data-open-contact]").forEach(btn => {
+    btn.addEventListener("click", window.openContactModal);
   });
 
-  closeButtons.forEach(btn => btn.addEventListener("click", closeContactModal));
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeContactModal(); });
-
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("investor-name")?.value || "Colleague";
-      const firm = document.getElementById("investor-firm")?.value || "";
-      const email = document.getElementById("investor-email")?.value || "";
-      const note = document.getElementById("investor-note")?.value || "";
-
-      const subject = encodeURIComponent(`Founder Connect: ${name} (${firm})`);
-      const body = encodeURIComponent(`Hi Shubham,\n\nI reviewed your portfolio at shubh-creations.github.io.\n\nFrom: ${name} (${firm})\nEmail: ${email}\n\nNote:\n${note}\n\nBest,\n${name}`);
-
-      window.location.href = `mailto:${window.SITE_CONFIG.founder.links.email}?subject=${subject}&body=${body}`;
-
-      showToast("Redirecting to email client... Thank you!", "success");
-      closeContactModal();
-    });
-  }
-}
-
-function openContactModal() {
-  const modal = document.getElementById("contact-modal");
-  if (!modal) return;
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
-  if (window.soundEngine) window.soundEngine.playOpen();
-}
-
-function closeContactModal() {
-  const modal = document.getElementById("contact-modal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-  document.body.style.overflow = "";
-}
-
-function setupAudioHUDToggle() {
-  const toggleBtn = document.getElementById("hud-audio-toggle");
-  if (!toggleBtn) return;
-
-  function updateAudioHUDIcon() {
-    const isMuted = window.soundEngine ? window.soundEngine.isMuted() : true;
-    toggleBtn.innerHTML = isMuted 
-      ? `<i data-lucide="volume-x" class="w-3.5 h-3.5 text-zinc-400"></i><span class="text-[11px] font-mono text-zinc-400">Audio: OFF</span>`
-      : `<i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#E06D82]"></i><span class="text-[11px] font-mono text-[#E06D82] font-bold">Audio: ON</span>`;
-    if (window.lucide) window.lucide.createIcons();
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    if (window.soundEngine) {
-      window.soundEngine.toggleSound();
-      updateAudioHUDIcon();
-    }
-  });
-
-  updateAudioHUDIcon();
-}
-
-/* ==========================================================================
-   12. FAQ Accordion & Copy Buttons
-   ========================================================================== */
-function setupFAQ() {
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".faq-btn");
-    if (!btn) return;
-
-    const content = btn.nextElementSibling;
-    const chevron = btn.querySelector(".accordion-chevron");
-    const isOpen = content.classList.contains("open");
-
-    document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));
-    document.querySelectorAll(".accordion-chevron").forEach(ch => ch.classList.remove("rotate"));
-
-    if (!isOpen) {
-      content.classList.add("open");
-      if (chevron) chevron.classList.add("rotate");
-      if (window.soundEngine) window.soundEngine.playClick(650, 0.02);
-    }
+  document.getElementById("close-contact-modal")?.addEventListener("click", window.closeContactModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) window.closeContactModal();
   });
 }
 
 function setupCopyButtons() {
   document.querySelectorAll("[data-copy-email]").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const email = window.SITE_CONFIG?.founder?.links?.email || "shubhampawar0610@gmail.com";
-      navigator.clipboard.writeText(email).then(() => {
-        showToast(`Copied ${email} to clipboard`, "success");
-      });
+    btn.addEventListener("click", () => {
+      copyText("shubhampawar0610@gmail.com", "Email copied: shubhampawar0610@gmail.com");
     });
   });
 
-  document.querySelectorAll("[data-copy-link]").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        showToast("URL copied to clipboard", "success");
-      });
+  document.querySelectorAll("[data-copy-phone]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      copyText("+919623422350", "WhatsApp / Phone copied: +91 9623422350");
     });
   });
 }
 
-function showToast(message, type = "info") {
-  const toast = document.getElementById("toast-notification");
-  const toastText = document.getElementById("toast-message");
-  if (!toast || !toastText) return;
+function copyText(text, successMessage) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(successMessage);
+      if (window.soundEngine) window.soundEngine.playSuccess();
+    });
+  } else {
+    showToast(successMessage);
+  }
+}
 
-  toastText.textContent = message;
+function showToast(message) {
+  const toast = document.getElementById("toast-notification");
+  const msgEl = document.getElementById("toast-message");
+  if (!toast || !msgEl) return;
+
+  msgEl.textContent = message;
   toast.classList.remove("hidden");
   toast.classList.add("show");
 
-  if (window.soundEngine) window.soundEngine.playSuccess();
-
   setTimeout(() => {
     toast.classList.remove("show");
-    setTimeout(() => toast.classList.add("hidden"), 250);
-  }, 3000);
+    setTimeout(() => toast.classList.add("hidden"), 300);
+  }, 2400);
 }
-window.showToast = showToast;
+
+if (typeof window !== "undefined") {
+  window.showToast = showToast;
+  window.copyText = copyText;
+}
 
 /* ==========================================================================
-   13. Developer Console Easter Egg
+   8. Console Easter Egg (Principal Engineer Handshake)
    ========================================================================== */
 function setupConsoleEasterEgg() {
-  const banner = `
-%c  ▲ SHUBHAM PAWAR // 4x FOUNDER & SYSTEMS ARCHITECT  
-%c  CEO & Co-Founder @ Suranyx (suranyx.com)  
-  Solo Founder @ Vadhu-Var / VV (vadhu-var.vercel.app)  
-  Co-founder (COO) @ Rodimus Tech (rodimus-tech.com)  
-  GitHub: https://github.com/Shubh-creations  
-  Twitter: @builtfor101 | LinkedIn: in/shubhampawar-in  
-  
-  Press ⌘K or Ctrl+K anywhere on the site for instant Command Palette.
-  System Status: Optimal | Multi-Tenant RLS: Active | SHA-256 Ledger: Verified
-  `;
+  const styles = [
+    "color: #D8CBB3",
+    "background: #0B0B0D",
+    "font-size: 13px",
+    "padding: 10px 16px",
+    "border-radius: 8px",
+    "border: 1px solid rgba(216, 203, 179, 0.4)",
+    "font-family: monospace"
+  ].join(";");
 
   console.log(
-    banner,
-    "background: #0B0D13; color: #E06D82; font-weight: bold; font-size: 14px; padding: 6px 10px; border-left: 3px solid #80182A;",
-    "background: #161B26; color: #E06D82; font-size: 12px; line-height: 1.6;"
+    "%c⚡ Shubham Pawar // 4x AI Founder & Systems Architect\nSuranyx (suranyx.com) • Vadhu-Var (vadhu-var.vercel.app) • Rodimus Tech (rodimus-tech.com)\nDirect: shubhampawar0610@gmail.com | 𝕏: @builtfor101 | GitHub: github.com/Shubh-creations",
+    styles
   );
 }

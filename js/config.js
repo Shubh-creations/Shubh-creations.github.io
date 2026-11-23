@@ -1,306 +1,223 @@
 /**
  * Shubham Pawar // 4x Founder & Systems Architect
- * Flagship Production Platforms:
- * 1. Suranyx (https://suranyx.com) — CEO & Co-Founder | AI-Native Financial Operating System
- * 2. Vadhu-Var / VV (https://vadhu-var.vercel.app) — Solo Founder | Trilingual Matrimony PWA
- * 3. Rodimus Tech (https://rodimus-tech.com) — Co-Founder (COO) | Reality Layer for AI
- * GitHub: https://github.com/Shubh-creations
- * Twitter / X: https://x.com/builtfor101 | LinkedIn: https://www.linkedin.com/in/shubhampawar-in/
+ * Design System: Matte Black (#0B0B0D) + Warm Sand (#D8CBB3)
+ * Active Flagships & Systems:
+ * 1. Suranyx (https://suranyx.com) — CEO & Co-Founder
+ * 2. Vadhu-Var (https://vadhu-var.vercel.app) — Solo Founder
+ * 3. CUAS (Counter-UAS) — Edge Defense AI
+ * 4. AI-Shorts-Factory — Automated Media Pipeline
+ * 5. Sarva Flow — Venture Architecture (Stealth Toggleable)
+ * 6. Rodimus Tech (https://rodimus-tech.com) — Co-Founder & COO
  */
 
 const SITE_CONFIG = {
+  // Stealth venture toggle for Sarva Flow
+  showSarvaFlowName: true,
+
   founder: {
     name: "Shubham Pawar",
     shortName: "Shubham",
-    title: "4x Founder & Systems Engineer",
-    badge: "4x Founder",
-    tagline: "4x Founder • CEO @ Suranyx • Solo Founder @ Vadhu-Var (VV) • Co-Founder (COO) @ Rodimus Tech",
-    location: "Pune, India // Remote",
-    status: "CEO @ Suranyx (suranyx.com) • Solo Founder @ Vadhu-Var (VV)",
-    headline: "Shubham Pawar — 4x AI Founder & Systems Architect.",
-    subheadline: "CEO & Co-Founder at Suranyx (AI-Native Financial OS & B2B compliance) • Solo Founder of Vadhu-Var (trilingual matrimony PWA with atomic PostgreSQL RPCs) • Co-Founder (COO) at Rodimus Tech (rodimus-tech.com). Architect of multi-tenant RLS, tamper-evident SHA-256 ledgers, Devprime ADK, and tactical edge perception systems.",
+    title: "Founder & Systems Architect",
+    eyebrow: "4x AI Founder · Pune, India / Global",
+    headline: "Shubham Pawar.",
+    highlight: "Founder & Systems Architect.",
+    bioLine1: "Building deterministic financial infrastructure, high-trust consumer platforms, and edge AI systems.",
+    bioLine2: "AI-native founder shipping production architecture at vibe-coded velocity with zero-hallucination rigor.",
+    location: "Pune, India // Global Remote",
     avatar: "assets/avatar.svg",
     links: {
       suranyx: "https://suranyx.com",
       vadhuVar: "https://vadhu-var.vercel.app",
+      rodimus: "https://rodimus-tech.com",
       github: "https://github.com/Shubh-creations",
-      repo: "https://github.com/Shubh-creations/Shubh-creations.github.io",
-      siteUrl: "https://shubh-creations.github.io",
+      cuasGithub: "https://github.com/Shubh-creations/Counter-UAS",
+      devprimeGithub: "https://github.com/Shubh-creations/Devprime-adk",
       linkedin: "https://www.linkedin.com/in/shubhampawar-in/",
       twitter: "https://x.com/builtfor101",
       twitterHandle: "@builtfor101",
       email: "shubhampawar0610@gmail.com",
-      phone: "+91 9623422350",
-      rodimus: "https://www.rodimus-tech.com",
-      dossierUrl: "#deck-modal"
+      phone: "+91 9623422350"
     }
   },
 
-  principles: [
-    {
-      num: "01",
-      title: "Deterministic Integrity Over Probabilistic Wrappers",
-      desc: "Financial data, identity graphs, and defense telemetry demand zero-trust mathematical invariants. We enforce tamper-evident SHA-256 ledgers, atomic RPC transactions, and multi-tenant RLS boundary isolation."
-    },
-    {
-      num: "02",
-      title: "Hardware-Accelerated Latency Discipline",
-      desc: "Every millisecond of overhead is a failure of craftsmanship. We compile PyTorch models to TorchScript, optimize PostgreSQL execution plans via RLS InitPlan, and leverage CUDA to run vision systems at 30+ FPS."
-    },
-    {
-      num: "03",
-      title: "Composability & Fault-Tolerant State Machines",
-      desc: "Distributed systems scale through modular, idempotent primitives. Decouple orchestration from execution with durable state graphs and cryptographic verification."
-    },
-    {
-      num: "04",
-      title: "Physical-World Grounding & Shipped Reality",
-      desc: "Real engineering defensibility exists where software touches the real world: Indian SME financial reconciliation, culturally grounded matrimony communities, and hardware edge micro-controllers."
-    }
-  ],
-
-  keyMetrics: [
-    { label: "Flagship FinTech OS", value: "Suranyx", change: "suranyx.com", detail: "Cash runway intelligence & RBI ReBIT AA consent" },
-    { label: "Live Trilingual PWA", value: "Vadhu-Var", change: "vadhu-var.vercel.app", detail: "Sub-ms RLS InitPlan & atomic PostgreSQL RPCs" },
-    { label: "Audit Integrity", value: "SHA-256", change: "Hash-Chained", detail: "Cryptographic tamper-evident balance ledgers" },
-    { label: "Tactical Edge Defense", value: "92.4% mAP", change: "<100ms Threat", detail: "AI-native C-UAS drone interception on Jetson" }
-  ],
-
-  // FLAGSHIP PRODUCTION PLATFORMS
-  flagships: [
+  // 1. EXACT 5 ACTIVE WORKSPACE SYSTEMS + RODIMUS TECH (SECTION 2 BENTO)
+  venturesAndBuilds: [
     {
       id: "suranyx",
       name: "Suranyx",
-      badge: "Flagship Production System",
-      role: "CEO & Co-Founder",
-      tagline: "AI-Native Financial Operating System, Cash Runway Intelligence & Automated B2B Compliance Infrastructure.",
+      role: "CEO & Co-Founder · Live",
+      tagline: "AI-native financial OS, 13-week cash runway intelligence, GST reconciliation & RBI Account Aggregator compliance for Indian SMEs.",
       url: "https://suranyx.com",
       displayUrl: "suranyx.com",
       status: "Production Live",
-      category: "FinTech & Compliance OS",
-      description: "Engineered from day zero for Indian SMEs and high-growth enterprise operators. Suranyx unifies multi-bank real-time liquidity telemetries, automated reconciliation, and predictive cash runway modeling into an airtight, audit-ready operating system.",
-      highlights: [
-        "Multi-Tenant Row-Level Security (RLS) isolation guaranteeing zero cross-tenant leakage across enterprise boundaries",
-        "Tamper-evident SHA-256 hash-chained financial audit ledgers with cryptographic balance verification on every mutation",
-        "Idempotent financial mutation workflows and RBI ReBIT Account Aggregator (Setu / Finvu) consent pipeline architecture",
-        "Durable workflow orchestration, multi-account automated reconciliation, and predictive burn rate forecasting"
-      ],
-      stack: ["FastAPI", "Python", "React", "TypeScript", "PostgreSQL", "Supabase", "Vercel", "Tailwind CSS"],
-      metrics: [
-        { label: "Data Isolation", val: "Multi-Tenant RLS" },
-        { label: "Audit Trail", val: "SHA-256 Chained" },
-        { label: "Open Banking", val: "RBI ReBIT AA" }
-      ],
-      links: {
-        live: "https://suranyx.com",
-        specAction: "open-spec-suranyx"
-      }
+      isLive: true,
+      tags: ["FastAPI", "SHA-256 Ledger", "Multi-Tenant RLS"],
+      specId: "suranyx",
+      featured: true
     },
     {
       id: "vadhu-var",
       name: "Vadhu-Var (VV)",
-      badge: "Flagship Production PWA",
-      role: "Solo Founder",
-      tagline: "Culturally Grounded Trilingual Matrimony Progressive Web Platform (PWA).",
+      role: "Solo Founder · Live",
+      tagline: "Verified trilingual matrimony PWA (EN / MR / HI) engineered with atomic PostgreSQL RPCs and sub-millisecond RLS InitPlan policies.",
       url: "https://vadhu-var.vercel.app",
       displayUrl: "vadhu-var.vercel.app",
       status: "Production Live",
-      category: "Consumer PWA & Database Engineering",
-      description: "A modern, Hinge-inspired matchmaking progressive web application architected with deep cultural intentionality. Built with runtime trilingual localization (English, Marathi, Hindi), 36 conversation prompts, and strict verification trust mechanics.",
-      highlights: [
-        "Custom atomic PostgreSQL stored procedures and RPC functions: send_contextual_interest, respond_to_interest, close_match_gracefully, and swap_or_replace_profile_media",
-        "RLS InitPlan optimization: parameterized (SELECT auth.uid()) execution, eliminating per-row subplan evaluations and delivering sub-millisecond policy checks",
-        "Strict media invariant constraints: 1 compulsory primary photo, max 3 slots with atomic media swap and covering B-tree compound indexes",
-        "Trilingual runtime localization with zero layout shift and offline-first PWA caching on Vercel Edge"
-      ],
-      stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "PWA", "Tailwind CSS", "Vercel"],
-      metrics: [
-        { label: "Database RPCs", val: "Atomic Stored Procs" },
-        { label: "Policy Speed", val: "Sub-ms InitPlan" },
-        { label: "Localization", val: "Trilingual (EN/MR/HI)" }
-      ],
-      links: {
-        live: "https://vadhu-var.vercel.app",
-        specAction: "open-spec-vadhu-var"
-      }
+      isLive: true,
+      tags: ["PostgreSQL", "Atomic RPCs", "<1ms InitPlan"],
+      specId: "vadhu-var",
+      featured: true
+    },
+    {
+      id: "cuas",
+      name: "CUAS (Counter-UAS)",
+      role: "Edge Defense AI",
+      tagline: "Multi-sensor autonomous drone detection, tracking, and tactical C2 decision-support fusing mmWave radar, RF, and TensorRT YOLO/ViT on NVIDIA Jetson.",
+      url: "https://github.com/Shubh-creations/Counter-UAS",
+      displayUrl: "github.com/Counter-UAS",
+      status: "Defense Edge AI",
+      isLive: false,
+      tags: ["Jetson / TensorRT", "mmWave + Vision", "<100ms Loop"],
+      specId: "cuas",
+      featured: false
+    },
+    {
+      id: "ai-shorts-factory",
+      name: "AI-Shorts-Factory",
+      role: "Automated Media Pipeline",
+      tagline: "Local high-throughput Python, FFmpeg, and PyTorch automation pipeline for end-to-end remastering, compositing, and original short/long-form video production.",
+      url: "https://github.com/Shubh-creations",
+      displayUrl: "Autonomous Pipeline",
+      status: "Internal Active",
+      isLive: false,
+      tags: ["Python + FFmpeg", "Automated Pipeline", "Zero-Touch Render"],
+      specId: "ai-shorts-factory",
+      featured: false
+    },
+    {
+      id: "sarva-flow",
+      name: "Sarva Flow",
+      stealthName: "Stealth Venture",
+      role: "Venture Architecture",
+      tagline: "End-to-end workflow automation and modular systems venture built for high-leverage operational execution.",
+      url: "https://github.com/Shubh-creations",
+      displayUrl: "Venture Architecture",
+      status: "Active R&D",
+      isLive: false,
+      tags: ["Workflow Engine", "Modular Systems", "AI-Native"],
+      specId: "sarva-flow",
+      featured: false
+    },
+    {
+      id: "rodimus",
+      name: "Rodimus Tech",
+      role: "Co-Founder & COO",
+      tagline: "Architecting the \"Reality Layer for AI\" — grounding spatial world models and physical perception in edge robotics hardware.",
+      url: "https://rodimus-tech.com",
+      displayUrl: "rodimus-tech.com",
+      status: "Spatial AI Venture",
+      isLive: true,
+      tags: ["Spatial AI", "Robotics Edge", "Operations"],
+      specId: "rodimus",
+      featured: false
     }
   ],
 
-  // PRODUCTION STACK & SYSTEMS MATRIX
-  productionStack: [
+  // 2. AI-NATIVE VELOCITY STRIP (SECTION 3)
+  velocityPrinciples: [
     {
-      category: "AI, ML & Autonomous Pipelines",
-      icon: "cpu",
-      summary: "Deep learning models, reinforcement learning harnesses, explainable computer vision, and media processing pipelines.",
-      technologies: [
-        { name: "PyTorch & TorchScript", desc: "Deep neural net training, model compilation & zero-overhead C++ export" },
-        { name: "VLA & RL Agents", desc: "DQN & PPO algorithms for GridWorld and PyBullet robotic simulation" },
-        { name: "YOLOv8 & ViT", desc: "Object detection, aerial trajectory tracking, and vision transformer backbones" },
-        { name: "OpenCV & CUDA", desc: "Hardware-accelerated edge computer vision at 30+ FPS with sub-1s latency" },
-        { name: "Autonomous Agents", desc: "Multi-domain agent routing, tool-calling pipelines, and state graph orchestration" },
-        { name: "C/C++ Embedded Firmware", desc: "Microcontroller sensor acquisition and low-latency motor control integration" },
-        { name: "MLflow Model Telemetry", desc: "Automated drift monitoring, metric logging, and performance benchmark triggers" },
-        { name: "Edge Inference (Jetson)", desc: "NVIDIA Jetson Nano/Xavier deployment with TensorRT hardware acceleration" }
-      ]
+      step: "01",
+      title: "Agentic Velocity",
+      desc: "Spec-driven multi-phase vibe coding powered by structured .cursorrules and autonomous build loops—compressing months of full-stack & edge R&D into days."
     },
     {
-      category: "Backend, Distributed Systems & Databases",
-      icon: "database",
-      summary: "Mission-critical backend architectures, row-level multi-tenancy, cryptographic ledgers, and atomic database transactions.",
-      technologies: [
-        { name: "FastAPI & Python 3.11+", desc: "High-throughput asynchronous REST APIs with Pydantic type safety" },
-        { name: "PostgreSQL & Supabase", desc: "Relational modeling, covering B-tree indexes & connection pooling" },
-        { name: "Multi-Tenant RLS", desc: "Kernel-level tenant isolation via Postgres Row-Level Security policies" },
-        { name: "Atomic Stored Procs & RPCs", desc: "Encapsulated database procedures preventing state race conditions" },
-        { name: "SHA-256 Hash-Chained Ledgers", desc: "Tamper-evident cryptographic audit logs for immutable financial records" },
-        { name: "RBI ReBIT Account Aggregator", desc: "FIU/FIP open-banking consent pipelines (Setu / Finvu architecture)" },
-        { name: "Idempotent Mutation Pipelines", desc: "Unique idempotency keys preventing double-billing and replay attacks" },
-        { name: "State Machine Graphs", desc: "Durable distributed transactions and self-healing workflow orchestrators" }
-      ]
+      step: "02",
+      title: "Deterministic Rigor",
+      desc: "Every AI-accelerated system is locked down with hand-verified golden test sets, ACID database invariants, and tamper-evident audit trails."
     },
     {
-      category: "Frontend, PWA & Cloud Infrastructure",
-      icon: "layout",
-      summary: "High-craft user interfaces, trilingual localization engines, progressive web apps, and modern CI/CD deployment pipelines.",
-      technologies: [
-        { name: "React 18+ & Next.js", desc: "Server components, streaming hydration, and responsive component design" },
-        { name: "TypeScript", desc: "Strict end-to-end type safety spanning API contracts and UI states" },
-        { name: "Progressive Web Apps (PWA)", desc: "Service workers, installable mobile manifests, and offline-first caching" },
-        { name: "Tailwind CSS", desc: "Utility-first design tokens, charcoal/sand surfaces, and responsive layouts" },
-        { name: "Vercel Edge Platform", desc: "Global edge network deployment with sub-50ms TTFB worldwide" },
-        { name: "GitHub Actions CI/CD", desc: "Automated linting, testing, and continuous deployment workflows" },
-        { name: "Linux & Shell Automation", desc: "Bash orchestration, POSIX compliance, and system monitoring" },
-        { name: "Docker Containers", desc: "Reproducible containerized environments for simulation and deployment" }
-      ]
+      step: "03",
+      title: "Zero-Bloat Infra",
+      desc: "Lean, self-hosted, and edge-native architectures (PostgreSQL, FastAPI, Jetson/CUDA, static ES6+) built to scale without SaaS bloat."
     }
   ],
 
-  // CORE AI & DEEP-TECH ENGINEERING SHOWCASE (LEGITIMATE GITHUB PROJECTS ONLY)
-  deepTechSystems: [
+  // 3. FOUNDER & LEADERSHIP TRACK RECORD (SECTION 5 LEFT COLUMN)
+  founderExperience: [
     {
-      id: "devprime-adk",
-      name: "Devprime ADK (Benchmark-ADK)",
-      tagline: "Modular Reinforcement Learning agent toolkit and benchmarking suite for GridWorld & PyBullet robotics.",
-      category: "Reinforcement Learning & Robotics",
-      categoryKey: "ai-ml",
-      status: "Open Source // Active",
-      description: "Architected a reproducible RL benchmarking suite allowing researchers and engineers to train, evaluate, and benchmark RL policy models under deterministic simulation conditions. Features DQN and PPO agents with TorchScript export for zero-latency execution.",
-      metrics: [
-        { label: "Algorithms", val: "DQN & PPO" },
-        { label: "Simulators", val: "GridWorld / PyBullet" },
-        { label: "Compilation", val: "TorchScript" }
-      ],
-      tags: ["Reinforcement Learning", "PyTorch", "PyBullet", "Gym", "DQN", "PPO", "TorchScript"],
-      highlights: [
-        "Modular RL toolkit for simulated GridWorld and PyBullet physics-based robotic environments",
-        "Supports DQN and PPO agents with TorchScript compilation for high-performance deployment",
-        "Built-in evaluation suite with reward curve visualization and multi-agent coordination"
-      ],
-      links: {
-        github: "https://github.com/Shubh-creations/Devprime-adk",
-        specId: "devprime"
-      }
+      role: "CEO & Co-Founder",
+      organization: "Suranyx",
+      period: "2025 — Present",
+      url: "https://suranyx.com",
+      detail: "AI-native financial operating system & B2B compliance. Leading multi-tenant PostgreSQL/Supabase RLS, SHA-256 hash-chained ledgers, and RBI ReBIT AA consent architecture."
     },
     {
-      id: "cuas-defense",
-      name: "CUAS - Counter-Unmanned Aerial System",
-      tagline: "AI-native autonomous counter-drone framework detecting, tracking, and neutralizing rogue drones.",
-      category: "Autonomous Defense & Robotics",
-      categoryKey: "robotics-defense",
-      status: "Defense Core // Active",
-      description: "An AI-native counter-UAS framework designed to detect, classify, track, and neutralize rogue drones using YOLOv8, Vision Transformers (ViT), and CLIP. Deployed on NVIDIA Jetson Nano / Xavier with low-level C/C++ firmware integration, RF signal triangulation, and MLflow real-time drift monitoring.",
-      metrics: [
-        { label: "Detection Acc", val: "92.4% mAP@0.5" },
-        { label: "Threat Latency", val: "<100 ms" },
-        { label: "Path Error", val: "±0.8s" }
-      ],
-      tags: ["NVIDIA Jetson", "YOLOv8", "ViT", "CLIP", "CUDA", "OpenCV", "C/C++", "MLflow"],
-      highlights: [
-        "Achieved 92.4% mAP@0.5 detection accuracy with <100ms threat-to-action neutralization latency",
-        "Integrated multi-sensor intelligence: visual camera, infrared, and RF signal triangulation",
-        "Real-time MLflow model monitoring with automated data drift triggers and retraining"
-      ],
-      links: {
-        github: "https://github.com/Shubh-creations/Counter-UAS",
-        demo: "https://x.com/builtfor101"
-      }
+      role: "Solo Founder",
+      organization: "Vadhu-Var (VV)",
+      period: "2024 — Present",
+      url: "https://vadhu-var.vercel.app",
+      detail: "Verified trilingual matrimony consumer PWA. Custom atomic stored procedures (send_contextual_interest), sub-millisecond RLS InitPlan optimizations, and trilingual i18n."
     },
     {
-      id: "vehicle-detection-adas",
-      name: "Advanced Vehicle Detection & ADAS Telemetry",
-      tagline: "Real-time GPU-accelerated vehicle perception pipeline with centroid tracking & traffic analytics.",
-      category: "Computer Vision & ADAS",
-      categoryKey: "robotics-defense",
-      status: "Vision Core // Shipped",
-      description: "Real-time vehicle detection and tracking system using OpenCV with CUDA GPU acceleration. Sustains >30 FPS processing speed with <1s latency and ~90% detection accuracy on live video feeds, incorporating centroid tracking to eliminate double-counting.",
-      metrics: [
-        { label: "Processing Speed", val: ">30 FPS" },
-        { label: "Inference Latency", val: "<1.0s Sub-Sec" },
-        { label: "Accuracy", val: "~90% Live Feeds" }
-      ],
-      tags: ["OpenCV", "CUDA GPU", "Python", "Centroid Tracking", "ADAS", "NVIDIA Jetson"],
-      highlights: [
-        "Sustained >30 FPS with GPU acceleration on edge devices (NVIDIA Jetson Nano, Raspberry Pi)",
-        "Engineered centroid-based tracking algorithm preventing duplicate counts under dense congestion",
-        "Integrated configurable JSON-based settings management and live visual telemetry tracking trails"
-      ],
-      links: {
-        github: "https://github.com/Shubh-creations/Vehicle-detection-and-tracking",
-        demo: "https://x.com/builtfor101"
-      }
+      role: "Co-Founder & COO",
+      organization: "Rodimus Tech",
+      period: "2025 — Present",
+      url: "https://rodimus-tech.com",
+      detail: "Building the Reality Layer for AI. Orchestrating operations, robotics and spatial perception roadmap, cross-functional delivery, and strategic deep-tech partnerships."
     },
     {
-      id: "vcare-agent",
-      name: "Vcare — Multi-Domain Assistive Super Agent",
-      tagline: "Autonomous agent orchestration framework with intelligent task routing and multimodal reasoning.",
-      category: "Autonomous Agents & AI Systems",
-      categoryKey: "ai-ml",
-      status: "Agent Core // Active",
-      description: "Engineered an intelligent agent architecture capable of routing complex user requests across multiple domains. Features modular tool-calling execution, structured conversational state memory, and real-time execution pipelines.",
-      metrics: [
-        { label: "Architecture", val: "Super Agent" },
-        { label: "Stack", val: "TypeScript" },
-        { label: "Execution", val: "Async Tooling" }
-      ],
-      tags: ["TypeScript", "Autonomous Agents", "LLMs", "Tool Calling", "Multimodal", "APIs"],
-      highlights: [
-        "Multi-domain autonomous agent routing workflows across healthcare and assistive domains",
-        "Modular tool-calling integrations and structured conversational memory",
-        "Robust safety guards and zero-latency response pipelines"
-      ],
-      links: {
-        github: "https://github.com/Shubh-creations/Vcare",
-        demo: "https://x.com/builtfor101"
-      }
+      role: "Postman API Student Instructor",
+      organization: "Postman (Pune, IN)",
+      period: "Jan 2025 — Present",
+      url: "https://www.postman.com",
+      detail: "Mentoring student engineers on RESTful API architecture, automated testing collections, and production API design."
     },
     {
-      id: "rodimus-tech",
-      name: "Rodimus Tech (Co-Founder & COO)",
-      tagline: "Reality Layer for AI — Bridging physical perception with autonomous cognitive intelligence.",
-      category: "Robotics & Spatial AI",
-      categoryKey: "ventures",
-      status: "Executive Venture",
-      description: "Served as Co-founder and Chief Operating Officer (COO). Rodimus is architecting the foundational Reality Layer for AI—uniting real-time spatial world models, sensor perception, and edge computing to ground artificial intelligence in the physical world.",
-      metrics: [
-        { label: "Role", val: "Co-founder (COO)" },
-        { label: "Domain", val: "Spatial AI & Robotics" },
-        { label: "Platform", val: "rodimus-tech.com" }
-      ],
-      tags: ["Robotics", "Edge AI", "Computer Vision", "Systems Architecture", "Spatial Computing"],
-      highlights: [
-        "Executive leadership orchestrating deep-tech engineering, operational roadmap, and product delivery",
-        "Pioneering the Reality Layer connecting physical world sensors with high-level cognitive models",
-        "Driving partnerships, robotics integration strategy, and cross-functional team execution"
-      ],
-      links: {
-        site: "https://www.rodimus-tech.com",
-        github: "https://github.com/Shubh-creations",
-        linkedin: "https://www.linkedin.com/in/shubhampawar-in/"
-      }
+      role: "B.E. in Automation & Robotics",
+      organization: "Dr. D. Y. Patil Institute of Technology, Pimpri, Pune",
+      period: "Nov 2022 — Jun 2026",
+      url: "",
+      detail: "Specialized engineering program in Automation & Robotics. Rigorous training in AI in Robots, Modeling & Simulation, Sensors & Vision Systems, and Statistical Analysis."
     }
   ],
 
-  // ARCHITECTURAL SPEC DRAWERS DATA
+  // 4. VERIFIED OPEN-SOURCE GITHUB INDEX (SECTION 5 RIGHT COLUMN)
+  openSourceIndex: [
+    {
+      name: "Devprime-adk",
+      desc: "RL Agent Dev Kit (DQN/PPO, PyBullet, TorchScript for real-time control)",
+      language: "Python",
+      stars: 12,
+      url: "https://github.com/Shubh-creations/Devprime-adk",
+      tags: ["PyTorch", "TorchScript", "RL"]
+    },
+    {
+      name: "Counter-UAS",
+      desc: "Multi-sensor autonomous UAV detection & C2 (<100ms decision loop on Jetson)",
+      language: "C++ / Python",
+      stars: 18,
+      url: "https://github.com/Shubh-creations/Counter-UAS",
+      tags: ["Jetson", "CUDA", "YOLOv8"]
+    },
+    {
+      name: "Vehicle-detection-and-tracking",
+      desc: "CUDA-accelerated >30 FPS ADAS vehicle detection with centroid tracking",
+      language: "Python",
+      stars: 9,
+      url: "https://github.com/Shubh-creations/Vehicle-detection-and-tracking",
+      tags: ["OpenCV", "CUDA", "ADAS"]
+    },
+    {
+      name: "Vcare",
+      desc: "TypeScript multi-domain autonomous agent orchestration & state graphs",
+      language: "TypeScript",
+      stars: 7,
+      url: "https://github.com/Shubh-creations/Vcare",
+      tags: ["TypeScript", "Agents", "Tools"]
+    }
+  ],
+
+  // 5. ARCHITECTURAL SPEC DRAWERS (FOR ALL 6 ACTIVE SYSTEMS)
   architectureSpecs: {
     suranyx: {
       title: "Suranyx // System Architecture & Security Primitives",
@@ -333,11 +250,7 @@ const SITE_CONFIG = {
         },
         {
           name: "RBI ReBIT Account Aggregator Consent Pipeline",
-          desc: "Consent artifact lifecycles strictly conform to RBI Master Directions. Ephemeral session tokens request encrypted financial data from FIPs (Financial Information Providers) via AA handles without persisting raw credentials."
-        },
-        {
-          name: "Idempotent Mutation Guarantees",
-          desc: "Financial operations mandate a client-supplied UUIDv4 Idempotency-Key. Redis distributed locks and unique database constraints guarantee that duplicate network submissions execute exactly once."
+          desc: "Consent artifact lifecycles strictly conform to RBI Master Directions. Ephemeral session tokens request encrypted financial data from FIPs without persisting raw banking credentials."
         }
       ],
       codeSnippetTitle: "PostgreSQL: Multi-Tenant RLS Policy & SHA-256 Hash Chaining",
@@ -345,8 +258,7 @@ const SITE_CONFIG = {
 ALTER TABLE financial_transactions ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY tenant_isolation_policy ON financial_transactions
-FOR ALL
-TO authenticated
+FOR ALL TO authenticated
 USING (tenant_id = (SELECT auth.jwt() ->> 'tenant_id')::uuid)
 WITH CHECK (tenant_id = (SELECT auth.jwt() ->> 'tenant_id')::uuid);
 
@@ -405,18 +317,13 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;`
         },
         {
           name: "Strict Profile Media Constraints",
-          desc: "Enforced at the schema level: Minimum 1 verified portrait photograph required before profile activation, maximum 3 media slots. The swap_or_replace_profile_media RPC atomically swaps media order and handles S3 object deletion cleanly."
-        },
-        {
-          name: "Trilingual Zero-FOUC Architecture",
-          desc: "Locale dictionaries (English, Marathi, Hindi) are pre-bundled and hydrated synchronously at the layout boundary, ensuring zero layout shift or flash of unlocalized content across 36 conversational prompts."
+          desc: "Enforced at schema level: Minimum 1 verified portrait photograph required before profile activation, maximum 3 media slots. The swap_or_replace_profile_media RPC atomically swaps media order cleanly."
         }
       ],
       codeSnippetTitle: "PostgreSQL: Atomic Contextual Interest RPC & RLS InitPlan",
       codeSnippet: `-- 1. Optimized RLS Policy with InitPlan Parameterization
 CREATE POLICY pwa_profiles_read_policy ON user_profiles
-FOR SELECT
-TO authenticated
+FOR SELECT TO authenticated
 USING (
   is_verified = TRUE 
   AND user_id != (SELECT auth.uid()) -- InitPlan: Evaluated exactly ONCE
@@ -433,24 +340,13 @@ DECLARE
   v_sender_id UUID := auth.uid();
   v_new_interest_id UUID;
 BEGIN
-  -- Invariant Check: Sender cannot match with themselves
   IF v_sender_id = p_receiver_id THEN
     RAISE EXCEPTION 'Self-interest is forbidden.';
   END IF;
   
-  -- Invariant Check: Mandatory verified photo before matching
-  IF NOT EXISTS (
-    SELECT 1 FROM profile_media 
-    WHERE user_id = v_sender_id AND is_primary = TRUE
-  ) THEN
-    RAISE EXCEPTION 'A verified primary profile photograph is compulsory.';
-  END IF;
-  
-  -- Insert match attempt with atomic conflict handling
   INSERT INTO match_interests (sender_id, receiver_id, prompt_id, note, status)
   VALUES (v_sender_id, p_receiver_id, p_prompt_id, p_contextual_note, 'PENDING')
-  ON CONFLICT (sender_id, receiver_id) DO UPDATE
-    SET updated_at = NOW()
+  ON CONFLICT (sender_id, receiver_id) DO UPDATE SET updated_at = NOW()
   RETURNING id INTO v_new_interest_id;
 
   RETURN jsonb_build_object('status', 'SUCCESS', 'interest_id', v_new_interest_id);
@@ -458,69 +354,206 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;`
     },
 
-    "devprime": {
-      title: "Devprime ADK // Reinforcement Learning Architecture",
-      subtitle: "Reproducible RL Toolkit for GridWorld & PyBullet Robotics",
-      badge: "PyTorch • TorchScript • Gym Environments",
-      topologyText: `[Experiment Runner / Benchmark Script]
+    cuas: {
+      title: "CUAS // Edge Autonomous Drone Defense Specs",
+      subtitle: "Multi-Sensor Fusion & C2 Decision Support on Jetson",
+      badge: "NVIDIA Jetson • CUDA • YOLOv8 • TensorRT",
+      topologyText: `[Sensory Payloads: mmWave Radar + Visual / IR Camera + RF Triangulation]
        │
-       ▼
-[Gym-Compatible Simulation Environment]
-  ├── GridWorld Discrete Navigation
-  └── PyBullet Continuous Robotic Arm / Locomotion Physics
+       ▼ (Raw DMA Frame Buffers / V4L2)
+[NVIDIA Jetson Edge Inference Unit (Orin / Xavier)]
+  ├── TensorRT Hardware Compilation Pipeline (FP16 / INT8)
+  ├── YOLOv8 Spatial Bounding Box & Centroid Tracker
+  ├── RF Signal Peak Matching & Azimuth Estimator
+  └── Temporal Fusion Filter (<100ms Target Acquisition)
        │
-       ▼ (State Observations, Rewards, Done Signals)
-[RL Agent Policy Core]
-  ├── Deep Q-Network (DQN) with Prioritized Experience Replay
-  └── Proximal Policy Optimization (PPO) with Clipped Surrogate Loss
-       │
-       ▼
-[TorchScript Compilation Pipeline]
-  └── Exported Zero-Overhead C++ Model Artifacts for Real-Time Execution`,
+       ▼ (Zero-Copy Shared Memory / ROS2 Nodes)
+[Tactical Command & Control (C2) Decision Loop]
+  └── Directional Countermeasure Trigger (RF Jamming / Kinetic Lock)`,
       invariants: [
         {
-          name: "TorchScript Zero-Overhead Export",
-          desc: "Trained policies are converted to TorchScript intermediate representations via torch.jit.script, allowing execution in pure C++ embedded robotics runtimes without Python interpreter overhead."
+          name: "Sub-100ms Threat-to-Action Decision Loop",
+          desc: "Raw video and radar sensor data are processed through hardware-accelerated TensorRT execution pipelines, maintaining under 100 milliseconds end-to-end latency from target entry to countermeasure lock."
         },
         {
-          name: "Deterministic Simulation Harness",
-          desc: "Seeded state generation ensures 100% reproducible benchmark comparisons across agent training iterations and environmental stress tests."
+          name: "Multi-Modal Sensor Disambiguation",
+          desc: "Fusing mmWave radar point-clouds with high-resolution visual tracking prevents false positives from birds, clouds, or electromagnetic interference."
         }
       ],
-      codeSnippetTitle: "PyTorch: TorchScript Policy Export & PPO Clipped Objective",
-      codeSnippet: `import torch
-import torch.nn as nn
+      codeSnippetTitle: "Python / TensorRT: Low-Latency Inference Pipeline",
+      codeSnippet: `import tensorrt as trt
+import pycuda.driver as cuda
+import numpy as np
 
-class PolicyNetwork(nn.Module):
-    def __init__(self, obs_dim: int, act_dim: int):
-        super().__init__()
-        self.net = nn.Sequential(
-            nn.Linear(obs_dim, 128),
-            nn.LayerNorm(128),
-            nn.ReLU(),
-            nn.Linear(128, 64),
-            nn.ReLU(),
-            nn.Linear(64, act_dim)
-        )
+def execute_cuas_inference(context, d_input, d_output, stream, input_batch):
+    # Asynchronous zero-copy memory transfer to GPU
+    cuda.memcpy_htod_async(d_input, input_batch, stream)
+    # Execute hardware TensorRT engine in <12ms
+    context.execute_async_v2(bindings=[int(d_input), int(d_output)], stream_handle=stream.handle)
+    # Return telemetry coordinates to C2 decision loop
+    output = np.empty((1, 84, 8400), dtype=np.float32)
+    cuda.memcpy_dtoh_async(output, d_output, stream)
+    stream.synchronize()
+    return output`
+    },
+
+    "ai-shorts-factory": {
+      title: "AI-Shorts-Factory // Automated Media Pipeline Specs",
+      subtitle: "High-Throughput Local Video Synthesis & Audio Compositing",
+      badge: "Python • FFmpeg • PyTorch • PyAV",
+      topologyText: `[Raw Content Inputs / Topic Prompts / Transcript Artifacts]
+       │
+       ▼
+[Audio Processing & Voice Engine (PyTorch / TTS)]
+  ├── Speech Synthesis & Audio Normalization (EBU R128)
+  └── Precise Millisecond Word-Level Alignment (Whisper Timestamps)
+       │
+       ▼
+[Video Assembly & Layout Worker (FFmpeg / PyAV)]
+  ├── Dynamic Subtitle Animation & B-Roll Layering
+  ├── GPU-Accelerated Hardware Transcoding (NVENC h264/hevc)
+  └── Zero-Touch Final Master Delivery (9:16 & 16:9 Multi-Format)`,
+      invariants: [
+        {
+          name: "Zero-Touch Automated Rendering",
+          desc: "Generates fully rendered, color-graded, and subtitled media outputs from raw structured JSON scripts without requiring manual timeline intervention."
+        },
+        {
+          name: "Hardware-Accelerated Encoding (NVENC)",
+          desc: "Utilizes NVIDIA NVENC hardware filters for compositing, scaling, and subtitle burning at up to 5x real-time speed."
+        }
+      ],
+      codeSnippetTitle: "Python: FFmpeg Hardware Filtergraph Orchestration",
+      codeSnippet: `import ffmpeg
+
+def assemble_short(video_track, voice_track, srt_file, output_path):
+    # Construct hardware-accelerated NVENC compositing filtergraph
+    video = ffmpeg.input(video_track, hwaccel='cuda')
+    audio = ffmpeg.input(voice_track)
     
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return torch.softmax(self.net(x), dim=-1)
+    # Burn subtitles and apply subtle cinematic grade
+    filtered_video = (
+        video
+        .filter('subtitles', srt_file, force_style='FontName=Inter,FontSize=18,PrimaryColour=&H00D8CBB3')
+        .filter('scale', 1080, 1920)
+    )
+    
+    out = ffmpeg.output(filtered_video, audio, output_path, vcodec='h264_nvenc', cq=20, acodec='aac')
+    out.run(overwrite_output=True)`
+    },
 
-# Export to TorchScript for production robotics execution
-policy = PolicyNetwork(obs_dim=16, act_dim=4)
-scripted_policy = torch.jit.script(policy)
-scripted_policy.save("exported_robotics_policy.pt")`
+    "sarva-flow": {
+      title: "Sarva Flow // Modular Venture Architecture Specs",
+      subtitle: "Deterministic Distributed State Graphs & Workflow Orchestration",
+      badge: "FastAPI • Redis • DAG Engine • Worker Nodes",
+      topologyText: `[Workflow Trigger / Webhook / API Ingestion]
+       │
+       ▼
+[Deterministic DAG Compiler & Scheduler]
+  ├── Dependency Topology Resolution (Kahn's Algorithm)
+  └── Distributed Idempotency Key Lock (Redis Lease)
+       │
+       ▼ (Event Bus / Work Queue)
+[Fault-Tolerant Worker Pool]
+  ├── Step Execution with Automatic Retry & Exponential Backoff
+  ├── State Snapshotting & Event Ledger Persistence
+  └── Terminal Notification & Webhook Dispatch`,
+      invariants: [
+        {
+          name: "Idempotent Execution Invariant",
+          desc: "Every step in a directed acyclic graph (DAG) enforces client-supplied idempotency tokens. Duplicate triggers or network retries are guaranteed to produce zero duplicate side-effects."
+        },
+        {
+          name: "Durable State Persistence",
+          desc: "Workflow execution state is checkpoints at every step transition, allowing instantaneous recovery following worker failure or node restarts."
+        }
+      ],
+      codeSnippetTitle: "Python: Atomic Step Execution & Idempotency Lock",
+      codeSnippet: `import asyncio
+import uuid
+
+class WorkflowEngine:
+    def __init__(self, redis_pool, db):
+        self.redis = redis_pool
+        self.db = db
+        
+    async def execute_step(self, step_id: str, idempotency_key: str, action):
+        # Acquire atomic execution lock with 60s lease
+        lock_acquired = await self.redis.set(f"lock:{idempotency_key}", "locked", nx=True, ex=60)
+        if not lock_acquired:
+            return {"status": "SKIPPED_DUPLICATE_TRIGGER"}
+            
+        try:
+            result = await action()
+            await self.db.record_step_success(step_id, result)
+            return {"status": "SUCCESS", "result": result}
+        except Exception as e:
+            await self.db.record_step_retry(step_id, str(e))
+            raise`
+    },
+
+    rodimus: {
+      title: "Rodimus Tech // Reality Layer for AI Architecture",
+      subtitle: "Spatial World Modeling & Physical AI Perception Hardware",
+      badge: "Spatial AI • Edge Robotics • Sensor Fusion",
+      topologyText: `[Physical Environment / Multi-Modal Sensors (LiDAR, ToF, Stereo Vision)]
+       │
+       ▼ (Low-Latency SPI / CAN / Ethernet Bus)
+[Edge Perception Preprocessor]
+  ├── Point Cloud Temporal Filtering & Voxel Downsampling
+  └── Real-Time Surface Normal & Depth Estimation
+       │
+       ▼
+[Spatial World Model Engine]
+  ├── Continuous Occupancy Grid Mapping
+  ├── Object Affordance & Volumetric Bounding
+  └── Hardware-Grounded Latent Feature Embedding
+       │
+       ▼
+[Cognitive Intelligence & Action Interface]
+  └── Zero-Latency Path Planning & Robotic Actuation`,
+      invariants: [
+        {
+          name: "Physical-to-Digital Grounding",
+          desc: "Aligns high-level generative AI reasoning with deterministic spatial metric maps, eliminating perceptual hallucinations in physical robotic operations."
+        },
+        {
+          name: "Real-Time Spatial World Model",
+          desc: "Continuously maintains a 3D volumetric map of the operating envelope at sub-50ms refresh rates on edge compute."
+        }
+      ],
+      codeSnippetTitle: "C++ / ROS2: Spatial Point Cloud Voxel Filter Node",
+      codeSnippet: `#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
+#include <pcl/filters/voxel_grid.h>
+
+class RealityLayerVoxelNode : public rclcpp::Node {
+public:
+  RealityLayerVoxelNode() : Node("reality_layer_voxel") {
+    sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
+      "/sensors/lidar_raw", 10, std::bind(&RealityLayerVoxelNode::process, this, std::placeholders::_1));
+    pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/spatial/world_model", 10);
+  }
+private:
+  void process(const sensor_msgs::msg::PointCloud2::SharedPtr cloud) {
+    // Voxel filtering downsampling to 2cm resolution in <15ms
+    pcl::VoxelGrid<pcl::PointXYZ> sor;
+    // Publish clean geometric state to autonomous controller
+  }
+  rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr sub_;
+  rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pub_;
+};`
     }
   },
 
-  // FOUNDER DOSSIER SLIDES
+  // 6. EXECUTIVE DOSSIER MODAL SLIDES (ACCESSIBLE VIA ⌘K)
   founderDossier: [
     {
       slideNumber: 1,
       title: "Suranyx: AI-Native Financial OS",
       subtitle: "Multi-Tenant B2B Compliance & Runway Intelligence",
       keyMetric: "suranyx.com",
-      content: "As CEO & Co-Founder, Shubham engineered Suranyx from day zero for Indian SMEs and high-growth enterprise operators. Suranyx unifies multi-bank real-time liquidity telemetries, automated reconciliation, and predictive cash runway modeling.",
+      content: "As CEO & Co-Founder, Shubham engineered Suranyx for Indian SMEs and high-growth enterprise operators. Suranyx unifies multi-bank real-time liquidity telemetries, automated reconciliation, and predictive cash runway modeling.",
       bullets: [
         "Multi-Tenant Row-Level Security (RLS) isolation guaranteeing zero cross-tenant leakage",
         "Tamper-evident SHA-256 hash-chained financial audit ledgers verifying every balance mutation",
@@ -532,7 +565,7 @@ scripted_policy.save("exported_robotics_policy.pt")`
       title: "Vadhu-Var (VV): Trilingual Matrimony PWA",
       subtitle: "Culturally Grounded Matchmaking with Atomic RPCs",
       keyMetric: "vadhu-var.vercel.app",
-      content: "As Solo Founder, Shubham built Vadhu-Var, a modern, Hinge-inspired matchmaking progressive web application architected with deep cultural intentionality, runtime trilingual localization (English, Marathi, Hindi), and 36 conversational prompts.",
+      content: "As Solo Founder, Shubham built Vadhu-Var, a modern progressive web application architected with deep cultural intentionality, runtime trilingual localization (English, Marathi, Hindi), and 36 conversational prompts.",
       bullets: [
         "Custom atomic PostgreSQL stored procedures and RPC functions eliminating race conditions",
         "RLS InitPlan optimization: parameterized (SELECT auth.uid()) cutting query times to <1ms",
@@ -541,42 +574,18 @@ scripted_policy.save("exported_robotics_policy.pt")`
     },
     {
       slideNumber: 3,
-      title: "Devprime ADK & RL Robotics",
-      subtitle: "Reproducible RL Toolkit for PyBullet",
-      keyMetric: "DQN & PPO / TorchScript",
-      content: "Architected a reproducible reinforcement learning benchmarking suite allowing researchers and engineers to train, evaluate, and benchmark RL policy models under deterministic simulation conditions.",
+      title: "CUAS: AI-Native Edge Defense",
+      subtitle: "Tactical Drone Neutralization on Jetson",
+      keyMetric: "92.4% mAP / <100ms",
+      content: "Engineered an AI-native counter-drone detection and tracking system deployed on NVIDIA Jetson with low-level firmware integration and TensorRT hardware acceleration.",
       bullets: [
-        "Modular RL toolkit for GridWorld and PyBullet physics-based robotic environments",
-        "Supports DQN and PPO agents with TorchScript compilation for zero-overhead C++ execution",
-        "Automated reward curve visualization and multi-agent coordination benchmarks"
+        "YOLOv8 + Vision Transformers (ViT) with <100ms threat-to-action response",
+        "Synthesized sensor firmware directly with onboard multi-sensor payloads and RF triangulation",
+        "Deterministic real-time decision loop under active electronic interference"
       ]
     },
     {
       slideNumber: 4,
-      title: "AI-Native C-UAS Edge Defense",
-      subtitle: "Tactical Drone Neutralization",
-      keyMetric: "92.4% mAP / <100ms",
-      content: "Engineered an AI-native counter-drone detection and tracking system deployed on NVIDIA Jetson Nano / Xavier with low-level C/C++ firmware integration.",
-      bullets: [
-        "YOLOv8 + Vision Transformers (ViT) + CLIP with <100ms threat-to-action response",
-        "Synthesized C/C++ firmware directly with onboard multi-sensor payloads and RF triangulation",
-        "Real-time MLflow model monitoring with automated data drift triggers and retraining"
-      ]
-    },
-    {
-      slideNumber: 5,
-      title: "Vcare: Multi-Domain Assistive Super Agent",
-      subtitle: "Autonomous Agent Orchestration Framework",
-      keyMetric: "Autonomous Agents",
-      content: "Engineered an intelligent agent architecture capable of routing complex user requests across multiple domains with modular tool calling and structured conversational memory.",
-      bullets: [
-        "Multi-domain autonomous agent routing workflows in TypeScript",
-        "Modular tool-calling integrations and structured conversational memory",
-        "Deterministic execution with strict safety guards and sub-second execution"
-      ]
-    },
-    {
-      slideNumber: 6,
       title: "Rodimus Tech: Reality Layer for AI",
       subtitle: "Co-Founder & COO Experience",
       keyMetric: "Reality Layer",
@@ -588,19 +597,7 @@ scripted_policy.save("exported_robotics_policy.pt")`
       ]
     },
     {
-      slideNumber: 7,
-      title: "Academic & Robotics Pedigree",
-      subtitle: "Dr. D. Y. Patil Institute of Technology",
-      keyMetric: "Automation & Robotics",
-      content: "Bachelor of Engineering in Automation and Robotics (2022 – 2026) at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune.",
-      bullets: [
-        "Core Coursework: Artificial Intelligence in Robots, Modeling and Simulation",
-        "Sensors and Vision Systems in Robots, Numerical & Statistical Methods",
-        "Extensive practical synthesis of control systems, embedded hardware, and AI"
-      ]
-    },
-    {
-      slideNumber: 8,
+      slideNumber: 5,
       title: "Founder Network & Verified Channels",
       subtitle: "Shubham Pawar (@builtfor101)",
       keyMetric: "Direct Connect",
@@ -610,92 +607,6 @@ scripted_policy.save("exported_robotics_policy.pt")`
         "LinkedIn: linkedin.com/in/shubhampawar-in",
         "Twitter / X: @builtfor101 | Email: shubhampawar0610@gmail.com"
       ]
-    }
-  ],
-
-  // MILESTONES & PEDIGREE
-  milestones: [
-    {
-      period: "2025 — Present",
-      role: "CEO & Co-Founder",
-      organization: "Suranyx (suranyx.com)",
-      summary: "Architecting Suranyx, an AI-native financial operating system for Indian SMEs and high-growth operators. Leading FastAPI and PostgreSQL engineering, multi-tenant RLS data isolation, SHA-256 hash-chained audit ledgers, and RBI ReBIT Account Aggregator consent pipelines."
-    },
-    {
-      period: "2024 — Present",
-      role: "Solo Founder",
-      organization: "Vadhu-Var (vadhu-var.vercel.app)",
-      summary: "Built and launched Vadhu-Var, a modern trilingual matrimony progressive web application (PWA). Engineered custom atomic PostgreSQL RPCs (send_contextual_interest), optimized RLS InitPlan execution for sub-millisecond policy evaluation, and implemented runtime trilingual localization (EN/MR/HI)."
-    },
-    {
-      period: "2025 — Present",
-      role: "Co-founder & Chief Operating Officer (COO)",
-      organization: "Rodimus Tech (rodimus-tech.com)",
-      summary: "Building the Reality Layer for AI. Orchestrating operational execution, robotics and spatial perception roadmap, cross-functional engineering delivery, and strategic deep-tech partnerships."
-    },
-    {
-      period: "Jan 2025 — Present",
-      role: "Postman API Student Instructor",
-      organization: "Postman (Pune, IN)",
-      summary: "Mentored student developers on RESTful API architecture, automated testing collections, and production API design using Postman."
-    },
-    {
-      period: "Nov 2022 — Jun 2026",
-      role: "B.E. in Automation and Robotics",
-      organization: "Dr. D. Y. Patil Institute of Technology, Pimpri, Pune",
-      summary: "Specialized engineering program in Automation & Robotics. Rigorous coursework in Artificial Intelligence in Robots, Modeling & Simulation, Sensors & Vision Systems, and Statistical Data Analysis."
-    }
-  ],
-
-  // ESSAYS / TECHNICAL NOTES
-  essays: [
-    {
-      id: "essay-01",
-      date: "November 2026",
-      readTime: "5 min read",
-      title: "Building Tamper-Evident Ledgers with SHA-256 Hash Chaining in PostgreSQL",
-      snippet: "How we guarantee financial audit integrity and zero reconciliation delta at Suranyx using database triggers and cryptographic chaining.",
-      body: "In financial operating systems, trusting application logic alone to protect mutation history is an anti-pattern. By introducing row-level cryptographic hash chaining inside PostgreSQL triggers, every row's hash is bound to the preceding row's cryptographic digest. Any attempt to modify, reorder, or delete historic ledger entries breaks the chain instantly, providing immutable verification at zero external infrastructure cost."
-    },
-    {
-      id: "essay-02",
-      date: "October 2026",
-      readTime: "4 min read",
-      title: "Sub-Millisecond RLS: Optimizing Supabase Row-Level Security with InitPlan",
-      snippet: "Why naive auth.uid() checks destroy query performance, and how parameterized InitPlan evaluation achieved 85x speedups in Vadhu-Var.",
-      body: "Naive RLS policies like 'user_id = auth.uid()' force PostgreSQL to re-evaluate the auth helper on every single row candidate. By rewriting the policy as 'user_id = (SELECT auth.uid())', the query planner hoists the authentication lookup into a single-pass InitPlan executed once per statement, collapsing candidate feed query latencies from 85ms to sub-millisecond times."
-    },
-    {
-      id: "essay-03",
-      date: "September 2026",
-      readTime: "4 min read",
-      title: "Tactical Edge Defense at 30+ FPS: Inside the C-UAS Architecture",
-      snippet: "Optimizing YOLOv8, Vision Transformers, and C/C++ firmware on NVIDIA Jetson Nano for sub-100ms response.",
-      body: "In counter-drone defense, a 500ms delay is the difference between interception and perimeter breach. By compiling YOLOv8 and Vision Transformers through CUDA TensorRT, handling raw frame buffers in C/C++, and fusing RF triangulation with visual tracking, we achieve <100ms threat-to-action response on lightweight edge hardware."
-    }
-  ],
-
-  // FAQ & CLARITY (ACCURATE FOUNDER ROLES)
-  faq: [
-    {
-      q: "What is Suranyx and what was your role in architecting it?",
-      a: "Suranyx (suranyx.com) is an AI-native financial operating system, cash runway intelligence, and automated B2B compliance platform for Indian SMEs. As CEO & Co-Founder, I lead product vision and systems architecture: engineering the multi-tenant PostgreSQL and Supabase RLS data isolation layer, implementing tamper-evident SHA-256 hash-chained audit ledgers, building idempotent mutation workflows, and architecting the RBI ReBIT Account Aggregator consent pipelines."
-    },
-    {
-      q: "What is Vadhu-Var (VV) and how is its database architected?",
-      a: "Vadhu-Var (vadhu-var.vercel.app) is a culturally grounded, trilingual matrimony progressive web application (PWA). As Solo Founder, I architected it with Next.js, React, and Supabase PostgreSQL. Key architectural primitives include custom atomic stored procedures (send_contextual_interest, respond_to_interest) that eliminate race conditions, RLS InitPlan optimizations delivering sub-millisecond policy evaluation, strict media constraints (1 compulsory photo, max 3 slots), and runtime trilingual localization (English, Marathi, Hindi)."
-    },
-    {
-      q: "What is Devprime ADK and what does it benchmark?",
-      a: "Devprime ADK (Benchmark-ADK) is an open-source Reinforcement Learning agent development and benchmarking toolkit I created for GridWorld and PyBullet robotic simulation environments. It supports DQN and PPO agents with TorchScript export for zero-latency execution in real-time robotic control systems."
-    },
-    {
-      q: "What is your role and architectural vision at Rodimus Tech?",
-      a: "At Rodimus Tech (rodimus-tech.com), I serve as Co-founder and Chief Operating Officer (COO), driving the engineering and operational roadmap for the 'Reality Layer for AI' bridging physical robotics perception with cognitive models."
-    },
-    {
-      q: "How can I connect with you for technical leadership or collaborations?",
-      a: "You can reach me directly via Email at shubhampawar0610@gmail.com, on LinkedIn at https://www.linkedin.com/in/shubhampawar-in/, or on Twitter/X at @builtfor101 (https://x.com/builtfor101). My GitHub is https://github.com/Shubh-creations."
     }
   ]
 };

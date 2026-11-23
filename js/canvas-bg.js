@@ -2,7 +2,7 @@
  * js/canvas-bg.js — Spatial Reality Layer Topological Wave
  * Subtle, GPU-friendly LiDAR depth-grid ripple aligned with Rodimus Tech's
  * "Reality Layer for AI" motif.
- * Palette: Deep Dark Grey (#0B0D13) & Crimson (#80182A).
+ * Palette: Matte Black (#0B0B0D) & Warm Sand (#D8CBB3).
  * Automatically pauses on document.hidden (visibilitychange) to preserve CPU/battery.
  */
 
@@ -84,10 +84,11 @@ export function initSpatialField(canvasId = 'neural-canvas') {
         const proximity = Math.max(0, 1 - dist / 220);
         const wave = Math.sin(x * 0.015 + time) * Math.cos(y * 0.015 + time);
 
-        const alpha = 0.035 + proximity * 0.24 + wave * 0.018;
-        const radius = 0.85 + proximity * 1.4;
+        // Warm Sand RGB: 216, 203, 179
+        const alpha = 0.025 + proximity * 0.22 + wave * 0.012;
+        const radius = 0.8 + proximity * 1.3;
 
-        ctx.fillStyle = `rgba(168, 38, 61, ${Math.max(0.02, alpha).toFixed(3)})`;
+        ctx.fillStyle = `rgba(216, 203, 179, ${Math.max(0.015, alpha).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
         ctx.fill();
@@ -101,19 +102,18 @@ export function initSpatialField(canvasId = 'neural-canvas') {
   return {
     destroy: () => {
       if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', resize);
     }
   };
 }
 
-// Backwards-compatible class wrapper for existing call in main.js
-class NeuralCanvas {
+// NeuralCanvas class wrapper for compatibility
+export class NeuralCanvas {
   constructor(canvasId = 'neural-canvas') {
     this.field = initSpatialField(canvasId);
   }
   destroy() {
-    if (this.field && this.field.destroy) {
-      this.field.destroy();
-    }
+    if (this.field && this.field.destroy) this.field.destroy();
   }
 }
 
